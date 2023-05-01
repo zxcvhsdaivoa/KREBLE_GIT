@@ -1,0 +1,421 @@
+@font-face {
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+section {
+    height:1580px;
+}
+section .section_inner {
+    width:1280px;
+    height:100%;
+    margin:0 auto;
+}
+
+.section_inner aside {
+    width:200px;
+    height:100%;
+    padding-top:20px;
+    padding-left:20px;
+    float: left;
+}
+
+.section_inner aside .aside_wrap {
+    margin-bottom:20px;
+}
+.aside_wrap > a {
+    font-size:20px;
+    font-weight: bold;
+}
+.aside_wrap ul {
+    margin-left:15px;
+}
+.aside_wrap ul li {
+
+}
+.aside_wrap ul li a {
+    line-height:1.5;
+}
+        /*       최승혁     */
+
+
+.stadium {
+    width: calc(100% - 50px);
+    float:left;
+}
+
+.content_head{
+	margin-top: 50px;
+	margin-bottom: 50px;
+    font-size: 30px;
+    color: #000;
+    font-weight: 500;
+	text-align: center;
+}
+
+.stadium .stadium_inner {
+    width:1230px;
+    margin:0 auto;
+}
+.stadium .stadium_inner .sub_nav {
+    height:30px;
+}
+.stadium .stadium_inner .sub_nav ul {
+
+}
+.stadium .stadium_inner .sub_nav ul li {
+    float:left;
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 13px;
+}
+.stadium .stadium_inner .sub_nav ul li:after {
+    content:">";
+    margin:0 10px;
+}
+.stadium .stadium_inner .sub_nav ul li:last-child:after {
+    content:none;
+}
+.stadium_list {
+    position:relative;
+    width:100%;
+    height:450px;
+    padding-top: 30px;
+    background: url("../image/rent_stardium/favorite_bg.gif") no-repeat center/cover;
+	border-radius: 1%;
+	background-size: 100% 450px;
+}
+.stadium_list .favorite_stadium {
+    position:relative;
+    clear:both;
+    height:80px;
+    font-size: 13px;
+    font-family: 'IBMPlexSansKR-Regular';
+   	margin-top: 45px;
+   	font-weight: bold;
+}
+.stadium_list > span{
+    display:inline-block;
+    height:30px;
+    line-height: 50px;
+    color:#fff;
+    padding-left: 55px;
+    font-size: 25px;
+    font-family: 'IBMPlexSansKR-Regular';
+    font-weight:600;
+}
+.stadium_list .favorite_stadium ul{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-45%);
+    width: 100%;
+    height: 60px;
+}
+.stadium_list .favorite_stadium ul li{
+    margin: 0 auto;
+    display: inline;
+}
+.stadium_list .favorite_stadium ul li a {
+    color:#FFF;
+    font-size: 24px;
+    line-height: 60px;
+    margin:0 20px;
+    font-family: 'IBMPlexSansKR-Regular';
+}
+.stadium_list .favorite_stadium ul li.select a{
+    color:#5586eb;
+}
+#plusbu {
+    position: absolute;
+    top: 42px;
+    right: 958px;
+    background:url(../image/plus_bu.png) no-repeat center/contain;
+    background-size: 35px;
+}
+ #minusbu {
+    position: absolute;
+    top: 43px;
+    bottom: 370px;
+    left: 282px;
+    background:url(../image/minus_bu.png) no-repeat center/contain;
+    background-size: 38px;
+}
+
+#plusbu:hover {
+    background-image: url(../image/plus_bu_hover.png);
+}
+#minusbu:hover{
+    background-image: url(../image/minus_bu_hover.png);
+}
+
+.stadium_list .local_stadium {
+    clear: both;
+    padding-left: 100px;
+}
+.stadium_list .local_stadium .local {
+    float:left;
+    width:12.28%;
+    height:50px;
+    padding:5px 0;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    border-top: 2px solid #727171;
+    border-bottom: 2px solid #727171;
+}
+.stadium_list .local_stadium .local:last-child {
+    border-right:none;
+}
+.stadium_list .local_stadium .local.on >  a {
+    color:#fff;
+}
+.stadium_list .local_stadium .local a {
+    display: inline-block;
+    height:40px;
+    color: #666;
+    font-family: 'IBMPlexSansKR-Regular';
+    font-size: 22px;
+    cursor: pointer;
+}
+.stadium_list .local_stadium .local a:hover{
+    color:#FFF;
+}
+
+.stadium_list .local_stadium .local a :first-child{
+    margin-right: 50px;
+}
+.stadium_list .local_stadium .local ul {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:133px;
+    display:none;
+}
+.stadium_list .local_stadium .local.on ul {
+    display:block;
+}
+.stadium_list .local_stadium .local ul li {
+    float:left;
+    width:190px;
+    height:56px;
+    color:#fff;
+}
+.stadium_list .local_stadium .local ul li.on a {
+    color:#fff;
+}
+.stadium_list .local_stadium .local :first-child{
+    margin-left: 28px;
+}
+
+.stadium_name{
+    width:100%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.stadium_img{
+    width: 540px;
+    height: 507px;
+    overflow: hidden;
+    float: left;
+}
+/*    height: calc(100% - 40px);*/
+    /*calc= 전체%-사이즈*/
+.stadium_name > span{
+    display: block;
+    height:40px;
+    color: #333333;
+    font-size: 29px;
+    font-family: 'Jua', sans-serif;
+    border-bottom: solid;
+    margin-top: 100px;
+}
+.stadium_info{
+    width: 100%;
+    height: 600px;
+    font-size: 10pt;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.stadium_info table tr th{
+    padding: 5px 20px;
+    background: #f9f9f9;
+    width: 6%;
+    color: #666;
+    line-height: 44px;
+    margin-top: 0;
+    text-align: left;
+    font-size: 17px;
+    font-family: 'Gothic A1';
+}
+.stadium_info table tr td{
+    padding: 5px 20px;
+    color: #555;
+    width: 25%;
+    font-size: 15px;
+    margin-top: 0;
+    line-height: 24px;
+    font-family: 'Gothic A1';
+    font-weight: 600;
+}
+.detail_info{
+	width: 620px;
+    float: right;
+    height: 100%;
+}
+.mapbtn{
+	position: absolute;
+    top: calc(50% - 79px);
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+    line-height: 24px;
+    float:right;
+    margin-left: 40px;
+}
+.rent_btn{
+	background-color: #004ea2;
+    color: #fff;
+    border: 1px solid #004ea2;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    width: 250px;
+    height: 56px;
+    box-sizing: border-box;
+    text-align: center;
+    float: right;
+    margin-top: 25px;
+    cursor: pointer;
+}
+#savebtn{
+	color: #FF6;
+    font-size: 27px;
+    line-height: 60px;
+    margin: 0 20px;
+    font-family: 'IBMPlexSansKR-Regular';
+    cursor: pointer;
+}
+.stadium_map{
+    font-family: 'Jua', sans-serif;
+    width: 900px;
+    height: 320px;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-size: 20px;
+}
+.stadium_map iframe{
+    margin-top: 5px;
+}
+.stadium_parking{
+    width: 400px;
+    height: 400px;
+    font-size: 12pt;
+    border: solid 1px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.stadium_rent{
+    width: 365px;
+    height: 400px;
+    font-size: 12pt;
+    border: solid 1px;
+    margin-right:20px;
+    float: left;
+    clear: both;
+}
+.stadium_situation{
+    width: 515px;
+    height: 400px;
+    font-size: 12pt;
+    border: solid 1px;
+    float: left;
+}
+.topbutton > a > img{
+    width: 55px;
+    height: 50px;
+    float: right;
+    margin-top: 50px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 60px;
+    z-index: 100;
+}
+.topbutton a{
+    display: block;
+    width:100%;
+    height:100%;
+    padding-top: 7px;
+}
+
+.rentbutton a > img{
+    width: 130px;
+    height: 50px;
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 20px;
+    right: 100px;
+    z-index: 100;
+    border-radius: 10%;
+}
+.botmessage{
+    width: 100%;
+    border-top: solid 2px;
+    font-size: 15px;
+    float: left;
+    padding: 10px;
+    font-family: 'Jua', sans-serif;
+}
+.botmessage > img{
+    width: 100px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.stadium_imgSlide {
+    height:300px;
+}
+
+.slick-arrow {
+    z-index: 1;
+    top:inherit;
+    bottom:-25px;
+    left:inherit;
+    right:10px;
+    width:50px;
+    height:50px;
+}
+.slick-arrow:before {
+    color:#FFF;
+    width:50px;
+    height:50px;
+    font-size: 40px;
+}
+.slick-prev {
+    right:60px;
+}
+.slick-prev:before {
+}
+.slick-next:before {
+}

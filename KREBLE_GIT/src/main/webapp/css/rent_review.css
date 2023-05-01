@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+section{
+	height: auto;
+    min-height: calc(100vh - 270px);
+    overflow: auto;
+}
+#inner{
+	width: 1080px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    min-height: 699px;
+    overflow:auto;
+}
+.style1{
+	font-size: 12px;
+    line-height: 1.25;
+    color: #777;
+}
+.style2{
+	font-size: 15px;
+    line-height: 20px;
+    color: #777;
+    text-align: center;
+    border-top: 1px solid #dfdfdf;
+    font-family: 'GangwonEdu_OTFBoldA', sans-serif;
+}
+.style2 >tr >td{
+	border-bottom: 1px solid #dfdfdf;
+}
+.bg1{
+	border-bottom: 1px solid #5c6c90;
+    color: #fff;
+    background-color: #717f9a;
+}
+.fontstyle{
+	font-weight: bold;
+}
+.review_title{
+	margin-top: 70px;
+    margin-bottom: 20px;
+    margin-left: 265px;
+}
+.category{
+	float: right;
+	margin-bottom: 10px;
+}
+.serchtext{
+	width: 200px;
+    height: 30px;
+    outline: #333;
+    padding: 4px;
+    border: 1px solid #e4eaec;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fdfdfd !important;
+    font-family: inherit;
+}
+.serchtext1{
+	height: 31px;
+    line-height: 35px;
+    display: inline-block;
+    border: 1px solid #e4eaec;
+    color: #777777;
+    border-radius: 3px;
+    width: 107px;
+    font-family: inherit;
+    font-size: 14px;
+}
+.serchbtn{
+	margin-left: 3px;
+    width: 60px;
+    height: 34px;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #717f9a;
+    line-height: 1em;
+    color: white;
+}
+.writebtn{
+    padding: 6px 8px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-family: "굴림",Gulim;
+    font-size: 12px;
+    line-height: 18px;
+    text-decoration: none;
+    vertical-align: middle;
+    word-spacing: -0.5px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #fff;
+    background-color: #717f9a;;
+    width:96px;
+    float:right;
+    margin-top: 20px;
+    margin-right: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.head1{
+	text-align: left;
+    width: 60px;
+    padding-left: 14px;
+    padding-right: 5px;
+    font-size: 12px;
+}
+.head2{
+	text-align: left;
+    width: 49px;
+    padding-left: 14px;
+    padding-right: 5px;
+    font-size: 12px;
+}
+.head3{
+	width:500px;
+	text-align: center;
+	height: 14px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+}
+.head4{
+	text-align: center;
+    width: 45px;
+    font-size: 12px;
+}
+.head5{
+	text-align: center;
+    width: 45px;
+    font-size: 12px;
+}
+.head6{
+	text-align: center;
+    width: 57px;
+    font-size: 12px;
+}
+span{
+	width: 100px;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	display: block;
+    margin: 0 auto;
+}

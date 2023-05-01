@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+body section {
+    height:850px;
+}
+body section .section_inner {
+	width:1000px;
+	padding-top:75px;
+}
+body section .section_inner .squad_list h3 {
+	font-size:26px;
+	margin-left:15px;
+	margin-bottom:20px;
+	float:left;
+}
+.btn {
+	float:right;
+	height:40px;
+	margin-right:15px;
+    text-align:center;
+	line-height:40px;
+    width: 150px;
+	height: 40px;
+	background-color:buttonface;
+	border:none;
+}
+.btn > a {
+	display:block;
+	width:100%;
+	height:100%;
+	line-height:40px;
+}
+.hide {
+	display:none;
+}
+.squad_list table {
+	clear:both;
+	text-align:center;
+	border-spacing:0 0;
+	margin:0 auto;
+}
+.squad_list table th {
+	border-bottom: 1px solid #e6e8e5;
+    background-color: #e6e8e5;
+    height:40px;
+    font-size:15px;
+}
+
+.squad_list table td {
+	border-bottom:1px solid #e6e8e5;
+	height:30px;
+    font-size:15px;
+}
+.width1 {
+	width:110px;
+}
+.width2 {
+	width:450px;
+}
+.order_arrow {
+	height:20px;
+	vertical-align: -4px;
+}
+
+
+
+.search_box {
+	width: 100%;
+	margin:50px auto 0;
+	border:none;
+	border-top: 1px gray solid;
+	border-bottom: 2px gray solid;
+}
+.search_box > form {
+	display: flex;
+	justify-content: space-between;
+	
+}
+#search_select {
+	width: 110px;
+	height: 40px;
+	border:none;
+	border-bottom : 1px solid gray;
+	border-right: 1px solid gray;
+}
+.search_text,
+.search_formation {
+	width: 760px;
+	height: 40px;
+	border:none;
+	border-bottom : 1px solid gray;
+	padding-left: 10px;
+	outline:none;
+}
+.btn_search {
+	width: 130px;
+	height: 40px;
+	border:none;
+	border-bottom : 1px solid gray;
+}
+
+.paging {
+	margin-top:20px;
+	text-align: center;
+}

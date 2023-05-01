@@ -1,0 +1,177 @@
+#img_login > div {
+  width: 830px;
+  height: 849px;
+  float: left;
+  background: url(../image/background/bg09.jpg) no-repeat center/cover;
+}
+
+section {
+	width : 540px;
+	min-height: 710px;
+	float: left;
+	margin-top:60px;
+}
+section .section_inner{
+	border: none;
+}
+#img_login{
+	width: 1400px;
+	margin: 0 auto;
+}
+
+#login_id {
+	text-align: center;
+	font-size: 30px;
+	color: #333;
+	margin-bottom: 30px;
+}
+
+article > form {
+	width: 480px;
+	height: 510px;
+	margin-left: 50px;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #999;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.loginlabel{
+	font-family: gothic;
+	font-size : 25px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	margin-top: 30px;
+}
+
+input[type="text"]{
+	margin-top : 10px;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: -5px;
+	box-sizing: border-box;
+}
+
+input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: 25px;
+	box-sizing: border-box;
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 40px;
+}
+
+input[type="button"] {
+	background-color: #4CAF50;
+	width: 120px;
+	height: 40px;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: #45a049;
+	margin-bottom: 40px;
+}
+
+.etc_login{
+	width: 600px;
+	margin: 0 auto;
+}
+.etc_login > span{
+	float: left;
+	display: block;
+	width :210px;
+	height : 40px;
+	margin:5px;
+	padding-left:10px;
+	border: 1px solid;
+	border-radius: 6px;
+	border-color: #ccc;
+}
+
+.NaverL{
+	background-color: #33CC33;
+	color:white;
+	text-align: center;
+	line-height: 25px;
+}
+
+
+.KakaoL{
+	background-color: #FFFF00;
+	text-align: center;
+	line-height: 25px;
+}
+
+.etc_login > span > span:first-child{
+	display: inline-block;
+	margin-top: 5px;
+	width: 30px;
+	height: 30px;
+	font-size: 23px;
+	font-weight: bold
+}
+.etc_login > span > span:last-child{
+	display: inline-block;
+	width: 105px;
+	height: 35px;
+	margin: 5px 10px;
+	font-size: 16px;
+	text-align: center;
+}
+.etc_login > div{
+	width :270px;
+	margin : 0 auto;
+	height : 25px;
+	text-align: center;
+	padding-right: 40px;
+	
+}
+
+.links {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.links a {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #666;
+  border-bottom: 1px dashed #666;
+  transition: border-bottom 0.2s;
+  margin-bottom: 40px;
+}
+
+.links a:hover {
+  border-bottom: 1px solid #666;
+}
+
+.button_center{
+   text-align: center;
+}
+
+footer{
+	float:left !important;
+}

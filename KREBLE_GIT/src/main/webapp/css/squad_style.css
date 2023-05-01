@@ -1,0 +1,392 @@
+
+section {
+    height:1100px;
+}
+.blind {position:absolute; left:-9999px;}
+
+
+.mysquad {
+    float:left;
+    width:100%;
+    height:100%;
+    padding-top:130px;
+}
+
+.mysquad .squad_form {
+    width:1200px;
+    height:100%;
+    margin:0 auto;
+}
+.mysquad .squad_form #squad_name {
+    float:left;
+    width:715px;
+    height:60px;
+    padding-left: 10px;
+    font-size: 17px;
+    border:none;
+    outline:none;
+    border-top:4px solid #161616;
+    border-bottom:4px solid #161616;
+    background-color: #555;
+    color:#fff;
+}
+.mysquad .squad_form button,
+.mysquad .squad_form >  span {
+    float:left;
+    height:60px;
+    text-align: center;
+    border:4px solid #161616;
+    background-color: #555;
+    font-size:15px;
+    color:#fff;
+}
+.mysquad .squad_form span.back{
+	float:left;
+	width:150px;
+    height:60px;
+    text-align: center;
+    border:4px solid #161616;
+    background-color: #555;
+}
+.mysquad .squad_form span.back a {
+	line-height:52px;
+    font-size:15px;
+    color:#fff;
+}
+.mysquad .squad_form .open_squad{
+    width:185px;
+    border-bottom-left-radius: 20px;
+}
+.mysquad .squad_form .save_squad{
+    width:150px;
+    border-right:none;
+}
+.mysquad .squad_form .all_squad{
+	display:block;
+    width:150px;
+    border-bottom-right-radius: 20px;
+    border-left:none
+}
+.mysquad .squad_form .all_squad a{
+	display:block;
+	width:100%;
+	height:100%;
+	line-height:52px;
+    font-size:15px;
+    color:#fff;
+}
+
+.mysquad .squad_form select {
+    width:250px;
+    height:50px;
+    position: absolute;
+    top:-70px;
+    left:50%;
+    transform: translateX(-50%);
+    padding:0 15px;
+    font-size: 20px;
+    background-color:#161616;
+    border:none;
+    color:#fff;
+}
+
+.mysquad .squad_wrap {
+    position: relative;
+    clear: both;
+    width:1200px;
+    height:790px;
+    margin:0 auto 30px;
+    background:url(../image/squad_bg.png) no-repeat center top/contain;
+    background-size:1200px 860px;
+}
+.mysquad .squad_wrap ul {
+    width:100%;
+    height:100%;
+}
+.mysquad .squad_wrap ul li {
+    position: absolute;
+    z-index: 3;
+    top:0;
+    left:0;
+    width:106px;
+    height:170px;
+    background: url(../image/player_img/player_bg2.png) no-repeat center/contain;
+    padding-top:25px;
+    overflow: hidden;
+}
+.mysquad .squad_wrap ul li.move{
+    cursor:move;
+}
+.mysquad .squad_wrap ul li.on {
+    background-color: #bbb;
+}
+
+.mysquad .squad_wrap ul li .player_image {
+    display: block;
+    width:100px;
+    height:105px;
+    margin:0 auto;
+	object-fit:cover;
+	object-position:0 -8px;
+}
+.mysquad .squad_wrap ul li.director .player_image {
+	object-position:center;
+} 
+.mysquad .squad_wrap ul li p {
+    width:125px;
+    height:30px;
+    position:absolute;
+    bottom:5px;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    text-align: center;
+    font-weight:bold;
+}
+.mysquad .squad_wrap ul li p.eng_name {
+    position:absolute;
+    left:-9999px;
+}
+.mysquad .squad_wrap ul li p.posi {
+    height:auto;
+    bottom:initial;
+    left:initial;
+    transform: none;
+    top:5px;
+    left:50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width:50px;
+    opacity: 0;
+}
+.mysquad .squad_wrap ul li p.posi.on {
+    opacity: 1;
+}
+.mysquad .squad_wrap ul li > span.plus,
+.mysquad .squad_wrap ul li > span.x_bu {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width:30px;
+    height:30px;
+    background: url(../image/x_button.png) no-repeat center/cover;
+}
+.mysquad .squad_wrap ul li span.x_bu {
+    width:50px;
+    height:50px;
+    opacity: 0;
+    transform:translate(-50%, -50%) rotate(45deg) ;
+}
+.mysquad .squad_wrap ul li .x_bu:hover {
+    opacity: 1;
+}
+
+.sub_wrap {
+	opacity:0;
+    width:100%;
+    height:100%;
+    padding-top: 100px;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: -10;
+    background-color:rgba(0,0,0, 0.3);
+}
+.sub_wrap.z_in {
+	opacity:1;
+	z-index: 100;
+}
+.sub_wrap .inner .exit {
+    position: absolute;
+    top:-50px;
+    right:0;
+    width:100px;
+    height:50px;
+    background-color: #fff;
+    border:2px solid #333;
+    text-align: center;
+    line-height: 50px;;
+    cursor:pointer;
+}
+.sub_wrap .inner {
+	box-sizing:content-box;
+    position: relative;
+    width:900px;
+    height:800px;
+    margin:0 auto;
+    background-color: #fff;
+    border:2px solid #333;
+}
+
+
+.player_wrap .player_inner .list_header {
+    width:100%;
+    height:60px;
+    border-bottom:2px solid #333;
+}
+.player_wrap .player_inner .list_header ul {
+    width:100%;
+    height:100%;
+}
+.player_wrap .player_inner .list_header ul li {
+    float:left;
+    width:20%;
+    height:100%;
+    text-align: center;
+    line-height: 60px;
+    font-size:20px;
+    cursor: pointer;
+}
+.player_wrap .player_inner .player_list {
+    clear:both;
+    height:calc(100% - 60px);
+}
+.player_wrap .player_inner .player_list ul {
+    height:100%;
+    overflow:auto;
+}
+.player_wrap .player_inner .player_list ul li {
+    position:relative;
+    float: left;
+    width:175px;
+    height:250px;
+    padding:10px 10px 0;
+    border: 1px solid #333;
+}
+.player_wrap .player_inner .player_list ul li > span {
+    display:block;
+    width:100px;
+    height:125px;
+    margin:0 auto 10px;
+    border-radius: 50%;
+    border:1px solid #333;
+    overflow: hidden;
+}
+.player_wrap .player_inner .player_list ul li span img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.player_wrap .player_inner .player_list ul li .p_name {
+text-align: center;
+font-size:14px;
+}
+.player_wrap .player_inner .player_list ul li .p_profile {
+text-align: center;
+font-size:14px;
+}
+.player_wrap .player_inner .player_list ul li .p_position {
+    position: absolute;
+    top:5px;
+    right:8px;
+    font-weight: bold;
+    font-size:20px;
+}
+
+
+.director_wrap {
+	padding-top:150px;
+}
+.director_wrap .director_inner {
+	width:800px;
+	height:700px;
+}
+.director_wrap .director_inner .director_box  {
+    height:100%;
+}
+.director_wrap .director_inner .director_box ul {
+    height:100%;
+    overflow:auto;
+}
+.director_wrap .director_inner .director_box ul li {
+    position:relative;
+    width:100%;
+    height:150px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+.director_wrap .director_inner .director_box ul li > span {
+	float:left;
+    width:200px;
+    height:100%;
+    margin-right:20px;
+    border-right:1px solid #333;
+    overflow: hidden;
+}
+.director_wrap .director_inner .director_box ul li span img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 40%;
+}
+
+.director_wrap .director_inner .director_box ul li p {
+	display:block;
+}
+.director_wrap .director_inner .director_box ul li .p_name {
+	font-size:20px;
+	margin:20px 0 5px;
+}
+.director_wrap .director_inner .director_box ul li .p_profile {
+	font-size:17px;
+}
+
+
+
+.mysquad_wrap .mysquad_inner table {
+	text-align:center;
+	border-spacing:0 0;
+}
+.width1 {
+	width:100px;
+}
+.width2 {
+	width:400px;
+}
+.mysquad_wrap .mysquad_inner table th {
+	border-bottom: 1px solid #e6e8e5;
+    background-color: #e6e8e5;
+    height:40px;
+}
+.mysquad_wrap .mysquad_inner table td{
+	border-bottom:1px solid #e6e8e5;
+	height:30px;
+}
+.mysquad_wrap .mysquad_inner table td .toggle_button {
+	width:40px;
+	height:20px;
+	margin:auto;
+	border-radius:10px;
+	border:1px solid #ccc;
+}
+.mysquad_wrap .mysquad_inner table td .toggle_button .toggle {
+	display:block;
+	width:14px;
+	height:14px;
+	margin:2px;
+	border-radius:50%;
+	background-color:#ccc;
+}.mysquad_wrap .mysquad_inner table td .toggle_button.yes {
+	background-color:#5EFF58;
+}
+.mysquad_wrap .mysquad_inner table td .toggle_button.yes .toggle {
+	float:right;
+	background-color:#fff;
+}
+.mysquad_wrap .mysquad_inner table td .toggle_button.no .toggle {
+	float:left;
+}
+.scroll_inner {
+	height:100%;
+	overflow-y:auto;
+}
+
+
+
+
+
+
+
+
+

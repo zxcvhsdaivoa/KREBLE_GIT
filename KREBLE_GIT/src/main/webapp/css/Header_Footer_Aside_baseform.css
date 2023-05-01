@@ -1,0 +1,241 @@
+ * {
+ 	margin:0;
+ 	padding:0;
+ 	box-sizing: border-box;
+ }
+ @font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Hahmlet-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+ 
+ 
+ .clear {
+	position:absolute;
+	left:-9999px;
+	overflow:hidden;
+}
+
+a {
+	text-decoration: none;
+	color:#000;
+}
+ul {
+    list-style: none;
+}
+
+body {
+    position:relative;
+}
+header {
+	position:relative;
+    z-index: 50;
+    top:0;
+    left:0;
+	width:100%;
+	height:120px;
+	border-bottom:2px solid #ddd;
+}
+.header_inner {
+    position: relative;
+    width:1280px;
+    margin:0 auto;
+    padding-top:70px;
+}
+header h1 {
+	position:absolute;
+	top:40px;
+	left:0;
+    height:100px;
+}
+
+header h1 a img {
+    width:250px;
+    height:75px;
+}
+
+header .top_nav {
+    width:100%;
+    height:50px;
+    margin:0 auto;
+}
+header .top_nav > ul {
+    float:right;
+    width:750px;
+    height:100%;
+
+}
+header .top_nav > ul > li {
+    text-align:center;
+    float:left;
+    display:block;
+    width:150px;
+    height:100%;
+}
+header .top_nav > ul > li > a{
+    display: block;
+    height:100%;
+    line-height:2.5;
+    color:#000;
+    font-size: 20px;
+    font-family: 'TheJamsil5Bold';
+}
+
+
+header .nav_back {
+	position:absolute;
+	top:120px;
+	left:0;
+    width:100%;
+    height:100px;
+    z-index:-1;
+    background-color:#fff;
+	/*border-bottom:2px solid #ddd;*/
+}
+
+.top_nav > ul > li .sub {
+    float:left;
+    width:100%;
+    height:100px;
+    padding-top:3px;
+}
+.top_nav > ul > li:hover .sub {
+    padding-top: 5px;
+}
+.top_nav > ul > li .sub li {
+    text-align:center;
+}
+.top_nav > ul > li .sub li a {
+    color:#000;
+    line-height: 20px;
+    font-size: 13px;
+    font-family: 'TheJamsil5Bold';
+}
+.cate_login{
+    position:absolute;
+    top:15px;
+    right:0;
+    height:50px;
+}
+
+.cate_login li{
+    display: inline;
+    float: left;
+    margin-left:15px;
+    text-align: center;
+}
+.cate_login li:first-child{
+    margin-left: 0;
+}
+.cate_login li a:before {
+    content:"";
+    display:block;
+    width:36px;
+    height:36px;
+    margin:0 auto;
+    background:url(../image/login_icon.png) no-repeat center;
+    background-size: 36px;
+
+}
+.cate_login li:nth-of-type(2) a:before {
+    background-image:url(../image/join_icon.png);
+}
+.cate_login li:nth-of-type(3) a:before {
+    background-image:url(../image/logout_icon.png);
+}
+.cate_login li:nth-of-type(4) a:before {
+    background-image:url(../image/mypage_icon.png);
+}
+
+
+.cate_login li a {
+    color: #000;
+    font-size: 12px;
+    font-family: 'TheJamsil5Bold';
+}
+
+
+section .section_inner {
+    width:1280px;
+    height:100%;
+    margin:0 auto;
+}
+.section_inner aside {
+    float:left;
+    width:200px;
+    height:100%;
+    padding-top:20px;
+    padding-left:20px;
+    background-color:#fff;
+    border-right: 1px solid whitesmoke;
+    border-left: 1px solid whitesmoke;
+}
+
+.section_inner aside .aside_wrap {
+    margin-bottom:20px;
+}
+.aside_wrap > a {
+    font-size:14px;
+    font-weight: bold;
+}
+.aside_wrap ul {
+    margin-left:15px;
+}
+.aside_wrap ul li {
+    font-size: 12px;
+    margin: 8px 0 7px 0;
+}
+.aside_wrap ul li a {
+    line-height:24px;
+}
+
+
+
+footer {
+    width:100%;
+    z-index: 200;
+    background-color:#333;
+    height:150px;
+}
+footer .footer_inner {
+    width:1280px;
+    height:100%;
+    margin:0 auto;
+    padding-top:20px;
+}
+footer .footer_inner h2 {
+    width:130px;
+    height:50px;
+}
+footer .footer_inner h2 a{
+
+}
+footer .footer_inner h2 a img {
+    width:130px;
+    height:50px;
+}
+footer .footer_inner p {
+    color:#fff;
+}
+
+
+
+
+
+
+
+
+

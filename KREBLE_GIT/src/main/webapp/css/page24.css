@@ -1,0 +1,228 @@
+
+.clear {
+	position:absolute;
+	left:-9999px;
+	overflow:hidden;
+}
+
+.page {
+	position: relative;
+	height:600px;
+	padding:40px 50px 0;
+  	background-color: #fff;
+  	border-radius: 5px;
+  	box-shadow: 0px 0px 5px #999;
+}
+.content_bg{
+	width: 830px;
+    height: 849px;
+    float: left;
+    background: url(../image/background/bg09.jpg) no-repeat center/cover;
+}
+
+.page3 {
+	height:630px;
+
+}
+div.content {
+	width: 700px;
+    height: 750px;
+    margin: 0 0 0 1000px;
+    padding-top: 60px;
+}
+.content h2 {
+	text-align: center;
+	font-size:40px
+}
+.head_text{
+	font-size: 20px;
+    line-height: 28px;
+    color: #222222;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.content form {
+	width:100%;
+	height:100%;
+}
+
+.page_button {
+	position: absolute;
+	bottom:60px;
+	left:50%;
+	transform: translateX(-50%);
+	width:125px;
+	height:40px;
+	text-align: center;
+	line-height: 40px;
+	font-size:15px;
+	background-color: darkgreen;
+	color:white;
+	border:none;
+	border-radius:8px;
+	cursor: pointer;
+}
+.prev_button {
+	transform: translateX(-120%);
+}
+.next_button {
+	transform: translateX(20%);
+}
+input#joinmem{
+	float:none;
+	position: absolute;
+	bottom:60px;
+	left:50%;
+	transform: translateX(20%);
+	width: 125px;
+	margin:0;
+	background-color:darkgreen;
+	border:none;
+	border-radius:8px;
+	color:white;
+}
+label{
+	float:left;
+	display:block;
+	width:125px;
+	height:40px;
+	margin: 10px 0 20px;
+	line-height:2;
+	text-align: center;
+}
+input {
+	float:left;
+	width:475px;
+	height:40px;
+	margin: 10px 0 20px;
+	padding:0 15px;
+	border: 1px solid #3f3f3f;
+	border-radius:3px;
+	font-size: 20px;
+}
+input[type=radio] {
+	width:20px;
+	height:20px;
+	margin:8px 15px;
+}
+#pwck_text {
+	position: absolute;
+	bottom:265px;
+	left:175px;
+	margin-bottom:10px;
+}
+.content .type1 > input[type=text]{
+	width:55%;
+}
+
+select {
+	float:left;
+	width:100px;
+	height:40px;
+	margin:10px 0 20px;
+	font-size:20px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+
+
+#birth {
+	width:250px;
+}
+
+.ph {
+	width:100px;
+}
+.ph:first-of-type {
+	margin-left: 10px;
+	margin-right: 10px;
+
+}
+
+
+#email, .email {
+	width:215px;
+}
+#email {
+	float:left;
+}
+.at {
+	float:left;
+	font-size:25px;
+	line-height: 55px;
+	margin:0 7px;
+}
+.email {
+	float:left;
+}
+
+input[type=button]{
+	float: right;
+	width:20%;
+	padding:0;
+	font-size:15px;
+	background-color: darkgreen;
+	color:white;
+	border:none;
+	border-radius:8px;
+}
+form div.address {
+	width:475px;
+	margin-left:125px;
+}
+.address #sample4_postcode {
+	width: 345px;
+	margin-right:10px;
+}
+ .address > input[type=button] {
+ 	width:120px;
+ }
+#sample4_postcode, #sample4_roadAddress ,#sample4_jibunAddress, .address > input[type=button] {
+	margin-bottom:5px;
+}
+#sample4_roadAddress ,#sample4_jibunAddress ,#sample4_detailAddress ,#sample4_extraAddress {
+	font-size: 12px;
+	width:49%;
+}
+#sample4_postcode {
+	font-size: 12px;
+}
+#sample4_roadAddress,#sample4_detailAddress {
+	margin-right: 2%;
+}
+
+
+.content div.agree_box {
+	float:left;
+	width:50%;
+	height:300px;
+	margin:0;
+	padding-top:15px;
+	padding-left:30px;
+	box-sizing: border-box;
+}
+.agree_box > label {
+	float:left;
+	width:auto;
+	font-size: 15px;
+	margin:0;
+	margin-right:10px;
+	font-weight: bold;
+}
+.agree_box > span {
+	display:block;
+	width:270px;
+	height:380px;
+	padding:10px;
+	margin-bottom:15px;
+	border:1px solid #333;
+	overflow: auto;
+}
+input[type=checkbox] {
+	float:left;
+	width:26px;
+	height:30px;
+	margin:0;
+}
