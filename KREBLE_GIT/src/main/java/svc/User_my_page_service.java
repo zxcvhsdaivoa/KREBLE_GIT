@@ -33,13 +33,12 @@ public class User_my_page_service {
 		return uu;
 	}
 
-	public ArrayList<SquadInfo> getSquadInfo(String id) throws Exception {
-		ArrayList<SquadInfo> si = new ArrayList<SquadInfo>();
+	public SquadInfo getSquadInfo(String id) throws Exception {
+		SquadInfo si = new SquadInfo();
 		Mypage mpage = Mypage.getInstance();
 		mpage.setConnection(con);
 
 		si = mpage.squadinfo(id);
-
 		return si;
 	}
 
@@ -81,7 +80,8 @@ public class User_my_page_service {
 
 		aa = mpage.likeinfo(id);
 		sp = mpage.prd_info(aa);
-
+		for(int i = 0 ; i<sp.size();i++) {
+		}
 		close(con);
 		return sp;
 	}

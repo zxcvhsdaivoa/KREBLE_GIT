@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+/* 베스트스쿼드 */
+.commu_wrap.wrap1 {
+	clear:both;
+	width:651px;
+	height:calc(100% - 275px);
+	border-right:1px solid #e1e1e1;
+}
+.commu_wrap.wrap1 h4 {
+	display:block;
+	height:40px;
+	line-height:40px;
+	font-size:28px;
+	background-color:#ddd;
+	border-top:2px solid gray;
+	border-bottom:1px solid gray;
+	text-align:center;
+    font-family: 'TheJamsil5Bold';
+}
+.commu_wrap.wrap1 .squad_wrap {
+	background-color:#fff;
+	width:100%;
+	height:calc(100% - 40px);
+	padding:20px 25px;
+}
+.commu_wrap.wrap1 .squad_wrap .squad_name {
+	float:left;
+	height:35px;
+	margin-bottom:10px;
+	font-size:19px;
+	line-height:35px;
+	padding-left:20px;
+    font-family: 'NanumSquareNeo-Variable';
+}
+.commu_wrap.wrap1 .squad_wrap .squad_make {
+	float:right;
+	height:35px;
+	margin-bottom:10px;
+	font-size:19px;
+	line-height:35px;
+	padding-right:20px;
+    font-family: 'NanumSquareNeo-Variable';
+}
+.commu_wrap.wrap1 .squad_wrap ul {
+	clear:both;
+}
+.commu_wrap.wrap1 .squad_wrap ul li {
+	float:left;
+	width:100px;
+	height:150px;
+	padding:10px 0;
+	text-align:center;
+}
+.commu_wrap.wrap1 .squad_wrap ul li .player_img {
+	display:block;
+	width:80px;
+	height:100px;
+	margin:0 10px 5px;
+	border-radius:50%;
+	overflow:hidden;
+	background-color:#888;
+}
+.commu_wrap.wrap1 .squad_wrap ul li .player_img img{
+	width:80px;
+}
+.commu_wrap.wrap1 .squad_wrap ul li:first-child .player_img img{
+	width:100%;
+	height:100%;
+	object-fit:cover;
+}
+.commu_wrap.wrap1 .squad_wrap ul li .name {
+    font-family: 'Hahmlet-Regular';
+}

@@ -61,8 +61,7 @@ public class Mypage {
 	}
 
 	// 마이페이지 스쿼드 불러오기(squad)
-	public ArrayList<SquadInfo> squadinfo(String id) {
-		ArrayList<SquadInfo> alsi = new ArrayList<SquadInfo>();
+	public SquadInfo squadinfo(String id) {
 		SquadInfo si = new SquadInfo();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -89,7 +88,6 @@ public class Mypage {
 				si.setPlayer9(rs.getString("player9"));
 				si.setPlayer10(rs.getString("player10"));
 				si.setPlayer11(rs.getString("player11"));
-				alsi.add(si);
 			} else {
 				si.setUser_id("No Data");
 				si.setSquad_num(0);
@@ -106,7 +104,6 @@ public class Mypage {
 				si.setPlayer9("No Data");
 				si.setPlayer10("No Data");
 				si.setPlayer11("No Data");
-				alsi.add(si);
 			}
 
 		} catch (Exception e) {
@@ -115,7 +112,7 @@ public class Mypage {
 			close(rs);
 			close(pstmt);
 		}
-		return alsi;
+		return si;
 	}
 
 	// 마이페이지 장바구니 불러오기(cart)
@@ -183,7 +180,6 @@ public class Mypage {
 	// 관심상품/장바구니에 대한 상품정보 불러오기
 	public ArrayList<Shop_prd> prd_info(String[] aa) {
 		ArrayList<Shop_prd> alsp = new ArrayList<Shop_prd>();
-		Shop_prd sp = new Shop_prd();
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		String sql = "";
@@ -193,7 +189,6 @@ public class Mypage {
 				cnt++;
 			}
 		}
-
 		switch (cnt) {
 		case 0:
 			sql = "select * from product where prd_no= '" + aa[0] + "' or prd_no='" + aa[1] + "' or prd_no='" + aa[2]
@@ -215,6 +210,7 @@ public class Mypage {
 				pstmt = con.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				while (rs.next()) {
+					Shop_prd sp = new Shop_prd();
 					sp.setPrd_no(rs.getString("prd_no"));
 					sp.setPrd_name(rs.getString("prd_name"));
 					sp.setPrd_cata(rs.getString("prd_cata"));
@@ -233,6 +229,7 @@ public class Mypage {
 				close(pstmt);
 			}
 		} else {
+			Shop_prd sp = new Shop_prd();
 			sp.setPrd_no("No Data");
 			sp.setPrd_name("No Data");
 			sp.setPrd_cata("No Data");

@@ -6,12 +6,15 @@
 <%@ page import="use_data.UserData"%>
 <%@ page import="vo.field_save_Data"%>
 <%@ page import="vo.SquadInfo"%>
+<%@ page import="use_data.Player_Info"%>
 
 <% request.setCharacterEncoding("utf-8"); %>
 <% 
 String id = (String) session.getAttribute("ID"); 
 %>
 	<jsp:useBean id="cash" class="use_data.Db_method_user"></jsp:useBean>
+	<jsp:useBean id="player" class="use_data.Db_method_player" />
+	<jsp:useBean id="shop" class="use_data.Db_method_shop" />
 	<%
 	int uc = cash.u_cash(id);
 	%>
@@ -30,9 +33,10 @@ String id = (String) session.getAttribute("ID");
 // 	field_save_Data field_al = (field_save_Data)request.getAttribute("field_al");//필드 정리되면 수정해야됨
 	ArrayList<Shop_prd> plike_al = (ArrayList<Shop_prd>)request.getAttribute("plike_al");//관심상품 가져오기
 	ArrayList<Shop_prd> pcart_al = (ArrayList<Shop_prd>)request.getAttribute("pcart_al");//장바구니가져오기
-	ArrayList<SquadInfo> squad_al = (ArrayList<SquadInfo>)request.getAttribute("squad_al");//마이스쿼드 가져오기
+	SquadInfo squad_al = (SquadInfo)request.getAttribute("squad_al");//마이스쿼드 가져오기
     String nowPage = (String)request.getAttribute("page");
-   
+	String sqs = (String) request.getAttribute("sqs");
+	out.println(plike_al.get(0).getPrd_img());
 	%>
 	
 <title>MyPage</title>
@@ -46,18 +50,6 @@ String id = (String) session.getAttribute("ID");
 	<section>
 		<!-- 활동현황/보유캐쉬 -->
 		<article>
-		<% 
-		out.println(plike_al+"-a");
-		out.println(pcart_al+"-b");
-		out.println(squad_al+"-c");
-		out.println(user_al+"-d");
-		String sqs = (String) request.getAttribute("sqs");
-		    if (sqs != null) {
-		        out.println("JSP sqs: " + sqs);
-   			}else{
-   				out.println("왜 null이지?"+ sqs);
-   			}
-   		%>
 			<ul>
 				<li>My<br>Kreble</li>
 				<li>작성한 MySquad 게시글 <%= sqs %>개</li>
@@ -77,7 +69,27 @@ String id = (String) session.getAttribute("ID");
 			</div>
 			<div> 
 				<div> ID 님 환영합니다. </div>
-				<div> My Squad / 선수사진 12 </div>
+				<div class="commu_wrap wrap1">
+				<h4>베스트 스쿼드</h4>
+    			<div class="squad_wrap">
+    				<p class="squad_name">스쿼드 이름 : <%=squad_al.getSquad_name()%></p>
+    				<p class="squad_make">작성자 : <%= id %></p>
+					<ul>
+						<li class="director"><span class="player_img"><img src="image/player_img/<%=squad_al.getDirector()%>.jpg"></span><p class="name"><%=squad_al.getDirector()%></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer1() %>.jpg"></span><p class="name"><%=squad_al.getPlayer1() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer2() %>.jpg"></span><p class="name"><%=squad_al.getPlayer2() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer3() %>.jpg"></span><p class="name"><%=squad_al.getPlayer3() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer4() %>.jpg"></span><p class="name"><%=squad_al.getPlayer4() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer5() %>.jpg"></span><p class="name"><%=squad_al.getPlayer5() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer6() %>.jpg"></span><p class="name"><%=squad_al.getPlayer6() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer7() %>.jpg"></span><p class="name"><%=squad_al.getPlayer7() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer8() %>.jpg"></span><p class="name"><%=squad_al.getPlayer8() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer9() %>.jpg"></span><p class="name"><%=squad_al.getPlayer9() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer10() %>.jpg"></span><p class="name"><%=squad_al.getPlayer10() %></p></li>
+						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer11() %>.jpg"></span><p class="name"><%=squad_al.getPlayer11() %></p></li>
+					</ul>
+				</div>
+				</div>
 			</div>
 		</article>
 		
@@ -89,14 +101,68 @@ String id = (String) session.getAttribute("ID");
 		
 		<!-- 관심상품리스트 -->
 		<article>
-			관심품목 라벨
-			관심품목 리스트
+			<div><!-- 관심품목 라벨 -->
+				<h4><%=id%>님의 관심상품</h4>
+			</div>
+			<div><!-- 관심품목 리스트 -->
+				<table>
+					<tr>
+						<th>상품 이미지</th>
+						<th>상품 이름</th>
+						<th>상품 가격</th>
+						<th>상품 색상</th>
+						<th>상품 평점</th>
+					</tr>
+				<%
+				for(int l = 0; l < plike_al.size(); l++){
+					String impt = shop.img_link(plike_al.get(l).getPrd_no());
+				%>
+					<tr>
+						<td><a href ="#"><img src="<%=impt+plike_al.get(l).getPrd_img()%>"></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_img()%></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_price()%></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_color()%></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_re_sc()%></a></td>
+					</tr>	
+				<%	
+				}	
+				%>				
+				</table>
+			
+			</div>
+			
 		</article>
 		
 		<!-- 장바구니리스트 -->
 		<article>
-			장바구니 라벨
-			장바구니 리스트
+			<div><!-- 장바구니 라벨 -->
+				<h4><%=id%>님의 장바구니</h4>
+			</div>
+			<div><!-- 장바구니 리스트 -->
+				<table>
+					<tr>
+						<th>상품 이미지</th>
+						<th>상품 이름</th>
+						<th>상품 가격</th>
+						<th>상품 색상</th>
+						<th>상품 평점</th>
+					</tr>
+				<%
+				for(int l = 0; l < plike_al.size(); l++){
+					String impt = shop.img_link(plike_al.get(l).getPrd_no());
+				%>
+					<tr>
+						<td><a href ="#"><img src="<%=impt+pcart_al.get(l).getPrd_img()%>"></a></td>
+						<td><a href ="#"><%=pcart_al.get(l).getPrd_img()%></a></td>
+						<td><a href ="#"><%=pcart_al.get(l).getPrd_price()%></a></td>
+						<td><a href ="#"><%=pcart_al.get(l).getPrd_color()%></a></td>
+						<td><a href ="#"><%=pcart_al.get(l).getPrd_re_sc()%></a></td>
+					</tr>	
+				<%	
+				}	
+				%>				
+				</table>
+			</div>
 		</article>
 		
 		<article>

@@ -20,7 +20,7 @@ public class User_my_page_action implements Action {
 		UserData user_al = new UserData();// 유저정보
 		ArrayList<field_save_Data> field_al = new ArrayList<field_save_Data>();// 경기장대여
 		ArrayList<Shop_prd> plike_al = new ArrayList<Shop_prd>();// 관심상품
-		ArrayList<SquadInfo> squad_al = new ArrayList<SquadInfo>();// 마이스쿼드
+		SquadInfo squad_al = new SquadInfo();// 마이스쿼드
 		ArrayList<Shop_prd> pcart_al = new ArrayList<Shop_prd>(); // 장바구니
 
 		User_my_page_service mp = new User_my_page_service();
@@ -31,25 +31,12 @@ public class User_my_page_action implements Action {
 //		field_al = mp.getFieldInfo(id);
 		plike_al = mp.getLikeInfo(id);
 //		request.setAttribute("field_al", field_al);
-		System.out.println(sqsize);
-		System.out.println(user_al);
-		System.out.println(squad_al);
-		System.out.println(pcart_al);
-		System.out.println(plike_al);
 		request.setAttribute("user_al", user_al);
 		request.setAttribute("plike_al", plike_al);
 		request.setAttribute("pcart_al", pcart_al);
 		request.setAttribute("squad_al", squad_al);
 		request.setAttribute("sqs", sqsize);
-		System.out.println("=============================");
-		System.out.println(request.getAttribute("user_al"));
-		System.out.println(request.getAttribute("plike_al"));
-		System.out.println(request.getAttribute("pcart_al"));
-		System.out.println(request.getAttribute("squad_al"));
-		System.out.println(request.getAttribute("sqs"));
-		ActionForward forward = null;
-		forward = new ActionForward();
-		forward.setRedirect(true);
+		ActionForward forward = new ActionForward();
 		forward.setPath("mypage.jsp");
 		return forward;
 
