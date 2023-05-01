@@ -28,9 +28,9 @@ String id = (String) session.getAttribute("ID");
 	<%
 	UserData user_al = (UserData) request.getAttribute("user_al");//유저정보가져오기
 // 	field_save_Data field_al = (field_save_Data)request.getAttribute("field_al");//필드 정리되면 수정해야됨
-	Shop_prd plike_al = (Shop_prd)request.getAttribute("plike_al");//관심상품 가져오기
-	Shop_prd pcart_al = (Shop_prd)request.getAttribute("pcart_al");//장바구니가져오기
-	SquadInfo squad_al = (SquadInfo)request.getAttribute("squad_al");//마이스쿼드 가져오기
+	ArrayList<Shop_prd> plike_al = (ArrayList<Shop_prd>)request.getAttribute("plike_al");//관심상품 가져오기
+	ArrayList<Shop_prd> pcart_al = (ArrayList<Shop_prd>)request.getAttribute("pcart_al");//장바구니가져오기
+	ArrayList<SquadInfo> squad_al = (ArrayList<SquadInfo>)request.getAttribute("squad_al");//마이스쿼드 가져오기
     String nowPage = (String)request.getAttribute("page");
    
 	%>
@@ -47,6 +47,10 @@ String id = (String) session.getAttribute("ID");
 		<!-- 활동현황/보유캐쉬 -->
 		<article>
 		<% 
+		out.println(plike_al+"-a");
+		out.println(pcart_al+"-b");
+		out.println(squad_al+"-c");
+		out.println(user_al+"-d");
 		String sqs = (String) request.getAttribute("sqs");
 		    if (sqs != null) {
 		        out.println("JSP sqs: " + sqs);

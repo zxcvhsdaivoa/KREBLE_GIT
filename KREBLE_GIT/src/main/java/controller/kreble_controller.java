@@ -51,7 +51,7 @@ public class kreble_controller extends javax.servlet.http.HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 상품상세
+		// 여분
 		if (command.equals("/asdfasdf.kb")) {
 			action = new Shop_detail_action();
 			try {
@@ -60,7 +60,7 @@ public class kreble_controller extends javax.servlet.http.HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 크래블샵
+		// 여분
 		else if (command.equals("/asdfasdf.kb")) {
 			forward = new ActionForward();
 			forward.setPath("/krebleshop.jsp");

@@ -48,7 +48,7 @@ public class User_my_page_service {
 		SquadDAO aa = SquadDAO.getInstance();
 		aa.setConnection(con);
 
-		asd = aa.Squad_cnt(id);
+		asd = ""+aa.Squad_cnt(id);
 
 		return asd;
 	}
