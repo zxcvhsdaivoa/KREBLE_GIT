@@ -113,18 +113,6 @@ section{
 	float: left;
 }
 
-#article_no2{
-}
-
-#article_no2{
-}
-
-#article_no2{
-}
-
-
-
-
 /* 베스트스쿼드 */
 .commu_wrap.wrap1 {
 	clear:both;
@@ -198,23 +186,9 @@ section{
     font-family: 'Hahmlet-Regular';
 }
 
-
-
 #article_no3{
 	width: 990px;
 	margin: 0 auto;
-}
- 
-#article_no3 h4{
-	display:block;
-	height:40px;
-	line-height:40px;
-	font-size:28px;
-	background-color:#ddd;
-	border-top:2px solid gray;
-	border-bottom:1px solid gray;
-	text-align:center;
-    font-family: 'TheJamsil5Bold';
 }
 
 #article_no4{

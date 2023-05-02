@@ -15,6 +15,7 @@ String id = (String) session.getAttribute("ID");
 	<jsp:useBean id="cash" class="use_data.Db_method_user"></jsp:useBean>
 	<jsp:useBean id="player" class="use_data.Db_method_player" />
 	<jsp:useBean id="shop" class="use_data.Db_method_shop" />
+	<jsp:useBean id="ect" class="use_data.Db_method_ECT" />
 	<%
 	int uc = cash.u_cash(id);
 	%>
@@ -140,11 +141,11 @@ String id = (String) session.getAttribute("ID");
 					</tr>
 				<%
 				for(int l = 0; l < plike_al.size(); l++){
-					String impt = shop.img_link(plike_al.get(l).getPrd_no());
+					String impt = ect.img_link(plike_al.get(l).getPrd_no());
 				%>
 					<tr>
 						<td><a href ="#"><img alt="No Data" src="<%=impt + plike_al.get(l).getPrd_img()%>"></a></td>
-						<td><a href ="#"><%=plike_al.get(l).getPrd_no()%></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_name()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_color()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_re_sc()%></a></td>
@@ -174,11 +175,11 @@ String id = (String) session.getAttribute("ID");
 					</tr>
 				<%
 				for(int l = 0; l < plike_al.size(); l++){
-					String impt = shop.img_link(pcart_al.get(l).getPrd_no());
+					String impt = ect.img_link(pcart_al.get(l).getPrd_no());
 				%>
 					<tr>
 						<td><a href ="#"><img src="<%=impt%><%=pcart_al.get(l).getPrd_img()%>"></a></td>
-						<td><a href ="#"><%=pcart_al.get(l).getPrd_no()%></a></td>
+						<td><a href ="#"><%=pcart_al.get(l).getPrd_name()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_color()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_re_sc()%></a></td>

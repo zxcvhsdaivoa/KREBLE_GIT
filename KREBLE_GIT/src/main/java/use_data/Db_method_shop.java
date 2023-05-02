@@ -489,24 +489,4 @@ public class Db_method_shop extends Db_method_conn {
 		return board;
 	}
 
-	// 이미지 경로
-	public String img_link(String no) {
-		String impath = "";
-		char p_no = no.charAt(0);
-		switch (p_no) {
-		case 's':
-			impath = "image/shopimg/sue/";
-			break;
-		case 'u':
-			impath = "image/shopimg/uni/";
-			break;
-		case 'b':
-			impath = "image/shopimg/ball/";
-			break;
-		case 'e':
-			impath = "image/shopimg/etc/";
-			break;
-		}
-		return impath;
-	}
 }
