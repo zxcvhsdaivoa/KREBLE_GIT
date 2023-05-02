@@ -78,10 +78,10 @@
 								<a href="#">인천</a>
 								<ul>
 									<li id="i_000"><a>인천대공원<br>축구장</a></li>
-									<li><a href="#">인천축구전용<br>경기장</a></li>
-									<li><a href="#">강서개화 축구장</a></li>
-									<li><a href="#">드림파크문화재단 <br>축구장</a></li>
-									<li><a href="#">주안더월드<br>스테이트</a></li>
+									<li id="i_001"><a>인천축구전용<br>경기장</a></li>
+									<li id="i_002"><a>강서개화 축구장</a></li>
+									<li id="i_003"><a>드림파크문화재단 <br>축구장</a></li>
+									<li id="i_004"><a>주안더월드<br>스테이트</a></li>
 								</ul>
 							</li>
 							<li class="local">

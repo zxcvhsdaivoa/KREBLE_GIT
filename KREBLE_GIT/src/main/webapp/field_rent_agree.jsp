@@ -70,7 +70,7 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><b
 
 				</div>
 				<div class="btn_area">
-					<a class="payment_btn" href="#">다음으로</a>
+					<a class="payment_btn" href="field_rent_finish.jsp">다음으로</a>
 				</div>
 			</div>
 			</form>

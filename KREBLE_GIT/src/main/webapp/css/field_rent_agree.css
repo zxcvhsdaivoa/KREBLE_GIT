@@ -33,3 +33,26 @@
     padding-bottom: 30px;
     background: url(../image/riding-line.png)no-repeat top;
 }
+.rent_step li.step2:before{
+	display: none;
+}
+.rent_step li.step1:after{
+	display: none;
+}
+.rent_step li.step2:after{
+	content: '';
+    position: absolute;
+    top: 18px;
+    width: 90px;
+    height: 3px;
+    right: 0;
+    background-color: #009ce1;
+}
+.rent_step li.step3:before{
+	content: '';
+    position: absolute;
+    top: 18px;
+    width: 90px;
+    height: 3px;
+    background-color: #009ce1;
+}

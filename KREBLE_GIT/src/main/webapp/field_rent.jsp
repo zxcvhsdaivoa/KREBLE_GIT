@@ -3,6 +3,7 @@
 <%@page import="vo.Rent_info"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -12,11 +13,15 @@
 	Rent_info rent_info=(Rent_info)request.getAttribute("rent_info");
 %>
 <%
-String nn="false";
+String star_list="false";
 ArrayList<KreblechoiData> cate_list= new ArrayList<KreblechoiData>();
 if(request.getAttribute("cate_list")!=null){
 	cate_list = (ArrayList<KreblechoiData>)request.getAttribute("cate_list");
-	nn="true";
+	star_list="true";
+}
+String loca="no";
+if(request.getParameter("location")!=null && request.getParameter("location")!="" && !request.getParameter("location").equals("null")){
+	loca=request.getParameter("location");
 }
 %>
 <title>구장 예약</title>
@@ -43,18 +48,18 @@ if(request.getAttribute("cate_list")!=null){
 					<h1>예약신청</h1>
 					<select class="loca">
 						<option>지역 목록</option>
-						<option value="s" <%if(request.getParameter("location").equals("s")){ %>selected="selected"<%} %>>서울</option>
-						<option value="i" <%if(request.getParameter("location").equals("i")){ %>selected="selected"<%} %>>인천</option>
-						<option value="g" <%if(request.getParameter("location").equals("g")){ %>selected="selected"<%} %>>경기</option>
-						<option value="d" <%if(request.getParameter("location").equals("d")){ %>selected="selected"<%} %>>대구</option>
-						<option value="dd" <%if(request.getParameter("location").equals("dd")){ %>selected="selected"<%} %>>대전</option>
-						<option value="b" <%if(request.getParameter("location").equals("b")){ %>selected="selected"<%} %>>부산</option>
-						<option value="j" <%if(request.getParameter("location").equals("j")){ %>selected="selected"<%} %>>제주</option>
+						<option value="s" <%if(loca.equals("s")){ %>selected="selected"<%} %>>서울</option>
+						<option value="i" <%if(loca.equals("i")){ %>selected="selected"<%} %>>인천</option>
+						<option value="g" <%if(loca.equals("g")){ %>selected="selected"<%} %>>경기</option>
+						<option value="d" <%if(loca.equals("d")){ %>selected="selected"<%} %>>대구</option>
+						<option value="dd" <%if(loca.equals("dd")){ %>selected="selected"<%} %>>대전</option>
+						<option value="b" <%if(loca.equals("b")){ %>selected="selected"<%} %>>부산</option>
+						<option value="j" <%if(loca.equals("j")){ %>selected="selected"<%} %>>제주</option>
 					</select>
 					<select>
 						<option>경기장 목록</option>
 						<%
-						if(nn.equals("true")){
+						if(star_list.equals("true")){
 							for(int i=0; i<cate_list.size();i++){
 								%>
 								<option value="<%=cate_list.get(i).getField_name() %>"><%=cate_list.get(i).getField_name() %></option>
