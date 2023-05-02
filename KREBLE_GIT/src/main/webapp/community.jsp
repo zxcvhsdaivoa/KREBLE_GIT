@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>유저 커뮤니티</title>
+	<title>KREBLE 커뮤니티</title>
 	<link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
 	<link rel="stylesheet" type="text/css" href="css/community.css">
 </head>
