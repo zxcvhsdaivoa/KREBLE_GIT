@@ -4,7 +4,7 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import dao.Mypage;
+import dao.User_Mypage;
 import dao.Shop_DAO;
 import dao.SquadDAO;
 import use_data.Shop_prd;
@@ -21,7 +21,7 @@ public class User_my_page_service {
 
 	public UserData getUserInfo(String id) throws Exception {
 		UserData uu = new UserData();
-		Mypage mpage = Mypage.getInstance();
+		User_Mypage mpage = User_Mypage.getInstance();
 		mpage.setConnection(con);
 
 		String an = mpage.userinfo(id, "nick");
@@ -35,7 +35,7 @@ public class User_my_page_service {
 
 	public SquadInfo getSquadInfo(String id) throws Exception {
 		SquadInfo si = new SquadInfo();
-		Mypage mpage = Mypage.getInstance();
+		User_Mypage mpage = User_Mypage.getInstance();
 		mpage.setConnection(con);
 
 		si = mpage.squadinfo(id);
@@ -51,10 +51,28 @@ public class User_my_page_service {
 
 		return asd;
 	}
+	public String lisize(String id) throws Exception {
+		String asd = "";
+		Shop_DAO aa = Shop_DAO.getInstance();
+		aa.setConnection(con);
+
+		asd = ""+aa.like_cnt(id);
+
+		return asd;
+	}
+	public String casize(String id) throws Exception {
+		String asd = "";
+		Shop_DAO aa = Shop_DAO.getInstance();
+		aa.setConnection(con);
+
+		asd = ""+aa.cart_cnt(id);
+
+		return asd;
+	}
 
 	public ArrayList<field_save_Data> getFieldInfo(String id) throws Exception {
 		ArrayList<field_save_Data> fs = new ArrayList<field_save_Data>();
-		Mypage mpage = Mypage.getInstance();
+		User_Mypage mpage = User_Mypage.getInstance();
 		mpage.setConnection(con);
 
 		return fs;
@@ -62,26 +80,26 @@ public class User_my_page_service {
 
 	public ArrayList<Shop_prd> getCartInfo(String id) throws Exception {
 		ArrayList<Shop_prd> sp = new ArrayList<Shop_prd>();
-		Mypage mpage = Mypage.getInstance();
+		User_Mypage mpage = User_Mypage.getInstance();
 		mpage.setConnection(con);
 		String[] aa = new String[3];
 
 		aa = mpage.cartinfo(id);
 		sp = mpage.prd_info(aa);
 
+		
 		return sp;
 	}
 
 	public ArrayList<Shop_prd> getLikeInfo(String id) throws Exception {
 		ArrayList<Shop_prd> sp = new ArrayList<Shop_prd>();
-		Mypage mpage = Mypage.getInstance();
+		User_Mypage mpage = User_Mypage.getInstance();
 		mpage.setConnection(con);
 		String[] aa = new String[3];
 
 		aa = mpage.likeinfo(id);
 		sp = mpage.prd_info(aa);
-		for(int i = 0 ; i<sp.size();i++) {
-		}
+		
 		close(con);
 		return sp;
 	}

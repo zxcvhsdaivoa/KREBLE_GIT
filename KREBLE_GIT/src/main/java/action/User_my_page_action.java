@@ -25,6 +25,8 @@ public class User_my_page_action implements Action {
 
 		User_my_page_service mp = new User_my_page_service();
 		String sqsize = mp.sqsize(id);
+		String like_si = mp.lisize(id);
+		String cart_si = mp.casize(id);
 		user_al = mp.getUserInfo(id);
 		squad_al = mp.getSquadInfo(id);
 		pcart_al = mp.getCartInfo(id);
@@ -36,10 +38,10 @@ public class User_my_page_action implements Action {
 		request.setAttribute("pcart_al", pcart_al);
 		request.setAttribute("squad_al", squad_al);
 		request.setAttribute("sqs", sqsize);
+		request.setAttribute("cas", cart_si);
+		request.setAttribute("lis", like_si);
 		ActionForward forward = new ActionForward();
 		forward.setPath("mypage.jsp");
 		return forward;
-
 	}
-
 }

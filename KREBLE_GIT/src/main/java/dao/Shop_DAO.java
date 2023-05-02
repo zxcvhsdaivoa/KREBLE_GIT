@@ -28,6 +28,48 @@ public class Shop_DAO {
 		this.con = con;
 	}
 
+	//장바구니 등록개수
+	public int cart_cnt(String user_id){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int sc=0;
+		try{
+			pstmt = con.prepareStatement("select count(sb_buy_id) from shop_back where sb_buy_id = ?;");
+			pstmt.setString(1, user_id);
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				sc = rs.getInt("count(sb_buy_id)");
+			}
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return sc;
+	}
+
+	//관심상품 등록개수
+	public int like_cnt(String user_id){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int sc=0;
+		try{
+			pstmt = con.prepareStatement("select count(u_id) from shop_prd_like where u_id = ?;");
+			pstmt.setString(1, user_id);
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				sc = rs.getInt("count(u_id)");
+			}
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return sc;
+	}
+	
 	// 상품리스트 갯수
 	public int selectListCount() {
 

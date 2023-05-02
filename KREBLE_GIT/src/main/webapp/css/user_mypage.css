@@ -1,9 +1,134 @@
 @charset "UTF-8";
+ @font-face {
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-family: 'Hahmlet-Regular';
+    font-weight: normal;
+    font-style: normal;
+}
+*{	
+    font-family: 'Hahmlet-Regular';
+    font-weight: normal;
+    font-style: normal;
+}
+
+section{
+	width:100%;
+	height: auto;
+	min-height: 900px;
+}
+
+#center_margin{
+	width: 1280px;
+	height: auto;
+	margin: 0 auto;
+}
+
+/* 라벨(MyKreble, li) */
+#article_no1{
+	width: 990px;
+	margin: 0 auto;
+}
+#article_no1 > div{
+	margin-top: 85px;
+	height: 130px;
+}
+
+
+#article_no1 > div > ul{
+	width: 970px;
+	margin: 0 auto;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+#article_no1 > div > ul > li{
+	width: 160px;
+	height: 100px;
+	float: left;
+}
+#article_no1 > div > ul > li > span{
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+}
+
+#article_no1 > div > ul > li:first-child{
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+    font-style: normal;
+    background-color: #13294B;
+  	color: #fff;
+}
+
+#article_no1 > div > ul > li:nth-child(3){
+  background-color: #094e73;
+  color: #fff;
+}
+
+#article_no1 > div > ul > li:nth-child(5){
+  background-color: #094e73;
+  color: #fff;
+}
+
+
+#article_no1 > div > ul > li:nth-child(even){
+  background-color: #5DADEC;
+  color: #fff;
+}
+
+
+#article_no1 span {
+  display: block;
+  padding: 5px;
+}
+
+
+/* 프로필사진 / 닉네임 / 마이스쿼드 */
+#article_no2{
+	width: 990px;
+	margin: 0 auto;
+}
+
+#article_no2 > .f_div{
+	width: 495px;
+	float: left;
+}
+
+#article_no2 > .l_div{
+	width: 495px;
+	float: left;
+}
+
+#article_no2{
+}
+
+#article_no2{
+}
+
+#article_no2{
+}
+
+
+
 
 /* 베스트스쿼드 */
 .commu_wrap.wrap1 {
 	clear:both;
-	width:651px;
+	width:460px;
 	height:calc(100% - 275px);
 	border-right:1px solid #e1e1e1;
 }
@@ -71,4 +196,62 @@
 }
 .commu_wrap.wrap1 .squad_wrap ul li .name {
     font-family: 'Hahmlet-Regular';
+}
+
+
+
+#article_no3{
+	width: 990px;
+	margin: 0 auto;
+}
+
+#article_no3 h4{
+	display:block;
+	height:40px;
+	line-height:40px;
+	font-size:28px;
+	background-color:#ddd;
+	border-top:2px solid gray;
+	border-bottom:1px solid gray;
+	text-align:center;
+    font-family: 'TheJamsil5Bold';
+}
+
+#article_no4{
+	width: 990px;
+	margin: 0 auto;
+}
+
+#article_no4 h4{
+	display:block;
+	height:40px;
+	line-height:40px;
+	font-size:28px;
+	background-color:#ddd;
+	border-top:2px solid gray;
+	border-bottom:1px solid gray;
+	text-align:center;
+    font-family: 'TheJamsil5Bold';
+}
+
+#article_no5{
+	width: 990px;
+	margin: 0 auto;
+}
+
+#article_no5 h4{
+	display:block;
+	height:40px;
+	line-height:40px;
+	font-size:28px;
+	background-color:#ddd;
+	border-top:2px solid gray;
+	border-bottom:1px solid gray;
+	text-align:center;
+    font-family: 'TheJamsil5Bold';
+}
+
+#article_no6{
+	width: 990px;
+	margin: 0 auto;
 }

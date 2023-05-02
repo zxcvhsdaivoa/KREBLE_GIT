@@ -168,7 +168,7 @@
 						   } else if (num == 1) {
 						     date = now.plusDays(1);
 						   } else {
-						     date = now.minusDays(1);
+						     date = now.plusDays(2);
 						   }
 						   String dateString = date.format(formatter);
 						%>

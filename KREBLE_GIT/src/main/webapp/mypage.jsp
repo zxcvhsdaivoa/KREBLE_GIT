@@ -36,7 +36,8 @@ String id = (String) session.getAttribute("ID");
 	SquadInfo squad_al = (SquadInfo)request.getAttribute("squad_al");//마이스쿼드 가져오기
     String nowPage = (String)request.getAttribute("page");
 	String sqs = (String) request.getAttribute("sqs");
-	out.println(plike_al.get(0).getPrd_img());
+	String cas = (String) request.getAttribute("cas");
+	String lis = (String) request.getAttribute("lis");
 	%>
 	
 <title>MyPage</title>
@@ -48,26 +49,46 @@ String id = (String) session.getAttribute("ID");
 
 	<!-- section -->
 	<section>
+	<div id="center_margin"><!-- 중앙정렬용 div -->
 		<!-- 활동현황/보유캐쉬 -->
-		<article>
-			<ul>
-				<li>My<br>Kreble</li>
-				<li>작성한 MySquad 게시글 <%= sqs %>개</li>
-				<li>대여한 경기장 @@개</li>
-				<li>관심품목 @@개</li>
-				<li>장바구니에 담아둔 물건 @@개</li>
-				<li><div>보유 캐쉬 : \<%=uc%></div>
-				<div>캐쉬충전하기</div></li>
-			</ul>
+		<article id="article_no1">
+			<div>
+				<ul>
+					<li>
+						<span>My</span><br>
+						<span>Kreble</span>
+					</li>
+					<li>
+						<span>MySquad 게시글</span><br>
+						<span><%=sqs%>개</span>
+					</li>
+					<li>
+						<span>경기장 대여</span><br>
+						<span>@@개</span>
+					</li>
+					<li>
+						<span>관심 품목</span><br>
+						<span><%=lis%>개</span>
+					</li>
+					<li>
+						<span>장바구니</span><br>
+						<span><%=cas%>개</span>
+					</li>
+					<li>
+						<span>보유 캐쉬 : &#x20A9;<%=uc%></span><br>
+						<span>캐쉬충전하기</span>
+					</li>
+				</ul>
+			</div>
 		</article>
 		
 		<!-- 프로필사진 / 닉네임 / 마이스쿼드 -->
-		<article>
-			<div>
+		<article id="article_no2">
+			<div class = "f_div">
 				<div> 프로필사진 / 사진수정 </div>
 				<div> 닉네임 / 닉네임수정수정 </div>
 			</div>
-			<div> 
+			<div class = "l_div"> 
 				<div> ID 님 환영합니다. </div>
 				<div class="commu_wrap wrap1">
 				<h4>베스트 스쿼드</h4>
@@ -94,13 +115,17 @@ String id = (String) session.getAttribute("ID");
 		</article>
 		
 		<!-- 경기장 렌트 -->
-		<article>
-			경기장 대여 현황 라벨
-			경기장 대여 리스트
+		<article id="article_no3">
+			<div><!-- 관심품목 라벨 -->
+				<h4><%=id%>님의 경기장 대여 리스트</h4>
+			</div>
+			<div>
+				<span>경기장 대여 리스트</span>
+			</div>
 		</article>
 		
 		<!-- 관심상품리스트 -->
-		<article>
+		<article id="article_no4">
 			<div><!-- 관심품목 라벨 -->
 				<h4><%=id%>님의 관심상품</h4>
 			</div>
@@ -118,8 +143,8 @@ String id = (String) session.getAttribute("ID");
 					String impt = shop.img_link(plike_al.get(l).getPrd_no());
 				%>
 					<tr>
-						<td><a href ="#"><img src="<%=impt+plike_al.get(l).getPrd_img()%>"></a></td>
-						<td><a href ="#"><%=plike_al.get(l).getPrd_img()%></a></td>
+						<td><a href ="#"><img alt="No Data" src="<%=impt + plike_al.get(l).getPrd_img()%>"></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_no()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_color()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_re_sc()%></a></td>
@@ -134,7 +159,7 @@ String id = (String) session.getAttribute("ID");
 		</article>
 		
 		<!-- 장바구니리스트 -->
-		<article>
+		<article id="article_no5">
 			<div><!-- 장바구니 라벨 -->
 				<h4><%=id%>님의 장바구니</h4>
 			</div>
@@ -149,11 +174,11 @@ String id = (String) session.getAttribute("ID");
 					</tr>
 				<%
 				for(int l = 0; l < plike_al.size(); l++){
-					String impt = shop.img_link(plike_al.get(l).getPrd_no());
+					String impt = shop.img_link(pcart_al.get(l).getPrd_no());
 				%>
 					<tr>
-						<td><a href ="#"><img src="<%=impt+pcart_al.get(l).getPrd_img()%>"></a></td>
-						<td><a href ="#"><%=pcart_al.get(l).getPrd_img()%></a></td>
+						<td><a href ="#"><img src="<%=impt%><%=pcart_al.get(l).getPrd_img()%>"></a></td>
+						<td><a href ="#"><%=pcart_al.get(l).getPrd_no()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_color()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_re_sc()%></a></td>
@@ -165,10 +190,10 @@ String id = (String) session.getAttribute("ID");
 			</div>
 		</article>
 		
-		<article>
+		<article id="article_no6">
 			프로필 수정 버튼 / 탈퇴버튼
 		</article>
-		
+	</div>
 	</section>
 	
     <!-- footer -->

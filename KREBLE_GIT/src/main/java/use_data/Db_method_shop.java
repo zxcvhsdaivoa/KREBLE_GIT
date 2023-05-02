@@ -486,7 +486,6 @@ public class Db_method_shop extends Db_method_conn {
 		} finally {
 			diconn();
 		}
-
 		return board;
 	}
 

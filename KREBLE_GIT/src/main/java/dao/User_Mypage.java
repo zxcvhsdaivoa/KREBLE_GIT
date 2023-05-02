@@ -13,17 +13,17 @@ import use_data.Shop_prd;
 import use_data.UserData;
 import vo.SquadInfo;
 
-public class Mypage {
+public class User_Mypage {
 	DataSource ds;
 	Connection con;
-	private static Mypage mpage;
+	private static User_Mypage mpage;
 
-	private Mypage() {
+	private User_Mypage() {
 	}
 
-	public static Mypage getInstance() {
+	public static User_Mypage getInstance() {
 		if (mpage == null) {
-			mpage = new Mypage();
+			mpage = new User_Mypage();
 		}
 		return mpage;
 	}
