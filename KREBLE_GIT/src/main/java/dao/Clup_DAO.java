@@ -41,6 +41,12 @@ public class Clup_DAO {
 			while(rs.next()){
 				ClupInfo cl= new ClupInfo();
 				cl.setClup_no((rs.getInt("clup_no")));
+				cl.setClup_name((rs.getString("clup_name")));
+				cl.setClup_user(rs.getString("clup_admin"));
+				cl.setClup_howjoin((rs.getString("clup_howjoin")));
+				cl.setClup_pw((rs.getString("clup_pw")));
+				cl.setClup_makedate((rs.getString("clup_makedate")));
+				cl.setClup_logo((rs.getString("clup_logo")));
 				cl_list.add(cl);
 			}
 		}catch(Exception ex){
