@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>KREBLE 커뮤니티</title>
 <meta charset="UTF-8">
-<title>글쓰기</title>
 	<link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
 	<link rel="stylesheet" type="text/css" href="css/community.css">
 </head>

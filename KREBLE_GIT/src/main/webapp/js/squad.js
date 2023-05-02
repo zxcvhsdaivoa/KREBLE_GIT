@@ -77,15 +77,12 @@ $(function(){
 		$(".squad_wrap ul li.on span.plus").removeClass("plus");
 		$(".squad_wrap ul li.on p.posi").addClass('on');
 		$(".squad_wrap ul li.on").removeClass("on")
-		$(".player_wrap").hide();
+		$(".sub_wrap").hide();
 	})
 	//창 닫기
 	$(".exit").click(function(){
 		$(".squad_wrap ul li.on").removeClass("on");
 		$(".sub_wrap").hide();
-		if($(this).parent().hasClass("player_inner")==true){
-			$(".player_list ul li").show();
-		}
 	})
 
 
