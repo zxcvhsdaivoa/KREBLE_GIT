@@ -139,7 +139,6 @@ String id = (String) session.getAttribute("ID");
 						<th>상품 이름</th>
 						<th>상품 가격</th>
 						<th>상품 색상</th>
-						<th>상품 평점</th>
 						<th>재고량</th>
 					</tr>
 				<%
@@ -151,7 +150,6 @@ String id = (String) session.getAttribute("ID");
 						<td><a href ="#"><%=plike_al.get(l).getPrd_name()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_color()%></a></td>
-						<td><a href ="#"><%=plike_al.get(l).getPrd_re_sc()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_qant()%></a></td>
 					</tr>	
 				<%	
@@ -177,7 +175,6 @@ String id = (String) session.getAttribute("ID");
 						<th>상품 이름</th>
 						<th>상품 가격</th>
 						<th>상품 색상</th>
-						<th>상품 평점</th>
 						<th>재고량</th>
 					</tr>
 				<%
@@ -189,7 +186,6 @@ String id = (String) session.getAttribute("ID");
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_name()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_color()%></a></td>
-						<td><a href ="#"><%=pcart_al.get(l).getPrd_re_sc()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_qant()%></a></td>
 					</tr>	
 				<%	

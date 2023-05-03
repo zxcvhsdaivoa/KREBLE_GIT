@@ -35,7 +35,7 @@ $(function(){
 	})
 	//경기장임대로 이동
 	$('.no1_td3').click(function(){
-		location.href = "fieldInfo.choi";
+		location.href = "fieldrent.choi";
 	})
 	//관심상품으로 이동
 	$('.no1_td4').click(function(){
