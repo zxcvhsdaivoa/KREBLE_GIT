@@ -59,6 +59,28 @@ public class Clup_DAO {
 	}
 	
 	
+	public int search_clup_member(int no, String id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int ismember=0;
+		try{
+			pstmt = con.prepareStatement("select * from clup_member where clup_no=? and member_id=?;");
+			pstmt.setInt(1, no);
+			pstmt.setString(2, id);
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				ismember=1;
+			}
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return ismember;
+	}
+	
+	
 	public int create_clup(ClupInfo cl) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

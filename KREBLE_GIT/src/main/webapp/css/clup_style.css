@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.btn {
+	display:block;
+	height:40px;
+	margin-left:5px;
+	margin-right:5px;
+    text-align:center;
+	line-height:40px;
+    width: 130px;
+	height: 40px;
+	background-color:buttonface;
+	border:none;
+}
+section {
+	height:auto;
+ 	min-height:calc(100vh - 270px);
+ 	overflow:auto;
+}
+
+section .section_inner {
+	height:auto;
+ 	overflow:auto;
+ 	padding:0 140px;
+}
+
+.clup_list {
+	height:600px;
+}
+.clup_list li {
+	float:left;
+	width:200px;
+	height:300px;
+	margin:25px;
+}
+.clup_list li a {
+	display:block;
+	width:100%;
+	height:100%;
+	padding:10px;
+}
+.clup_list li a img {
+	width:180px;
+	height:180px;
+	object-fit:contain;
+}
+.clup_list li a span {
+	display:block;
+}

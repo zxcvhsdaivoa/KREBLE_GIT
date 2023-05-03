@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>KREBLE 클럽</title>
 	<link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
+	<link rel="stylesheet" type="text/css" href="css/clup_style.css">
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="js/Header_Footer_Aside_baseform.js"></script>
@@ -27,12 +28,12 @@
 			<%
 			if(cll!=null){
 			%>
-			<ul>
+			<ul class="clup_list">
 				<%
 				for(int i=0; i<cll.size(); i++){
 				%>
 				<li>
-					<a>
+					<a href="clupPage.cl?clup_no=<%=cll.get(i).getClup_no()%>">
 					<%
 					if(cll.get(i).getClup_logo()!=null&&!cll.get(i).getClup_logo().equals("null"))
 					{
@@ -42,9 +43,9 @@
 						out.println("<img src='image/img_logo.png' class='no_img'>");
 					}
 					%>
-						<span class="clup_name"><%=cll.get(i).getClup_name() %></span>
-						<span class="clup_member_count"><%=ud.select_clup_member_count(cll.get(i).getClup_no())%></span>
-						<span class="clup_admin"><%=cll.get(i).getClup_user() %></span>
+						<span class="clup_name">클럽 명 : <%=cll.get(i).getClup_name() %></span>
+						<span class="clup_admin">클럽 장 : <%=cll.get(i).getClup_user() %></span>
+						<span class="clup_member_count">총 인원수 : <%=ud.select_clup_member_count(cll.get(i).getClup_no())%></span>
 					</a>
 				</li>
 				<%
@@ -54,9 +55,11 @@
 			<%
 			}
 			%>
+			
+			
 
 
-
+			<a href="clupMake.cl" class="btn make_clup">클럽 만들기</a>
 		</div>
 	</section>
 <jsp:include page="Footer_baseform.jsp"/>

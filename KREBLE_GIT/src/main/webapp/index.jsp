@@ -32,6 +32,7 @@
 <jsp:useBean id="comu" class="use_data.Db_method_commu" />
 <jsp:useBean id="player" class="use_data.Db_method_player" />
 <jsp:useBean id="shop" class="use_data.Db_method_shop" />
+<jsp:useBean id="ect" class="use_data.Db_method_ECT" />
 <%@ page import="use_data.CommunityData"%>
 <%@ page import="use_data.Player_Info"%>
 <%@ page import="use_data.Director_Info"%>
@@ -174,7 +175,7 @@
 	    		<%
 	    		Shop_prd best_prd = shop.prd_re_best();
 	    		ArrayList<Shop_prd> re_list = shop.shop_prde_reply(best_prd.getPrd_no());
-	    		String imglink=shop.img_link(best_prd.getPrd_no());
+	    		String imglink=ect.img_link(best_prd.getPrd_no());
 	    		%>
 	    		<h4>BEST평점 제품</h4>
 	    		
@@ -219,7 +220,7 @@
 	    		ArrayList<Shop_prd> top4 = shop.prd_like_top4();
 	    		for(int i=0; i<top4.size(); i++){
 	    			String aa=top4.get(i).getPrd_no();
-	    			String impath = shop.img_link(aa);
+	    			String impath = ect.img_link(aa);
 					%>
 	    			<li>
 	    			<a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=1">
