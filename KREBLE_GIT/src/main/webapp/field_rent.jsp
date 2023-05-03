@@ -13,16 +13,16 @@
 	Rent_info rent_info=(Rent_info)request.getAttribute("rent_info");
 %>
 <%
-String star_list="false";
-ArrayList<KreblechoiData> cate_list= new ArrayList<KreblechoiData>();
-if(request.getAttribute("cate_list")!=null){
-	cate_list = (ArrayList<KreblechoiData>)request.getAttribute("cate_list");
-	star_list="true";
-}
-String loca="no";
-if(request.getParameter("location")!=null && request.getParameter("location")!="" && !request.getParameter("location").equals("null")){
-	loca=request.getParameter("location");
-}
+	String star_list="false";
+	ArrayList<KreblechoiData> cate_list= new ArrayList<KreblechoiData>();
+	if(request.getAttribute("cate_list")!=null){
+		cate_list = (ArrayList<KreblechoiData>)request.getAttribute("cate_list");
+		star_list="true";
+	}
+	String loca="no";
+	if(request.getParameter("location")!=null && request.getParameter("location")!="" && !request.getParameter("location").equals("null")){
+		loca=request.getParameter("location");
+	}
 %>
 <title>구장 예약</title>
 <link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
@@ -84,18 +84,19 @@ if(request.getParameter("location")!=null && request.getParameter("location")!="
 				</div>
 				
 				<div class="box_inner">
-				  <div class="date_selc">
-				    <select class="month_selc" onchange="showCalendar(this.value)">
-				      <option value="">날짜를 선택해주세요</option>
-				      <option value="4">2023년 04월</option>
-				      <option value="5">2023년 05월</option>
-				      <option value="6">2023년 06월</option>
-				      <option value="7">2023년 07월</option>
-				    </select>
-				  </div>
+					<div class="date_selc">
+						<select class="month_selc" onchange="showCalendar(this.value)">
+							<option value="">날짜를 선택해주세요</option>
+							<option value="4">2023년 04월</option>
+							<option value="5">2023년 05월</option>
+							<option value="6">2023년 06월</option>
+							<option value="7">2023년 07월</option>
+						</select>
+					</div>
 				
-				  <div class="calendar" id="calendar">
-				  </div>
+					<div class="calendar" id="calendar">
+					
+					</div>
 				</div>
 				
 <!-- 					<div class="calendar"> js를 이용해서 달력 출력하기 전 수작업 ver --> 

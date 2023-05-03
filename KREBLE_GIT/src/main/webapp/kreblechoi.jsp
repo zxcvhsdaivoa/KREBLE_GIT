@@ -51,15 +51,16 @@
 					</div>
 					<div class="stadium_list">
 						<span>자주가는 구장</span>
-						<span id="plusbu"><a href="#"></a></span>
-						<span id="minusbu"><a href="#"></a></span>
+						
+						
 						<div class="favorite_stadium">
 							<ul>
 								<li class="default"><a href="#">구장1</a></li>
 								<li class="default"><a href="#">구장2</a></li>
 								<li class="default"><a href="#">구장3</a></li>
 								<li class="default"><a href="#">구장4</a></li>
-								<li id="savebtn">등록</li>
+								<li id="savebtn"><span id="plusbu"><a href="#"></a></span></li>
+								<li><span id="minusbu"><a href="#"></a></span></li>
 							</ul>
 						</div>
 						<ul class="local_stadium">

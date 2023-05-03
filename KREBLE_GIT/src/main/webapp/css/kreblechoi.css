@@ -94,8 +94,8 @@ section .section_inner {
     height:450px;
     padding-top: 30px;
     background: url("../image/rent_stardium/favorite_bg.gif") no-repeat center/cover;
-	border-radius: 1%;
-	background-size: 100% 450px;
+	border-radius: 7%;
+	background-size: 100% 400px;
 }
 .stadium_list .favorite_stadium {
     position:relative;
@@ -103,26 +103,27 @@ section .section_inner {
     height:80px;
     font-size: 13px;
     font-family: 'IBMPlexSansKR-Regular';
-   	margin-top: 45px;
+   	margin-top: 30px;
    	font-weight: bold;
 }
 .stadium_list > span{
     display:inline-block;
     height:30px;
-    line-height: 50px;
+    line-height: 89px;
     color:#fff;
     padding-left: 55px;
-    font-size: 25px;
+    font-size: 22px;
     font-family: 'IBMPlexSansKR-Regular';
     font-weight:600;
 }
 .stadium_list .favorite_stadium ul{
     position: absolute;
     top: 0;
-    left: 50%;
+    left: 43%;
     transform: translateX(-45%);
     width: 100%;
     height: 60px;
+    text-align: center;
 }
 .stadium_list .favorite_stadium ul li{
     margin: 0 auto;
@@ -139,19 +140,14 @@ section .section_inner {
     color:#5586eb;
 }
 #plusbu {
-    position: absolute;
-    top: 42px;
-    right: 958px;
+    
     background:url(../image/plus_bu.png) no-repeat center/contain;
-    background-size: 35px;
+    background-size: 30px;
 }
  #minusbu {
-    position: absolute;
-    top: 43px;
-    bottom: 370px;
-    left: 282px;
     background:url(../image/minus_bu.png) no-repeat center/contain;
-    background-size: 38px;
+    background-size: 32px;
+    padding-top: 6px;
 }
 
 #plusbu:hover {

@@ -24,9 +24,12 @@ $(function(){
 		 
 	 }) 
 });
-function box_show(){ // 눌렀을때 정보 보이기
+	function box_show(){ // 눌렀을때 정보 보이기
 		$(".box_inner2").show();
-}
+		
+	}
+	
+	
 	function showCalendar(month) {
 		  var calendar = document.getElementById("calendar");
 		  var days = ["일", "월", "화", "수", "목", "금", "토"];
@@ -71,6 +74,23 @@ function box_show(){ // 눌렀을때 정보 보이기
 		  html += "</table>";
 		
 		  calendar.innerHTML = html;
+		  
+		  // 선택한 날짜 데이터베이스 인서트 테스트
+		  $(".day2 td").click(function() {
+		  var clickedDate = $(this).text().trim();
+		  alert(clickedDate);
+		  $.ajax({
+		    url: "Testinsert.jsp",
+		    type: "POST",
+		    data: {date: clickedDate},
+		    success: function(response) {
+		      console.log(response);
+		    },
+		    error: function() {
+		      console.log("Error");
+		    }
+		  });
+		});
 		  
 	}
 		

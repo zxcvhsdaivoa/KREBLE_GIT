@@ -4,7 +4,7 @@
 		auth="Container"
 		type="javax.sql.DataSource"
 		username="root"
-		password="knight"
+		password="tmd514107"
 		driverClassName="com.mysql.jdbc.Driver"
 		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
 		url="jdbc:mysql://localhost:3306/kreble?serverTimezone=UTC"
