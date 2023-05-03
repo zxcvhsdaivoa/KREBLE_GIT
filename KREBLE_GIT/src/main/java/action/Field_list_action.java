@@ -15,6 +15,9 @@ public class Field_list_action implements Action {
 		
 		KreblechoiData field_list=null;
 		String id=request.getParameter("field_id");
+		if(id==null) {
+			id="s_000";
+		}
 		Field_list_Service fieldlistService= new Field_list_Service();
 		
 		field_list = fieldlistService.getfield_list_check(id);

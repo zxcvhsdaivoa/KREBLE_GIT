@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
+import db.JdbcUtil;
 import use_data.Shop_prd;
 import use_data.UserData;
 import vo.SquadInfo;
@@ -32,27 +33,47 @@ public class User_Mypage {
 		this.con = con;
 	}
 	// 캐쉬충전
-		public int cashUp(String id) {
+		public int cashUp(int cash, String id) {
 			PreparedStatement pstmt = null;
-			ResultSet rs = null;
 			String sql = "";
 			int insertCount = 0;
 			try {
-					sql = "update user set prd_no =?, prd_name=?, ;";
+					sql = "UPDATE user SET user_cash = ? where user_id = ?;";
 					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, id);
-					rs = pstmt.executeQuery();
-				
+					pstmt.setInt(1, cash);
+					pstmt.setString(2, id);
+					insertCount = pstmt.executeUpdate();
+					
 				} catch (Exception ex) {
 					System.out.println(ex);
 				} finally {
-					close(rs);
 					close(pstmt);
+					JdbcUtil.commit(con);
 			}
-
 			return insertCount;
 
 		}
+	// userinfo 보유캐쉬 불러오기
+	public int havecash(String id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int havecash = 0;
+		try {
+			String sql = "select user_cash from user where user_id =?;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				havecash = rs.getInt("user_cash") + 1000000;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return havecash;
+	}
 	// 마이페이지 유저정보 불러오기(userinfo)
 	public String userinfo(String id, String select) {
 		String alud = "null";
@@ -77,6 +98,7 @@ public class User_Mypage {
 		} finally {
 			close(rs);
 			close(pstmt);
+			
 		}
 		return alud;
 	}

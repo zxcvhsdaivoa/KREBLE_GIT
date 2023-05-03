@@ -77,7 +77,7 @@ String id = (String) session.getAttribute("ID");
 					</tr>
 					<tr>
 						<td class = "no1_td2"><%=sqs%>개</td>
-						<td class = "no1_td3">@@개</td>
+						<td class = "no1_td3"> - 개</td>
 						<td class = "no1_td4"><%=lis%>개</td>
 						<td class = "no1_td5"><%=cas%>개</td>
 						<td class = "no1_td6"><input type="hidden" value="<%=id%>">
@@ -91,7 +91,7 @@ String id = (String) session.getAttribute("ID");
 		<article id="article_no2">
 			<div class = "f_div">
 				<h4> <%=user_al.getNick()%></h4>
-				<div> 프로필사진 </div>
+				<div><img alt="No Data" src="image/user_p_img/<%=id%>.jpg"></div>
 			</div>
 			<div class = "l_div"> 
 				<div class="commu_wrap wrap1">
@@ -118,7 +118,7 @@ String id = (String) session.getAttribute("ID");
 		</article>
 		
 		<!-- 경기장 렌트 -->
-		<article id="article_no3">
+		<article id="article_no3" class = "hide_only">
 			<div><!-- 관심품목 라벨 -->
 				<h4><%=user_al.getNick()%>님의 경기장 대여 리스트</h4>
 			</div>

@@ -23,7 +23,8 @@ public class User_my_page_service {
 		int success = 0;
 		User_Mypage mpage = User_Mypage.getInstance();
 		mpage.setConnection(con);
-		mpage.cashUp(id);
+		int cash = mpage.havecash(id);
+		success = mpage.cashUp(cash, id);
 		return success;
 	}
 	//유저정보 가져오기

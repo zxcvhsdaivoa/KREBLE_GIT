@@ -97,6 +97,10 @@ td{
   	outline: none;
 }
 
+#article_no1 td > input[type=button]:hover{
+  	color: #000;
+	cursor: pointer;
+}
 
 #article_no1 .no1_td3, #article_no1 .no1_td5{
     font-family: 'TheJamsil5Bold';
@@ -126,6 +130,18 @@ td{
 	width: 495px;
 	height: 580px;
 	float: left;
+}
+
+#article_no2 > .f_div > div{
+	max-width: 495px;
+	max-height: 580px;
+	overflow: hidden;
+}
+
+#article_no2 > .f_div > div> img {
+	width:100%;
+	object-fit:contain;
+	object-position:bottom;
 }
 
 #article_no2 > .l_div{
@@ -292,4 +308,31 @@ td{
 	width: 990px;
 	height: 100px;
 	margin: 0 auto;
+}
+
+#article_no6 > div{
+	display: flex;
+	justify-content: center;
+}
+
+
+#article_no6 input[type="button"] {
+	margin: 0 20px;
+	width: 150px;
+	height: 50px;
+	background-color: #061382;
+	border: none;
+	border-radius: 4px;
+	color: #FFFFFF;
+	font-size: 16px;
+	padding: 8px 16px;
+}
+
+#article_no6 input[type="button"]:hover {
+	background-color: #3333CC;
+	cursor: pointer;
+}
+
+.hide_only{
+	display: none;
 }

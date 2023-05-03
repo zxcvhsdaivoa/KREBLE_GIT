@@ -5,6 +5,9 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
 
 import dao.SquadDAO;
 import svc.User_my_page_service;
@@ -17,7 +20,9 @@ import vo.field_save_Data;
 public class User_cashupd_action implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = (String) request.getSession().getAttribute("ID");
+		HttpSession session = request.getSession();
+		
+		String id = (String) session.getAttribute("ID");
 		User_my_page_service aa = new User_my_page_service();
 		int success = aa.cashUpdate(id);
 		PrintWriter out = response.getWriter();
@@ -26,7 +31,6 @@ public class User_cashupd_action implements Action {
 		}else {
 			out.println("false");
 		}
-		
 		
 		return null;
 	}
