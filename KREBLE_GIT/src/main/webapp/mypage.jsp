@@ -95,7 +95,9 @@ String id = (String) session.getAttribute("ID");
 			</div>
 			<div class = "l_div"> 
 				<div class="commu_wrap wrap1">
-				<h4>베스트 스쿼드</h4>
+				<h4>베스트 스쿼드
+				<a href="squadList.sq"><input type="button" value="바로가기" class="p_right"></a>
+				</h4>
     			<div class="squad_wrap">
     				<p class="squad_name">스쿼드 이름 : <%=squad_al.getSquad_name()%></p>
 					<ul>
@@ -130,7 +132,9 @@ String id = (String) session.getAttribute("ID");
 		<!-- 관심상품리스트 -->
 		<article id="article_no4">
 			<div><!-- 관심품목 라벨 -->
-				<h4><%=user_al.getNick()%>님의 관심상품</h4>
+				<h4><%=user_al.getNick()%>님의 관심상품
+				<a href="shop_list_action.sp"><input type="button" value="바로가기" class="p_right"></a>
+				</h4>
 			</div>
 			<div class="center_only"><!-- 관심품목 리스트 -->
 				<table>
@@ -166,7 +170,9 @@ String id = (String) session.getAttribute("ID");
 		<!-- 장바구니리스트 -->
 		<article id="article_no5">
 			<div><!-- 장바구니 라벨 -->
-				<h4><%=user_al.getNick()%>님의 장바구니</h4>
+				<h4><%=user_al.getNick()%>님의 장바구니
+				<a href="shop_back_page.sp"><input type="button" value="바로가기" class="p_right"></a>
+				</h4>
 			</div>
 			<div class="center_only"><!-- 장바구니 리스트 -->
 				<table>

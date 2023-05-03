@@ -85,6 +85,31 @@ td{
   	color: #fff;
 }
 
+#article_no1 .no1_td2:hover{
+	cursor: pointer;
+	color: #000;
+}
+
+#article_no1 .no1_td3:hover{
+	cursor: pointer;
+	color: #000;
+}
+
+#article_no1 .no1_td4:hover{
+	cursor: pointer;
+	color: #000;
+}
+
+#article_no1 .no1_td5:hover{
+	cursor: pointer;
+	color: #000;
+}
+
+#article_no1 td > input[type=button]:hover{
+	cursor: pointer;
+	color: #000;
+}
+
 #article_no1 td > input[type=button]{
     font-family: 'TheJamsil5Bold';
     font-weight: 700;
@@ -95,11 +120,6 @@ td{
   	color: #fff;
   	border: none;
   	outline: none;
-}
-
-#article_no1 td > input[type=button]:hover{
-  	color: #000;
-	cursor: pointer;
 }
 
 #article_no1 .no1_td3, #article_no1 .no1_td5{
@@ -156,6 +176,7 @@ td{
 	width:460px;
 }
 #article_no2 h4 {
+	position: relative;
 	display:block;
 	height:40px;
 	line-height:40px;
@@ -228,6 +249,7 @@ td{
 
 
 #article_no3 > div > h4{
+	position: relative;
 	display:block;
 	height:40px;
 	line-height:40px;
@@ -246,6 +268,7 @@ td{
 }
 
 #article_no4 h4{
+	position: relative;
 	display:block;
 	height:40px;
 	line-height:40px;
@@ -276,6 +299,7 @@ td{
 }
 
 #article_no5 h4{
+	position: relative;
 	display:block;
 	height:40px;
 	line-height:40px;
@@ -335,4 +359,16 @@ td{
 
 .hide_only{
 	display: none;
+}
+.p_right{
+	position: absolute;
+	right : 0;
+	background-color:#ddd;
+	width : 100px;
+	height: 100%;
+	border: none;
+}
+.p_right:hover{
+	cursor: pointer;
+	background-color: #EEE;
 }

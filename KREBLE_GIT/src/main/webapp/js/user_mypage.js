@@ -43,6 +43,6 @@ $(function(){
 	})
 	//장바구니로 이동
 	$('.no1_td5').click(function(){
-		location.href = "shop_back_page.sp#";
+		location.href = "shop_back_page.sp";
 	})
 })
