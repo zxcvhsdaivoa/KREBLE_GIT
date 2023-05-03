@@ -18,7 +18,15 @@ public class User_my_page_service {
 	public User_my_page_service() {
 		con = getConnection();
 	}
-
+	//캐쉬 충전
+	public int cashUpdate(String id) throws Exception {
+		int success = 0;
+		User_Mypage mpage = User_Mypage.getInstance();
+		mpage.setConnection(con);
+		mpage.cashUp(id);
+		return success;
+	}
+	//유저정보 가져오기
 	public UserData getUserInfo(String id) throws Exception {
 		UserData uu = new UserData();
 		User_Mypage mpage = User_Mypage.getInstance();
@@ -32,7 +40,7 @@ public class User_my_page_service {
 
 		return uu;
 	}
-
+	//스쿼드 정보 가져오기
 	public SquadInfo getSquadInfo(String id) throws Exception {
 		SquadInfo si = new SquadInfo();
 		User_Mypage mpage = User_Mypage.getInstance();
@@ -41,7 +49,7 @@ public class User_my_page_service {
 		si = mpage.squadinfo(id);
 		return si;
 	}
-
+	//스쿼드 사이즈 가져오기
 	public String sqsize(String id) throws Exception {
 		String asd = "";
 		SquadDAO aa = SquadDAO.getInstance();
@@ -51,6 +59,7 @@ public class User_my_page_service {
 
 		return asd;
 	}
+	//관심상품 사이즈 가져오기
 	public String lisize(String id) throws Exception {
 		String asd = "";
 		Shop_DAO aa = Shop_DAO.getInstance();
@@ -60,6 +69,7 @@ public class User_my_page_service {
 
 		return asd;
 	}
+	//장바구니 사이즈 가져오기
 	public String casize(String id) throws Exception {
 		String asd = "";
 		Shop_DAO aa = Shop_DAO.getInstance();
@@ -69,7 +79,8 @@ public class User_my_page_service {
 
 		return asd;
 	}
-
+	
+	//필드 정보 가져오기
 	public ArrayList<field_save_Data> getFieldInfo(String id) throws Exception {
 		ArrayList<field_save_Data> fs = new ArrayList<field_save_Data>();
 		User_Mypage mpage = User_Mypage.getInstance();
@@ -77,7 +88,7 @@ public class User_my_page_service {
 
 		return fs;
 	}
-
+	//장바구니 가져오기
 	public ArrayList<Shop_prd> getCartInfo(String id) throws Exception {
 		ArrayList<Shop_prd> sp = new ArrayList<Shop_prd>();
 		User_Mypage mpage = User_Mypage.getInstance();
@@ -90,7 +101,7 @@ public class User_my_page_service {
 		
 		return sp;
 	}
-
+	//관심상품 가져오기
 	public ArrayList<Shop_prd> getLikeInfo(String id) throws Exception {
 		ArrayList<Shop_prd> sp = new ArrayList<Shop_prd>();
 		User_Mypage mpage = User_Mypage.getInstance();

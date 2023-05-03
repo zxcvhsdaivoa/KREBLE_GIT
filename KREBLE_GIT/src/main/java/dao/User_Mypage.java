@@ -31,7 +31,28 @@ public class User_Mypage {
 	public void setConnection(Connection con) {
 		this.con = con;
 	}
+	// 캐쉬충전
+		public int cashUp(String id) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "";
+			int insertCount = 0;
+			try {
+					sql = "update user set prd_no =?, prd_name=?, ;";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, id);
+					rs = pstmt.executeQuery();
+				
+				} catch (Exception ex) {
+					System.out.println(ex);
+				} finally {
+					close(rs);
+					close(pstmt);
+			}
 
+			return insertCount;
+
+		}
 	// 마이페이지 유저정보 불러오기(userinfo)
 	public String userinfo(String id, String select) {
 		String alud = "null";
@@ -122,13 +143,13 @@ public class User_Mypage {
 		ResultSet rs = null;
 		String sql = "";
 		try {
-			sql = "select p_no from shop_prd_like where u_id = ? limit 3;";
+			sql = "select sb_prd from shop_back where sb_buy_id = ? limit 3;";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			int i = 0;
 			while (rs.next()) {
-				aa[i] = rs.getString("p_no");
+				aa[i] = rs.getString("sb_prd");
 				i++;
 			}
 			if (i < 3) {
@@ -152,14 +173,14 @@ public class User_Mypage {
 		ResultSet rs = null;
 		String sql = "";
 		try {
-			sql = "select sb_prd from shop_back where sb_buy_id = ? limit 3;";
+			sql = "select p_no from shop_prd_like where u_id = ? limit 3;";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 
 			int i = 0;
 			while (rs.next()) {
-				aa[i] = rs.getString("sb_prd");
+				aa[i] = rs.getString("p_no");
 				i++;
 			}
 			if (i < 3) {

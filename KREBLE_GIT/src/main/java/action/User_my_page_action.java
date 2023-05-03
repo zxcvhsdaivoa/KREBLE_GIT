@@ -30,12 +30,14 @@ public class User_my_page_action implements Action {
 		user_al = mp.getUserInfo(id);
 		squad_al = mp.getSquadInfo(id);
 		pcart_al = mp.getCartInfo(id);
+		System.out.println(pcart_al.size());
 //		field_al = mp.getFieldInfo(id);
 		plike_al = mp.getLikeInfo(id);
+		System.out.println(plike_al.size());
 //		request.setAttribute("field_al", field_al);
 		request.setAttribute("user_al", user_al);
-		request.setAttribute("plike_al", plike_al);
 		request.setAttribute("pcart_al", pcart_al);
+		request.setAttribute("plike_al", plike_al);
 		request.setAttribute("squad_al", squad_al);
 		request.setAttribute("sqs", sqsize);
 		request.setAttribute("cas", cart_si);

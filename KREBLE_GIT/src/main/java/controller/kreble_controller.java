@@ -25,6 +25,7 @@ import action.Sp_bak_delete_action;
 import action.Sp_bak_form_action;
 import action.Sp_bak_insert_action;
 import action.Sp_re_insert_action;
+import action.User_cashupd_action;
 import action.User_my_page_action;
 import svc.Prd_re_delete_service;
 import vo.ActionForward;
@@ -51,9 +52,9 @@ public class kreble_controller extends javax.servlet.http.HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 여분
-		if (command.equals("/asdfasdf.kb")) {
-			action = new Shop_detail_action();
+		// 캐시충전
+		if (command.equals("/cashupd.kb")) {
+			action = new User_cashupd_action();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

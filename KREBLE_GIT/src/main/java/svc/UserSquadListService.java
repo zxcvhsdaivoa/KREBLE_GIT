@@ -15,6 +15,7 @@ public class UserSquadListService {
 		SquadDAO commuDAO = SquadDAO.getInstance();
 		commuDAO.setConnection(con);
 		squadList = commuDAO.selectUserSquad(user_id);
+		squadList.get(0).getUser_id();
 		close(con);
 		return squadList;
 

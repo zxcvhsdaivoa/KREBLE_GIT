@@ -39,6 +39,7 @@ String id = (String) session.getAttribute("ID");
 	String sqs = (String) request.getAttribute("sqs");
 	String cas = (String) request.getAttribute("cas");
 	String lis = (String) request.getAttribute("lis");
+	
 	%>
 	
 <title>MyPage</title>
@@ -51,51 +52,52 @@ String id = (String) session.getAttribute("ID");
 	<!-- section -->
 	<section>
 	<div id="center_margin"><!-- 중앙정렬용 div -->
+		<article id="article_no0">
+			<H1> <%=user_al.getNick()%>님의 활동 내역</H1>
+		</article>
 		<!-- 활동현황/보유캐쉬 -->
 		<article id="article_no1">
 			<div>
-				<ul>
-					<li>
-						<span>My</span><br>
-						<span>Kreble</span>
-					</li>
-					<li>
-						<span>MySquad 게시글</span><br>
-						<span><%=sqs%>개</span>
-					</li>
-					<li>
-						<span>경기장 대여</span><br>
-						<span>@@개</span>
-					</li>
-					<li>
-						<span>관심 품목</span><br>
-						<span><%=lis%>개</span>
-					</li>
-					<li>
-						<span>장바구니</span><br>
-						<span><%=cas%>개</span>
-					</li>
-					<li>
-						<span>보유 캐쉬 : &#x20A9;<%=uc%></span><br>
-						<span>캐쉬충전하기</span>
-					</li>
-				</ul>
+				<table>
+					<tr>
+						<th class = "no1_td1"><%=id%></th>
+						<th class = "no1_td2">MySquad</th>
+						<th class = "no1_td3">경기장 임대</th>
+						<th class = "no1_td4">관심</th>
+						<th class = "no1_td5">장바구니</th>
+						<th class = "no1_td6">보유캐쉬</th>
+					</tr>
+					<tr>
+						<td class = "no1_td1" rowspan="2">My<br>KEABLE</td>
+						<td class = "no1_td2">게시글</td>
+						<td class = "no1_td3">현황</td>
+						<td class = "no1_td4">품목</td>
+						<td class = "no1_td5">등록</td>
+						<td class = "no1_td6">&#x20A9;<%=uc%></td>
+					</tr>
+					<tr>
+						<td class = "no1_td2"><%=sqs%>개</td>
+						<td class = "no1_td3">@@개</td>
+						<td class = "no1_td4"><%=lis%>개</td>
+						<td class = "no1_td5"><%=cas%>개</td>
+						<td class = "no1_td6"><input type="hidden" value="<%=id%>">
+						<input type="button" name="cash_re" value = "캐쉬충전" class="cash_re"></td>
+					</tr>
+				</table>
 			</div>
 		</article>
 		
 		<!-- 프로필사진 / 닉네임 / 마이스쿼드 -->
 		<article id="article_no2">
 			<div class = "f_div">
-				<div> 프로필사진 / 사진수정 </div>
-				<div> 닉네임 / 닉네임수정수정 </div>
+				<h4> <%=user_al.getNick()%></h4>
+				<div> 프로필사진 </div>
 			</div>
 			<div class = "l_div"> 
-				<div> ID 님 환영합니다. </div>
 				<div class="commu_wrap wrap1">
 				<h4>베스트 스쿼드</h4>
     			<div class="squad_wrap">
     				<p class="squad_name">스쿼드 이름 : <%=squad_al.getSquad_name()%></p>
-    				<p class="squad_make">작성자 : <%= id %></p>
 					<ul>
 						<li class="director"><span class="player_img"><img src="image/player_img/<%=squad_al.getDirector()%>.jpg"></span><p class="name"><%=squad_al.getDirector()%></p></li>
 						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer1() %>.jpg"></span><p class="name"><%=squad_al.getPlayer1() %></p></li>
@@ -118,7 +120,7 @@ String id = (String) session.getAttribute("ID");
 		<!-- 경기장 렌트 -->
 		<article id="article_no3">
 			<div><!-- 관심품목 라벨 -->
-				<h4><%=id%>님의 경기장 대여 리스트</h4>
+				<h4><%=user_al.getNick()%>님의 경기장 대여 리스트</h4>
 			</div>
 			<div>
 				<span>경기장 대여 리스트</span>
@@ -128,9 +130,9 @@ String id = (String) session.getAttribute("ID");
 		<!-- 관심상품리스트 -->
 		<article id="article_no4">
 			<div><!-- 관심품목 라벨 -->
-				<h4><%=id%>님의 관심상품</h4>
+				<h4><%=user_al.getNick()%>님의 관심상품</h4>
 			</div>
-			<div><!-- 관심품목 리스트 -->
+			<div class="center_only"><!-- 관심품목 리스트 -->
 				<table>
 					<tr>
 						<th>상품 이미지</th>
@@ -138,6 +140,7 @@ String id = (String) session.getAttribute("ID");
 						<th>상품 가격</th>
 						<th>상품 색상</th>
 						<th>상품 평점</th>
+						<th>재고량</th>
 					</tr>
 				<%
 				for(int l = 0; l < plike_al.size(); l++){
@@ -149,6 +152,7 @@ String id = (String) session.getAttribute("ID");
 						<td><a href ="#"><%=plike_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_color()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_re_sc()%></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_qant()%></a></td>
 					</tr>	
 				<%	
 				}	
@@ -162,9 +166,9 @@ String id = (String) session.getAttribute("ID");
 		<!-- 장바구니리스트 -->
 		<article id="article_no5">
 			<div><!-- 장바구니 라벨 -->
-				<h4><%=id%>님의 장바구니</h4>
+				<h4><%=user_al.getNick()%>님의 장바구니</h4>
 			</div>
-			<div><!-- 장바구니 리스트 -->
+			<div class="center_only"><!-- 장바구니 리스트 -->
 				<table>
 					<tr>
 						<th>상품 이미지</th>
@@ -172,9 +176,10 @@ String id = (String) session.getAttribute("ID");
 						<th>상품 가격</th>
 						<th>상품 색상</th>
 						<th>상품 평점</th>
+						<th>재고량</th>
 					</tr>
 				<%
-				for(int l = 0; l < plike_al.size(); l++){
+				for(int l = 0; l < pcart_al.size(); l++){
 					String impt = ect.img_link(pcart_al.get(l).getPrd_no());
 				%>
 					<tr>
@@ -183,6 +188,7 @@ String id = (String) session.getAttribute("ID");
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_color()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_re_sc()%></a></td>
+						<td><a href ="#"><%=pcart_al.get(l).getPrd_qant()%></a></td>
 					</tr>	
 				<%	
 				}	
@@ -192,7 +198,10 @@ String id = (String) session.getAttribute("ID");
 		</article>
 		
 		<article id="article_no6">
-			프로필 수정 버튼 / 탈퇴버튼
+			<div>
+				<input type="button" name= "p_update" value="회원정보수정" class = "p_update">
+				<input type="button" name= "p_delete" value="회원탈퇴" class = "p_delete">
+			</div>
 		</article>
 	</div>
 	</section>

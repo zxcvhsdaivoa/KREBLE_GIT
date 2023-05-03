@@ -18,8 +18,7 @@ public class UserSquadListAction implements Action {
 		HttpSession session = request.getSession();
 		String user_id = (String) session.getAttribute("ID");
 		int squad_no = 0;
-		if (request.getParameter("no") != null && request.getParameter("no") != ""
-				&& request.getParameter("no") != "null") {
+		if (request.getParameter("no") != null && request.getParameter("no") != ""&& request.getParameter("no") != "null") {
 			squad_no = Integer.parseInt(request.getParameter("no"));
 		}
 		UserSquadListService userSquadListService = new UserSquadListService();
