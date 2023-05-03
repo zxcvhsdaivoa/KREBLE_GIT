@@ -61,25 +61,21 @@ String id = (String) session.getAttribute("ID");
 				<table>
 					<tr>
 						<th class = "no1_td1"><%=id%></th>
-						<th class = "no1_td2">MySquad</th>
-						<th class = "no1_td3">경기장 임대</th>
-						<th class = "no1_td4">관심</th>
-						<th class = "no1_td5">장바구니</th>
+						<th class = "no1_td2 onhover" rowspan="2">MySquad 게시글</th>
+						<th class = "no1_td3 onhover" rowspan="2">경기장 임대 현황</th>
+						<th class = "no1_td4 onhover" rowspan="2">관심 품목</th>
+						<th class = "no1_td5 onhover" rowspan="2">장바구니 등록</th>
 						<th class = "no1_td6">보유캐쉬</th>
 					</tr>
 					<tr>
 						<td class = "no1_td1" rowspan="2">My<br>KEABLE</td>
-						<td class = "no1_td2">게시글</td>
-						<td class = "no1_td3">현황</td>
-						<td class = "no1_td4">품목</td>
-						<td class = "no1_td5">등록</td>
 						<td class = "no1_td6">&#x20A9;<%=uc%></td>
 					</tr>
 					<tr>
-						<td class = "no1_td2"><%=sqs%>개</td>
-						<td class = "no1_td3"> - 개</td>
-						<td class = "no1_td4"><%=lis%>개</td>
-						<td class = "no1_td5"><%=cas%>개</td>
+						<td class = "no1_td2 onhover"><%=sqs%>개</td>
+						<td class = "no1_td3 onhover"> - 개</td>
+						<td class = "no1_td4 onhover"><%=lis%>개</td>
+						<td class = "no1_td5 onhover"><%=cas%>개</td>
 						<td class = "no1_td6"><input type="hidden" value="<%=id%>">
 						<input type="button" name="cash_re" value = "캐쉬충전" class="cash_re"></td>
 					</tr>

@@ -59,6 +59,32 @@ public class Clup_DAO {
 	}
 	
 	
+	public ClupInfo select_clup(int clup_no) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ClupInfo cl= new ClupInfo();
+		try{
+			pstmt = con.prepareStatement("select * from clup_room where clup_no="+clup_no+";");
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				cl.setClup_no((rs.getInt("clup_no")));
+				cl.setClup_name((rs.getString("clup_name")));
+				cl.setClup_user(rs.getString("clup_admin"));
+				cl.setClup_howjoin((rs.getString("clup_howjoin")));
+				cl.setClup_pw((rs.getString("clup_pw")));
+				cl.setClup_makedate((rs.getString("clup_makedate")));
+				cl.setClup_logo((rs.getString("clup_logo")));
+			}
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return cl;
+	}
+	
+	
 	public int search_clup_member(int no, String id) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

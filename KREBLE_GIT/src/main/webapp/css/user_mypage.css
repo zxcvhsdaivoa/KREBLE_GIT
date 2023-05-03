@@ -64,7 +64,6 @@ table{
 }
 
 #article_no1 table th{
-	vertical-align: bottom;
 	height: 30px;
 }
 
@@ -84,23 +83,15 @@ td{
     background-color: #13294B;
   	color: #fff;
 }
-
-#article_no1 .no1_td2:hover{
-	cursor: pointer;
-	color: #000;
+#article_no1 th.no1_td1 {
+	vertical-align: bottom;
 }
 
-#article_no1 .no1_td3:hover{
-	cursor: pointer;
-	color: #000;
+#article_no1 td.onhover {
+	vertical-align: top;
 }
 
-#article_no1 .no1_td4:hover{
-	cursor: pointer;
-	color: #000;
-}
-
-#article_no1 .no1_td5:hover{
+#article_no1 .onhover:hover{
 	cursor: pointer;
 	color: #000;
 }

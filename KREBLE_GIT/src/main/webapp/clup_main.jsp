@@ -31,6 +31,16 @@
 			<ul class="clup_list">
 				<%
 				for(int i=0; i<cll.size(); i++){
+					String howjoin = cll.get(i).getClup_howjoin();
+					if(howjoin.equals("free")){
+						howjoin="자유가입";
+					}else if (howjoin.equals("password")){
+						howjoin="비밀번호 입력";
+					}else if (howjoin.equals("invite")) {
+						howjoin="초대자만 가입";
+					}else if(howjoin.equals("request")){
+						howjoin="가입신청 수락시";
+					}
 				%>
 				<li>
 					<a href="clupPage.cl?clup_no=<%=cll.get(i).getClup_no()%>">
@@ -46,6 +56,7 @@
 						<span class="clup_name">클럽 명 : <%=cll.get(i).getClup_name() %></span>
 						<span class="clup_admin">클럽 장 : <%=cll.get(i).getClup_user() %></span>
 						<span class="clup_member_count">총 인원수 : <%=ud.select_clup_member_count(cll.get(i).getClup_no())%></span>
+						<span class="clup_how_join">가입 방식 : <%=howjoin %></span>
 					</a>
 				</li>
 				<%

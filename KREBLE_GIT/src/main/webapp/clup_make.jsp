@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>KREBLE 클럽</title>
 	<link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
+	<link rel="stylesheet" type="text/css" href="css/clup_style.css">
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="js/Header_Footer_Aside_baseform.js"></script>
@@ -13,11 +14,33 @@
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
 		<div class="section_inner">
-
-
-
-
-
+			<form name="clup_make" action="clupMake.cl" enctype="multipart/form-data" method="post">
+				<div class="clup_setting">
+					<label for="clup_name" id="clup_name_label">클럽명 : </label>
+					<input type="text" id="clup_name" name="clup_name">
+					<label for="clup_name" id="clup_howjoin_label">가입조건 : </label>
+					<select name="clup_howjoin" id="clup_howjoin">
+						<option value="free" selected>자유가입</option>
+						<option value="password">비밀번호 입력</option>
+						<option value="invite">기존멤버가 초대</option>
+						<option value="request">가입신청 수락시</option>
+					</select>
+					<input type="text" id="clup_pw" name="clup_pw" placeholder="가입조건 [비밀번호 입력] 선택시 필수 입력">
+					
+					<label for="disclose" id="clup_disclose_lable">클럽공개설정</label>
+					<select name="disclose" id="disclose">
+						<option value="1">공개</option>
+						<option value="0">비공개</option>
+					</select>
+				</div>
+				<div class="fileUpload">
+					<div class="thumbnail"></div>
+					<label for="fileUp" id="file_label">이미지 업로드</label>
+					<input type="file" name="fileUp" id="fileUp" onchange="setThumbnail(event);">
+				</div>
+				<span class="btn btn_back"><a href="#" onclick="back()">취소</a></span>
+				<input type="submit" class="btn btn_make" value="클럽 만들기">
+			</form>
 		</div>
 	</section>
 <jsp:include page="Footer_baseform.jsp"/>
