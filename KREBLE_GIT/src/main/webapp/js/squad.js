@@ -138,16 +138,15 @@ $(function(){
 				alert('비어있는 칸이 없도록 선택해주세요');
 				return false;
 			}
-			else if(i==sq_mem_ko.length-1) {
-				for(var j=1; j<sq_mem_ko.length; j++){
-					var ckj=sq_mem_ko.item(j).innerText;
+			else if(i==sq_mem_eng.length-1) {
+				for(var j=1; j<sq_mem_eng.length; j++){
+					var ckj=sq_mem_eng.item(j).innerText;
 					for(var k=0; k<j; k++) {
-						var ckk=sq_mem_ko.item(k).innerText;
-						if(ckj == ckk) { 
-							alert('선수가 중복되지 않게 선택해주세요\n현재 중복된 선수 : '+ckj)
+						var ckk=sq_mem_eng.item(k).innerText;
+						if(j!=k && ckj == ckk) {
+							alert('선수가 중복되지 않게 선택해주세요\n현재 중복된 선수 : '+sq_mem_ko.item(j).innerText)
 							return false;
-				        } else if(j==sq_mem.length-1 && k==j-1) {
-				            
+				        } else if(j==sq_mem_eng.length-1 && k==j-1) {
 				        }
 					}
 				}
