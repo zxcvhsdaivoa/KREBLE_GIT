@@ -53,78 +53,78 @@ section .section_inner {
 
 /* 클럽 생성페이지 */
 form {
-	width:800px;
+	width:900px;
 	height:400px;
 	max-height:499px;
 	margin:100px auto;
 }
 form .clup_setting {
-	width:570px;
+	width:670px;
 	height:100%;
-	padding:20px;
-	float:left;
+	padding:30px;
+	float:right;
+}
+form .line_box {
+	margin:10px 0 5px;
 }
 form .clup_setting input[type=text]{
-	display:block;
 	height:30px;
 	line-height: 30px;
 	padding-left:10px;
-	font-size:17px;
+	font-size:13px;
 }
 form .clup_setting label {
-	display:inline-block;
 	line-height:30px;
 	padding:0 14px;
 	min-width:100px;
 	max-width:200px;
-	font-size:17px;
+	font-size:13px;
 }
 form .clup_setting select {
 	height:30px;
 	line-height: 30px;
-	font-size:17px;
+	font-size:13px;
 	padding:0 10px;
 }
-form .clup_setting #clup_name_label {
-	float:left
-}
 form .clup_setting #clup_name {
-	float:left;
-	width:calc(100% - 100px);
-}
-form .clup_setting #clup_howjoin_label{
-	
-}
-form .clup_setting #clup_howjoin {
-	
+	width:calc(100% - 110px);
 }
 form .clup_setting #clup_pw {
-	
+	width:calc(100% - 280px);
 }
-
-
-form .clup_setting #clup_disclose_lable {
-	
-}
-form .clup_setting #disclose {
-	
+form .clup_setting #clup_include {
+	width:100%;
+	height:200px;
+	margin-top:10px;
+	resize:none;
+	font-family: sans-serif;
 }
 
 form .fileUpload {
-	float:right;
+	float:left;
 	position:relative;
 	width:230px;
-	height:330px;
-	margin-bottom:30px;
+	height:370px;
+	margin-top:30px;
 	padding:15px;
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
+form .fileUpload span {
+	display:block;
+	text-align:center;
+	height:30px;
+	line-height: 30px;
+}
 form .fileUpload .thumbnail {
-	width:auto;
 	overflow:hidden;
 	width:100%;
 	height:200px;
+}
+form .fileUpload .thumbnail img {
+	height:100%;
+	margin:0 auto;
+	object-fit:contain;
 }
 form .fileUpload label {
 	display:block;

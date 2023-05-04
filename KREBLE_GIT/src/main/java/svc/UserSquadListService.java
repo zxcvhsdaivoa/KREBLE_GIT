@@ -9,13 +9,11 @@ import vo.SquadInfo;
 public class UserSquadListService {
 
 	public ArrayList<SquadInfo> getArticleList(String user_id) throws Exception {
-
 		ArrayList<SquadInfo> squadList = null;
 		Connection con = getConnection();
 		SquadDAO commuDAO = SquadDAO.getInstance();
 		commuDAO.setConnection(con);
 		squadList = commuDAO.selectUserSquad(user_id);
-		squadList.get(0).getUser_id();
 		close(con);
 		return squadList;
 

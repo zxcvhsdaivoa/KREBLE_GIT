@@ -3,8 +3,8 @@ function setThumbnail(event) {
 
     reader.onload = function(event) {
       var thumbnail = document.querySelector("div.thumbnail")
-      thumbnail.innerHTML="<span class='thumb'><img></span>";
-      var thumb_img = document.querySelector("div.thumbnail .thumb img")
+      thumbnail.innerHTML="<img>";
+      var thumb_img = document.querySelector("div.thumbnail img")
       thumb_img.setAttribute("src", event.target.result);
     };
 

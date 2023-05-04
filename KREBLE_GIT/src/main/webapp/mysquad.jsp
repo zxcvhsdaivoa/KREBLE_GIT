@@ -184,7 +184,9 @@
 			
 			<%
 			ArrayList<SquadInfo> squadlist =null; 
-			squadlist = (ArrayList<SquadInfo>) request.getAttribute("squadList");
+			if(request.getAttribute("squadList")!=null && request.getAttribute("squadList")!=""){
+				squadlist = (ArrayList<SquadInfo>) request.getAttribute("squadList");
+			}
 			if(squadlist==null){
 				out.println("저장된 스쿼드가 없습니다");
 			}
