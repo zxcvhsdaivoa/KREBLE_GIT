@@ -59,6 +59,7 @@ public class SquadSaveProAction implements Action {
 		}
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
+		int go=0;
 		if(!isSuccess){
 			out.println("<script>");
 			out.println("alert('fail')");
@@ -69,9 +70,13 @@ public class SquadSaveProAction implements Action {
 			out.println("<script>");
 			out.println("alert('스쿼드가 성공적으로 저장되었습니다')");
 			out.println("</script>");
+			go=1;
+		}
+		if(go!=0) {
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("squad.sq");
+			
 		}
 
 		return forward;

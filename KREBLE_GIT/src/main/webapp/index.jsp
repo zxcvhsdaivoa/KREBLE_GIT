@@ -80,6 +80,7 @@
     		<%SquadInfo hot_squad= player.hotSquad(); %>
     			<h4>베스트 스쿼드</h4>
     			<div class="squad_wrap">
+    			<%if(!hot_squad.getUser_id().equals("nosquad")) {%>
     				<p class="squad_name">스쿼드 이름 : <%=hot_squad.getSquad_name() %></p>
     				<p class="squad_make">작성자 : <%=hot_squad.getUser_id() %></p>
 					<ul>
@@ -94,6 +95,9 @@
 						<li class="player"><span class="player_img"><img src="image/player_img/<%=hotsquad_player.get(i).getPlayer_name() %>.jpg"></span><p class="name"><%=hotsquad_player.get(i).getPlayer_ko_name() %></p></li>
 					<%} %>
 					</ul>
+				<%} else {%>
+				스쿼드가 존재하지 않습니다
+				<%} %>
 				</div>
     		</div>
     		<div class="commu_wrap wrap2">
@@ -103,6 +107,7 @@
     			CommunityData hot_free = comu.hot_commu("free");
     			%>
     				<span>자유게시판 화제글</span>
+    			<%if(!hot_free.getId().equals("nocommu")){ %>
     				<div class="board">
     					<div class="board_top">
     						<p class="title"><%=hot_free.getComu_title() %></p>
@@ -110,12 +115,16 @@
     					</div>
 						<textarea readonly><%=hot_free.getComu_write() %></textarea>
     				</div>
+    			<%}else{ %>
+    			게시글이 존재하지 않습니다
+    			<%} %>
     			</div>
     			<div class="hot_commu debate_hot">
     			<%
     			CommunityData hot_debate = comu.hot_commu("debate");
     			%>
     				<span>토론게시판 화제글</span>
+    			<%if(!hot_debate.getId().equals("nocommu")){ %>
     				<div class="board">
     					<div class="board_top">
     						<p class="title"><%=hot_debate.getComu_title() %></p>
@@ -123,12 +132,16 @@
     					</div>
 						<textarea readonly><%=hot_debate.getComu_write() %></textarea>
     				</div>
+    			<%}else{ %>
+    			게시글이 존재하지 않습니다
+    			<%} %>
     			</div>
     			<div class="hot_commu info_hot">
     			<%
     			CommunityData hot_info = comu.hot_commu("info");
     			%>
     				<span>정보게시판 화제글</span>
+    			<%if(!hot_info.getId().equals("nocommu")){ %>
     				<div class="board">
     					<div class="board_top">
     						<p class="title"><%=hot_info.getComu_title() %></p>
@@ -136,6 +149,9 @@
     					</div>
 						<textarea readonly><%=hot_info.getComu_write() %></textarea>
     				</div>
+    			<%}else{ %>
+    			게시글이 존재하지 않습니다
+    			<%} %>
     			</div>
     		</div>
     	</div>

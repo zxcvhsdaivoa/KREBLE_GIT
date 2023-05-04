@@ -172,8 +172,7 @@ public class Db_method_player extends Db_method_conn {
 		SquadInfo squad = new SquadInfo();
 		conn();
 		try {
-			ResultSet rs = stm
-					.executeQuery("select * from mysquad where view_count = (select max(view_count) from mysquad);");
+			ResultSet rs = stm.executeQuery("select * from mysquad where view_count = (select max(view_count) from mysquad);");
 			if (rs.next()) {
 				squad.setUser_id(rs.getString("user_id"));
 				squad.setSquad_num(rs.getInt("mysquad_no"));
@@ -190,6 +189,9 @@ public class Db_method_player extends Db_method_conn {
 				squad.setPlayer9(rs.getString("player9"));
 				squad.setPlayer10(rs.getString("player10"));
 				squad.setPlayer11(rs.getString("player11"));
+			}
+			if(!rs.next()) {
+				squad.setUser_id("nosquad");
 			}
 		} catch (Exception ex) {
 		} finally {
