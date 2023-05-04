@@ -160,14 +160,13 @@
     	<div class="content_inner">
     		<div class="title_box">
     			<h3>예약/대여</h3>
-    			<a href="#" class="link_button">구장대여 바로가기</a>
     		</div>
     		<div class="rent_wrap wrap1">
     			<span class="rent_wrap1_content">사용자님들의 잊고 싶지 않았던 구장!</span><br>
     			<span>진땀승부의 추억을 공유했던 그 때 그 장소</span>
     			<i></i>
     			<p class="rent_wrap1_content2">다양한 KREBLE에서 제공되는 서비스를 사용하실 수 있는 기회를 놓치지마세요.</p>
-    			<a href="kreblechoi.jsp" class="rent_wrap1_content3">바로가기</a>
+    			<a href="fieldInfo.choi?field_id=s_000" class="rent_wrap1_content3">바로가기</a>
     			<div class="back-bg"></div>
     		</div>
     		<div class="rent_wrap wrap2">
