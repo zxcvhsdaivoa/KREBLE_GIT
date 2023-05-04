@@ -190,7 +190,7 @@ public class Db_method_player extends Db_method_conn {
 				squad.setPlayer10(rs.getString("player10"));
 				squad.setPlayer11(rs.getString("player11"));
 			}
-			if(!rs.next()) {
+			else if(!rs.next()) {
 				squad.setUser_id("nosquad");
 			}
 		} catch (Exception ex) {

@@ -411,7 +411,7 @@ public class Db_method_commu extends Db_method_conn {
 				hot_commu.setComu_title(rs.getString("commu_title"));
 				hot_commu.setComu_write(rs.getString("commu_write"));
 			}
-			if(!rs.next()) {
+			else if(!rs.next()) {
 				hot_commu.setId("nocommu");
 			}
 		} finally {

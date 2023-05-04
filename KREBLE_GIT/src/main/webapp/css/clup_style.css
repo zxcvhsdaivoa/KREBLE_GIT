@@ -57,6 +57,8 @@ form {
 	height:400px;
 	max-height:499px;
 	margin:100px auto;
+	border-top:2px solid #ccc;
+	border-bottom:2px solid #ccc;
 }
 form .clup_setting {
 	width:670px;
@@ -74,10 +76,10 @@ form .clup_setting input[type=text]{
 	font-size:13px;
 }
 form .clup_setting label {
+	display:inline-block;
+	width:100px;
 	line-height:30px;
-	padding:0 14px;
-	min-width:100px;
-	max-width:200px;
+	padding-left:14px;
 	font-size:13px;
 }
 form .clup_setting select {
@@ -87,15 +89,22 @@ form .clup_setting select {
 	padding:0 10px;
 }
 form .clup_setting #clup_name {
-	width:calc(100% - 110px);
+	float:right;
+	width:calc(100% - 100px);
+}
+form .clup_setting #clup_howjoin,
+form .clup_setting #clup_howjoin_label {
+	float:left;
 }
 form .clup_setting #clup_pw {
-	width:calc(100% - 280px);
+	float:right;
+	width:calc(100% - 250px);
 }
 form .clup_setting #clup_include {
 	width:100%;
 	height:200px;
 	margin-top:10px;
+	padding:10px;
 	resize:none;
 	font-family: sans-serif;
 }
@@ -104,17 +113,17 @@ form .fileUpload {
 	float:left;
 	position:relative;
 	width:230px;
-	height:370px;
-	margin-top:30px;
+	height:400px;
 	padding:15px;
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	padding-top:35px;
+	border-right: 1px solid #ccc;
 }
 form .fileUpload span {
 	display:block;
 	text-align:center;
 	height:30px;
 	line-height: 30px;
+	margin-bottom:10px;
 }
 form .fileUpload .thumbnail {
 	overflow:hidden;
@@ -145,9 +154,9 @@ form .fileUpload #fileUp{
 form .btn_back {
 	clear:both;
 	float:right;
-	margin:0 10px;
+	margin:15px 10px 0;
 }
 form .btn_make {
 	float:right;
-	margin:0 10px;
+	margin:15px 10px 0;
 }

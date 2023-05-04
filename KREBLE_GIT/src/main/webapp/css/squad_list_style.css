@@ -80,6 +80,7 @@ body section .section_inner .squad_list h3 {
 	width: 110px;
 	height: 40px;
 	border:none;
+	outline:none;
 	border-bottom : 1px solid gray;
 	border-right: 1px solid gray;
 }

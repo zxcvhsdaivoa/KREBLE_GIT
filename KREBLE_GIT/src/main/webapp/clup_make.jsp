@@ -30,7 +30,7 @@
 							<option value="invite">기존멤버가 초대</option>
 							<option value="request">가입신청 승인시</option>
 						</select>
-						<input type="text" id="clup_pw" name="clup_pw" placeholder="[비밀번호 입력] 선택시 필수 입력">
+						<input type="text" id="clup_pw" name="clup_pw" placeholder="[비밀번호 입력] 선택시 필수 입력사항">
 					</div>
 					
 					<textarea id="clup_include" name="clup_include" placeholder="클럽의 소개문구를 적어주세요"></textarea>
