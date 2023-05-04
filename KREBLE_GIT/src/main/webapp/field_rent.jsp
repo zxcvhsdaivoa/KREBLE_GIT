@@ -5,6 +5,7 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,7 +86,7 @@
 				
 				<div class="box_inner">
 					<div class="date_selc">
-						<select class="month_selc" onchange="showCalendar(this.value)">
+						<select id="month" class="month_selc" onchange="showCalendar(this.value)">
 							<option value="">날짜를 선택해주세요</option>
 							<option value="4">2023년 04월</option>
 							<option value="5">2023년 05월</option>

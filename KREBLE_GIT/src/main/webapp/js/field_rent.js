@@ -83,12 +83,12 @@ $(function(){
 		  
 		  // 선택한 날짜 데이터베이스 인서트 테스트
 		  $(".day2 td").click(function() {
-				  var clickedDate = $(this).text().trim();
-				  alert(clickedDate);
+				  var daychoice = $("#month option:selected").text()+$(this).text().trim();;
+				  alert(daychoice);
 				  $.ajax({
 				    url: "Testinsert.jsp",
 				    type: "POST",
-				    data: {date: clickedDate},
+				    data: {date: daychoice},
 				    success: function(response) {
 				      console.log(response);
 				    },

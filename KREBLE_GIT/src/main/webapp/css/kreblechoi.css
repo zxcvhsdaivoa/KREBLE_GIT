@@ -97,7 +97,7 @@ section .section_inner {
 }
 .stadium .stadium_inner .sub_nav ul li {
     float:left;
-    font-family: 'Gothic A1', sans-serif;
+    font-family: 'TheJamsil5Bold';
     font-size: 13px;
 }
 .stadium .stadium_inner .sub_nav ul li:after {
