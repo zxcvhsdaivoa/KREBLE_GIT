@@ -164,7 +164,7 @@ td{
 /* 베스트스쿼드 */
 .commu_wrap.wrap1 {
 	clear:both;
-	width:460px;
+	width:495px;
 }
 #article_no2 h4 {
 	position: relative;
@@ -203,12 +203,14 @@ td{
 }
 .commu_wrap.wrap1 .squad_wrap ul {
 	clear:both;
+	height:475px;
 }
 .commu_wrap.wrap1 .squad_wrap ul li {
 	float:left;
 	width:100px;
 	height:150px;
 	padding:10px 0;
+	margin:0 5px;
 	text-align:center;
 }
 .commu_wrap.wrap1 .squad_wrap ul li .player_img {
