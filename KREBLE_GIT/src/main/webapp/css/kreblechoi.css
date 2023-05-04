@@ -16,8 +16,27 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Hahmlet-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 section {
-    height:1580px;
+    height:1470px;
 }
 section .section_inner {
     width:1280px;
@@ -235,9 +254,10 @@ section .section_inner {
     height:40px;
     color: #333333;
     font-size: 29px;
-    font-family: 'Jua', sans-serif;
+    font-family: 'Gothic A1';
     border-bottom: solid;
-    margin-top: 100px;
+    margin-top: 55px;
+    font-weight: 600;
 }
 .stadium_info{
     width: 100%;
@@ -275,7 +295,7 @@ section .section_inner {
 }
 .mapbtn{
 	position: absolute;
-    top: calc(50% - 79px);
+    top: calc(50% - 68px);
     width: 40px;
     height: 40px;
     border-radius: 20%;
@@ -381,12 +401,13 @@ section .section_inner {
     font-size: 15px;
     float: left;
     padding: 10px;
-    font-family: 'Jua', sans-serif;
+    font-family: 'Gothic A1';
+    font-weight: bold;
 }
 .botmessage > img{
     width: 100px;
     vertical-align: middle;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 }
 
 .stadium_imgSlide {

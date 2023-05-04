@@ -10,7 +10,7 @@
 <body>
 	<header>
     <div class="header_inner">
-        <h1><a href="index.jsp"><img src="image/logo_EX.jpg" style="width: 100px;height: 70px;"><img src="image/logo.png" alt="kerble"></a></h1>
+        <h1><a href="index.jsp"><!-- <img src="image/logo_EX.jpg" style="width: 100px;height: 70px;"> --><img src="image/logo.png" alt="kerble"> </a></h1>
         <ul class="cate_login">
             <li class="login_false"><a href="login.jsp">로그인</a></li>
             <li class="login_false"><a href="join_member.jsp">회원가입</a></li>
