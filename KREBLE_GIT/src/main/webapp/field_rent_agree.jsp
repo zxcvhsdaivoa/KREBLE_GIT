@@ -63,12 +63,12 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><b
 				  </div>
 				</div>
 				
-				<div id="info_box">
-					<h3 class="box_text">개인정보수집 동의</h3>
-				</div>
-				<div class="box_inner2">
+<!-- 				<div id="info_box"> -->
+<!-- 					<h3 class="box_text">개인정보수집 동의</h3> -->
+<!-- 				</div> -->
+<!-- 				<div class="box_inner2"> -->
 
-				</div>
+<!-- 				</div> -->
 				<div class="btn_area">
 					<a class="payment_btn" href="field_rent_finish.jsp">다음으로</a>
 				</div>

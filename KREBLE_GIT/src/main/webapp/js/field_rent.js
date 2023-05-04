@@ -77,21 +77,20 @@ $(function(){
 		  
 		  // 선택한 날짜 데이터베이스 인서트 테스트
 		  $(".day2 td").click(function() {
-		  var clickedDate = $(this).text().trim();
-		  alert(clickedDate);
-		  $.ajax({
-		    url: "Testinsert.jsp",
-		    type: "POST",
-		    data: {date: clickedDate},
-		    success: function(response) {
-		      console.log(response);
-		    },
-		    error: function() {
-		      console.log("Error");
-		    }
-		  });
-		});
-		  
+				  var clickedDate = $(this).text().trim();
+				  alert(clickedDate);
+				  $.ajax({
+				    url: "Testinsert.jsp",
+				    type: "POST",
+				    data: {date: clickedDate},
+				    success: function(response) {
+				      console.log(response);
+				    },
+				    error: function() {
+				      console.log("Error");
+				    }
+			  });
+		}); 
 	}
 		
 	
