@@ -273,3 +273,6 @@ div{
     color: #222;
     vertical-align: 3px;
 }
+.date_hover:hover {
+	background-color: #FAF4C0;
+}
