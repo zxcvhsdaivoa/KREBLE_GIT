@@ -182,7 +182,7 @@ String id = (String) session.getAttribute("ID");
 					String impt = ect.img_link(pcart_al.get(l).getPrd_no());
 				%>
 					<tr>
-						<td><a href ="#"><img src="<%=impt%><%=pcart_al.get(l).getPrd_img()%>"></a></td>
+						<td><a href ="#"><img alt = "No Data" src="<%=impt%><%=pcart_al.get(l).getPrd_img()%>"></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_name()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_color()%></a></td>

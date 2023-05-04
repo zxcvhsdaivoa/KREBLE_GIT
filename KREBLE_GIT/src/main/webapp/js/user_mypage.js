@@ -1,10 +1,10 @@
 $(function(){
 	$('.p_update').click(function(){
-		alert("ㅋ? 낙장불입이야");
+		alert("수정기능 준비중입니다.");
 	})
 	
 	$('.p_delete').click(function(){
-		alert("들어올땐 마음대로였지만 나갈땐 아니란다 Boy~");
+		alert("탈퇴기능 준비중입니다.");
 	})
 	
 	$('.cash_re').click(function(){
