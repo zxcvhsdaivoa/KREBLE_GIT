@@ -17,6 +17,7 @@ $(function(){
 //	  todayCell.innerHTML += '<span class="possible">가능</span>';
 //	}
 	 $(".box_inner2").hide();	
+	 $(".box_text > span").hide();
 	 
 	 $(".top_text select.loca").change(function(){
 		var loca= $(this).val();
@@ -28,6 +29,11 @@ $(function(){
 		$(".box_inner2").show();
 		
 	}
+	
+	function timechoice(){
+		$(".box_text > span").show();
+	}
+	
 	
 	
 	function showCalendar(month) {

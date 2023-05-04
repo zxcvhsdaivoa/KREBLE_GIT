@@ -127,6 +127,11 @@ div{
 	border: 1px solid #a6a6a6;
 	clear: both;
 }
+.content3_box{
+	border: 1px solid #a6a6a6;
+	clear: both;
+	border-top: none;
+}
 .box_text{
 	height: 58px;
     padding: 18px 0;
@@ -235,7 +240,6 @@ div{
 	padding: 30px 60px;
     border: 1px solid #a6a6a6;
     background-color: #f5f5f5;
-    border-bottom: none;
     border-top: none;
 }
 .btn_area{
@@ -261,10 +265,11 @@ div{
 }
 .box_inner2  span {
     position: relative;
-	display: block;
+	display: inline-block;
     min-height: 18px;
-    padding: 0 0 0 27px;
+    padding: 0 0 15px 9px;
     font-size: 18px;
     line-height: 1;
     color: #222;
+    vertical-align: 3px;
 }

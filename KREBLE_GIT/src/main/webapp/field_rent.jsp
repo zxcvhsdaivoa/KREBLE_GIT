@@ -145,14 +145,14 @@
 					<h3 class="box_text">신청정보</h3>
 				</div>
 				<div class="box_inner2">
-					<input type="radio"><span><%= rent_info.getRent_time1() %></span>
-					<input type="radio"><span><%= rent_info.getRent_time2() %></span>
-					<input type="radio"><span><%= rent_info.getRent_time3() %></span>
-					<input type="radio"><span><%= rent_info.getRent_time4() %></span>
-					<input type="radio"><span><%= rent_info.getRent_time5() %></span>
+					<input type="radio" name="rent_time" onchange="timechoice()"><span><%= rent_info.getRent_time1() %></span><br>
+					<input type="radio" name="rent_time" onchange="timechoice()"><span><%= rent_info.getRent_time2() %></span><br>
+					<input type="radio" name="rent_time" onchange="timechoice()"><span><%= rent_info.getRent_time3() %></span><br>
+					<input type="radio" name="rent_time" onchange="timechoice()"><span><%= rent_info.getRent_time4() %></span><br>
+					<input type="radio" name="rent_time" onchange="timechoice()"><span><%= rent_info.getRent_time5() %></span><br>
 				</div>
-				<div class="content2_box">
-					<h3 class="box_text">합계:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span></h3>
+				<div class="content3_box">
+					<h3 class="box_text">비용:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span></h3>
 				</div>
 				<div class="btn_area">
 					<a class="payment_btn" href="field_rent_agree.jsp">결제하기</a>
