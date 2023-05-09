@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
-		<div class="section_inner">
+		<div class="section_inner clup_main">
 			<jsp:useBean id="ud" class="use_data.Db_method_ECT"/>
 			<%@ page import="vo.ClupInfo"%>
 			<%@ page import="java.util.ArrayList"%>
@@ -32,25 +32,17 @@
 				<%
 				for(int i=0; i<cll.size(); i++){
 					String howjoin = cll.get(i).getClup_howjoin();
-					if(howjoin.equals("free")){
-						howjoin="자유가입";
-					}else if (howjoin.equals("password")){
-						howjoin="비밀번호 입력";
-					}else if (howjoin.equals("invite")) {
-						howjoin="초대자만 가입";
-					}else if(howjoin.equals("request")){
-						howjoin="가입신청 수락시";
-					}
+					howjoin=ud.howjoin(howjoin);
 				%>
 				<li>
 					<a href="clupPage.cl?clup_no=<%=cll.get(i).getClup_no()%>">
 					<%
-					if(cll.get(i).getClup_logo()!=null&&!cll.get(i).getClup_logo().equals("null"))
+					if(cll.get(i).getClup_logo()!=null)
 					{
-						out.println("<div class='clupLogo'><img src='clupLogo/"+cll.get(i).getClup_logo()+"' class='clup_logo'></div>");
+						out.println("<div class='clupLogo'><img src='clupLogo/"+cll.get(i).getClup_logo()+"'></div>");
 					}
 					else {
-						out.println("<div class='clupLogo'><img src='image/img_logo.png' class='no_img'></div>");
+						out.println("<div class='clupLogo'><img src='image/img_logo.png'></div>");
 					}
 					%>
 						<span class="clup_name">클럽 명 : <%=cll.get(i).getClup_name() %></span>

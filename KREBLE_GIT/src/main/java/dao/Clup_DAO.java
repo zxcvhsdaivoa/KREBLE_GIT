@@ -72,6 +72,7 @@ public class Clup_DAO {
 				cl.setClup_user(rs.getString("clup_admin"));
 				cl.setClup_howjoin((rs.getString("clup_howjoin")));
 				cl.setClup_pw((rs.getString("clup_pw")));
+				cl.setClup_text(rs.getString("clup_include"));
 				cl.setClup_makedate((rs.getString("clup_makedate")));
 				cl.setClup_logo((rs.getString("clup_logo")));
 			}
@@ -131,6 +132,7 @@ public class Clup_DAO {
 	}
 	
 	
+	@SuppressWarnings("resource")
 	public int insert_admin(ClupInfo cl) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

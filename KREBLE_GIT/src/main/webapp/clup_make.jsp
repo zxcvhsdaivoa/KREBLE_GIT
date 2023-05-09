@@ -14,7 +14,7 @@
 <body>
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
-		<div class="section_inner">
+		<div class="section_inner clup_make">
 			<form name="clup_make" action="clupMaking.cl" enctype="multipart/form-data" method="post">
 				<div class="clup_setting">
 					<div class="line_box">
@@ -25,10 +25,9 @@
 					<div class="line_box">
 						<label for="clup_name" id="clup_howjoin_label">가입조건 : </label>
 						<select name="clup_howjoin" id="clup_howjoin">
-							<option value="free" selected>자유가입</option>
+							<option value="free" selected>자동승인</option>
 							<option value="password">비밀번호 입력</option>
-							<option value="invite">기존멤버가 초대</option>
-							<option value="request">가입신청 승인시</option>
+							<option value="request">클럽장 승인시</option>
 						</select>
 						<input type="text" id="clup_pw" name="clup_pw" placeholder="[비밀번호 입력] 선택시 필수 입력사항">
 					</div>

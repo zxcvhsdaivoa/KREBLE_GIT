@@ -25,6 +25,7 @@
 				</div>
 				<div class="community_inner">
 					<jsp:useBean id="ud" class="use_data.Db_method_commu"/>
+					<jsp:useBean id="ud2" class="use_data.Db_method_ECT"/>
 					<%@ page import="java.awt.image.renderable.ParameterBlock" %>
 			
 				    <%@ page import="use_data.CommunityData"%>
@@ -71,9 +72,6 @@
 						search_text = request.getParameter("search_text");
 					}
 			   		
-			   		Date now = new Date();
-					SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-					
 					
 					if(search.equals("noSearch")){
 						if(mycommu.equals("none")){
@@ -159,22 +157,7 @@
 							%>
 							</td>
 							<td><%=comu.get(i).getCount()%></td>
-							<%
-							String wdt;
-							String writedate = comu.get(i).getComu_date();
-							Date wd = fm.parse(writedate);
-							long diff = now.getTime() - wd.getTime();
-							int daysDiff = (int) (diff / (24 * 60 * 60 * 1000));
-							SimpleDateFormat simpleDateFormat;
-							if(daysDiff<2){
-								simpleDateFormat = new SimpleDateFormat("HH:mm"); 
-							}
-							else {
-								simpleDateFormat = new SimpleDateFormat("MM-dd"); 
-							}
-							String strNowDate = simpleDateFormat.format(wd);
-							 %>
-							<td><%=strNowDate%></td>
+							<td><%=ud2.date_format(comu.get(i).getComu_date(),"2day")%></td>
 							</tr>
 						<%
 						}

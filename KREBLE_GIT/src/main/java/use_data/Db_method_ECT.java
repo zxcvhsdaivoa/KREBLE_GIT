@@ -1,7 +1,10 @@
 package use_data;
 
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Db_method_ECT extends Db_method_conn  {
 	
@@ -39,5 +42,45 @@ public class Db_method_ECT extends Db_method_conn  {
 			break;
 		}
 		return impath;
+	}
+	
+	public String howjoin(String eng) {
+		String trun="A";
+		if(eng.equals("free")){
+			trun="자동승인";
+		}else if (eng.equals("password")){
+			trun="비밀번호 입력";
+		}else if(eng.equals("request")){
+			trun="클럽장 승인시";
+		}
+		return trun;
+	}
+	
+	public String date_format(String date,String formattype) throws ParseException {
+		SimpleDateFormat toString = null;
+		Date formatTime =null;
+		SimpleDateFormat toDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		formatTime = toDate.parse(date);
+		if(formattype.equals("yyyy-mm-dd")) {
+			toString = new SimpleDateFormat("yyyy-MM-dd");
+		}else if(formattype.equals("mm-dd")) {
+			toString = new SimpleDateFormat("MM-dd");
+		}else if(formattype.equals("hh:mm")) {
+			toString = new SimpleDateFormat("HH:mm");
+		}else if(formattype.equals("yyyy-mm-dd hh:mm")) {
+			toString = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		}else if(formattype.equals("2day")) {
+			Date now = new Date();
+			long diff = now.getTime() - formatTime.getTime();
+			int daysDiff = (int) (diff / (24 * 60 * 60 * 1000));
+			if(daysDiff<2){
+				toString = new SimpleDateFormat("HH:mm");
+			}
+			else {
+				toString = new SimpleDateFormat("MM-dd");
+			}
+		}
+		return toString.format(formatTime);
 	}
 }

@@ -18,6 +18,7 @@
 			
 			<div class="community">
 				<jsp:useBean id="ud" class="use_data.Db_method_commu"/>
+					<jsp:useBean id="ud2" class="use_data.Db_method_ECT"/>
 				<%@ page import="use_data.CommunityData"%>
 				<%@ page import="use_data.CommuCommentData"%>
 				<%@ page import="java.util.ArrayList"%>
@@ -42,7 +43,7 @@
 				<div class="community_inner">
 					<div class="top_box">
 						<span class="writer"><%= comu.getId()%></span>
-						<span class="writing_time"><%= comu.getComu_date()%></span>
+						<span class="writing_time"><%= ud2.date_format(comu.getComu_date(),"yyyy-mm-dd hh:mm")%></span>
 						<span class="category replace_cate">[<%= comu.getCategory()%>]</span>
 						
 					</div>
@@ -98,7 +99,7 @@
 								<div>
 									<%if(comu.getId().equals(ccd.get(i).getUser_id())) {%><span class="writer">작성자</span><%}%>
 									<span class="comment_id "><%= ccd.get(i).getUser_id() %>님의 댓글</span>
-									<span class="comment_time">(<%= ccd.get(i).getComment_wrdate() %>)</span>
+									<span class="comment_time">(<%= ud2.date_format(ccd.get(i).getComment_wrdate(),"yyyy-mm-dd hh:mm")%>)</span>
 								</div>
 								<span class="comment_text"><%= ccd.get(i).getCommuComment() %></span>
 							</li>

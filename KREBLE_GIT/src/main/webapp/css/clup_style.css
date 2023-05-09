@@ -10,6 +10,20 @@
 	background-color:buttonface;
 	border:none;
 }
+.btn > a {
+	display:block;
+	width:100%;
+	height:100%;
+}
+textarea {
+	font-family: sans-serif;
+	font-size:16px;
+	resize:none;
+}
+textarea.no_line {
+	border:none;
+	outline: none;
+}
 section {
 	height:auto;
  	min-height:calc(100vh - 270px);
@@ -65,7 +79,7 @@ section .section_inner {
 
 
 /* 클럽 생성페이지 */
-form {
+.clup_make form {
 	width:1000px;
 	height:500px;
 	max-height:499px;
@@ -73,60 +87,59 @@ form {
 	border-top:2px solid #ccc;
 	border-bottom:2px solid #ccc;
 }
-form .clup_setting {
+.clup_make form .clup_setting {
 	width:700px;
 	height:100%;
 	padding:30px;
 	float:right;
 }
-form .line_box {
+.clup_make form .line_box {
 	height:40px;
 	margin:15px 0 10px;
 }
-form .clup_setting input[type=text]{
+.clup_make form .clup_setting input[type=text]{
 	height:40px;
 	line-height: 40px;
 	padding-left:10px;
 	font-size:15px;
 }
-form .clup_setting label {
+.clup_make form .clup_setting label {
 	display:inline-block;
 	width:100px;
 	line-height:40px;
 	padding-left:7px;
 	font-size:13px;
 }
-form .clup_setting select {
+.clup_make form .clup_setting select {
 	height:40px;
 	line-height: 40px;
 	font-size:15px;
 	padding:0 10px;
 }
-form .clup_setting #clup_name {
+.clup_make form .clup_setting #clup_name {
 	float:right;
 	width:calc(100% - 100px);
 }
-form .clup_setting #clup_howjoin,
-form .clup_setting #clup_howjoin_label {
+.clup_make form .clup_setting #clup_howjoin,
+.clup_make form .clup_setting #clup_howjoin_label {
 	float:left;
 }
-form .clup_setting #clup_howjoin {
+.clup_make form .clup_setting #clup_howjoin {
 	width:140px;
 }
-form .clup_setting #clup_pw {
+.clup_make form .clup_setting #clup_pw {
 	float:right;
 	width:calc(100% - 250px);
 }
-form .clup_setting #clup_include {
+.clup_make form .clup_setting #clup_include {
 	width:100%;
 	height:200px;
 	margin-top:10px;
 	padding:10px;
-	resize:none;
 	font-family: sans-serif;
 }
 
-form .fileUpload {
+.clup_make form .fileUpload {
 	float:left;
 	position:relative;
 	width:300px;
@@ -135,14 +148,14 @@ form .fileUpload {
 	padding-top:35px;
 	border-right: 1px solid #ccc;
 }
-form .fileUpload span {
+.clup_make form .fileUpload span {
 	display:block;
 	text-align:center;
 	height:30px;
 	line-height: 30px;
 	margin-bottom:20px;
 }
-form .fileUpload .thumbnail {
+.clup_make form .fileUpload .thumbnail {
 	overflow:hidden;
 	width:250px;
 	height:250px;
@@ -151,12 +164,12 @@ form .fileUpload .thumbnail {
 	justify-content: center;
 	align-items: center;
 }
-form .fileUpload .thumbnail img {
+.clup_make form .fileUpload .thumbnail img {
 	max-height:100%;
 	object-fit:contain;
 	
 }
-form .fileUpload label {
+.clup_make form .fileUpload label {
 	display:block;
 	width:120px;
 	height:70px;
@@ -167,23 +180,69 @@ form .fileUpload label {
 	text-align: center;
 	border-radius: 6px;
 }
-form .fileUpload #fileUp{
+.clup_make form .fileUpload #fileUp{
 	position:absolute;
 	left:-9999px;
 }
 
 
-form .btn_back {
+.clup_make form .btn_back {
 	clear:both;
 	float:right;
 	margin:30px 10px 0;
 }
-form .btn_make {
+.clup_make form .btn_make {
 	float:right;
 	margin:30px 10px 0;
 }
-.btn > a {
-	display:block;
-	width:100%;
-	height:100%;
+
+
+
+
+
+
+/* 클럽가입 */
+.clup_join .clup_info {
+	width:1000px;
+	height:300px;
+	margin: 70px auto;
+	padding:25px 35px;
+	border-top:2px solid #333;
+
+}
+.clup_join .clup_info .logo_wrap {
+	overflow:hidden;
+	width:250px;
+	height:250px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	float:left;
+}
+.clup_join .clup_info .logo_wrap img {
+	max-height:100%;
+	object-fit:contain;
+	
+}
+.clup_join .clup_info .clup_box {
+	float:left;
+	width:calc(100% - 250px);
+}
+.clup_join .clup_info .clup_box span {
+	
+}
+.clup_join .clup_info .clup_box .clup_name {
+	font-size:26px;
+}
+.clup_join .clup_info .clup_box .clup_admin {
+	
+}
+.clup_join .clup_info .clup_box .clup_howjoin {
+	
+}
+.clup_join .clup_info .clup_box .clup_makedate {
+	
+}
+.clup_join .clup_info .clup_box textarea {
+	
 }
