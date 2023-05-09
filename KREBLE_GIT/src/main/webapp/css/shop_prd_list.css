@@ -43,17 +43,12 @@ input{
 	cursor: pointer;
 }
 
-#pl_art_no0 > div{
-	width: 890px;
-	margin: 0 auto;
-}
-#pl_art_no0 > div> span{
-    font-size : 20px;
+#pl_art_no0 > span{
+    font-size : 10px;
 	font-family: 'NanumSquareNeo-Variable';
     font-weight: normal;
     font-style: normal;
 }
-
 /*게시판 타이틀*/
 #pl_art_no1{
 	height: 100px;
@@ -64,7 +59,7 @@ input{
     font-weight: normal;
     font-style: normal;
 	color : blue;
-	font-size: 23px;
+	font-size: 13px;
 }
 #pl_art_no1 > div{
 	width: 990px;

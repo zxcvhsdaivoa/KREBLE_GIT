@@ -75,10 +75,8 @@
 	<div id="section_inner"> <!-- 내용 중앙정렬용 -->
 	<form>
 		<article id="pl_art_no0">
-			<div>
-				<span><a href = "index.jsp">홈</a> </span>
+				<span class="no0_home"><a href = "index.jsp">홈</a> </span>
 				<span class="f_blue"><a href = "shop_list_action.sp">&#11116; KREBLE SHOP</a></span>
-			</div>
 		</article>
 		<article id="pl_art_no1"><!-- 페이지타이틀/카테고리 예정 -->
 			<div>SHOPPING MALL
