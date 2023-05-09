@@ -30,9 +30,9 @@
                 </li>
             
                 <li>
-                  <a href="squadList.sq">#유저공간</a>
+                  <a href="squad.sq">#유저공간</a>
                   <ul class="sub">
-                    <li><a href="squadList.sq">나만의스쿼드</a></li>
+                    <li><a href="squad.sq">나만의스쿼드</a></li>
                     <li><a href="community.jsp">유저커뮤니티</a></li>
                     <li><a href="clup.cl">KREBLE클럽</a></li>
                   </ul>

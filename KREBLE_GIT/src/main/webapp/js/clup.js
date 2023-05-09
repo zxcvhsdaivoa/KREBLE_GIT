@@ -14,3 +14,13 @@ function setThumbnail(event) {
 function back(){
 	window.history.back();
 }
+$(document).ready(function(){
+	$("#clup_howjoin").change(function(){
+		var value= $(this).val();
+		if(value=="password") {
+			$("#clup_pw").prop("required", true);
+		}else {
+			$("#clup_pw").prop("required", false);
+		}
+	})
+})

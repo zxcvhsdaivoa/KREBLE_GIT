@@ -12,6 +12,7 @@ import action.Action;
 import action.ClupJoinAction;
 import action.ClupListAction;
 import action.ClupMakeAction;
+import action.ClupMakingAction;
 import action.ClupPageAction;
 import vo.ActionForward;
 
@@ -43,6 +44,13 @@ public class ClupController extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/clupMake.cl")){
 			action  = new ClupMakeAction();
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/clupMaking.cl")){
+			action  = new ClupMakingAction();
 			try {
 				forward=action.execute(request, response );
 			} catch (Exception e) {

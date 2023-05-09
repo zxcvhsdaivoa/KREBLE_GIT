@@ -112,15 +112,15 @@ public class Clup_DAO {
 		ResultSet rs = null;
 		int count=0;
 		try{
-			pstmt = con.prepareStatement("insert into clup_room value(default,?,?,?,?,default,?,?);");
+			pstmt = con.prepareStatement("insert into clup_room value(default,?,?,?,?,?,default,?,?);");
 			pstmt.setString(1,cl.getClup_name());
 			pstmt.setString(2,cl.getClup_user());
 			pstmt.setString(3,cl.getClup_howjoin());
 			pstmt.setString(4,cl.getClup_pw());
-			pstmt.setString(5,cl.getClup_logo());
-			pstmt.setString(6,cl.getClup_disclose());
+			pstmt.setString(5,cl.getClup_text());
+			pstmt.setString(6,cl.getClup_logo());
+			pstmt.setString(7,cl.getClup_disclose());
 			count= pstmt.executeUpdate();
-			
 		}catch(Exception ex){
 			System.out.println(ex);
 		}finally{
@@ -128,6 +128,32 @@ public class Clup_DAO {
 			close(pstmt);
 		}
 		return count;
+	}
+	
+	
+	public int insert_admin(ClupInfo cl) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int clup_no=0;
+		int success=0;
+		String cl_no="insert into clup_member value(?,?,'admin',now())";
+		try{
+			pstmt = con.prepareStatement("select clup_no from clup_room order by clup_no desc limit 1");
+			rs= pstmt.executeQuery();
+			if(rs.next()) clup_no =rs.getInt("clup_no");
+			else clup_no=0;
+			
+			pstmt = con.prepareStatement(cl_no);
+			pstmt.setInt(1, clup_no);
+			pstmt.setString(2, cl.getClup_user());
+			success=pstmt.executeUpdate();
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return success;
 	}
 	
 	

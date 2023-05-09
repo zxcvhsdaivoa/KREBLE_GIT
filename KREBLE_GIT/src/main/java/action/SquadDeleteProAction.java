@@ -19,7 +19,6 @@ public class SquadDeleteProAction implements Action {
 		SquadDeleteProService squadDeleteProService = new SquadDeleteProService();
 
 		boolean isDeleteSuccess = squadDeleteProService.removeArticle(squad_no,user_id);
-		System.out.println(isDeleteSuccess);
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out=response.getWriter();
 		if(!isDeleteSuccess){

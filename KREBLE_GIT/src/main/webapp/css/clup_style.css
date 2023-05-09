@@ -23,13 +23,17 @@ section .section_inner {
 }
 
 .clup_list {
-	height:600px;
+	height:auto;
+	font-size: 0;
+	letter-spacing: 0;
+	word-spacing: 0;
 }
 .clup_list li {
-	float:left;
+	display:inline-block;
 	width:200px;
 	height:300px;
 	margin:25px;
+	border:1px solid #333;
 }
 .clup_list li a {
 	display:block;
@@ -37,14 +41,23 @@ section .section_inner {
 	height:100%;
 	padding:10px;
 }
-.clup_list li a img {
+.clup_list li a .clupLogo {
 	width:180px;
 	height:180px;
+	margin-bottom:8px;
+	display:flex;
+	overflow:hidden;
+	justify-content: center;
+	align-items: center;
+}
+.clup_list li a .clupLogo img {
+	max-height:100%;
 	object-fit:contain;
 }
 .clup_list li a span {
 	display:block;
 	font-size:14px;
+	margin-bottom:3px;
 }
 
 
@@ -53,39 +66,40 @@ section .section_inner {
 
 /* 클럽 생성페이지 */
 form {
-	width:900px;
-	height:400px;
+	width:1000px;
+	height:500px;
 	max-height:499px;
-	margin:100px auto;
+	margin:70px auto;
 	border-top:2px solid #ccc;
 	border-bottom:2px solid #ccc;
 }
 form .clup_setting {
-	width:670px;
+	width:700px;
 	height:100%;
 	padding:30px;
 	float:right;
 }
 form .line_box {
-	margin:10px 0 5px;
+	height:40px;
+	margin:15px 0 10px;
 }
 form .clup_setting input[type=text]{
-	height:30px;
-	line-height: 30px;
+	height:40px;
+	line-height: 40px;
 	padding-left:10px;
-	font-size:13px;
+	font-size:15px;
 }
 form .clup_setting label {
 	display:inline-block;
 	width:100px;
-	line-height:30px;
-	padding-left:14px;
+	line-height:40px;
+	padding-left:7px;
 	font-size:13px;
 }
 form .clup_setting select {
-	height:30px;
-	line-height: 30px;
-	font-size:13px;
+	height:40px;
+	line-height: 40px;
+	font-size:15px;
 	padding:0 10px;
 }
 form .clup_setting #clup_name {
@@ -95,6 +109,9 @@ form .clup_setting #clup_name {
 form .clup_setting #clup_howjoin,
 form .clup_setting #clup_howjoin_label {
 	float:left;
+}
+form .clup_setting #clup_howjoin {
+	width:140px;
 }
 form .clup_setting #clup_pw {
 	float:right;
@@ -112,8 +129,8 @@ form .clup_setting #clup_include {
 form .fileUpload {
 	float:left;
 	position:relative;
-	width:230px;
-	height:400px;
+	width:300px;
+	height:100%;
 	padding:15px;
 	padding-top:35px;
 	border-right: 1px solid #ccc;
@@ -123,23 +140,28 @@ form .fileUpload span {
 	text-align:center;
 	height:30px;
 	line-height: 30px;
-	margin-bottom:10px;
+	margin-bottom:20px;
 }
 form .fileUpload .thumbnail {
 	overflow:hidden;
-	width:100%;
-	height:200px;
+	width:250px;
+	height:250px;
+	margin:0 auto;
+	display:flex;
+	justify-content: center;
+	align-items: center;
 }
 form .fileUpload .thumbnail img {
-	height:100%;
-	margin:0 auto;
+	max-height:100%;
 	object-fit:contain;
+	
 }
 form .fileUpload label {
 	display:block;
 	width:120px;
 	height:70px;
 	margin:15px auto;
+	margin-top:40px;
 	line-height:70px;
 	border:1px solid #ccc;
 	text-align: center;
@@ -154,9 +176,14 @@ form .fileUpload #fileUp{
 form .btn_back {
 	clear:both;
 	float:right;
-	margin:15px 10px 0;
+	margin:30px 10px 0;
 }
 form .btn_make {
 	float:right;
-	margin:15px 10px 0;
+	margin:30px 10px 0;
+}
+.btn > a {
+	display:block;
+	width:100%;
+	height:100%;
 }

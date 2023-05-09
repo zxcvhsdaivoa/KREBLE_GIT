@@ -47,10 +47,10 @@
 					<%
 					if(cll.get(i).getClup_logo()!=null&&!cll.get(i).getClup_logo().equals("null"))
 					{
-						out.println("<img src='clupLogo/"+cll.get(i).getClup_logo()+"' class='clup_logo'>");
+						out.println("<div class='clupLogo'><img src='clupLogo/"+cll.get(i).getClup_logo()+"' class='clup_logo'></div>");
 					}
 					else {
-						out.println("<img src='image/img_logo.png' class='no_img'>");
+						out.println("<div class='clupLogo'><img src='image/img_logo.png' class='no_img'></div>");
 					}
 					%>
 						<span class="clup_name">클럽 명 : <%=cll.get(i).getClup_name() %></span>

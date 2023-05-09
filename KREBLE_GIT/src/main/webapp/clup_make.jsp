@@ -15,7 +15,7 @@
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
 		<div class="section_inner">
-			<form name="clup_make" action="clupMake.cl" enctype="multipart/form-data" method="post">
+			<form name="clup_make" action="clupMaking.cl" enctype="multipart/form-data" method="post">
 				<div class="clup_setting">
 					<div class="line_box">
 						<label for="clup_name" id="clup_name_label">클럽명 : </label>
@@ -36,7 +36,7 @@
 					<textarea id="clup_include" name="clup_include" placeholder="클럽의 소개문구를 적어주세요"></textarea>
 					
 					<div class="line_box">
-						<label for="disclose" id="clup_disclose_lable">클럽공개설정</label>
+						<label for="disclose" id="clup_disclose_lable">클럽공개설정 : </label>
 						<select name="disclose" id="disclose">
 							<option value="1">공개</option>
 							<option value="0">비공개</option>
