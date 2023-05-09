@@ -43,12 +43,29 @@ input{
 	cursor: pointer;
 }
 
+#pl_art_no0 > div{
+	width: 890px;
+	margin: 0 auto;
+}
+#pl_art_no0 > div> span{
+    font-size : 20px;
+	font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*게시판 타이틀*/
 #pl_art_no1{
 	height: 100px;
 	position: relative;
 }
-
+.f_blue > a{
+	font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+	color : blue;
+	font-size: 23px;
+}
 #pl_art_no1 > div{
 	width: 990px;
 	height: 100px;

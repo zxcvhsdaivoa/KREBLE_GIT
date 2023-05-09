@@ -146,6 +146,9 @@ public class Shop_DAO {
 		Shop_prd shop_prd = null;
 		int startrow = (page - 1) * 5;
 		String prd_cata = "";
+		if(cata.equals("유니폼")||cata.equals("축구공")||cata.equals("축구화")||cata.equals("기타용품")) {
+			prd_cata = cata;
+		}else {
 		switch (cata) {
 		case "uni":
 			prd_cata = "유니폼";
@@ -159,6 +162,7 @@ public class Shop_DAO {
 		default:
 			prd_cata = "기타용품";
 			break;
+		}
 		}
 		try {
 			pstmt = con.prepareStatement(shop_list_sql);

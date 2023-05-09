@@ -62,14 +62,25 @@ String id = (String) session.getAttribute("ID");
 		break;
 	}
 	%>
+	
+		<article id="pd_detail_no0">
+			<div class="prdC">
+			<span><a href = "index.jsp">홈</a> </span>
+			<span><a href = "shop_list_action.sp">&#11116; KREBLE SHOP </a> </span>
+			<span><a href = "shop_calist_action.sp?prd_cata=<%=aa.getPrd_cata()%>">&#11116; <%= aa.getPrd_cata() %></a> </span>
+			<span class = "f_blue">&#11116; <%= aa.getPrd_name() %></span>
+			</div>
+			<div class="prdN"> <%=aa.getPrd_name() %> </div>
+		</article>
+	
 		<article id="pd_detail_no1">
 			<div class = "no1_img_info1"><!-- 상품사진 및 필수정보 -->
 				<table>
 				<colgroup>
-					<col style = "width: 100px;">
-					<col style = "width: 300px;">
-					<col style = "width: 100px;">
-					<col style = "width: 300px;">
+					<col style = "width: 90px;">
+					<col style = "width: 280px;">
+					<col style = "width: 90px;">
+					<col style = "width: 280px;">
 				</colgroup>
 						<tr>
 							<td colspan="2" rowspan="7" class = "f_table_field">
@@ -91,7 +102,7 @@ String id = (String) session.getAttribute("ID");
 						
 						<tr>
 							<td class = "f_table_label">가격</td>
-							<td class = "f_table_field"><%=aa.getPrd_price() %></td>
+							<td class = "f_table_field">&#128176;<%=aa.getPrd_price() %></td>
 						</tr>
 						
 						<tr>
@@ -186,9 +197,9 @@ String id = (String) session.getAttribute("ID");
 				<table>
 					<colgroup>
 					<col style="width:110px" />
-					<col style="width:80px" />
-					<col style="width:620px" />
-					<col style="width:160px" />
+					<col style="width:90px" />
+					<col style="width:440px" />
+					<col style="width:100px" />
 					</colgroup>
 					<tr>
 					<td colspan="4" class = "h40">&#x203B;댓글은 최근 순으로 5개만 표기됩니다.</td>
@@ -202,11 +213,15 @@ String id = (String) session.getAttribute("ID");
 					<%
 					if(spr!=null){
 					int n = spr.size();
-					if(n>5) n=5;
+					if(n>5){
+						n=5;
+						};
 					for (int i=0; i<n;i++) {
+						String sc = "";
+						sc = sp_de.prd_score(spr.get(i).getPrd_re_sc());
 					    out.println("<tr>");
 					    out.println("<td class ='re_conten'>"+spr.get(i).getPrd_re_id()+"</td>");
-					    out.println("<td class ='re_conten'>"+spr.get(i).getPrd_re_sc()+"</td>");
+					    out.println("<td class ='re_conten'>"+sc+"</td>");
 					    out.println("<td class ='re_conten'>"+spr.get(i).getPrd_re_text()+"</td>");
 					    
 					    if(spr.get(i).getPrd_re_id().equals(id)){
@@ -235,7 +250,18 @@ String id = (String) session.getAttribute("ID");
 				<p>작성자 : </p>
 				<input type="text" value="<%= id %>" readonly name="prd_re_id">
 				<p>평점 : </p>
-				<input type="number" name="prd_re_sc" min="1" max ="10" placeholder="평점을 남겨주세요">
+				<select name = "prd_re_sc" class = "sel_sc">
+					<option value="10">&#10030;&#10030;&#10030;&#10030;&#10030;</option>
+					<option value="9">&#10030;&#10030;&#10030;&#10030;&#10032;</option>
+					<option value="8">&#10030;&#10030;&#10030;&#10030;</option>
+					<option value="7">&#10030;&#10030;&#10030;&#10032;</option>
+					<option value="6">&#10030;&#10030;&#10030;</option>
+					<option value="5">&#10030;&#10030;&#10032;</option>
+					<option value="4">&#10030;&#10030;</option>
+					<option value="3">&#10030;&#10032;</option>
+					<option value="2">&#10030;</option>
+					<option value="1">&#10032;</option>
+				</select>
 			</div>
 			<div>
 				<p>내용 : </p>

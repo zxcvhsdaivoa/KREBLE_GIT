@@ -85,32 +85,33 @@ String id = (String) session.getAttribute("ID");
 		
 		<!-- 프로필사진 / 닉네임 / 마이스쿼드 -->
 		<article id="article_no2">
-			<div class = "f_div">
-				<h4> <%=user_al.getNick()%></h4>
-				<div><img alt="No Data" src="image/user_p_img/<%=id%>.jpg"></div>
-			</div>
-			<div class = "l_div"> 
-				<div class="commu_wrap wrap1">
-				<h4>베스트 스쿼드
-				<a href="squadList.sq"><input type="button" value="바로가기" class="p_right"></a>
+			<div class="commu_wrap wrap1">
+				<h4>
+					<span><%=user_al.getNick()%></span>
+					<span>베스트 스쿼드</span>
+					<a href="squadList.sq"><input type="button" value="바로가기" class="p_right"></a>
 				</h4>
-    			<div class="squad_wrap">
-    				<p class="squad_name">스쿼드 이름 : <%=squad_al.getSquad_name()%></p>
-					<ul>
-						<li class="director"><span class="player_img"><img src="image/player_img/<%=squad_al.getDirector()%>.jpg"></span><p class="name"><%=squad_al.getDirector()%></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer1() %>.jpg"></span><p class="name"><%=squad_al.getPlayer1() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer2() %>.jpg"></span><p class="name"><%=squad_al.getPlayer2() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer3() %>.jpg"></span><p class="name"><%=squad_al.getPlayer3() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer4() %>.jpg"></span><p class="name"><%=squad_al.getPlayer4() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer5() %>.jpg"></span><p class="name"><%=squad_al.getPlayer5() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer6() %>.jpg"></span><p class="name"><%=squad_al.getPlayer6() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer7() %>.jpg"></span><p class="name"><%=squad_al.getPlayer7() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer8() %>.jpg"></span><p class="name"><%=squad_al.getPlayer8() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer9() %>.jpg"></span><p class="name"><%=squad_al.getPlayer9() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer10() %>.jpg"></span><p class="name"><%=squad_al.getPlayer10() %></p></li>
-						<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer11() %>.jpg"></span><p class="name"><%=squad_al.getPlayer11() %></p></li>
-					</ul>
-				</div>
+				<div class = "center_only">
+					<div class = "arti_no2_prof_img">
+						<img alt="No Data" src="image/user_p_img/<%=id%>.jpg">
+					</div>
+					<div class="squad_wrap">
+	    				<p class="squad_name">스쿼드 이름 : <%=squad_al.getSquad_name()%></p>
+						<ul>
+							<li class="director"><span class="player_img"><img src="image/player_img/<%=squad_al.getDirector()%>.jpg"></span><p class="name"><%=squad_al.getDirector()%></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer1() %>.jpg"></span><p class="name"><%=squad_al.getPlayer1() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer2() %>.jpg"></span><p class="name"><%=squad_al.getPlayer2() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer3() %>.jpg"></span><p class="name"><%=squad_al.getPlayer3() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer4() %>.jpg"></span><p class="name"><%=squad_al.getPlayer4() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer5() %>.jpg"></span><p class="name"><%=squad_al.getPlayer5() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer6() %>.jpg"></span><p class="name"><%=squad_al.getPlayer6() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer7() %>.jpg"></span><p class="name"><%=squad_al.getPlayer7() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer8() %>.jpg"></span><p class="name"><%=squad_al.getPlayer8() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer9() %>.jpg"></span><p class="name"><%=squad_al.getPlayer9() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer10() %>.jpg"></span><p class="name"><%=squad_al.getPlayer10() %></p></li>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=squad_al.getPlayer11() %>.jpg"></span><p class="name"><%=squad_al.getPlayer11() %></p></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</article>
@@ -147,7 +148,7 @@ String id = (String) session.getAttribute("ID");
 				%>
 					<tr>
 						<td><a href ="#"><img alt="No Data" src="<%=impt + plike_al.get(l).getPrd_img()%>"></a></td>
-						<td><a href ="#"><%=plike_al.get(l).getPrd_name()%></a></td>
+						<td><a href ="shop_prd_detail.sp?prd_no=<%=plike_al.get(l).getPrd_no()%>&page=<%=nowPage%>"><%=plike_al.get(l).getPrd_name()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_color()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_qant()%></a></td>
@@ -183,7 +184,7 @@ String id = (String) session.getAttribute("ID");
 				%>
 					<tr>
 						<td><a href ="#"><img alt = "No Data" src="<%=impt%><%=pcart_al.get(l).getPrd_img()%>"></a></td>
-						<td><a href ="#"><%=pcart_al.get(l).getPrd_name()%></a></td>
+						<td><a href ="shop_prd_detail.sp?prd_no=<%=pcart_al.get(l).getPrd_no()%>&page=<%=nowPage%>"><%=pcart_al.get(l).getPrd_name()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_color()%></a></td>
 						<td><a href ="#"><%=pcart_al.get(l).getPrd_qant()%></a></td>
@@ -197,8 +198,8 @@ String id = (String) session.getAttribute("ID");
 		
 		<article id="article_no6">
 			<div>
-				<input type="button" name= "p_update" value="회원정보수정" class = "p_update">
-				<input type="button" name= "p_delete" value="회원탈퇴" class = "p_delete">
+				<input type="button" name= "p_update" value="회원정보수정" class = "p_update hide_only">
+				<input type="button" name= "p_delete" value="회원탈퇴" class = "p_delete hide_only">
 			</div>
 		</article>
 	</div>

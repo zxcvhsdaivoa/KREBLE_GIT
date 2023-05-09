@@ -30,19 +30,45 @@ article{
 
 table{
 	border-collapse: collapse;
-	width: 840px;
+	width: 740px;
 	margin: 0 auto;
+}
+
+#pd_detail_no0{
+	width: 1260px;
+	padding-right: 285px;
+}
+
+#pd_detail_no0 > .prdC{
+    font-size : 10px;
+	font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+}
+#pd_detail_no0 > .prdN{
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+    font-style: normal;
+    font-size : 50px;
+    text-align: right
+}
+#pd_detail_no0 a{
+	cursor: pointer;
+}
+#pd_detail_no0 > div> .f_blue{
+	color : blue;
+	font-size: 13px;
 }
 
 /* 제품소개(필수) 사진 */
 #pd_detail_no1{
 	width: 890px;
-	min-height: 880px;
+	min-height: 750px;
 	max-height: 900px;
 	overflow-y: scroll;
 }
 
-#pd_detail_no1 > .no1_img_info1{
+#pd_detail_no1 > .no1_img_info1	{
 	width: 840px;
 	height: 400px;
 	float: left;	
@@ -55,7 +81,7 @@ table{
 }
 
 #pd_detail_no1 > .no1_img_info1  table td{
-    height: 60px;
+    height: 40px;
 }
 
 .f_table_label{
@@ -68,6 +94,7 @@ table{
     font-weight: normal;
     font-style: normal;
     text-align: center;
+    font-size: 13px;
 }
 .f_table_field{
 	padding-left: 15px;
@@ -75,13 +102,14 @@ table{
     font-family: 'NanumSquareNeo-Variable';
     font-weight: normal;
     font-style: normal;
+    font-size: 13px;
 }
 
 .textA_table_field{
-	font-size: 16px;
+	font-size: 13px;
 	padding-top: 5px;
 	width: 100%;
-	min-height: 90px;
+	min-height: 100px;
 	outline: none;
     border: none;
     resize: none;
@@ -126,12 +154,12 @@ table{
 .list_b{
 	width: 165px;
 	height: 55px;
-	background-color: #964b00; /* 갈색 */
 	color: #ffffff; /* 흰색 글씨 */
 	border: none; /* 테두리 없음 */
 	padding: 10px 20px; /* 내부 여백 */
 	border-radius: 5px; /* 모서리 둥글게 */
 	cursor: pointer; /* 커서 손가락 모양으로 */
+	background-color: #964b00; /* 갈색 */
     font-family: 'NanumSquareNeo-Variable';
     font-weight: normal;
     font-style: normal;
@@ -152,11 +180,13 @@ table{
 
 #pd_detail_no4 td{
 	text-align: center;
+	height: 35px;
 }
 .re_conten{
     font-family: 'Hahmlet-Regular';
     font-weight: normal;
     font-style: normal;
+    font-size:17px;
 }
 
 .h40{
@@ -207,9 +237,38 @@ table{
 
 #pd_detail_no5 > div > div:last-child > input[type=submit]{
 	width: 85px;
-	height: 85px;
+	height: 60px;
 	position: absolute;
-	top : 0;
-	right: 0;
+	right: 0px;
+	bottom: 15px;
+	color: #ffffff; /* 흰색 글씨 */
+	border: none; /* 테두리 없음 */
+	padding: 10px 20px; /* 내부 여백 */
+	border-radius: 5px; /* 모서리 둥글게 */
+	cursor: pointer; /* 커서 손가락 모양으로 */
+	background-color: #964b00; /* 갈색 */
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
 }
 
+.sel_sc{
+	border: none;
+	outline: none;
+	width: 140px;
+	height: 25px;
+}
+
+.del_check{
+	background-color: #007bff; /* 진한 파랑색 */
+	color: #ffffff; /* 흰색 글씨 */
+	border: none; /* 테두리 없음 */
+	padding: 10px 20px; /* 내부 여백 */
+	border-radius: 5px; /* 모서리 둥글게 */
+	cursor: pointer; /* 커서 손가락 모양으로 */
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 10px;
+}

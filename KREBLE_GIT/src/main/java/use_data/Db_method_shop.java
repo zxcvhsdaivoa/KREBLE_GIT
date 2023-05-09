@@ -439,6 +439,48 @@ public class Db_method_shop extends Db_method_conn {
 		}
 	}
 
+	public String prd_score(int score) {
+		String starP="";
+		switch(score){
+		case 10 :
+			starP = "&#10024;&#10030;&#10030;&#10030;&#10030;&#10030;";
+			break;
+		case 9 :
+			starP = "&#10030;&#10030;&#10030;&#10030;&#10032;";
+			break;
+		case 8 :
+			starP = "&#10030;&#10030;&#10030;&#10030;";
+			break;
+		case 7 :
+			starP = "&#10030;&#10030;&#10030;&#10032;";
+			break;
+		case 6 :
+			starP = "&#10030;&#10030;&#10030;";
+			break;
+		case 5 :
+			starP = "&#10030;&#10030;&#10032;";
+			break;
+		case 4 :
+			starP = "&#10030;&#10030;";
+			break;
+		case 3 :
+			starP = "&#10030;&#10032;";
+			break;
+		case 2 :
+			starP = "&#10030;";
+			break;
+		case 1 :
+			starP = "&#10032;";
+			break;
+		default : 
+			starP = "&#128172; 등록된 리뷰가 없습니다.";
+			break;
+		}
+		
+		return starP;
+	}
+	
+	
 	// 삭제메소드
 	public void dbdelete(String renum) throws Exception {
 		try {

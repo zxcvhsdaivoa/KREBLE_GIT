@@ -70,8 +70,16 @@
 	<!-- section -->
   
 	<section>
+	
+		
 	<div id="section_inner"> <!-- 내용 중앙정렬용 -->
 	<form>
+		<article id="pl_art_no0">
+			<div>
+				<span><a href = "index.jsp">홈</a> </span>
+				<span class="f_blue"><a href = "shop_list_action.sp">&#11116; KREBLE SHOP</a></span>
+			</div>
+		</article>
 		<article id="pl_art_no1"><!-- 페이지타이틀/카테고리 예정 -->
 			<div>SHOPPING MALL
 			<%
@@ -127,7 +135,7 @@
 						<!--사진 -->
 						<td rowspan="4"><img class = "aa" alt="Image not uploaded" src="<%=impath+aa%>.jpg"></td>
 						<!-- 가격 -->
-						<td colspan="3"><p>가격 : </p><a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=<%=nowPage%>"><input type="text" value="&#x20a9;<%=articleList.get(i).getPrd_price() %>" class="prd_priceC"  readonly name = "prd_price"></a></td>
+						<td colspan="3"><p>가격 : </p><a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=<%=nowPage%>"><input type="text" value="&#128178;<%=articleList.get(i).getPrd_price() %>" class="prd_priceC"  readonly name = "prd_price"></a></td>
 						
 						<!-- 등록일/(히든)현재페이지 -->
 						<td><p>등록일 : </p><a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=<%=nowPage%>"><input type="text" value="<%=articleList.get(i).getPrd_date() %>" class="s_id" readonly><input type="hidden" value="<%=nowPage %>" name="page"></a></td>
@@ -138,7 +146,7 @@
 						<%
 						if(aid.equals(rankid1)/*||aid.equals(rankid2)*/){
 							%>
-							<div class ="power_D"><img src="image/shopimg/bestseller.png">파워딜러</div>
+							<div class ="power_D">&#128174;파워딜러&#128174;</div>
 							<div class="s_id">
 							<%= aid %>
 							</div>
@@ -146,12 +154,12 @@
 						<%
 						} else if(aid.equals(rankid3)){
 						%>
-							<div class= "cs_D"><img  src="image/shopimg/bestcs.png">고객만족우수 </div>
+							<div class= "cs_D">&#128175;고객만족&#128175;</div>
 							<div class="s_id">
 							<%= aid %>
 							</div>
 						<%} else {%>
-						<div class= "se_D">판매자 </div>
+						<div class= "se_D">판매자</div>
 						<div class="s_id">
 						<%= aid %>
 						</div>
@@ -178,14 +186,10 @@
 					
 					
 					
-					
-					
 					<tr><!-- 2행 -->
 						<!-- 색상 -->
 						<td colspan="4" class="td_le_b td_ri_b"><a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=<%=nowPage%>"><input type="text" value="<%=articleList.get(i).getPrd_color() %>"  readonly name = "prd_color"></a></td>
 					</tr>
-
-					
 					
 					
 					<tr><!-- 3행 -->
@@ -193,13 +197,10 @@
 					</tr>
 					
 					
-					
-					
+
 					<tr><!-- 4행 -->
 						<td colspan="4" class="td_le_b td_ri_b"><a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=<%=nowPage%>"><%= articleList.get(i).getPrd_note() %></a></td>
 					</tr>
-					
-					
 					
 					
 					
@@ -212,48 +213,13 @@
 					<td colspan="3" class="td_bo_b">
 					<%
 					int score=0;
-					String starP = null;
 					if(hssc.get(aa)!=null){
     					score = hssc.get(aa);
 					}
 					%>
+					<!--  별점 -->
     				<%
-    				switch(score){
-    				case 10 :
-    					starP = "&#11088;&#11088;&#11088;&#11088;&#11088;&#x1F440;";
-    					break;
-    				case 9 :
-    					starP = "&#11088;&#11088;&#11088;&#11088;&#11088;";
-    					break;
-    				case 8 :
-    					starP = "&#11088;&#11088;&#11088;&#11088;";
-    					break;
-    				case 7 :
-    					starP = "&#11088;&#11088;&#11088;&#11088;";
-    					break;
-    				case 6 :
-    					starP = "&#11088;&#11088;&#11088;";
-    					break;
-    				case 5 :
-    					starP = "&#11088;&#11088;&#11088;";
-    					break;
-    				case 4 :
-    					starP = "&#11088;&#11088;";
-    					break;
-    				case 3 :
-    					starP = "&#11088;&#11088;";
-    					break;
-    				case 2 :
-    					starP = "&#11088;";
-    					break;
-    				case 1 :
-    					starP = "&#11088;";
-    					break;
-    				default : 
-    					starP = "&#128172; 등록된 리뷰가 없습니다.";
-    					break;
-    				}
-    				
+    				String starP = shop_m1.prd_score(score);
     				%><a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=<%=nowPage%>">
     				<%=starP %>
     				</a>
