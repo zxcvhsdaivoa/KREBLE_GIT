@@ -1,0 +1,323 @@
+ @font-face {
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-family: 'Hahmlet-Regular';
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{	
+    font-family: 'Hahmlet-Regular';
+    font-weight: normal;
+    font-style: normal;
+}
+
+section{
+	width: 100%;
+	height: auto;
+}
+
+
+section > div{
+	width: 1280px;
+	margin: 0 auto;
+}
+
+
+article{
+	float:left;
+	width: 1280px;
+}
+input{
+	cursor: pointer;
+}
+
+#pl_art_no0{
+	margin-left: 10px
+}
+#pl_art_no0 > span{
+    font-size : 10px;
+	font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+}
+/*게시판 타이틀*/
+#pl_art_no1{
+	height: 100px;
+	position: relative;
+}
+.f_blue > a{
+	font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+	color : blue;
+	font-size: 13px;
+}
+#pl_art_no1 > div{
+	width: 990px;
+	height: 100px;
+	line-height: 140px;
+	margin: 0 auto;
+	font-size: 30px;
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+    font-style: normal;
+	border-bottom: 5px solid;
+}
+#pl_art_no1 input[type=button]{
+	width: 120px;
+	height: 35px;
+	position: absolute;
+	right: 145px;
+	bottom: 5px;
+	background: none;
+	font-size: 18px;
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+    font-style: normal;
+	border: none;
+}
+
+
+/*카테고리버튼*/
+#pl_art_no2{
+	height: 40px;
+}
+#pl_art_no2 > div:first-child{
+	width: 990px;
+	height: 50px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+#pl_art_no2 > div:first-child > a > input[type=button]{
+	width: 198px;
+	height: 40px;
+	background: none;
+	border-bottom : 1px solid gray;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	font-size: 20px;
+  font-family: 'TheJamsil5Bold';
+  font-weight: 700;
+  font-style: normal;
+}
+
+#pl_art_no2 > div:first-child > a > input[type=button]:hover,
+#pl_art_no2 > div:first-child > a > input[type=button].select{
+	background-color: black;
+	color: white;
+}
+#pl_art_no2 > div:last-child{
+	width: 990px;
+	height: 50px;
+	margin: 0 auto;
+}
+#pl_art_no2 > div > .pr_label{
+	width: 100%;
+	height: 20px;
+	
+}
+#pl_art_no2 > div > .pr_radio{
+	width: 100%;
+	height: 20px;
+	padding : 0 70px;
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 18px;
+	line-height: 15px
+	
+}
+
+
+
+/* 테이블 */
+#pl_art_no3{
+	height: auto;
+}
+
+#pl_art_no3 .aa{
+	width : 145px;
+	height: 145px;
+	margin: 0 auto;
+}
+
+#pl_art_no3 .bb{
+	vertical-align: top;
+	position: relative;
+}
+
+.power_D img , .cs_D img{
+	width: 13px;
+}
+
+.power_D{
+	font-size: 20px;
+	color: blue;
+	
+}
+.cs_D{
+	font-size: 20px;
+	color: green;
+}
+.se_D{
+	text-align: center;
+	font-size: 20px;
+}
+.s_id{
+	vertical-align: top;
+	text-align: right;
+}
+.date_A{
+	position: absolute;
+	bottom : 0;
+}
+
+.bb > input{
+	text-align: center;
+}
+.prd_title{
+	width:140px;
+	font-size: 21px;
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+}
+.prd_priceC{
+	font-size: 23px;
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: bold;
+    font-style: normal;
+}
+.pl_no3_center{
+	width: 1280px;
+	float: left;
+	margin: 0 auto;
+	overflow: auto;
+}
+.pl_no3_center::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.pl_no3_center::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+.pl_no3_center::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}
+.td_hide{
+	display: none;
+}
+.td_le_b{
+	border-left:1px solid #CCC;
+}
+.td_ri_b{
+	border-right:1px solid #CCC;
+}
+.td_to_b{	
+	border-top:1px solid #CCC;
+}
+.td_bo_b{
+	border-bottom:1px solid #CCC;
+}
+
+
+.pl_no3_center > table{
+	width: 990px;
+	margin : 0 auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.pl_no3_center > table td{
+	width: 180px;
+	height: 40px;
+	padding : 0 15px;
+}
+
+.pl_no3_center > table td input{
+	outline: none;
+	border: none;
+}
+
+.like_bt{
+	font-weight: bold;
+	text-decoration: underline;
+	font-style: italic;
+	width: 110px;
+	height: 40px;
+	text-align: center;
+	background-color: white;
+}
+.like_on {
+	font-weight: bold;
+	text-decoration: underline;
+	width: 110px;
+	height: 40px;
+	text-align: center;
+	color: white;
+	background-color: orange;
+	border: 2px solid orange;
+}
+.like_bt_td{
+	text-align: right;
+}
+
+.cart-btn {
+  background-color: #f2f2f2;
+  border: none;
+  color: #333;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  width: 150px;
+}
+.cart-btn:hover {
+  background-color: #ddd;
+}
+
+
+
+
+/* 스크롤 버튼 스타일 설정 */
+#scrollBtn {
+  display: block;
+  margin-top: 10px;
+  bottom: 10px;
+}
+
+
+/* 페이지 이전 다음 버튼 */
+
+#pl_art_no5{
+	width: 1280px;
+	text-align: center;
+	margin-top:50px;
+	margin-bottom: 50px;
+	
+}
+
+
+#emptyArea {
+	margin: auto;
+	width: 500px;
+	text-align: center;
+}
