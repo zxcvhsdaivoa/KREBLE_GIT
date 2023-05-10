@@ -138,7 +138,7 @@ public class Clup_DAO {
 		ResultSet rs = null;
 		int clup_no=0;
 		int success=0;
-		String cl_no="insert into clup_member value(?,?,'admin',now())";
+		String cl_no="insert into clup_member value(?,?,'admin',default,now())";
 		try{
 			pstmt = con.prepareStatement("select clup_no from clup_room order by clup_no desc limit 1");
 			rs= pstmt.executeQuery();
@@ -158,16 +158,36 @@ public class Clup_DAO {
 		return success;
 	}
 	
+	@SuppressWarnings("resource")
+	public boolean clup_pwcheck(int no, String pw) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean isck = false;
+		try{
+			pstmt = con.prepareStatement("select clup_no from clup_room where clup_no=? and clup_pw=? and clup_howjoin='password';");
+			pstmt.setInt(1, no);
+			pstmt.setString(2, pw);
+			rs= pstmt.executeQuery();
+			if(rs.next()) isck=true;
+			
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return isck;
+	}
 	
-	public int join_clup(ClupInfo cl) {
+	
+	public int join_clup(String id, int no) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int count=0;
 		try{
-			pstmt = con.prepareStatement("insert into clup_join value(?,?,?);");
-			pstmt.setInt(1,cl.getClup_no());
-			pstmt.setString(2,cl.getClup_user());
-			pstmt.setString(3,cl.getClup_text());
+			pstmt = con.prepareStatement("insert into clup_member value(?,?,'new',default,now());");
+			pstmt.setInt(1,no);
+			pstmt.setString(2,id);
 			count= pstmt.executeUpdate();
 			
 		}catch(Exception ex){
@@ -180,14 +200,15 @@ public class Clup_DAO {
 	}
 	
 	
-	public int clup_add_mamber(ClupInfo cl) {
+	public int join_clup_reque(String id, int no,String jointext) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int count=0;
 		try{
-			pstmt = con.prepareStatement("insert into clup_member value(?,?,'new',default);");
-			pstmt.setInt(1,cl.getClup_no());
-			pstmt.setString(2,cl.getClup_user());
+			pstmt = con.prepareStatement("insert into clup_join value(?,?,?,default);");
+			pstmt.setInt(1,no);
+			pstmt.setString(2,id);
+			pstmt.setString(3,jointext);
 			count= pstmt.executeUpdate();
 			
 		}catch(Exception ex){
@@ -198,6 +219,7 @@ public class Clup_DAO {
 		}
 		return count;
 	}
+	
 	
 	public int clup_remove_member(ClupInfo cl) {
 		PreparedStatement pstmt = null;
@@ -238,6 +260,27 @@ public class Clup_DAO {
 		}
 		return count;
 	}
+	
+	
+	public int clup_mamber_lastday(int no, String id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int count=0;
+		try{
+			pstmt = con.prepareStatement("update clup_member set clup_memberLastday = now() where clup_no=? and member_id=?;");
+			pstmt.setInt(1,no);
+			pstmt.setString(2,id);
+			count= pstmt.executeUpdate();
+			
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return count;
+	}
+	
 	
 	public int write_chat(ClupInfo cl) {
 		PreparedStatement pstmt = null;
