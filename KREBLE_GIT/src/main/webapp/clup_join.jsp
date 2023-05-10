@@ -34,15 +34,17 @@
 					<span class="clup_name">클럽 명 : <%=clup.getClup_name() %></span>
 					<span class="clup_admin">클럽 장 : <%=clup.getClup_user() %></span>
 					<span class="clup_howjoin">가입 방식 : <%=ud.howjoin(clup.getClup_howjoin()) %></span>
-					<span class="clup_makedate">클럽 생성일 : <%=ud.date_format(clup.getClup_makedate(),"yyyy-mm-dd hh:mm") %></span>
-					<textarea class="no_line">클럽 소개 : <%if(clup.getClup_text()!=null){%><%=clup.getClup_text() %><%}else{ %>이 클럽은 소개문구가 없습니다<%} %></textarea>
+					<span class="clup_member_count">총 인원수 : <%=ud.select_clup_member_count(clup.getClup_no())%></span>
+					<span class="clup_makedate">생성일 : <%=ud.date_format(clup.getClup_makedate(),"yyyy-mm-dd hh:mm") %></span>
+					<textarea class="no_line">클럽 소개 : <%if(clup.getClup_text()!=null&&clup.getClup_text()!=""){%><%=clup.getClup_text() %><%}else{ %>이 클럽은 소개문구가 없습니다<%} %></textarea>
 				</div>
 			</div>
-			<form name="clupjoin" action="clupjoining.cl">
-				<input type="hidden" value="<%=login_id%>">
-				<%if(clup.getClup_howjoin().equals("request")) {%><textarea class="join_text" placeholder="자신의 소개문구를 적어보세요!"></textarea><%}
-				else if(clup.getClup_howjoin().equals("password")){ %><input type="password" placeholder="비밀번호 일치시 가입됩니다"><%} %>
-				<input type="submit" value="가입신청">
+			<form name="clupjoin" action="clupJoining.cl">
+				<input type="hidden" name="no" value="<%=request.getParameter("clup_no")%>">
+				<input type="hidden" name="how" value="<%=clup.getClup_howjoin()%>">
+				<%if(clup.getClup_howjoin().equals("request")) {%><textarea class="join_text" name="join_text" placeholder="자신의 소개문구를 적어보세요!"></textarea><%}
+				else if(clup.getClup_howjoin().equals("password")){ %><input type="password" name="pw" placeholder="비밀번호 일치시 가입됩니다"><%} %>
+				<input type="submit" value="가입신청" class="btn <%if(clup.getClup_howjoin().equals("free")){%>freein<%}%>">
 			</form>
 		</div>
 	</section>

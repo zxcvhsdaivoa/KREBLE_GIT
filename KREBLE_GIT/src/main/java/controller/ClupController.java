@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.ClupJoinAction;
+import action.ClupJoiningAction;
 import action.ClupListAction;
 import action.ClupMakeAction;
 import action.ClupMakingAction;
@@ -58,6 +59,13 @@ public class ClupController extends javax.servlet.http.HttpServlet {
 			}
 		}else if(command.equals("/clupJoin.cl")){
 			action  = new ClupJoinAction();
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/clupJoining.cl")){
+			action  = new ClupJoiningAction();
 			try {
 				forward=action.execute(request, response );
 			} catch (Exception e) {
