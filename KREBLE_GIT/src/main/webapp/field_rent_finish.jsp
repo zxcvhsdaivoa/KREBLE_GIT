@@ -1,9 +1,15 @@
+<%@page import="vo.Rent_situation"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ page import="java.sql.*" %>
+<jsp:useBean id="ud" class="use_data.Db_method_ECT"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<%
+	Rent_situation rent_situation=(Rent_situation) request.getAttribute("rent_situation");
+%>
 <title>예약 동의</title>
 <link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
 <link rel="stylesheet" type="text/css" href="css/field_rent.css">
@@ -46,8 +52,7 @@
 				  	<div style="background-color: #fff; border: 1px solid #a6a6a6;">
 				  		아이디:<br><br>
 				  		구장명:<br><br>
-				  		이용시간:<br><br>
-				  		예약날짜:<br><br>
+				  		예약 날짜: <%=ud.date_format(rent_situation.getRent_date(),"yyyy-mm-dd hh:mm") %><br><br>
 				  		금액:<br><br>
 				  	</div>
 				  </div>

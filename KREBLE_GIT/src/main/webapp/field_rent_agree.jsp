@@ -1,6 +1,14 @@
+<%@page import="vo.Rent_situation"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ page import="java.sql.*" %>
+<jsp:useBean id="ud" class="use_data.Db_method_ECT"/>
+<%
+ 	String rent_date = request.getParameter("rent_date");
+	out.print(rent_date);
+	rent_date=ud.date_format(rent_date, "kortotime");
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -70,7 +78,7 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><b
 
 <!-- 				</div> -->
 				<div class="btn_area">
-					<a class="payment_btn" href="field_rent_finish.jsp">다음으로</a>
+					<a class="payment_btn" href="rent_insr.choi?rent_date=<%=rent_date%>">신청하기</a>
 				</div>
 			</div>
 			</form>

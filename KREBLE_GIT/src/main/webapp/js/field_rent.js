@@ -16,6 +16,13 @@ $(function(){
 //	if (todayCell > cellDate) {
 //	  todayCell.innerHTML += '<span class="possible">가능</span>';
 //	}
+	//예약 날짜 등록
+	$(".payment_btn").click(function(){
+		var time = $("input[type=radio][name=rent_time]:checked").val();
+		var daychoice = $("#month option:selected").text()+$(".day2 td.on").text().trim()+time+"00분";
+		location.href="rent_agree.choi?rent_date="+daychoice
+	})
+
 	 $(".box_inner2").hide();	
 	 $(".box_text > span").hide();
 	 
@@ -83,20 +90,23 @@ $(function(){
 		  
 		  // 선택한 날짜 데이터베이스 인서트 테스트
 		  $(".day2 td").click(function() {
-				  var daychoice = $("#month option:selected").text()+$(this).text().trim();;
-				  alert(daychoice);
-				  $.ajax({
-				    url: "Testinsert.jsp",
-				    type: "POST",
-				    data: {date: daychoice},
-				    success: function(response) {
-				      console.log(response);
-				    },
-				    error: function() {
-				      console.log("Error");
-				    }
-			  });
-		}); 
+			  $(this).addClass("on");
+//				  alert(daychoice);
+//				  $.ajax({
+//				    url: "rent_agree.choi",
+//				    type: "POST",
+//				    async:false,
+//				    data: {rent_date: daychoice},
+//				    success: function(response) {
+//				      console.log(response);
+//				    },
+//				    error: function() {
+//				      console.log("Error");
+//				    }
+//			  });
+		});
+		
+		 
 	}
 		
 	

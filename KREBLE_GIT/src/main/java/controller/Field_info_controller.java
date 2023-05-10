@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.Field_list_action;
+import action.Field_rent_finish_action;
+import action.Field_rent_insr_action;
 import action.Field_rent_select_action;
 import vo.ActionForward;
 
@@ -41,6 +43,34 @@ public class Field_info_controller extends javax.servlet.http.HttpServlet  {
 				e.printStackTrace();
 			}
 		}
+		
+		//예약 약관동의 페이지
+		else if(command.equals("/rent_agree.choi")){
+			forward = new ActionForward();
+			forward.setPath("/field_rent_agree.jsp");
+		}
+		
+		//예약 인서트 메소드
+		else if(command.equals("/rent_insr.choi")){
+			action = new Field_rent_insr_action();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		
+		//예약 신청완료 셀렉 메소드
+		else if(command.equals("/rent_finish.choi")){
+			action = new Field_rent_finish_action();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		
+		
 		
 		if(forward != null){
 					

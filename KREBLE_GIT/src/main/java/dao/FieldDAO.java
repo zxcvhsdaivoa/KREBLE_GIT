@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 import use_data.Shop_prd;
 import vo.KreblechoiData;
 import vo.Rent_info;
+import vo.Rent_situation;
 import vo.field_save_Data;
 
 public class FieldDAO {
@@ -148,6 +149,55 @@ public class FieldDAO {
 		}
 		return cate_list;
 	}
+	
+	//예약 인서트
+	public int rent_insert(Rent_situation situa) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql="insert into rent_situation (rent_num,rent_date) values (default,?)";
+		int insertCount=0;
+		
+		try{
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, situa.getRent_date());
+			System.out.println(pstmt);
+			insertCount=pstmt.executeUpdate();
+
+		}catch(Exception ex){
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+
+		return insertCount;
+
+	}
+	
+	public Rent_situation field_finish_check() throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;		
+		Rent_situation rent_situation=null;
+
+		try{
+			pstmt = con.prepareStatement("select * from rent_situation ;");
+			rs= pstmt.executeQuery();
+
+			if(rs.next()){
+				rent_situation=new Rent_situation();
+				rent_situation.setRent_num(rs.getInt("rent_num"));
+				rent_situation.setUser_id(rs.getString("user_id"));
+				rent_situation.setRent_location(rs.getString("rent_location"));
+				rent_situation.setRent_date(rs.getString("rent_date"));
+				rent_situation.setRent_price(rs.getInt("rent_price"));
+			}
+		}catch(Exception ex){
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return rent_situation;
+	}
+	
 	
 		
 }
