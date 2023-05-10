@@ -6,6 +6,11 @@ $(function(){
 	$('.p_delete').click(function(){
 		alert("탈퇴기능 준비중입니다.");
 	})
+//	
+//	$('#article_no2 > div > .center_only').hide();
+//	$('#article_no4 > .center_only').hide();
+//	$('#article_no5 > .center_only').hide();
+	
 	
 	$('.cash_re').click(function(){
 		if(confirm("포인트를 충전하시겠습니까?")){

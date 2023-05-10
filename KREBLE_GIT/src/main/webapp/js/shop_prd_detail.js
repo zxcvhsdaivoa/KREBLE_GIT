@@ -6,7 +6,15 @@ $(function(){
 		}
 	})
 	
-	
+	$("#pd_detail_no4").hide();
+	$("#pd_detail_no7>.flex>.text_left").click(function(){
+		$("#pd_detail_no4").show();
+		$("#pd_detail_no6").hide();		
+	})
+	$("#pd_detail_no7>.flex>.text_right").click(function(){
+		$("#pd_detail_no4").hide();
+		$("#pd_detail_no6").show();
+	})
 	
 	
 	

@@ -133,7 +133,8 @@ td{
 /* 프로필사진 / 닉네임 / 마이스쿼드 */
 #article_no2{
 	width: 990px;
-	height: 630px;
+	height: auto;
+	max-height: 630px;
 	margin: 0 auto;
 }
 
@@ -170,7 +171,7 @@ td{
     box-sizing: border-box;
 	text-align:center;
     font-family: 'TheJamsil5Bold';
-    float: left;
+    color: darkslategray;
 }
 .commu_wrap.wrap1 .squad_wrap {
 	background-color:#fff;
@@ -251,7 +252,7 @@ td{
     background-color: #fff;
     box-sizing: border-box;
     width: 924px;
-    height: 621px;
+    height: 590px;
 }
 
 
@@ -277,7 +278,8 @@ td{
 
 #article_no4{
 	width: 990px;
-	height: 420px;
+	height: auto;
+	max-height: 404px;
 	margin: 0 auto;
 }
 
@@ -296,6 +298,7 @@ td{
     box-sizing: border-box;
 	text-align:center;
     font-family: 'TheJamsil5Bold';
+    color: darkslategray;
 }
 
 
@@ -322,7 +325,8 @@ td{
 
 #article_no5{
 	width: 990px;
-	height: 420px;
+	height: auto;
+	max-height: 420px;
 	margin: 0 auto;
 }
 
@@ -341,6 +345,7 @@ td{
     box-sizing: border-box;
 	text-align:center;
     font-family: 'TheJamsil5Bold';
+    color: darkslategray;
 }
 
 #article_no5 .center_only{

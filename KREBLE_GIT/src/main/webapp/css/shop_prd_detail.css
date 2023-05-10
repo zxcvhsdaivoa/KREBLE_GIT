@@ -30,7 +30,7 @@ article{
 
 table{
 	border-collapse: collapse;
-	width: 740px;
+	width: 670px;
 	margin: 0 auto;
 }
 
@@ -38,6 +38,7 @@ table{
 	width: 1260px;
 	padding-right: 285px;
 	padding-top: 5px;
+    height: 80px;
 }
 
 #pd_detail_no0 > .prdC{
@@ -61,16 +62,75 @@ table{
 	font-size: 13px;
 }
 
+
+.sue_label{
+    background-color: steelblue;
+    width: 240px;
+    height: 58px;
+    border: 1px solid steelblue;
+    float: right;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+    color: skyblue;
+    font-size: 35px;
+    padding-top: 15px;
+	
+}
+.uni_label{
+    background-color: orange;
+    width: 240px;
+    height: 58px;
+    border: 1px solid orange;
+    float: right;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+    color: wheat;
+    font-size: 35px;
+    padding-top: 15px;
+}
+.ball_label{
+    background-color: hotpink;
+    width: 240px;
+    height: 58px;
+    border: 1px solid hotpink;
+    float: right;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+    color: pink;
+    font-size: 35px;
+    padding-top: 15px;
+	
+}
+.etc_label{
+	background-color: green;
+    width: 240px;
+    height: 58px;
+    border: 1px solid green;
+    float: right;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+    color: yellowgreen;
+    font-size: 35px;
+    padding-top: 15px;
+}
+
+
+
 /* 제품소개(필수) 사진 */
 #pd_detail_no1{
 	width: 890px;
-	height: 300px;
+	height: 393px;
 }
 
 #pd_detail_no1 > .no1_img_info1	{
-	width: 840px;
-	height: 300px;
-	float: left;	
+    width: 710px;
+    height: 460px;
+    margin: 0 auto;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-top: 1px solid;
+    border-radius: 12px 12px 0 0;
+    margin: 0 auto;
 }
 
 .b_img{
@@ -80,7 +140,7 @@ table{
 }
 
 #pd_detail_no1 > .no1_img_info1  table td{
-    height: 40px;
+    height: 56px;
 }
 
 .f_table_label{
@@ -109,7 +169,7 @@ table{
 .textA_table_field{
 	font-size: 13px;
 	padding-top: 5px;
-	width: 100%;
+	width: 99%;
 	min-height: 100px;
 	outline: none;
     border: none;
@@ -120,35 +180,46 @@ table{
 }
 
 
-/* 제품소개(상세) 사진 */
+/* 제품소개(상세)*/
 #pd_detail_no6{
 	width: 840px;
+	height: 290px;
+	max-height: 350px;
     padding-bottom: 10px;
 }
 #pd_detail_no6 > .center_only{
-	width: 680px;
-	margin : 0 auto;
+    width: 710px;
+    height: 362px;
+    margin: 0 auto;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-radius: 0 0 12px 12px;
 }
 
 
 #pd_detail_no6 table{
-	width: 680px;
+	width: 708px;
 	margin: 0 auto;
 }
 #pd_detail_no6 td{
-	height: 40px;
+	height: 43px;
 }
 
+
+#pd_detail_no6 tr:last-child td:first-child {
+    border-radius: 0 0 0 12px;
+}
+
+
+#pd_detail_no6 tr:last-child td:last-child textarea{
+    border-radius: 0 0 12px 0;
+}
 
 /* 상세보기 / 리뷰보기 */
 #pd_detail_no7{
 	width: 840px;
 }
-#pd_detail_no7 > .flex{
-	margin-top: 30px;	
-	margin-bottom: 15px;
-}
-
 .flex{
 	display: flex;
 	justify-content: center; 
@@ -166,7 +237,7 @@ table{
 
 #pd_detail_no7 > .flex > input{
 	padding: 0 40px;
-	width: 370px;
+	width: 400px;
 	height: 40px;
 	border-top: none;
 	border-left: none;
@@ -197,8 +268,8 @@ table{
 #pd_detail_no3{
 	width: 890px;
 	height: 60px;
-	margin-top: 80px;
-	margin-bottom: 90px;
+	margin-top: 140px;
+	margin-bottom: 30px;
 }
 
 #pd_detail_no3 > div{
@@ -244,16 +315,30 @@ table{
 /* 댓글리뷰 */
 #pd_detail_no4{
 	width: 890px;
-	height: auto;
+	height: 290px;
 	min-height: 100px;
-	max-height: 500px;
+	max-height: 350px;
 	margin-bottom: 70px;
+}
+
+#pd_detail_no4 > .center_only{
+    width: 710px;
+    height: 365px;
+    margin: 0 auto;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-radius: 0 0 12px 12px;
 }
 
 
 #pd_detail_no4 td{
-	text-align: center;
-	height: 35px;
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 13px;
+    text-align: center;
+    height: 45px;
 }
 .re_conten{
     font-family: 'Hahmlet-Regular';
@@ -273,7 +358,7 @@ table{
 
 /* 댓글작성 */
 #pd_detail_no5{
-	height: 100px;
+	height: 125px;
 	position: relative;
 }
 #pd_detail_no5 >div> div:first-child > p{
@@ -295,6 +380,9 @@ table{
 	border: none;
 }
 
+.h50{
+	height: 40px;
+}
 
 #pd_detail_no5 >div > div:last-child > p{
 	width: 60px;
