@@ -130,7 +130,6 @@ table{
     border-right: 1px solid;
     border-top: 1px solid;
     border-radius: 12px 12px 0 0;
-    margin: 0 auto;
 }
 
 .b_img{
@@ -349,7 +348,7 @@ table{
 
 .h40{
 	vertical-align: top;
-	height: 50px;
+    padding-top: 10px;
 }
 
 .del_bt_hide{
