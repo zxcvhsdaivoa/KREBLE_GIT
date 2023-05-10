@@ -13,14 +13,18 @@
 <body>
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
-		<div class="left_list">
-			<ul>
-				<li><a href="#">클럽Main</a></li>
-				<li><a href="#">클럽 멤버 목록</a></li>
-				<li><a href="#">클럽 공지사항</a></li>
-				<li><a href="#">클럽 채팅</a></li>
-			</ul>
-		</div>
+	<%@ page import="vo.ClupInfo"%>
+	<%@ page import="java.util.ArrayList"%>
+	<%
+		ClupInfo clup = null;
+		if(request.getAttribute("clup")!=null&&request.getAttribute("clup")!=""){
+			clup=(ClupInfo)request.getAttribute("clup");
+		}
+	%>
+		<jsp:include page="clup_LeftsideBaseform.jsp"/>
+		
+		<jsp:include page="clup_RightsideBaseform.jsp"/>
+		
 		<div class="section_inner clup_room">
 
 			

@@ -6,15 +6,15 @@ import static db.JdbcUtil.getConnection;
 import java.sql.Connection;
 
 import dao.Clup_DAO;
+import vo.ClupInfo;
 
-public class ClupPageService {
-	public int ismember(int no, String id) throws Exception {
-		int success=0;
+public class ClupMemberService {
+	public ClupInfo selectMember(int no,String id) throws Exception {
 		Connection con = getConnection();
 		Clup_DAO clupdao = Clup_DAO.getInstance();
 		clupdao.setConnection(con);
-		success=clupdao.search_is_member(no,id);
+		ClupInfo cl=clupdao.select_clup(no);
 		close(con);
-		return success;
+		return cl;
 	}
 }

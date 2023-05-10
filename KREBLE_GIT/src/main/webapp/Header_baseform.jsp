@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+	String id= "null";
+	if(session.getAttribute("ID")!=null&&session.getAttribute("ID")!=""&!session.getAttribute("ID").equals("null")){
+		id=(String) session.getAttribute("ID");
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +18,13 @@
     <div class="header_inner">
         <h1><a href="index.jsp"><!-- <img src="image/logo_EX.jpg" style="width: 100px;height: 70px;"> --><img src="image/logo.png" alt="kerble"> </a></h1>
         <ul class="cate_login">
+        <%if(id.equals("null")) {%>
             <li class="login_false"><a href="login.jsp">로그인</a></li>
             <li class="login_false"><a href="join_member.jsp">회원가입</a></li>
+        <%} else {%>
             <li class="login_true"><a href="logout.jsp">로그아웃</a></li>
             <li class="login_true"><a href="mypage.kb">마이페이지</a></li>
+        <%} %>
         </ul>
        
        <div class="top_nav">

@@ -13,12 +13,28 @@
 <body>
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
-		<div class="section_inner">
+	<%@ page import="vo.ClupInfo"%>
+	<%@ page import="java.util.ArrayList"%>
+	<%
+		ClupInfo clup = null;
+		if(request.getAttribute("clup")!=null&&request.getAttribute("clup")!=""){
+			clup=(ClupInfo)request.getAttribute("clup");
+		}
+	%>
+		
+		<jsp:include page="clup_LeftsideBaseform.jsp"/>
+		
+		<jsp:include page="clup_RightsideBaseform.jsp"/>
+		
+		<div class="section_inner clup_room">
+
+			
 
 
-
-
-
+			<form name="clup_chat">
+				<textarea name="chat_box" id="chat_box" placeholder="채팅을 입력해주세요"></textarea>
+				<input type="button" value="전송">
+			</form>
 		</div>
 	</section>
 <jsp:include page="Footer_baseform.jsp"/>

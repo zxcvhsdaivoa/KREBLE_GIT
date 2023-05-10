@@ -4,17 +4,19 @@ import static db.JdbcUtil.close;
 import static db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import dao.Clup_DAO;
+import vo.ClupInfo;
 
-public class ClupPageService {
-	public int ismember(int no, String id) throws Exception {
-		int success=0;
+public class ClupChatService {
+	public ArrayList<ClupInfo> selectChat(int no) throws Exception {
+		ArrayList<ClupInfo> sll = null;
 		Connection con = getConnection();
 		Clup_DAO clupdao = Clup_DAO.getInstance();
 		clupdao.setConnection(con);
-		success=clupdao.search_is_member(no,id);
+		sll=clupdao.select_clup_chat(no);
 		close(con);
-		return success;
+		return sll;
 	}
 }

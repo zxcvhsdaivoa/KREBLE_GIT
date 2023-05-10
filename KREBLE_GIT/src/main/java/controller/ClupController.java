@@ -14,7 +14,11 @@ import action.ClupJoiningAction;
 import action.ClupListAction;
 import action.ClupMakeAction;
 import action.ClupMakingAction;
-import action.ClupPageAction;
+import action.ClupRoomChatAction;
+import action.ClupRoomMainAction;
+import action.ClupRoomManageAction;
+import action.ClupRoomMemberAction;
+import action.ClupRoomNoticeAction;
 import vo.ActionForward;
 
 @SuppressWarnings("serial")
@@ -36,8 +40,36 @@ public class ClupController extends javax.servlet.http.HttpServlet {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		}else if(command.equals("/clupPage.cl")){
-			action  = new ClupPageAction();
+		}else if(command.equals("/clupRoom.cl")){
+			action  = new ClupRoomMainAction();
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/clupRoomChat.cl")){
+			action  = new ClupRoomChatAction();
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/clupRoomMember.cl")){
+			action  = new ClupRoomMemberAction();
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/clupRoomManage.cl")){
+			action  = new ClupRoomManageAction();
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/clupRoomNotice.cl")){
+			action  = new ClupRoomNoticeAction();
 			try {
 				forward=action.execute(request, response );
 			} catch (Exception e) {

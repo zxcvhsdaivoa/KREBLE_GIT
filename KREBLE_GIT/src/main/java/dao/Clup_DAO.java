@@ -86,7 +86,58 @@ public class Clup_DAO {
 	}
 	
 	
-	public int search_clup_member(int no, String id) {
+	public ArrayList<ClupInfo> select_clup_chat(int clup_no) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<ClupInfo> chat_list = new ArrayList<ClupInfo>();
+		try{
+			pstmt = con.prepareStatement("select * from clup_chat where clup_no="+clup_no+";");
+			rs= pstmt.executeQuery();
+			while(rs.next()){
+				ClupInfo chat= new ClupInfo();
+				chat.setClup_no((rs.getInt("clup_no")));
+				chat.setClup_user(rs.getString("clup_member"));
+				chat.setClup_text(rs.getString("clup_chat"));
+				chat.setClup_text_time(rs.getString("clup_chat_time"));
+				chat_list.add(chat);
+			}
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return chat_list;
+	}
+	
+	
+	public ArrayList<ClupInfo> select_member_list(int clup_no) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<ClupInfo> member_list = new ArrayList<ClupInfo>();
+		try{
+			pstmt = con.prepareStatement("select * from clup_member where clup_no="+clup_no+";");
+			rs= pstmt.executeQuery();
+			while(rs.next()){
+				ClupInfo member= new ClupInfo();
+				member.setClup_no((rs.getInt("clup_no")));
+				member.setClup_user(rs.getString("member_id"));
+				member.setClup_rank(rs.getString("clup_rank"));
+				member.setClup_joindate(rs.getString("clup_joindate"));
+				member.setClup_lastday(rs.getString("clup_memberLastday"));
+				member_list.add(member);
+			}
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return member_list;
+	}
+	
+	
+	public int search_is_member(int no, String id) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int ismember=0;

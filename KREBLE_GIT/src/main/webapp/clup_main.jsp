@@ -35,7 +35,7 @@
 					howjoin=ud.howjoin(howjoin);
 				%>
 				<li>
-					<a href="clupPage.cl?clup_no=<%=cll.get(i).getClup_no()%>">
+					<a href="clupRoom.cl?clup_no=<%=cll.get(i).getClup_no()%>">
 					<%
 					if(cll.get(i).getClup_logo()!=null)
 					{
@@ -58,10 +58,6 @@
 			<%
 			}
 			%>
-			
-			
-
-
 			<a href="clupMake.cl" class="btn make_clup">클럽 만들기</a>
 		</div>
 	</section>

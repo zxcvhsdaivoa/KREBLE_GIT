@@ -13,6 +13,13 @@ public class ClupInfo {
 	String clup_text;
 	String clup_text_time;
 	String clup_joindate;
+	String clup_lastday;
+	public String getClup_lastday() {
+		return clup_lastday;
+	}
+	public void setClup_lastday(String clup_lastday) {
+		this.clup_lastday = clup_lastday;
+	}
 	public int getClup_no() {
 		return clup_no;
 	}
