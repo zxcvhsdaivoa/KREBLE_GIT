@@ -31,6 +31,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//공개설정된 클럽 전부 가져오기
 	public ArrayList<ClupInfo> select_clup_list() {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -59,6 +60,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 번호에 해당하는 클럽 가져오기
 	public ClupInfo select_clup(int clup_no) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -86,6 +88,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 번호에 해당하는 클럽의 채팅 가져오기
 	public ArrayList<ClupInfo> select_clup_chat(int clup_no) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -111,6 +114,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 번호에 해당하는 클럽의 멤버 목록 가져오기
 	public ArrayList<ClupInfo> select_member_list(int clup_no) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -137,6 +141,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//현재 아이디가 해당 클럽에 가입되어 있는가
 	public int search_is_member(int no, String id) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -159,6 +164,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 만들기
 	public int create_clup(ClupInfo cl) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -183,6 +189,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 생성후 자동으로 생성자의 어드민 등록
 	@SuppressWarnings("resource")
 	public int insert_admin(ClupInfo cl) {
 		PreparedStatement pstmt = null;
@@ -209,6 +216,8 @@ public class Clup_DAO {
 		return success;
 	}
 	
+	
+	//클럽 비밀번호 체크
 	@SuppressWarnings("resource")
 	public boolean clup_pwcheck(int no, String pw) {
 		PreparedStatement pstmt = null;
@@ -231,6 +240,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 가입
 	public int join_clup(String id, int no) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -251,6 +261,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 가입신청 
 	public int join_clup_reque(String id, int no,String jointext) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -272,6 +283,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 멤버 추방
 	public int clup_remove_member(ClupInfo cl) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -292,6 +304,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//멤버 직위 설정
 	public int clup_update_mamber(ClupInfo cl) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -313,6 +326,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽멤버 마지막 접속일 업데이트
 	public int clup_mamber_lastday(int no, String id) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -333,6 +347,7 @@ public class Clup_DAO {
 	}
 	
 	
+	//채팅 작성
 	public int write_chat(ClupInfo cl) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -353,6 +368,8 @@ public class Clup_DAO {
 		return count;
 	}
 	
+	
+	//클럽 공지 작성
 	public int write_notice(ClupInfo cl) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

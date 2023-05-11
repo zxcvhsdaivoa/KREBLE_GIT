@@ -22,7 +22,8 @@ section {
     width:715px;
     height:60px;
     padding-left: 10px;
-    font-size: 17px;
+    font-size: 20px;
+    text-align:center;
     border:none;
     outline:none;
     border-top:4px solid #161616;
