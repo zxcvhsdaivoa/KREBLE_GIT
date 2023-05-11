@@ -59,7 +59,11 @@
 	<script src="js/Header_Footer_Aside_baseform.js"></script>
 	<script src="js/shop_prd_list.js"></script>
 	<script src="js/jquery.colorbox-min.js"></script>
-	
+	<script>
+function alert_cart(){
+  alert("장바구니에 추가되었습니다.");
+}
+</script>
 	
 <title>제품리스트</title>
 </head>
@@ -255,7 +259,7 @@
 						<%	
 						}else{
 						%>
-						<td class = "td_bo_b"><a href="shop_bak.sp?prd_no=<%=aa%>&b_id=<%=id%>&page=<%=nowPage%>"><input type="button" value="장바구니" class="cart-btn"></a></td>
+						<td class = "td_bo_b"><a href="shop_bak.sp?prd_no=<%=aa%>&b_id=<%=id%>&page=<%=nowPage%>"><input type="button" value="장바구니" class="cart-btn" onclick="alert_cart()"></a></td>
 						<%
 						}
 						%>

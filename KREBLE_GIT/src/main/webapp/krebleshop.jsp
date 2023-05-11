@@ -119,7 +119,7 @@
       <!-- 상품 보기 -->
       <article id = "article_no4">
       	<div><!-- 상품보기 1(유니폼/축구화) -->
-      		<div><font style="font-family: gothic; font-size: 20px; font-weight: bold;">야 너도? 야 나도! 국대 될끄니까!</font></div><a href="#"><input type="button" value="상품 바로가기"></a>
+      		<div><font style="font-family: gothic; font-size: 20px; font-weight: bold;">야 너도? 야 나도! 국대 될끄니까!</font></div><a href="shop_list_action.sp"><input type="button" value="상품 바로가기"></a>
       		<div class="benner_2">
       			<span>
       				<img alt="bot_benner" src="image/shopimg/shop_bot_benner0.jpg">
@@ -169,14 +169,14 @@
       			</div>
       		</div>
       		<div class="shop_go">
-      			<a href="#">
+      			<a href="shop_list_action.sp">
       				<input type="button" value="더 많은 상품정보 보러가기">
       			</a>
       		</div>
       	</div>
       	
       	<div><!-- 상품보기 2(축구공/기타용품) -->
-      		<div><font style="font-family: gothic; font-size: 20px; font-weight: bold;">이거없이 축구하려고?</font></div><a href="#"><input type="button" value="상품 바로가기"></a>
+      		<div><font style="font-family: gothic; font-size: 20px; font-weight: bold;">이거없이 축구하려고?</font></div><a href="shop_list_action.sp"><input type="button" value="상품 바로가기"></a>
       		<div class="benner_2">
       			<span>
       				<img alt="bot_benner" src="image/shopimg/shop_bot_benner1.jpg">
@@ -226,7 +226,7 @@
       			</div>
       		</div>
       		<div class="shop_go">
-      			<a href="#">
+      			<a href="shop_list_action.sp">
       				<input type="button" value="더 많은 상품정보 보러가기">
       			</a>
       		</div>
