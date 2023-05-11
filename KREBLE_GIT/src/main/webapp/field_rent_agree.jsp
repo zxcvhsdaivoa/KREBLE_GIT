@@ -64,7 +64,7 @@
 							9. 사용자는 사전 준수사항 및 규정을 숙지 후 예약함으로 이행함을 확인합니다.
 						</span><br><br>
 				  	</div>
-				  	<br><input type="checkbox"> 동의합니다<br><br>
+				  	<br><input type="checkbox">동의합니다 <br><br>
 				  	<span style="font-size: 21px;">
 				  		<b>2 .주의사항</b>
 				  	</span><br><br>

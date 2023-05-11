@@ -64,7 +64,7 @@
 				</div>
 				
 				<div class="btn_area">
-					<a class="payment_btn" href="#">처음으로</a>
+					<a class="payment_btn" href="fieldrent.choi">처음으로</a>
 				</div>
 			</div>
 			</form>

@@ -76,7 +76,7 @@ $(function(){
 		    if (date.getDay() == 0) { // 일요일이면 새로운 주 시작
 		      html += "</tr><tr class='day2'>";
 		    }
-		    html += "<td class='date_hover' onclick='box_show()'>"+"<span style='cursor: pointer;'>" + i + "일</span>"+"</td>";
+		    html += "<td class='date_hover' onclick='box_show()'>"+"<a href='#info_box'>"+"<span style='cursor: pointer;'>" + i + "일</span>"+"</a>"+"</td>";
 		    date.setDate(date.getDate() + 1);
 		  }
 		
