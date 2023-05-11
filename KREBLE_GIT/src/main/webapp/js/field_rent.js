@@ -16,6 +16,7 @@ $(function(){
 //	if (todayCell > cellDate) {
 //	  todayCell.innerHTML += '<span class="possible">가능</span>';
 //	}
+	
 	//예약 날짜 등록
 	$(".payment_btn").click(function(){
 		var time = $("input[type=radio][name=rent_time]:checked").val();
@@ -26,7 +27,7 @@ $(function(){
 	 $(".box_inner2").hide();	
 	 $(".box_text > span").hide();
 	 
-	 $(".top_text select.loca").change(function(){
+	 $(".selc_list select.loca").change(function(){
 		var loca= $(this).val();
 		location.href="fieldrent.choi?location="+loca;
 		 

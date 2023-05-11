@@ -62,7 +62,7 @@ div{
     margin: 0 auto;
 }
 .top_text{
-	padding: 60px 0 50px;
+	padding: 60px 0 28px;
     font-size: 27px;
     font-weight: 700;
     color: #222;
@@ -276,4 +276,34 @@ div{
 }
 .date_hover:hover {
 	background-color: #FAF4C0;
+}
+.loca{
+	font-family: 'NanumSquareNeo-Variable';
+    height: 46px;
+    padding: 5px 34px 5px 5px;
+    font-size: 18px;
+    color: #222;
+    border: 1px solid #a6a6a6;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 15px;
+    text-align: center;
+}
+.starlist{
+	font-family: 'NanumSquareNeo-Variable';
+    height: 46px;
+    padding: 5px 34px 5px 5px;
+    font-size: 18px;
+    color: #222;
+    border: 1px solid #a6a6a6;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 15px;
+    text-align: center;
+}
+.selc_list{
+	text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0 28px 0;
 }

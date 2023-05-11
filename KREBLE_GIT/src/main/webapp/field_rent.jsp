@@ -46,30 +46,8 @@
 		<div id="main_content">
 			<div class="content_top">
 				<div class="top_text">
-					<h1>예약신청</h1>
-					<select class="loca">
-						<option>지역 목록</option>
-						<option value="s" <%if(loca.equals("s")){ %>selected="selected"<%} %>>서울</option>
-						<option value="i" <%if(loca.equals("i")){ %>selected="selected"<%} %>>인천</option>
-						<option value="g" <%if(loca.equals("g")){ %>selected="selected"<%} %>>경기</option>
-						<option value="d" <%if(loca.equals("d")){ %>selected="selected"<%} %>>대구</option>
-						<option value="dd" <%if(loca.equals("dd")){ %>selected="selected"<%} %>>대전</option>
-						<option value="b" <%if(loca.equals("b")){ %>selected="selected"<%} %>>부산</option>
-						<option value="j" <%if(loca.equals("j")){ %>selected="selected"<%} %>>제주</option>
-					</select>
-					<select>
-						<option>경기장 목록</option>
-						<%
-						if(star_list.equals("true")){
-							for(int i=0; i<cate_list.size();i++){
-								%>
-								<option value="<%=cate_list.get(i).getField_name() %>"><%=cate_list.get(i).getField_name() %></option>
-								<% 
-							}
-						}
-						%>
-						
-					</select>
+					<h1 style="margin-bottom: 20px;">예약신청</h1>
+					
 				</div>
 			</div>
 			
@@ -78,6 +56,31 @@
 				<li class="step2"><span class="step_txt">약관동의</span></li>
 				<li class="step3"><span class="step_txt">신청완료</span></li>
 			</ul>
+			<div class="selc_list">
+				<select class="loca">
+							<option>지역 목록</option>
+							<option value="s" <%if(loca.equals("s")){ %>selected="selected"<%} %>>서울</option>
+					<option value="i" <%if(loca.equals("i")){ %>selected="selected"<%} %>>인천</option>
+					<option value="g" <%if(loca.equals("g")){ %>selected="selected"<%} %>>경기</option>
+					<option value="d" <%if(loca.equals("d")){ %>selected="selected"<%} %>>대구</option>
+					<option value="dd" <%if(loca.equals("dd")){ %>selected="selected"<%} %>>대전</option>
+					<option value="b" <%if(loca.equals("b")){ %>selected="selected"<%} %>>부산</option>
+					<option value="j" <%if(loca.equals("j")){ %>selected="selected"<%} %>>제주</option>
+				</select>
+				<select class="starlist">
+					<option>경기장 목록</option>
+					<%
+					if(star_list.equals("true")){
+						for(int i=0; i<cate_list.size();i++){
+							%>
+							<option value="<%=cate_list.get(i).getField_name() %>"><%=cate_list.get(i).getField_name() %></option>
+							<% 
+						}
+					}
+					%>
+					
+				</select>
+			</div>
 			<form>
 			<div id="content2">
 				<div class="content2_box">
@@ -100,6 +103,31 @@
 					</div>
 				</div>
 				
+				<div id="info_box">
+					<h3 class="box_text">신청정보</h3>
+				</div>
+				<div class="box_inner2">
+					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time1().substring(0, 3)%>"><span><%= rent_info.getRent_time1() %></span><br>
+					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time2().substring(0, 3)%>"><span><%= rent_info.getRent_time2() %></span><br>
+					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time3().substring(0, 3)%>"><span><%= rent_info.getRent_time3() %></span><br>
+					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time4().substring(0, 3)%>"><span><%= rent_info.getRent_time4() %></span><br>
+					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time5().substring(0, 3)%>"><span><%= rent_info.getRent_time5() %></span><br>
+				</div>
+				<div class="content3_box">
+					<h3 class="box_text">비용:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span></h3>
+				</div>
+				<div class="btn_area">
+					<a class="payment_btn">다음으로</a>
+				</div>
+			</div>
+			</form>
+		</div>
+
+	</section>
+	 <jsp:include page="Footer_baseform.jsp"/>
+</body>
+</html>
+
 <!-- 					<div class="calendar"> js를 이용해서 달력 출력하기 전 수작업 ver --> 
 <!-- 						<table class="tb_calendar"> -->
 <!-- 							<tr class="day"> -->
@@ -141,28 +169,3 @@
 <!-- 						</table> -->
 <!-- 					</div> -->
 <!-- 				</div> -->
-				
-				<div id="info_box">
-					<h3 class="box_text">신청정보</h3>
-				</div>
-				<div class="box_inner2">
-					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time1().substring(0, 3)%>"><span><%= rent_info.getRent_time1() %></span><br>
-					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time2().substring(0, 3)%>"><span><%= rent_info.getRent_time2() %></span><br>
-					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time3().substring(0, 3)%>"><span><%= rent_info.getRent_time3() %></span><br>
-					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time4().substring(0, 3)%>"><span><%= rent_info.getRent_time4() %></span><br>
-					<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time5().substring(0, 3)%>"><span><%= rent_info.getRent_time5() %></span><br>
-				</div>
-				<div class="content3_box">
-					<h3 class="box_text">비용:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span></h3>
-				</div>
-				<div class="btn_area">
-					<a class="payment_btn">다음으로</a>
-				</div>
-			</div>
-			</form>
-		</div>
-
-	</section>
-	 <jsp:include page="Footer_baseform.jsp"/>
-</body>
-</html>
