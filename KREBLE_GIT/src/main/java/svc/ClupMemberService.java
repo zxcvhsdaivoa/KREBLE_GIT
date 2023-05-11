@@ -13,7 +13,7 @@ public class ClupMemberService {
 		Connection con = getConnection();
 		Clup_DAO clupdao = Clup_DAO.getInstance();
 		clupdao.setConnection(con);
-		ClupInfo cl=clupdao.select_clup(no);
+		ClupInfo cl=clupdao.select_member(no,id);
 		close(con);
 		return cl;
 	}

@@ -21,6 +21,10 @@
 			clup=(ClupInfo)request.getAttribute("clup");
 		}
 		
+		ArrayList<ClupInfo> noticeList=null;
+		if(request.getAttribute("clup_notice")!=null&&request.getAttribute("clup_notice")!=""){
+			noticeList=(ArrayList<ClupInfo>)request.getAttribute("clup_notice");
+		}
 		
 		String login_id="0";
 		if(session.getAttribute("ID")!=null&& session.getAttribute("ID")!=""&& session.getAttribute("ID")!="null"){
@@ -34,14 +38,20 @@
 		<jsp:include page="clup_RightsideBaseform.jsp"/>
 		
 		<div class="section_inner clup_room">
-		
-		
-		
-		
-			<form name="clup_chat">
-				<textarea name="chat_box" id="chat_box" placeholder="채팅을 입력해주세요"></textarea>
+			<form name="clup_notice">
+				<textarea name="notice" id="notice" placeholder="공지사항을 입력해주세요"></textarea>
 				<input type="button" value="전송">
 			</form>
+			
+			<ul>
+			<%for(int i=0;i<noticeList.size();i++) {%>
+				<li>
+					<span>작성자 : </span>
+					<span>작성일 : </span>
+					<textarea><%=noticeList.get(i).getClup_text() %></textarea>
+				</li>
+			<%} %>
+			</ul>
 		</div>
 	</section>
 <jsp:include page="Footer_baseform.jsp"/>

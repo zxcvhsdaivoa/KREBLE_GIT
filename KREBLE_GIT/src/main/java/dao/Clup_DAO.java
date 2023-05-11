@@ -114,6 +114,60 @@ public class Clup_DAO {
 	}
 	
 	
+	//유저가 클럽 번호에 해당하는 클럽에서 쓴 채팅 가져오기
+		public ArrayList<ClupInfo> select_clup_chat_member(int clup_no,String id) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<ClupInfo> chat_list = new ArrayList<ClupInfo>();
+			try{
+				pstmt = con.prepareStatement("select * from clup_chat where clup_no=? and clup_member=?");
+				pstmt.setInt(1, clup_no);
+				pstmt.setString(2, id);
+				rs= pstmt.executeQuery();
+				while(rs.next()){
+					ClupInfo chat= new ClupInfo();
+					chat.setClup_no((rs.getInt("clup_no")));
+					chat.setClup_user(rs.getString("clup_member"));
+					chat.setClup_text(rs.getString("clup_chat"));
+					chat.setClup_text_time(rs.getString("clup_chat_time"));
+					chat_list.add(chat);
+				}
+			}catch(Exception ex){
+				System.out.println(ex);
+			}finally{
+				close(rs);
+				close(pstmt);
+			}
+			return chat_list;
+		}
+	
+	
+	//클럽 번호에 해당하는 클럽의 공지사항 가져오기
+		public ArrayList<ClupInfo> select_clup_notice(int clup_no) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<ClupInfo> notice_list = new ArrayList<ClupInfo>();
+			try{
+				pstmt = con.prepareStatement("select * from clup_notice where clup_no="+clup_no+";");
+				rs= pstmt.executeQuery();
+				while(rs.next()){
+					ClupInfo notice= new ClupInfo();
+					notice.setClup_no((rs.getInt("clup_no")));
+					notice.setClup_user(rs.getString("write_id"));
+					notice.setClup_text(rs.getString("notice_chat"));
+					notice.setClup_text_time(rs.getString("notice_writetime"));
+					notice_list.add(notice);
+				}
+			}catch(Exception ex){
+				System.out.println(ex);
+			}finally{
+				close(rs);
+				close(pstmt);
+			}
+			return notice_list;
+		}
+	
+	
 	//클럽 번호에 해당하는 클럽의 멤버 목록 가져오기
 	public ArrayList<ClupInfo> select_member_list(int clup_no) {
 		PreparedStatement pstmt = null;
@@ -141,6 +195,33 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 번호에 해당하는 클럽의 멤버 1명 가져오기
+		public ClupInfo select_member(int no,String id) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ClupInfo member= new ClupInfo();
+			try{
+				pstmt = con.prepareStatement("select * from clup_member where clup_no=? and member_id=?;");
+				pstmt.setInt(1, no);
+				pstmt.setString(2, id);
+				rs= pstmt.executeQuery();
+				if(rs.next()){
+					member.setClup_no((rs.getInt("clup_no")));
+					member.setClup_user(rs.getString("member_id"));
+					member.setClup_rank(rs.getString("clup_rank"));
+					member.setClup_joindate(rs.getString("clup_joindate"));
+					member.setClup_lastday(rs.getString("clup_memberLastday"));
+				}
+			}catch(Exception ex){
+				System.out.println(ex);
+			}finally{
+				close(rs);
+				close(pstmt);
+			}
+			return member;
+		}
+	
+	
 	//현재 아이디가 해당 클럽에 가입되어 있는가
 	public int search_is_member(int no, String id) {
 		PreparedStatement pstmt = null;
@@ -164,6 +245,52 @@ public class Clup_DAO {
 	}
 	
 	
+	//클럽 비밀번호 체크
+	@SuppressWarnings("resource")
+	public boolean clup_pwcheck(int no, String pw) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean isck = false;
+		try{
+			pstmt = con.prepareStatement("select clup_no from clup_room where clup_no=? and clup_pw=? and clup_howjoin='password';");
+			pstmt.setInt(1, no);
+			pstmt.setString(2, pw);
+			rs= pstmt.executeQuery();
+			if(rs.next()) isck=true;
+			
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return isck;
+	}
+	
+	
+	//클럽 비밀번호 체크
+		@SuppressWarnings("resource")
+		public boolean clup_manager(int no, String id) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			boolean isck = false;
+			try{
+				pstmt = con.prepareStatement("select * from clup_member where clup_no=? and member_id=? and (clup_rank='admin' or clup_rank='manager');");
+				pstmt.setInt(1, no);
+				pstmt.setString(2, id);
+				rs= pstmt.executeQuery();
+				if(rs.next()) isck=true;
+				
+			}catch(Exception ex){
+				System.out.println(ex);
+			}finally{
+				close(rs);
+				close(pstmt);
+			}
+			return isck;
+		}
+		
+		
 	//클럽 만들기
 	public int create_clup(ClupInfo cl) {
 		PreparedStatement pstmt = null;
@@ -214,29 +341,6 @@ public class Clup_DAO {
 			close(pstmt);
 		}
 		return success;
-	}
-	
-	
-	//클럽 비밀번호 체크
-	@SuppressWarnings("resource")
-	public boolean clup_pwcheck(int no, String pw) {
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		boolean isck = false;
-		try{
-			pstmt = con.prepareStatement("select clup_no from clup_room where clup_no=? and clup_pw=? and clup_howjoin='password';");
-			pstmt.setInt(1, no);
-			pstmt.setString(2, pw);
-			rs= pstmt.executeQuery();
-			if(rs.next()) isck=true;
-			
-		}catch(Exception ex){
-			System.out.println(ex);
-		}finally{
-			close(rs);
-			close(pstmt);
-		}
-		return isck;
 	}
 	
 	

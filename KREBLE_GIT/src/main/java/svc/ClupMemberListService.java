@@ -15,7 +15,7 @@ public class ClupMemberListService {
 		Connection con = getConnection();
 		Clup_DAO clupdao = Clup_DAO.getInstance();
 		clupdao.setConnection(con);
-		sll=clupdao.select_clup_list();
+		sll=clupdao.select_member_list(no);
 		close(con);
 		return sll;
 	}
