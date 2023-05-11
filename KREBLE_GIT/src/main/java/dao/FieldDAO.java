@@ -155,13 +155,14 @@ public class FieldDAO {
 	public int rent_insert(Rent_situation situa) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql="insert into rent_situation (rent_num,user_id,rent_date) values (default,?,?)";
+		String sql="insert into rent_situation (rent_num,user_id,field_name,rent_date) values (default,?,?,?)";
 		int insertCount=0;
 		
 		try{
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, situa.getUser_id());
-			pstmt.setString(2, situa.getRent_date());
+			pstmt.setString(2, situa.getField_name());
+			pstmt.setString(3, situa.getRent_date());
 			System.out.println(pstmt);
 			insertCount=pstmt.executeUpdate();
 
@@ -188,7 +189,7 @@ public class FieldDAO {
 				rent_situation=new Rent_situation();
 				rent_situation.setRent_num(rs.getInt("rent_num"));
 				rent_situation.setUser_id(rs.getString("user_id"));
-				rent_situation.setRent_location(rs.getString("rent_location"));
+				rent_situation.setField_name(rs.getString("field_name"));
 				rent_situation.setRent_date(rs.getString("rent_date"));
 				rent_situation.setRent_price(rs.getInt("rent_price"));
 			}

@@ -60,9 +60,9 @@ public class Db_method_ECT extends Db_method_conn  {
 		SimpleDateFormat toString = null;
 		Date formatTime =null;
 		SimpleDateFormat toDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		
 		if(formattype.equals("kortotime")) {
-			toDate = new SimpleDateFormat("yyyy년 MM월dd일hh시mm분");
+			System.out.println(date);
+			toDate = new SimpleDateFormat("yyyy년 MM월d일hh시");
 			formatTime = toDate.parse(date);
 			toString = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		}else {

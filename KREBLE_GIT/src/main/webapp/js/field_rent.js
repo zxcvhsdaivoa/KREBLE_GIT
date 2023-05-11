@@ -1,29 +1,4 @@
 $(function(){
-//	var today = new Date(); // 오늘 날짜
-//  var cells = document.querySelectorAll('.day2 td');
-//  
-//  // 지난 날짜에 대해 클래스 추가 및 "마감" 추가
-//  for (var i = 0; i < cells.length; i++) {
-//    var cellDate = new Date(today.getFullYear(), today.getMonth(), parseInt(cells[i].textContent));
-//    if (cellDate < today) {
-//      cells[i].innerHTML += '<span class="impossible">마감</span>';
-//    }
-//    else if(cellDate >= today){
-//		cells[i].innerHTML += '<span class="possible">가능</span>';
-//	}
-//  }
-//	var todayCell = document.querySelector('.day2 td.today');
-//	if (todayCell > cellDate) {
-//	  todayCell.innerHTML += '<span class="possible">가능</span>';
-//	}
-	
-	//예약 날짜 등록
-	$(".payment_btn").click(function(){
-		var time = $("input[type=radio][name=rent_time]:checked").val();
-		var daychoice = $("#month option:selected").text()+$(".day2 td.on").text().trim()+time+"00분";
-		location.href="rent_agree.choi?rent_date="+daychoice
-	})
-
 	 $(".box_inner2").hide();	
 	 $(".box_text > span").hide();
 	 
@@ -32,19 +7,9 @@ $(function(){
 		location.href="fieldrent.choi?location="+loca;
 		 
 	 }) 
-});
-	function box_show(){ // 눌렀을때 정보 보이기
-		$(".box_inner2").show();
-		
-	}
-	
-	function timechoice(){
-		$(".box_text > span").show();
-	}
-	
-	
-	
-	function showCalendar(month) {
+	 
+	 $("#month").change(function() {
+		var month = $("#month option:selected").attr("data-month")
 		  var calendar = document.getElementById("calendar");
 		  var days = ["일", "월", "화", "수", "목", "금", "토"];
 		
@@ -91,22 +56,49 @@ $(function(){
 		  
 		  // 선택한 날짜 호버
 		  $(".day2 td").click(function() {
-			  $(".day2 td").removeClass("on");
-			  $(this).addClass("on");
-//				  alert(daychoice);
-//				  $.ajax({
-//				    url: "rent_agree.choi",
-//				    type: "POST",
-//				    async:false,
-//				    data: {rent_date: daychoice},
-//				    success: function(response) {
-//				      console.log(response);
-//				    },
-//				    error: function() {
-//				      console.log("Error");
-//				    }
-//			  });
-		});
+			$(".day2 td").removeClass("on");
+			$(this).addClass("on");
+			$("#rentDate").attr("value",$(this).text().trim())
+			});
+		});	
+		
+		
+//	var today = new Date(); // 오늘 날짜
+//  var cells = document.querySelectorAll('.day2 td');
+//  
+//  // 지난 날짜에 대해 클래스 추가 및 "마감" 추가
+//  for (var i = 0; i < cells.length; i++) {
+//    var cellDate = new Date(today.getFullYear(), today.getMonth(), parseInt(cells[i].textContent));
+//    if (cellDate < today) {
+//      cells[i].innerHTML += '<span class="impossible">마감</span>';
+//    }
+//    else if(cellDate >= today){
+//		cells[i].innerHTML += '<span class="possible">가능</span>';
+//	}
+//  }
+//	var todayCell = document.querySelector('.day2 td.today');
+//	if (todayCell > cellDate) {
+//	  todayCell.innerHTML += '<span class="possible">가능</span>';
+//	}
+	
+	//예약 날짜 등록 구 버전
+//	$(".payment_btn").click(function(){
+//		var time = $("input[type=radio][name=rent_time]:checked").val();
+//		var daychoice = $("#month option:selected").text()+$(".day2 td.on").text().trim()+time+"00분";
+//		location.href="rent_agree.choi?rent_date="+daychoice
+//	});
+
+});
+	function box_show(){ // 눌렀을때 정보 보이기
+		$(".box_inner2").show();
+		
 	}
+	
+	function timechoice(){
+		$(".box_text > span").show();
+	}
+	
+	
+	
 		
 	

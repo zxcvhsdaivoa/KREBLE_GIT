@@ -9,7 +9,9 @@
 <meta charset="UTF-8">
 <%
 	Rent_situation rent_situation=(Rent_situation) request.getAttribute("rent_situation");
+	String id = (String) session.getAttribute("ID");
 %>
+
 <title>예약 동의</title>
 <link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
 <link rel="stylesheet" type="text/css" href="css/field_rent.css">
@@ -19,6 +21,10 @@
 <script src="js/Header_Footer_Aside_baseform.js"></script>
 <script type="text/javascript" ></script>
 <body>
+	 <jsp:useBean id="cash" class="use_data.Db_method_user"></jsp:useBean>
+	 <%
+	 	int uc = cash.u_cash(id);
+	 %>
 	<jsp:include page="Header_baseform.jsp"/>
 	<section>
 		<div id="topbg">
@@ -51,10 +57,10 @@
 				  	<span style="font-size: 19px;"><b>신청하신 내역입니다.</b></span><br><br>
 				  	<div style="background-color: #fff; border: 1px solid #a6a6a6;">
 				  		아이디: <%=rent_situation.getUser_id() %><br><br>
-				  		구장명:<br><br>
-				  		예약 날짜: <%=ud.date_format(rent_situation.getRent_date(),"yyyy-mm-dd hh:mm") %><br><br>
+				  		구장명:<%=rent_situation.getField_name() %><br><br>
+				  		예약 날짜: <%=ud.date_format(rent_situation.getRent_date(),"yyyy-mm-dd hh:mm") %> 파트<br><br>
 				  		금액:<br><br>
-				  		보유캐시:<br><br>
+				  		보유캐시:<%=uc %> 원<br><br>
 				  	</div>
 				  </div>
 				

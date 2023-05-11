@@ -1,13 +1,17 @@
-<%@page import="vo.Rent_situation"%>
+<%@ page import="vo.Rent_situation"%>
+<%@ page import="vo.KreblechoiData" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ page import="java.sql.*" %>
 <jsp:useBean id="ud" class="use_data.Db_method_ECT"/>
 <%
- 	String rent_date = request.getParameter("rent_date");
-	rent_date=ud.date_format(rent_date, "kortotime");
 	String id = (String) session.getAttribute("ID");
+	String location= request.getParameter("location");
+	String field_name = request.getParameter("field_selc");
+ 
+	String rent_date =request.getParameter("month")+request.getParameter("rentDate")+request.getParameter("rent_time");
+	rent_date=ud.date_format(rent_date, "kortotime");
 %>
 <html>
 <head>
@@ -42,7 +46,7 @@
 				<li class="step2"><span class="step_txt2" style="color:#009ce1;">약관동의</span></li>
 				<li class="step3"><span class="step_txt">신청완료</span></li>
 			</ul>
-			<form>
+			<form action="rent_insr.choi">
 			<div id="content2">
 				<div class="content2_box">
 					<h3 class="box_text">준수사항</h3>
@@ -64,7 +68,7 @@
 							9. 사용자는 사전 준수사항 및 규정을 숙지 후 예약함으로 이행함을 확인합니다.
 						</span><br><br>
 				  	</div>
-				  	<br><input type="checkbox">동의합니다 <br><br>
+				  	<br><input type="checkbox"> 동의합니다 <br><br>
 				  	<span style="font-size: 21px;">
 				  		<b>2 .주의사항</b>
 				  	</span><br><br>
@@ -96,9 +100,12 @@
 
 <!-- 				</div> -->
 				<div class="btn_area">
-					<a class="payment_btn" href="rent_insr.choi?rent_date=<%=rent_date%>">신청하기</a>
+					<input type="submit" class="payment_btn" value="선청하기">
 				</div>
 			</div>
+			<input type="hidden" name="location" value="<%=location%>">
+			<input type="hidden" name="field_name" value="<%=field_name%>">
+			<input type="hidden" name="rent_date" value="<%=rent_date%>">
 			</form>
 		</div>
 

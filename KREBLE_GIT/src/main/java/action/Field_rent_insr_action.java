@@ -22,6 +22,7 @@ public class Field_rent_insr_action implements Action {
 		
 		rent_insr = new Rent_situation();
 		rent_insr.setRent_date(request.getParameter("rent_date"));
+		rent_insr.setField_name(request.getParameter("field_name"));
 		rent_insr.setUser_id((String)session.getAttribute("ID"));
 		Field_rent_insr_Service rentinsrService = new Field_rent_insr_Service();
 		boolean isinsrSuccess = rentinsrService.field_rentinsr(rent_insr);//메소드 호출
