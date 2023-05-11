@@ -91,6 +91,7 @@ $(function(){
 		  
 		  // 선택한 날짜 데이터베이스 인서트 테스트
 		  $(".day2 td").click(function() {
+			  $(".day2 td").removeClass("on");
 			  $(this).addClass("on");
 //				  alert(daychoice);
 //				  $.ajax({
@@ -106,8 +107,6 @@ $(function(){
 //				    }
 //			  });
 		});
-		
-		 
 	}
 		
 	
