@@ -6,6 +6,7 @@ import static db.JdbcUtil.getConnection;
 import static db.JdbcUtil.rollback;
 import java.sql.Connection;
 import dao.FieldDAO;
+import use_data.UserData;
 import vo.Rent_situation;
 
 

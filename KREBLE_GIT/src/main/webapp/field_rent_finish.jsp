@@ -50,10 +50,11 @@
 				  <div class="box_inner_text">
 				  	<span style="font-size: 19px;"><b>신청하신 내역입니다.</b></span><br><br>
 				  	<div style="background-color: #fff; border: 1px solid #a6a6a6;">
-				  		아이디:<br><br>
+				  		아이디: <%=rent_situation.getUser_id() %><br><br>
 				  		구장명:<br><br>
 				  		예약 날짜: <%=ud.date_format(rent_situation.getRent_date(),"yyyy-mm-dd hh:mm") %><br><br>
 				  		금액:<br><br>
+				  		보유캐시:<br><br>
 				  	</div>
 				  </div>
 				

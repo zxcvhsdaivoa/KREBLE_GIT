@@ -12,6 +12,7 @@
 <meta charset="UTF-8">
 <%
 	Rent_info rent_info=(Rent_info)request.getAttribute("rent_info");
+	String id = (String) session.getAttribute("ID");
 %>
 <%
 	String star_list="false";
@@ -46,8 +47,7 @@
 		<div id="main_content">
 			<div class="content_top">
 				<div class="top_text">
-					<h1 style="margin-bottom: 20px;">예약신청</h1>
-					
+					<h1 style="margin-bottom: 10px;">예약신청</h1>
 				</div>
 			</div>
 			
@@ -78,9 +78,9 @@
 						}
 					}
 					%>
-					
 				</select>
 			</div>
+			
 			<form>
 			<div id="content2">
 				<div class="content2_box">
@@ -122,7 +122,6 @@
 			</div>
 			</form>
 		</div>
-
 	</section>
 	 <jsp:include page="Footer_baseform.jsp"/>
 </body>

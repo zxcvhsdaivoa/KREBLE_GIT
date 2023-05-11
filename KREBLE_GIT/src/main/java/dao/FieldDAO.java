@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 import use_data.Shop_prd;
+import use_data.UserData;
 import vo.KreblechoiData;
 import vo.Rent_info;
 import vo.Rent_situation;
@@ -154,12 +155,13 @@ public class FieldDAO {
 	public int rent_insert(Rent_situation situa) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql="insert into rent_situation (rent_num,rent_date) values (default,?)";
+		String sql="insert into rent_situation (rent_num,user_id,rent_date) values (default,?,?)";
 		int insertCount=0;
 		
 		try{
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, situa.getRent_date());
+			pstmt.setString(1, situa.getUser_id());
+			pstmt.setString(2, situa.getRent_date());
 			System.out.println(pstmt);
 			insertCount=pstmt.executeUpdate();
 
@@ -172,7 +174,7 @@ public class FieldDAO {
 		return insertCount;
 
 	}
-	
+	// 예약 신청완료 셀렉트 문
 	public Rent_situation field_finish_check() throws Exception {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;		
