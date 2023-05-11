@@ -181,7 +181,7 @@ public class FieldDAO {
 		Rent_situation rent_situation=null;
 
 		try{
-			pstmt = con.prepareStatement("select * from rent_situation ;");
+			pstmt = con.prepareStatement("select * from rent_situation where rent_num=(select max(rent_num) from rent_situation);");
 			rs= pstmt.executeQuery();
 
 			if(rs.next()){
