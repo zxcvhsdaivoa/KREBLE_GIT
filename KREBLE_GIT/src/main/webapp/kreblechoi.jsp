@@ -174,7 +174,7 @@
 								<td><%= field_list.getField_call() %></td>
 							</tr>
 						</table>
-						<input type="button" value="예약하기" class="rent_btn">
+						<input type="button" value="예약하기" class="rent_btn" style="display: none;">
 					</div>
 				</div>
 			</form>
