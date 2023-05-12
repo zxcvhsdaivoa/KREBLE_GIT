@@ -23,13 +23,14 @@ public class Field_rent_insr_action implements Action {
 		rent_insr = new Rent_situation();
 		rent_insr.setRent_date(request.getParameter("rent_date"));
 		rent_insr.setField_name(request.getParameter("field_name"));
+		rent_insr.setRent_price(Integer.parseInt(request.getParameter("rent_price")));
 		rent_insr.setUser_id((String)session.getAttribute("ID"));
 		Field_rent_insr_Service rentinsrService = new Field_rent_insr_Service();
 		boolean isinsrSuccess = rentinsrService.field_rentinsr(rent_insr);//메소드 호출
 		// BoardWriteProService 클래스를 이용하여 게시물을 데이터베이스에 등록. 
 		// issaveSuccess 변수는 게시물 등록에 성공하면 true, 실패하면 false 값을 가짐.
 		
-		System.out.println(isinsrSuccess);
+		System.out.println(isinsrSuccess);// 인서트 내용 확인 출력
 
 		if(!isinsrSuccess){ //등록에 실패할 경우
 			response.setContentType("text/html;charset=UTF-8");

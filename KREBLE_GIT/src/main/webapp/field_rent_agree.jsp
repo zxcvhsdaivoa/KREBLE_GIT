@@ -9,7 +9,7 @@
 	String id = (String) session.getAttribute("ID");
 	String location= request.getParameter("location");
 	String field_name = request.getParameter("field_selc");
- 
+ 	String rent_price = request.getParameter("rent_price");
 	String rent_date =request.getParameter("month")+request.getParameter("rentDate")+request.getParameter("rent_time");
 	rent_date=ud.date_format(rent_date, "kortotime");
 %>
@@ -100,12 +100,13 @@
 
 <!-- 				</div> -->
 				<div class="btn_area">
-					<input type="submit" class="payment_btn" value="선청하기">
+					<input type="submit" class="payment_btn" value="신청하기">
 				</div>
 			</div>
 			<input type="hidden" name="location" value="<%=location%>">
 			<input type="hidden" name="field_name" value="<%=field_name%>">
 			<input type="hidden" name="rent_date" value="<%=rent_date%>">
+			<input type="hidden" name="rent_price" value="<%=rent_price%>">
 			</form>
 		</div>
 

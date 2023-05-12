@@ -155,7 +155,7 @@ public class FieldDAO {
 	public int rent_insert(Rent_situation situa) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql="insert into rent_situation (rent_num,user_id,field_name,rent_date) values (default,?,?,?)";
+		String sql="insert into rent_situation (rent_num,user_id,field_name,rent_date,rent_price) values (default,?,?,?,?)";
 		int insertCount=0;
 		
 		try{
@@ -163,6 +163,7 @@ public class FieldDAO {
 			pstmt.setString(1, situa.getUser_id());
 			pstmt.setString(2, situa.getField_name());
 			pstmt.setString(3, situa.getRent_date());
+			pstmt.setInt(4, situa.getRent_price());
 			System.out.println(pstmt);
 			insertCount=pstmt.executeUpdate();
 

@@ -26,7 +26,7 @@ public class Field_info_controller extends javax.servlet.http.HttpServlet  {
 		String command=RequestURI.substring(contextPath.length());
 		ActionForward forward=null;
 		Action action=null;
-
+		
 		if(command.equals("/fieldInfo.choi")){ // url 변경할 주소 입력
 			action = new Field_list_action();
 			try{
@@ -35,6 +35,7 @@ public class Field_info_controller extends javax.servlet.http.HttpServlet  {
 				e.printStackTrace();
 			}
 		}
+		//예약 예약선택 페이지
 		else if(command.equals("/fieldrent.choi")){
 			action = new Field_rent_select_action();
 			try{

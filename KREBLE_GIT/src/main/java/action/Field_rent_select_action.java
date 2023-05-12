@@ -20,11 +20,12 @@ public class Field_rent_select_action implements Action {
 		Rent_info rent_info=null;
 		String location = "not";
 		System.out.println(request.getParameter("location"));
+		
 		if(request.getParameter("location")!=null&&!request.getParameter("location").equals("null")&&request.getParameter("location")!="") {
 			location=request.getParameter("location");
-			System.out.println("aaaa");
 		}
-		System.out.println(location);
+		
+		System.out.println(location+" 예약 선택 페이지 액션에 location 변수 출력 확인");
 		Field_rent_Service fieldrentService= new Field_rent_Service();
 		
 		rent_info = fieldrentService.getrent_list_check();

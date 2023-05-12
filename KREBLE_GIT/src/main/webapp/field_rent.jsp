@@ -115,7 +115,10 @@
 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time5().substring(0, 3)%>"><span><%= rent_info.getRent_time5() %></span><br>
 					</div>
 					<div class="content3_box">
-						<h3 class="box_text">비용:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span></h3>
+						<h3 class="box_text">
+							<input type="hidden" name="rent_price" value="<%= rent_info.getRent_price()%>">
+							비용:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span>
+						</h3>
 					</div>
 					<div class="btn_area">
 						<input type="submit" class="payment_btn" value="다음으로">
