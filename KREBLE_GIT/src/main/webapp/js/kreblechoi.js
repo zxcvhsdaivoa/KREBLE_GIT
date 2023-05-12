@@ -31,7 +31,7 @@ $(function(){
 			    location.href="fieldInfo.choi?field_id="+fieldlistfield;
 		}
 	});
-	
+
 	$(".rent_btn").click(function(){
 		$.ajax({
 		    type : "POST",
