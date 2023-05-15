@@ -194,6 +194,7 @@ div{
     border-left: 1px solid #a6a6a6;
     border-bottom: 1px solid #a6a6a6;
     vertical-align: top;
+    cursor: pointer;
 }
 .day2 td:first-child {
 	border-left: none;
