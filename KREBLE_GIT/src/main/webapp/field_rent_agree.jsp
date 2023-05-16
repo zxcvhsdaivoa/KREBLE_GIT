@@ -23,7 +23,7 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="js/Header_Footer_Aside_baseform.js"></script>
-<script type="text/javascript" ></script>
+<script src="js/field_rent_agree.js" type="text/javascript"></script>
 <body>
 	<jsp:include page="Header_baseform.jsp"/>
 	<section>
@@ -68,7 +68,7 @@
 							9. 사용자는 사전 준수사항 및 규정을 숙지 후 예약함으로 이행함을 확인합니다.
 						</span><br><br>
 				  	</div>
-				  	<br><input type="checkbox"> 동의합니다 <br><br>
+				  	<br><input type="checkbox" id="rulecheck"> 동의합니다 <br><br>
 				  	<span style="font-size: 21px;">
 				  		<b>2 .주의사항</b>
 				  	</span><br><br>
@@ -85,7 +85,7 @@
 							7.축구경기의 시간은 일일2시간으로 제한하고, 원활한 대여 순환을 위해 연속사용은 불가합니다. <br>(시설대여담당자와 협의 가능)
 				  		</span><br><br>
 				  	</div>
-				  	<br><input type="checkbox"> 동의합니다
+				  	<br><input type="checkbox" id="cautioncheck"> 동의합니다
 				  </div>
 				
 				  <div class="calendar" id="calendar">

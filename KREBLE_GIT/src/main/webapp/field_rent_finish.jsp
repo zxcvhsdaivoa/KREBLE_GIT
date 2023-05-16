@@ -54,7 +54,7 @@
 				
 				<div class="box_inner">
 				  <div class="box_inner_text">
-				  	<span style="font-size: 19px;"><b>신청하신 내역입니다.</b></span><br><br>
+				  	<span style="font-size: 19px;"><b><%=rent_situation.getUser_id() %> 회원 님의 신청하신 내역입니다.</b></span><br><br>
 				  	<div style="background-color: #fff; border: 1px solid #a6a6a6;">
 				  		아이디: <%=rent_situation.getUser_id() %><br><br>
 				  		구장명: <%=rent_situation.getField_name() %><br><br>

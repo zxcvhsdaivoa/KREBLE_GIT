@@ -35,7 +35,7 @@ public class Field_rent_insr_action implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('fail')");
+			out.println("alert('로그인, 예약 사항을 모두 확인해주세요!')");
 			out.println("history.back();");
 			out.println("</script>");
 		}

@@ -6,7 +6,8 @@ $(function(){
 		var loca= $(this).val();
 		location.href="fieldrent.choi?location="+loca;
 		 
-	 }) 
+	 })
+	  
 	 //달력 생성
 	 $("#month").change(function() {
 	  var month = $("#month option:selected").attr("data-month")
@@ -41,7 +42,7 @@ $(function(){
 	
 	  if ((parseInt(month) < currentMonth ) || (currentMonth === parseInt(month) && i < currentDay)){
 	      // 선택한 날짜가 현재 날짜보다 작거나, 일치하면 마감처리 조건문
-	      html += "<td class='date_hover' onclick='box_show()'><a href='#info_box'><span>" + i + "일</span>"+"<p class='impossible'>마감</p></a></td>";
+	      html += "<td class='date_hover'><span>" + i + "일</span>"+"<p class='impossible'>마감</p></td>";
 	  } 
 	  else {
 		  html += "<td class='date_hover' onclick='box_show()'><a href='#info_box'><span>" + i + "일</span>"+"<p class='possible'>가능</p></a></td>";
@@ -69,7 +70,7 @@ $(function(){
 	 $(".day2 td").click(function() {
 		$(".day2 td").removeClass("on");
 		$(this).addClass("on");
-		$("#rentDate").attr("value",$(this).text().trim())
+		$("#rentDate").attr("value",$(this).find("span").text().trim())
  		});
  		
 	});	

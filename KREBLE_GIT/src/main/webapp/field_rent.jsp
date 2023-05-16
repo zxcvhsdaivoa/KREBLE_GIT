@@ -59,7 +59,7 @@
 			<form action="rent_agree.choi">
 				<div class="selc_list">
 					<select class="loca" name="location" id="location">
-						<option>지역 목록</option>
+						<option>지역 선택</option>
 						<option value="s" <%if(loca.equals("s")){ %>selected="selected"<%} %>>서울</option>
 						<option value="i" <%if(loca.equals("i")){ %>selected="selected"<%} %>>인천</option>
 						<option value="g" <%if(loca.equals("g")){ %>selected="selected"<%} %>>경기</option>
@@ -69,7 +69,7 @@
 						<option value="j" <%if(loca.equals("j")){ %>selected="selected"<%} %>>제주</option>
 					</select>
 					<select class="starlist" id="field_selc" name="field_selc">
-						<option>경기장 목록</option>
+						<option>경기장 선택</option>
 						<%
 						if(star_list.equals("true")){
 							for(int i=0; i<cate_list.size();i++){

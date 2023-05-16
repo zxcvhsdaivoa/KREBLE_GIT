@@ -27,6 +27,7 @@ public class Field_info_controller extends javax.servlet.http.HttpServlet  {
 		ActionForward forward=null;
 		Action action=null;
 		
+		//예약 시민구장 정보 페이지
 		if(command.equals("/fieldInfo.choi")){ // url 변경할 주소 입력
 			action = new Field_list_action();
 			try{
