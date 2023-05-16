@@ -4,6 +4,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="use_data.Shop_prd" %>
 <%@ page import="vo.PageInfo"%>
+<%@ page import="java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.format.DateTimeFormatter" %>
+
 
 <% request.setCharacterEncoding("utf-8"); %>
 <% 	String id = (String) session.getAttribute("ID");
@@ -16,8 +18,13 @@
 	int endPage=pageInfo.getEndPage();
 %>
 	<jsp:useBean id="cash" class="use_data.Db_method_user"></jsp:useBean>
+	<jsp:useBean id="etc" class="use_data.Db_method_ECT"></jsp:useBean>
 	<%
 		int uc = cash.u_cash(id);
+		String deliv ="";
+		int q_p = 0;
+		int total = 0;
+		int delv_pay=0;
 	%>
 <!DOCTYPE html>
 <html>
@@ -53,117 +60,135 @@
 	<!-- section -->
   
 	<section>
-		<div>
-		<form action="shop_buy_list.sp" method = "post" onsubmit="return moneycheck()">
-		<article id="sb_art_no1"><!--아이디 / 보유캐시 타이틀 -->
-			<div id="sb_subtitle">
-				<div class="sb_subt1"> 장바구니 </div>
-				<div class="sb_subt2"> <%=id %> 님의 보유 캐시는 <%= uc %>입니다.
-				<input type="hidden" name="iid" value="<%=uc %>">
-				</div>
-			</div>
-		</article>
-		<article id="sb_art_no2"><!-- 장바구니 리스트 -->
-		
-		
-		
-			<div class="no2_center"><!-- 장바구니 TH-->
-				<table>
-					<tr>
-						<th>  </th>
-						<th>사진</th>
-						<th>상품명</th>
-						<th>색상</th>
-						<th>수량</th>
-						<th>가격</th>
-						<th>총합</th>
-						<th>비고</th>
-					</tr>
+		<div id="section_wrap">
+			<form action="shop_buy_list.sp" method = "post" onsubmit="return moneycheck()">
+				<article id="sb_art_no1"><!-- 장바구니 타이틀 / 결제진행상황 -->
+					<div><!-- 아래 div들 묶는용도 및 크기 -->
+						<div class ="no1_left">
+						<img src ="image/shopimg/cart.png"> 장바구니
+						</div><!-- 장바구니 타이틀 -->
+						<div class ="no1_right"><span>01 장바구니 </span> -> 02 주문/결제 -> 03 주문완료</div><!-- 결제진행현황 -->
+					</div>
+				</article>
+				<article id="sb_art_no2"><!-- 일반구매 라벨 -->
+					<div>
+						<div class="no2_left">일반구매(<%=articleList.size()%>)
+						</div>
+						<div class="no2_right">
+						</div>
+					</div>
+				</article>
+				<article id="sb_art_no3"><!-- 장바구니리스트Table -->
+					<table>
+						<colgroup>
+							<col style = "width:70px;">
+							<col style = "width:100px;">
+							<col style = "width:550px;">
+							<col style = "width:100px;">
+							<col style = "width:200px;">
+						</colgroup>
+						<tr>
+							<th><input type="checkbox" name="allcheck" class="all_ck"></th>
+							<th>상품사진</th>
+							<th>상품정보</th>
+							<th>수량</th>
+							<th>상품금액</th>
+						</tr>
 					<%
-					int q_p = 0;
-					int total = 0;
-					int aa =0;
-					if(articleList != null && listCount > 0){
-					for(int i=0;i<articleList.size();i++){
+					    int articleListSize = articleList.size(); // articleList의 크기를 미리 계산하여 변수에 저장
+					    for(int i=0; i<articleListSize; i++){
+					    	String prd_no = articleList.get(i).getPrd_no();
+					    	String prd_name = articleList.get(i).getPrd_name();
+					    	int prd_price = articleList.get(i).getPrd_price();
+					    	String prd_color = articleList.get(i).getPrd_color();
+					    	String im_path = etc.img_link(prd_no);
 					%>
-					
-					<tr>
-						<td><input type="hidden" name="sb_id<%=i %>" value=<%=articleList.get(i).getPrd_id() %>></td>
-						<td><input type="text" name="sb_img<%=i%>" value="<%=articleList.get(i).getPrd_img()%>"readonly></td>
-						<td><input type="text" name="sb_name<%=i%>" value="<%=articleList.get(i).getPrd_name()%>"readonly></td>
-						<td><input type="text" name="sb_color" value="<%=articleList.get(i).getPrd_color()%>"readonly></td>
-						<td>
-						<input type="number" class="prd_qant" name="sb_qant<%=i %>" value="<%=articleList.get(i).getPrd_qant()%>" min="1" max="<%=articleList.get(i).getPrd_total()%>">
-						<input type="hidden" value="<%=articleList.get(i).getPrd_no()%>" name="prd_no<%=i%>">
-						<input type="button" value ="수량변경" name="<%=i%>" class="prd_button">
-						<input type="hidden" value="<%=id%>" name="id">
-						<input type="hidden" value="<%=articleList.get(i).getPrd_total()%>" name="max_qant"><!--  total => 최대수량 -->
-						</td>
-						<td><input type="number" name="sb_price<%=i%>" value="<%=articleList.get(i).getPrd_price()%>" readonly></td>
-						<% q_p = articleList.get(i).getPrd_price()*articleList.get(i).getPrd_qant();%>
-						<td><input type="number" name="q_p" value="<%= q_p %>"readonly></td>
-						<td><a href="shop_bak_one_delete.sp?b_id=<%=id%>&prd_no=<%=articleList.get(i).getPrd_no()%>"><input type="button" value="삭제"></a></td>
-						<% total = total + q_p;%>
-					</tr>
-					<%} %>
-					<tr>
-						<td colspan="2">장바구니 총합 금액 : </td>
-						<td colspan="2"><input type="text" name="total" value="<%=total%>" readonly></td>
-						<td><a href ="sb_back_clear.sp?b_id=<%=id%>"><input type="button" value="전부삭제"></a></td>
-						<td><input type="submit" value="구매"></td>
-						<td><a href="kreble.sp"><input type="button" value="쇼핑홈"></a></td>
-					</tr>
-				</table>	
-			</div>
-		</article>
-			
-		
-		<%String prd_cata="shop_back_page.sp?page=";%>
-		<!-- 페이지 이전/다음 넘김 -->
-		<article id="pl_art_no5">
-				<%if(nowPage<=1){ %>
-				[이전]&nbsp;
-				<%}else{ %>
-			<a href="<%=prd_cata %><%=nowPage-1%>">[이전]</a>&nbsp;
-				<%} %>
-		
-				<%for(int a=startPage;a<=endPage;a++){
-						if(a==nowPage){%>
-				[<%=a %>]
-				<%}else{ %>
-			<a href="<%=prd_cata %><%=a %>">[<%=a %>]
-			</a>&nbsp;
-				<%} %>
-				<%} %>
-		
-				<%if(nowPage>=maxPage){ %>
-				[다음]
-				<%}else{ %>
-			<a href="<%=prd_cata %><%=nowPage+1 %>">[다음]</a>
-				<%} %>
-		</article>
-				<%
-			    }
-				else
-				{
-				%>
-		<article id="emptyArea">
-			<div>
-				등록된 글이 없습니다.
-			</div>
-		</article>
-				<%
-				}
-				%>
-		<!-- 여분 -->
-		<article id="sb_art_no4">
-		</article>	
-	
-		<!-- 여분 -->
-		<article id="sb_art_no5">
-		</article>
-	</form>
-	</div>
+					    <tr><!-- 체크박스/이미지/상품이름(수량)/총합/배송비 -->
+					        <td class="td_cen"><input type="checkbox" name="prd_ck<%=i%>" class="ck_cked"></td>
+					        <td class="td_cen"><img src ="<%=im_path%><%=prd_no%>.jpg" alt="no_image" onerror="image/no_image.PNG"></td>
+					        <td class="p_left_30"><!-- 상품이름/색상/도착일/수량 -->
+					        	<div class = "no3_td_d1"><%=prd_name%>, &emsp; <%=prd_color%></div>
+					        	<div class = "no3_td_d3">
+					        		<%
+					        		  String a = prd_no;
+					        		  char lastChar = a.charAt(a.length() - 1);
+					        		  int lastDigit = Character.getNumericValue(lastChar);
+					        		  
+					        		  boolean isEven = lastDigit % 2 == 0;
+					        		  
+					        		  if(isEven){
+					        		%>
+	  									<div class="timer"></div><div>내 주문시 당일 출고</div>
+									<%
+					        		  }else{
+					        			LocalDate now = LocalDate.now();
+										DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M월 d일");
+										LocalDate date;
+									    date = now.plusDays(2);
+									    String dateString = date.format(formatter);
+									%>
+										<div><%= dateString %></div><div>까지 배송 예정</div>
+									<%
+					        		  }
+									%>	
+					        	</div>
+					        </td>
+							<td class="td_cen">
+										<input type="number" class="prd_qant" name="sb_qant<%=i %>" value="<%=articleList.get(i).getPrd_qant()%>" min="1" max="<%=articleList.get(i).getPrd_total()%>">
+										<input type="hidden" value="<%=articleList.get(i).getPrd_no()%>" name="prd_no<%=i%>">
+										<input type="button" value ="수량변경" name="<%=i%>" class="prd_button">
+										<input type="hidden" value="<%=id%>" name="id">
+										<input type="hidden" value="<%=articleList.get(i).getPrd_total()%>" name="max_qant"><!--  total => 최대수량 -->
+					        </td>
+					        <td class="td_cen">
+								<%//상품 수량*금액 합 / 총합
+								q_p = articleList.get(i).getPrd_price()*articleList.get(i).getPrd_qant();
+								total = q_p+total;
+								%>
+								<%=q_p%>
+					        </td>
+					    </tr>
+					<%
+					    }
+					%>
+					</table>
+				</article>
+				<article id="sb_art_no4"><!-- 전체선택/전체삭제 -->
+					<div>
+						<a href="sb_back_clear.sp?b_id=<%=id%>"><input type="button" name="no4_del" value="전체삭제"></a>
+						<input type="button" name="no4_del" value="선택상품 삭제">
+					</div>
+				</article>
+				<article id="sb_art_no5"><!-- 총 결제금액 -->
+					<div class="no5_border"><!-- 테두리 -->
+						<div>
+							(상품합계)<%=total%>원 + (배송비)
+							<%
+							if(total>=1000000){
+								delv_pay = 0;	
+							%>
+							0원
+							<%
+							}else{
+								delv_pay=3000;
+							%>
+							3000원
+							<%
+							}
+							%>
+							 = (총 결제금액)<%=total+delv_pay%>원
+							<input type="hidden" id="h_total" class="h_total">
+						</div>
+					</div>
+				</article>
+				<article id="sb_art_no6"><!-- 쇼핑홈/구매하기버튼 -->
+					<div>
+						<a href="shop_list_action.sp"><input type="button" value="계속 쇼핑하기"></a>
+						<input type="submit" value="구매하기">
+					</div>
+				</article>
+			</form>
+		</div>
 	</section>
 	
     <!-- footer -->

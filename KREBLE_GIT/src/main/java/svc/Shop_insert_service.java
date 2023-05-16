@@ -24,5 +24,8 @@ public class Shop_insert_service {
 		return isWriteSuccess;
 
 	}
+	public static void main(String[] args) {
+		
+	}
 
 }
