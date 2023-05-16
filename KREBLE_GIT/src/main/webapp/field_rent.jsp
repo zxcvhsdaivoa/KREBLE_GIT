@@ -59,7 +59,7 @@
 			<form action="rent_agree.choi">
 				<div class="selc_list">
 					<select class="loca" name="location" id="location">
-						<option>지역 목록</option>
+						<option>지역 선택</option>
 						<option value="s" <%if(loca.equals("s")){ %>selected="selected"<%} %>>서울</option>
 						<option value="i" <%if(loca.equals("i")){ %>selected="selected"<%} %>>인천</option>
 						<option value="g" <%if(loca.equals("g")){ %>selected="selected"<%} %>>경기</option>
@@ -69,7 +69,7 @@
 						<option value="j" <%if(loca.equals("j")){ %>selected="selected"<%} %>>제주</option>
 					</select>
 					<select class="starlist" id="field_selc" name="field_selc">
-						<option>경기장 목록</option>
+						<option>경기장 선택</option>
 						<%
 						if(star_list.equals("true")){
 							for(int i=0; i<cate_list.size();i++){
@@ -115,7 +115,10 @@
 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time5().substring(0, 3)%>"><span><%= rent_info.getRent_time5() %></span><br>
 					</div>
 					<div class="content3_box">
-						<h3 class="box_text">비용:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span></h3>
+						<h3 class="box_text">
+							<input type="hidden" name="rent_price" value="<%= rent_info.getRent_price()%>">
+							비용:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span>
+						</h3>
 					</div>
 					<div class="btn_area">
 						<input type="submit" class="payment_btn" value="다음으로">

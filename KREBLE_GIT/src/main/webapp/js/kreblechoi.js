@@ -9,7 +9,7 @@ $(function(){
 	$(".local").click(function(){
 		$(".local").removeClass("on");
 		$(this).addClass("on");
-	})
+	});
 	
 	$('.local ul li').click(function(){
 		$('.local ul li').removeClass('on');
@@ -21,7 +21,7 @@ $(function(){
 			$('.favorite_stadium > ul .favorite').removeClass('default');
 			listfield+=1;
 			
-			console.log(listfield);
+			//console.log(listfield);
 		}
 		else {
 			//$('ul.local_stadium > li > ul > li').click(function(){
@@ -31,7 +31,7 @@ $(function(){
 			    location.href="fieldInfo.choi?field_id="+fieldlistfield;
 		}
 	});
-	
+
 	$(".rent_btn").click(function(){
 		$.ajax({
 		    type : "POST",

@@ -9,7 +9,7 @@
 	String id = (String) session.getAttribute("ID");
 	String location= request.getParameter("location");
 	String field_name = request.getParameter("field_selc");
- 
+ 	String rent_price = request.getParameter("rent_price");
 	String rent_date =request.getParameter("month")+request.getParameter("rentDate")+request.getParameter("rent_time");
 	rent_date=ud.date_format(rent_date, "kortotime");
 %>
@@ -23,7 +23,7 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="js/Header_Footer_Aside_baseform.js"></script>
-<script type="text/javascript" ></script>
+<script src="js/field_rent_agree.js" type="text/javascript"></script>
 <body>
 	<jsp:include page="Header_baseform.jsp"/>
 	<section>
@@ -68,7 +68,7 @@
 							9. 사용자는 사전 준수사항 및 규정을 숙지 후 예약함으로 이행함을 확인합니다.
 						</span><br><br>
 				  	</div>
-				  	<br><input type="checkbox"> 동의합니다 <br><br>
+				  	<br><input type="checkbox" id="rulecheck"> 동의합니다 <br><br>
 				  	<span style="font-size: 21px;">
 				  		<b>2 .주의사항</b>
 				  	</span><br><br>
@@ -85,7 +85,7 @@
 							7.축구경기의 시간은 일일2시간으로 제한하고, 원활한 대여 순환을 위해 연속사용은 불가합니다. <br>(시설대여담당자와 협의 가능)
 				  		</span><br><br>
 				  	</div>
-				  	<br><input type="checkbox"> 동의합니다
+				  	<br><input type="checkbox" id="cautioncheck"> 동의합니다
 				  </div>
 				
 				  <div class="calendar" id="calendar">
@@ -100,12 +100,13 @@
 
 <!-- 				</div> -->
 				<div class="btn_area">
-					<input type="submit" class="payment_btn" value="선청하기">
+					<input type="submit" class="payment_btn" value="신청하기">
 				</div>
 			</div>
 			<input type="hidden" name="location" value="<%=location%>">
 			<input type="hidden" name="field_name" value="<%=field_name%>">
 			<input type="hidden" name="rent_date" value="<%=rent_date%>">
+			<input type="hidden" name="rent_price" value="<%=rent_price%>">
 			</form>
 		</div>
 

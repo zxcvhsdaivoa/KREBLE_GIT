@@ -19,8 +19,6 @@ public class Field_rent_insr_Service {
 		FieldDAO fieldDAO = FieldDAO.getInstance();
 		fieldDAO.setConnection(con);
 		int updateCount = fieldDAO.rent_insert(situa);
-
-		System.out.println(updateCount);
 			
 		if(updateCount > 0){
 			commit(con);
