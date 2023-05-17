@@ -35,7 +35,7 @@
 					howjoin=ud.howjoin(howjoin);
 				%>
 				<li>
-					<a href="clupRoom.cl?clup_no=<%=cll.get(i).getClup_no()%>">
+					<a href="clup.do?command=room&clup_no=<%=cll.get(i).getClup_no()%>">
 					<%
 					if(cll.get(i).getClup_logo()!=null)
 					{
@@ -46,7 +46,7 @@
 					}
 					%>
 						<span class="clup_name">클럽 명 : <%=cll.get(i).getClup_name() %></span>
-						<span class="clup_admin">클럽 장 : <%=cll.get(i).getClup_user() %></span>
+						<span class="clup_admin">클럽 장 : <%=cll.get(i).getUser_id() %></span>
 						<span class="clup_member_count">총 인원수 : <%=ud.select_clup_member_count(cll.get(i).getClup_no())%></span>
 						<span class="clup_how_join">가입 방식 : <%=howjoin %></span>
 					</a>
@@ -58,7 +58,9 @@
 			<%
 			}
 			%>
-			<a href="clupMake.cl" class="btn make_clup">클럽 만들기</a>
+			<a href="clup.do?command=clupmake" class="btn make_clup">클럽 만들기</a>
+			
+			<a href="clup.do?command=test">테스트</a>
 		</div>
 	</section>
 <jsp:include page="Footer_baseform.jsp"/>

@@ -1,28 +1,24 @@
 package svc;
 
-import static db.JdbcUtil.close;
-import static db.JdbcUtil.commit;
-import static db.JdbcUtil.getConnection;
-import static db.JdbcUtil.rollback;
-
-import java.sql.Connection;
-
-import dao.Clup_DAO;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import mybatis.SqlMapConfig;
+import vo.ClupInfo;
 
 public class ClupPWckService {
-	public boolean pwcheck(int no,String pw) throws Exception {
-		boolean issuccess=false;
-		Connection con = getConnection();
-		Clup_DAO clupdao = Clup_DAO.getInstance();
-		clupdao.setConnection(con);
-		issuccess=clupdao.clup_pwcheck(no,pw);
-		if(issuccess) {
-			commit(con);
-		}
-		else {
-			rollback(con);
-		}
-		close(con);
-		return issuccess;
+	static ClupPWckService model = new ClupPWckService();
+	public static ClupPWckService instance(){
+		return model;
+	}
+
+
+	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
+
+	
+	public int pwcheck(ClupInfo cl) throws Exception {
+		SqlSession sqlSession = factory.openSession();
+		int check = sqlSession.selectOne("clupPWCheck",cl);
+		sqlSession.close();
+		return check;
 	}
 }

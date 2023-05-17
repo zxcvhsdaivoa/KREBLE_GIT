@@ -54,8 +54,8 @@
 				<%
 					for(int i=0; i<memberList.size(); i++){
 						out.println("<tr><td>"+memberList.get(i).getClup_rank()+"</td>");
-						out.println("<td>"+memberList.get(i).getClup_user()+"</td>");
-						out.println("<td>"+ud.date_format(memberList.get(i).getClup_joindate(),"yyyy-mm-dd")+"</td>");
+						out.println("<td>"+memberList.get(i).getUser_id()+"</td>");
+						out.println("<td>"+ud.date_format(memberList.get(i).getClup_date(),"yyyy-mm-dd")+"</td>");
 						out.println("<td>"+ud.date_format(memberList.get(i).getClup_lastday(),"yyyy-mm-dd")+"</td></tr>");
 						
 					}%></table>

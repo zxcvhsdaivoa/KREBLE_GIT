@@ -1,9 +1,7 @@
 package svc;
 
 import static db.JdbcUtil.close;
-import static db.JdbcUtil.commit;
 import static db.JdbcUtil.getConnection;
-import static db.JdbcUtil.rollback;
 
 import java.sql.Connection;
 
@@ -13,9 +11,9 @@ import mybatis.SqlMapConfig;
 import vo.ClupInfo;
 import dao.Clup_DAO;
 
-public class ClupManagerCheckService {
-	static ClupManagerCheckService model = new ClupManagerCheckService();
-	public static ClupManagerCheckService instance(){
+public class ClupIsMemberService {
+	static ClupIsMemberService model = new ClupIsMemberService();
+	public static ClupIsMemberService instance(){
 		return model;
 	}
 
@@ -23,10 +21,10 @@ public class ClupManagerCheckService {
 	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
 
 	
-	public String isManager(ClupInfo cl) throws Exception {
+	public String ismember(ClupInfo cl) throws Exception {
 		SqlSession sqlSession = factory.openSession();
-		String manager = sqlSession.selectOne("isManager",cl);
+		String member = sqlSession.selectOne("isMember",cl);
 		sqlSession.close();
-		return manager;
+		return member;
 	}
 }

@@ -6,28 +6,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.CommandInter;
+import use_data.Db_method_ECT;
 import vo.ActionForward;
 
-public class ClupMakeAction implements Action {
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+public class ClupMakeAction implements CommandInter{
 
-		HttpSession session = request.getSession();
-		String user_id = (String) session.getAttribute("ID");
-		ActionForward forward=null;
+	static ClupMakeAction impl = new ClupMakeAction();
+	public static ClupMakeAction instance() {
+		return impl;
+	}
+
+	@Override
+	public String showData(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		
-		if(user_id==null) {
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('로그인 후 이용해주세요')");
-			out.println("history.back();");
-			out.println("</script>");
-		}
-		else {
-			forward = new ActionForward();
-			forward.setPath("/clup_make.jsp");
-		}
+		String id = Db_method_ECT.login_check(request);
+		
+		Db_method_ECT.not_login(id,response);
 			
-		return forward;
+		return "/clup_make.jsp";
 	}
 }

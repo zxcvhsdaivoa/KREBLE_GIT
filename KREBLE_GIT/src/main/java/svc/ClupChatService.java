@@ -1,22 +1,27 @@
 package svc;
 
-import static db.JdbcUtil.close;
-import static db.JdbcUtil.getConnection;
+import java.util.List;
 
-import java.sql.Connection;
-import java.util.ArrayList;
-
-import dao.Clup_DAO;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import mybatis.SqlMapConfig;
 import vo.ClupInfo;
 
 public class ClupChatService {
-	public ArrayList<ClupInfo> selectChat(int no) throws Exception {
-		ArrayList<ClupInfo> sll = null;
-		Connection con = getConnection();
-		Clup_DAO clupdao = Clup_DAO.getInstance();
-		clupdao.setConnection(con);
-		sll=clupdao.select_clup_chat(no);
-		close(con);
+	static ClupChatService model = new ClupChatService();
+	public static ClupChatService instance(){
+		return model;
+	}
+
+
+	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
+
+	
+	public List<ClupInfo> selectChat(int no) throws Exception {
+		List<ClupInfo> sll = null;
+		SqlSession sqlSession = factory.openSession();
+		sll = sqlSession.selectList("selectSangpum");
+		sqlSession.close();
 		return sll;
 	}
 }

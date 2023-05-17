@@ -1,48 +1,61 @@
 package action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.CommandInter;
+
 import svc.ClupChatService;
 import svc.ClupMemberListService;
 import svc.ClupNoticeService;
-import svc.ClupPageService;
+import svc.ClupIsMemberService;
 import svc.ClupSelectService;
 import svc.ClupUpdateLastdayService;
+import use_data.Db_method_ECT;
 import vo.ActionForward;
 import vo.ClupInfo;
 
-public class ClupRoomMemberAction  implements Action {
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+public class ClupRoomMemberAction  implements CommandInter{
+
+	static ClupRoomNoticeAction impl = new ClupRoomNoticeAction();
+	public static ClupRoomNoticeAction instance() {
+		return impl;
+	}
+
+	@Override
+	public String showData(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String turn=null;
 	
-		ActionForward forward = new ActionForward();
-		HttpSession session = request.getSession();
-		String login_id = (String) session.getAttribute("ID");
+		String login_id = Db_method_ECT.login_check(request);
 		int clup_no =Integer.parseInt( request.getParameter("clup_no"));
-		if(login_id==null) {
-			forward.setPath("/login.jsp");
+		
+		Db_method_ECT.not_login(login_id, response);
+		
+		ClupInfo member = new ClupInfo();
+		member.setClup_no(clup_no);
+		member.setUser_id(login_id);
+		ClupIsMemberService cps = ClupIsMemberService.instance();
+		String mem = cps.ismember(member);
+		if(mem!=null) {
+			//ClupUpdateLastdayService cls = new ClupUpdateLastdayService();
+			//cls.updateLastday(clup_no, login_id);
+
+			ClupMemberListService cmls = ClupMemberListService.instance();
+			ClupSelectService css= ClupSelectService.instance();
+			ClupInfo ci = css.selectClup(clup_no);
+			request.setAttribute("clup", ci);
+			
+			request.setAttribute("clup_member",(ArrayList<ClupInfo>)cmls.selectMemberList(clup_no));
+			turn="clup_room_member.jsp";
+		
 		}
 		else {
-			ClupPageService cps = new ClupPageService();
-			int ismember = cps.ismember(clup_no, login_id);
-			if(ismember==1) {
-				ClupUpdateLastdayService cls = new ClupUpdateLastdayService();
-				cls.updateLastday(clup_no, login_id);
-
-				ClupMemberListService cmls = new ClupMemberListService();
-				ClupSelectService css= new ClupSelectService();
-				ClupInfo ci = css.selectClup(clup_no);
-				request.setAttribute("clup", ci);
-				
-				request.setAttribute("clup_member",cmls.selectMemberList(clup_no));
-				forward.setPath("/clup_room_member.jsp");
-			
-			}
-			else {
-				forward.setPath("/clupJoin.cl?clup_no="+clup_no);
-			}
+			turn="clup.do?command=clupjoin&clup_no="+clup_no;
 		}
-		return forward;
+		
+		return turn;
 	}
 }

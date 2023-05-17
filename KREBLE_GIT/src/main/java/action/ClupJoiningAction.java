@@ -10,53 +10,54 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import controller.CommandInter;
+
 import svc.ClupJoinRequeService;
 import svc.ClupJoinService;
 import svc.ClupMakingService;
 import svc.ClupPWckService;
+import use_data.Db_method_ECT;
 import vo.ActionForward;
 import vo.ClupInfo;
 
-public class ClupJoiningAction implements Action {
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+public class ClupJoiningAction implements CommandInter{
 
-		boolean isSuccess =false;
-		HttpSession session = request.getSession();
-		String user_id = (String) session.getAttribute("ID");
-		String howjoin=(String) request.getParameter("how");
-		int clup_no = Integer.parseInt(request.getParameter("no"));
-		ActionForward forward=null;
+	static ClupJoiningAction impl = new ClupJoiningAction();
+	public static ClupJoiningAction instance() {
+		return impl;
+	}
+
+	@Override
+	public String showData(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		ClupJoinService cjs = new ClupJoinService();
+		String id = Db_method_ECT.login_check(request);
+		String howjoin=(String) request.getParameter("how");
+		
+		ClupJoinService cjs = ClupJoinService.instance();
+		
+		ClupInfo user = new ClupInfo();
+		user.setClup_no(Integer.parseInt(request.getParameter("no")));
+		user.setUser_id(id);
+		
 		
 		if(howjoin.equals("free")) {
-			isSuccess=cjs.join(user_id, clup_no);
+			cjs.join(user);
 		}
 		else if(howjoin.equals("password")) {
 			String pw = request.getParameter("pw");
-			ClupPWckService cps = new ClupPWckService();
-			if(cps.pwcheck(clup_no, pw)) {
-				isSuccess=cjs.join(user_id, clup_no);
+			user.setClup_pw(pw);
+			ClupPWckService cps =ClupPWckService.instance();
+			if(cps.pwcheck(user)>0) {
+				cjs.join(user);
 			}
 		}
 		else if(howjoin.equals("request")) {
 			String jointext= request.getParameter("join_text");
-			ClupJoinRequeService cjrs = new ClupJoinRequeService();
-			isSuccess=cjrs.joinReque(user_id,clup_no,jointext);
+			user.setClup_text(jointext);
+			ClupJoinRequeService cjrs = ClupJoinRequeService.instance();
+			cjrs.joinReque(user);
 		}
 		
-		if(!isSuccess) {
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('클럽에 가입하는데 실패했습니다')");
-			out.println("history.back();");
-			out.println("</script>");
-		}
-		else {
-			forward = new ActionForward();
-			forward.setPath("/clupErrorPrevention.jsp");
-		}
-		return forward;
+		return "/clupErrorPrevention.jsp";
 	}
 }

@@ -22,11 +22,11 @@
 	%>
 		<div class="left_list">
 			<ul>
-				<li><a href="clupRoom.cl?clup_no=<%=clup.getClup_no()%>">클럽Main</a></li>
-				<li><a href="clupRoomMember.cl?clup_no=<%=clup.getClup_no()%>">클럽 멤버 목록</a></li>
-				<li><a href="clupRoomNotice.cl?clup_no=<%=clup.getClup_no()%>">클럽 공지사항</a></li>
-				<li><a href="clupRoomChat.cl?clup_no=<%=clup.getClup_no()%>">클럽 채팅</a></li>
-				<%if(login_id.equals(clup.getClup_user())){ %><li><a href="clupRoomManage.cl?clup_no=<%=clup.getClup_no()%>">클럽 관리하기</a></li><%} %>
+				<li><a href="clup.do?command=room&clup_no=<%=clup.getClup_no()%>">클럽Main</a></li>
+				<li><a href="clup.do?command=roommember&clup_no=<%=clup.getClup_no()%>">클럽 멤버 목록</a></li>
+				<li><a href="clup.do?command=roomnotice&clup_no=<%=clup.getClup_no()%>">클럽 공지사항</a></li>
+				<li><a href="#">클럽 채팅</a></li>
+				<%if(login_id.equals(clup.getUser_id())){ %><li><a href="clup.do?command=roommanage&clup_no=<%=clup.getClup_no()%>">클럽 관리하기</a></li><%} %>
 			</ul>
 		</div>
 </body>

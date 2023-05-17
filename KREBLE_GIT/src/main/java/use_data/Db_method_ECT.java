@@ -1,10 +1,16 @@
 package use_data;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Db_method_ECT extends Db_method_conn  {
 	
@@ -88,5 +94,29 @@ public class Db_method_ECT extends Db_method_conn  {
 			}
 		}
 		return toString.format(formatTime);
+	}
+	
+	public static String login_check(HttpServletRequest request) throws Exception {
+
+		HttpSession session = request.getSession();
+		String login_id = (String) session.getAttribute("ID");
+		
+		return login_id;
+	}
+	
+	public static void not_login(String id,HttpServletResponse response) throws Exception {
+		if(id==null||id=="null"||id.equals(null)||id.equals("null")) {
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('로그인 후 이용해주세요')");
+			out.println("location.href='login.jsp'");
+			out.println("</script>");
+			out.flush();
+			out.close();
+		}
+		else {
+			return;
+		}
 	}
 }

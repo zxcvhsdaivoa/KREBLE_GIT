@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="batis_name">
+
+	<select id="selectClupList" resultType="vo.ClupInfo">
+		select * from clup_room where clup_disclose='1';
+	</select>
+	
+	<select id="selectClup" resultType="vo.ClupInfo" parameterType="int">
+		select * from clup_room where clup_no=#{clup_no};
+	</select>
+	
+	<select id="selectNoticeList" resultType="vo.ClupInfo" parameterType="int">
+		select * from clup_notice where clup_no=#{clup_no};
+	</select>
+	
+	<select id="selectMemberList" resultType="vo.ClupInfo" parameterType="int">
+		select * from clup_member where clup_no=#{clup_no};
+	</select>
+	
+	<select id="selectMember" resultType="vo.ClupInfo" parameterType="vo.ClupInfo">
+		select * from clup_member where clup_no=#{clup_no} and user_id=#{user_id};
+	</select>
+	
+	<select id="isMember" resultType="String" parameterType="vo.ClupInfo">
+		select user_id from clup_member where clup_no=#{clup_no} and user_id=#{user_id};
+	</select>
+	
+	<select id="isManager" resultType="String" parameterType="vo.ClupInfo">
+		select user_id from clup_member where clup_no=#{clup_no} and user_id=#{user_id} and (clup_rank='admin' or clup_rank='manager');
+	</select>
+	
+	<select id="clupPWCheck" resultType="int" parameterType="vo.ClupInfo">
+		select clup_no from clup_room where clup_no=#{clup_no} and clup_pw=#{clup_pw} and clup_howjoin='password';
+	</select>
+	
+	<select id="clupLastNo" resultType="int">
+		select clup_no from clup_room order by clup_no desc limit 1;
+	</select>
+	
+	<insert id="makeClup" parameterType="vo.ClupInfo">
+		insert into clup_room values(default,'직접입력테스트','asdf','free',null,'이건 되려나',default,null,1);
+	</insert>
+	
+	<insert id="test" >
+		insert into new_table values('asdf','564754');
+	</insert>
+	
+	<insert id="rank_admin" parameterType="vo.ClupInfo">
+		insert into clup_member values(#{clup_no},#{user_id},'admin',default,now());
+	</insert>
+	
+	<insert id="joinClup" parameterType="vo.ClupInfo">
+		insert into clup_member values(#{clup_no},${user_id},'new',default,now());
+	</insert>
+	
+	<insert id="requestJoinClup" parameterType="vo.ClupInfo">
+		insert into clup_join values(#{clup_no},#{user_id},#{clup_text},default);
+	</insert>
+	
+	<insert id="writeNotice" parameterType="vo.ClupInfo">
+		insert into clup_notice values(#{clup_no},#{user_id},#{clup_text},default);
+	</insert>
+	
+	<delete id="deleteMember" parameterType="vo.ClupInfo">
+		delete from clup_member where clup_no=#{clup_no} and member_id=#{user_id};
+	</delete>
+</mapper>

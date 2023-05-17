@@ -15,7 +15,7 @@
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
 		<div class="section_inner clup_make">
-			<form name="clup_make" action="clupMaking.cl" enctype="multipart/form-data" method="post">
+			<form name="clup_make" action="clup.do?command=clupmakepro" enctype="multipart/form-data" method="post">
 				<div class="clup_setting">
 					<div class="line_box">
 						<label for="clup_name" id="clup_name_label">클럽명 : </label>

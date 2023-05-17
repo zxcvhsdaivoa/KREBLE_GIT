@@ -3,23 +3,15 @@ package vo;
 public class ClupInfo {
 	int clup_no;
 	String clup_name;
-	String clup_user;
+	String user_id;
 	String clup_rank;
 	String clup_howjoin;
 	String clup_pw;
-	String clup_makedate;
 	String clup_logo;
 	String clup_disclose;
 	String clup_text;
-	String clup_text_time;
-	String clup_joindate;
+	String clup_date;
 	String clup_lastday;
-	public String getClup_lastday() {
-		return clup_lastday;
-	}
-	public void setClup_lastday(String clup_lastday) {
-		this.clup_lastday = clup_lastday;
-	}
 	public int getClup_no() {
 		return clup_no;
 	}
@@ -32,11 +24,11 @@ public class ClupInfo {
 	public void setClup_name(String clup_name) {
 		this.clup_name = clup_name;
 	}
-	public String getClup_user() {
-		return clup_user;
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setClup_user(String clup_user) {
-		this.clup_user = clup_user;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public String getClup_rank() {
 		return clup_rank;
@@ -56,12 +48,6 @@ public class ClupInfo {
 	public void setClup_pw(String clup_pw) {
 		this.clup_pw = clup_pw;
 	}
-	public String getClup_makedate() {
-		return clup_makedate;
-	}
-	public void setClup_makedate(String clup_makedate) {
-		this.clup_makedate = clup_makedate;
-	}
 	public String getClup_logo() {
 		return clup_logo;
 	}
@@ -80,16 +66,17 @@ public class ClupInfo {
 	public void setClup_text(String clup_text) {
 		this.clup_text = clup_text;
 	}
-	public String getClup_text_time() {
-		return clup_text_time;
+	public String getClup_date() {
+		return clup_date;
 	}
-	public void setClup_text_time(String clup_text_time) {
-		this.clup_text_time = clup_text_time;
+	public void setClup_date(String clup_date) {
+		this.clup_date = clup_date;
 	}
-	public String getClup_joindate() {
-		return clup_joindate;
+	public String getClup_lastday() {
+		return clup_lastday;
 	}
-	public void setClup_joindate(String clup_joindate) {
-		this.clup_joindate = clup_joindate;
+	public void setClup_lastday(String clup_lastday) {
+		this.clup_lastday = clup_lastday;
 	}
+	
 }
