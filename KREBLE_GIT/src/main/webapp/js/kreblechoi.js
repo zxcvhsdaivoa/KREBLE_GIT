@@ -24,7 +24,7 @@ $(function(){
 			//console.log(listfield);
 		}
 		else {
-			//$('ul.local_stadium > li > ul > li').click(function(){
+			//$('ul.local_stadium > li > ul > li').click(function
 			// 같은 위치에 클릭이벤트가 2개 걸려있어서 더블클릭해야 밑에 코드가 실행 됐던거 이 코드를 지워야 한번 클릭시
 			// 정보가 바뀜
 			   var fieldlistfield=$(this).attr('id');
