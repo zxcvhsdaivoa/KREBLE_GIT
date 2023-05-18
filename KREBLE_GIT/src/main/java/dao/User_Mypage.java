@@ -132,21 +132,7 @@ public class User_Mypage {
 				si.setPlayer10(rs.getString("player10"));
 				si.setPlayer11(rs.getString("player11"));
 			} else {
-				si.setUser_id("No Data");
-				si.setSquad_num(0);
-				si.setSquad_name("No Data");
-				si.setDirector("No Data");
-				si.setPlayer1("No Data");
-				si.setPlayer2("No Data");
-				si.setPlayer3("No Data");
-				si.setPlayer4("No Data");
-				si.setPlayer5("No Data");
-				si.setPlayer6("No Data");
-				si.setPlayer7("No Data");
-				si.setPlayer8("No Data");
-				si.setPlayer9("No Data");
-				si.setPlayer10("No Data");
-				si.setPlayer11("No Data");
+				si.setUser_id("nosquad");
 			}
 
 		} catch (Exception e) {

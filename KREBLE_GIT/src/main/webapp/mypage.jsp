@@ -37,8 +37,6 @@ String id = (String) session.getAttribute("ID");
 	ArrayList<Shop_prd> plike_al = (ArrayList<Shop_prd>)request.getAttribute("plike_al");//관심상품 가져오기
 	ArrayList<Shop_prd> pcart_al = (ArrayList<Shop_prd>)request.getAttribute("pcart_al");//장바구니가져오기
 	SquadInfo squad_al = (SquadInfo)request.getAttribute("squad_al");//마이스쿼드 가져오기
-	Director_Info squad_director = player.hot_squad_director(squad_al.getDirector());
-	ArrayList<Player_Info> squad_player = player.hot_squad_player(squad_al);
     String nowPage = (String)request.getAttribute("page");
 	String sqs = (String) request.getAttribute("sqs");
 	String cas = (String) request.getAttribute("cas");
@@ -99,14 +97,25 @@ String id = (String) session.getAttribute("ID");
 						<img onerror="this.src='image/no_image.PNG'" src="image/user_p_img/<%=id%>.jpg">
 					</div>
 					<div class="squad_wrap">
-	    				<p class="squad_name">스쿼드 이름 : <%=squad_al.getSquad_name()%></p>
+	    				<%if(!squad_al.getUser_id().equals("nosquad")) {%>
+	    				<p class="squad_name">스쿼드 이름 : <%=squad_al.getSquad_name() %></p>
 						<ul>
-							<li class="director"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_director.getDirector_name()%>.jpg"></span><p class="name"><%=squad_director.getDirector_ko_name()%></p></li>
-							<%for(int i=0; i<11; i++){
-							%>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_player.get(i).getPlayer_name() %>.jpg"></span><p class="name"><%=squad_player.get(i).getPlayer_ko_name() %></p></li>
-							<%} %>
+						<%
+						Director_Info hotsquad_director = player.hot_squad_director(squad_al.getDirector());
+						%>
+							<li class="director"><span class="player_img"><img src="image/player_img/<%=hotsquad_director.getDirector_name() %>.jpg" onerror="this.src='image/no_image.PNG'"></span><p class="name"><%=hotsquad_director.getDirector_ko_name() %></p></li>
+						<%
+						ArrayList<Player_Info> hotsquad_player = player.hot_squad_player(squad_al);
+						for(int i=0; i<11; i++){
+						%>
+							<li class="player"><span class="player_img"><img src="image/player_img/<%=hotsquad_player.get(i).getPlayer_name() %>.jpg" onerror="this.src='image/no_image.PNG'"></span><p class="name"><%=hotsquad_player.get(i).getPlayer_ko_name() %></p></li>
+						<%} %>
 						</ul>
+					<%} else {%>
+						<div class = "sq_no_data">스쿼드가 존재하지 않습니다<br>
+						<div class = "sqmk_go"><a href = "squad.sq">스쿼드 만들러가기</a></div>
+						</div>
+					<%} %>
 					</div>
 				</div>
 			</div>
