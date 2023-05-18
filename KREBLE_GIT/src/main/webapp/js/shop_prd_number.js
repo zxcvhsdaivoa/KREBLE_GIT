@@ -10,6 +10,22 @@ $(document).ready(function(){
 	  });
 	}
 	
+//	$체크박선택(
+//		String cl = "sdfd"+id
+//		var trid= document.getElementById(cl);
+//		$(trid).find(".f_blod").innerText
+//	)
+//	for(
+//	$ajax
+//	
+//	)
+
+// java => 값 1개 갔다 와서 다시 보내고 1개반복
+// alert("정상입력");
+
+
+	
+	
 	$(".all_ck").on("change", function() {
 	  if ($(this).is(":checked")) {
 	    $(".ck_cked").prop("checked", true);

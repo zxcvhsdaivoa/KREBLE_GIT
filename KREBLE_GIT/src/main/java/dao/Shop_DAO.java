@@ -4,6 +4,8 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.sql.DataSource;
 
@@ -781,6 +783,78 @@ public class Shop_DAO {
 			System.out.println(ex);
 		} finally {
 			close(rs);
+			close(pstmt);
+		}
+
+		return insertCount;
+
+	}
+	
+	public String mk_code() {
+		String code ="";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select max(mid(shopb_no,4)) from shop_buy_list";
+		
+		//오늘날자를 000000 형식으로 저장
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
+        String formattedDate = today.format(formatter);
+        
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				String number = rs.getNString("max(mid(shopb_no,4))");
+				String extractedDigits = number.substring(0, 6);
+				
+				if(extractedDigits == formattedDate) {
+
+					int number1 = Integer.parseInt(rs.getNString("max(mid(shopb_no,4))"))+1;
+					code = "spb"+formattedDate+String.format("%04d", number1);
+				}
+				
+				else {
+					code = "spb"+formattedDate+"0001";
+				}
+			}else {
+				code = "spb"+formattedDate+"0001";
+			}
+
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return code;
+	}
+	
+
+	// 장바구니->구매테이블 입력(상품만)
+	@SuppressWarnings("resource")
+	public int shopb_prd_in(ArrayList<Shop_prd> aa, String id, String code) {
+		PreparedStatement pstmt = null;
+		String sql = "";
+		int insertCount = 0;
+
+		sql = "insert into shop_buy_list (shopb_no, shopb_date, shopb_p_no, shopb_p_name, shopb_p_qant, shopb_p_price, shopb_u_id) VALUES (?,now(),?,?,?,?,?)";
+		try {
+				pstmt = con.prepareStatement(sql);
+			
+			for(int i = 0; i<aa.size(); i++) {
+				pstmt.setString(1, code);
+				pstmt.setString(2, aa.get(i).getPrd_no());
+				pstmt.setString(3, aa.get(i).getPrd_name());
+				pstmt.setInt(4, aa.get(i).getPrd_qant());
+				pstmt.setInt(5, aa.get(i).getPrd_price());
+				pstmt.setString(6, id);
+				insertCount = pstmt.executeUpdate();
+			}
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
 			close(pstmt);
 		}
 

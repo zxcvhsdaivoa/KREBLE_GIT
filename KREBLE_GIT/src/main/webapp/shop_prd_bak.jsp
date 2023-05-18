@@ -101,13 +101,14 @@
 					    	String prd_name = articleList.get(i).getPrd_name();
 					    	int prd_price = articleList.get(i).getPrd_price();
 					    	String prd_color = articleList.get(i).getPrd_color();
+					    	int prd_qant = articleList.get(i).getPrd_qant();
 					    	String im_path = etc.img_link(prd_no);
 					%>
-					    <tr><!-- 체크박스/이미지/상품이름(수량)/총합/배송비 -->
-					        <td class="td_cen"><input type="checkbox" name="prd_ck<%=i%>" class="ck_cked"></td>
-					        <td class="td_cen"><img src ="<%=im_path%><%=prd_no%>.jpg" alt="no_image" onerror="image/no_image.PNG"></td>
+					    <tr id="sdfd<%=i%>"><!-- 체크박스/이미지/상품이름(수량)/총합/배송비 -->
+					        <td class="td_cen"><input type="checkbox" name="prd_ck" value="<%=prd_no%>/<%=prd_name%>/<%=prd_price%>/<%=prd_qant%>" class="ck_cked"></td>
+					        <td class="td_cen"><img src ="<%=im_path%><%=prd_no%>.jpg" alt="no_image" onerror="this.src='image/no_image.PNG'"></td>
 					        <td class="p_left_30"><!-- 상품이름/색상/도착일/수량 -->
-					        	<div class = "no3_td_d1"><%=prd_name%>, &emsp; <%=prd_color%></div>
+					        	<div class = "no3_td_d1"><span class="f_bold"><%=prd_name%></span>, &emsp; <%=prd_color%></div>
 					        	<div class = "no3_td_d3">
 					        		<%
 					        		  String a = prd_no;
@@ -162,9 +163,9 @@
 				<article id="sb_art_no5"><!-- 총 결제금액 -->
 					<div class="no5_border"><!-- 테두리 -->
 						<div>
-							(상품합계)<%=total%>원 + (배송비)
+							[상품합계]<%=total%>원 + [배송비]
 							<%
-							if(total>=1000000){
+							if(total>=100000){
 								delv_pay = 0;	
 							%>
 							0원
@@ -176,7 +177,7 @@
 							<%
 							}
 							%>
-							 = (총 결제금액)<%=total+delv_pay%>원
+							 = [총 결제금액]<%=total+delv_pay%>원
 							<input type="hidden" id="h_total" class="h_total">
 						</div>
 					</div>

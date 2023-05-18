@@ -2,9 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="use_data.Shop_prd" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-<% String id = (String) session.getAttribute("ID"); %>
+<% String id = (String) session.getAttribute("ID");
+	ArrayList<Shop_prd> articleList =(ArrayList<Shop_prd>) request.getAttribute("spb_prd");
+%>
 <!DOCTYPE html>
 <html>
 <head>
