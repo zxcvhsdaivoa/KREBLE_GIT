@@ -44,7 +44,7 @@ public class Db_method_shop extends Db_method_conn {
 				get_no = rs.getString("p_no");
 				try {
 					conn();
-					String command2 = String.format("select * from product where prd_no='" + get_no + "';");
+					String command2 = String.format("select * from shop_product where prd_no='" + get_no + "';");
 					ResultSet rs2 = stm.executeQuery(command2);
 					if (rs2.next()) {
 						Shop_prd aa = new Shop_prd();
@@ -77,7 +77,7 @@ public class Db_method_shop extends Db_method_conn {
 		try {
 			conn();
 			String command = String.format(
-					"select * from product where prd_no = (SELECT prd_re_no FROM prd_re GROUP BY prd_re_no order by avg(prd_re_sc) desc limit 1);");
+					"select * from shop_product where prd_no = (SELECT prd_re_no FROM shop_prd_re GROUP BY prd_re_no order by avg(prd_re_sc) desc limit 1);");
 			ResultSet rs = stm.executeQuery(command);
 			while (rs.next()) {
 				prd.setPrd_no(rs.getString("prd_no"));
@@ -104,7 +104,7 @@ public class Db_method_shop extends Db_method_conn {
 		try {
 			conn();
 			String command = String
-					.format("SELECT prd_re_no as p_no, round(avg(prd_re_sc)) AS avg FROM prd_re GROUP BY prd_re_no");
+					.format("SELECT prd_re_no as p_no, round(avg(prd_re_sc)) AS avg FROM shop_prd_re GROUP BY prd_re_no");
 
 			ResultSet rs = stm.executeQuery(command);
 			while (rs.next()) {
@@ -127,7 +127,7 @@ public class Db_method_shop extends Db_method_conn {
 		try {
 			conn();
 			String command = String
-					.format("SELECT prd_id as id, COUNT(prd_no) AS cnt FROM product GROUP BY prd_id ORDER BY cnt DESC");
+					.format("SELECT prd_id as id, COUNT(prd_no) AS cnt FROM shop_product GROUP BY prd_id ORDER BY cnt DESC");
 			ResultSet rs = stm.executeQuery(command);
 			int index = 0;
 			if (rs.next()) {
@@ -161,7 +161,7 @@ public class Db_method_shop extends Db_method_conn {
 			}
 
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("select * from product;");
+			ResultSet rs = stm.executeQuery("select * from shop_product;");
 
 			while (rs.next()) {
 				Shop_prd aa = new Shop_prd();
@@ -194,7 +194,7 @@ public class Db_method_shop extends Db_method_conn {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("select * from product where prd_no = '" + p_no + "';");
+			ResultSet rs = stm.executeQuery("select * from shop_product where prd_no = '" + p_no + "';");
 			if (rs.next()) {
 				aa.setPrd_img(rs.getString("prd_img"));
 				aa.setPrd_name(rs.getString("prd_name"));
@@ -231,7 +231,7 @@ public class Db_method_shop extends Db_method_conn {
 			}
 			stm = con.createStatement();
 			ResultSet rs = stm.executeQuery(
-					"select * from prd_re where prd_re_no = '" + p_no + "'order by prd_re_num desc limit 5;");
+					"select * from shop_prd_re where prd_re_no = '" + p_no + "'order by prd_re_num desc limit 5;");
 			while (rs.next()) {
 				hasResult = true;
 				Shop_prd aa = new Shop_prd();

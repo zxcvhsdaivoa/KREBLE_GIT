@@ -234,14 +234,14 @@ public class User_Mypage {
 		}
 		switch (cnt) {
 		case 0:
-			sql = "select * from product where prd_no= '" + aa[0] + "' or prd_no='" + aa[1] + "' or prd_no='" + aa[2]
+			sql = "select * from shop_product where prd_no= '" + aa[0] + "' or prd_no='" + aa[1] + "' or prd_no='" + aa[2]
 					+ "';";
 			break;
 		case 1:
-			sql = "select * from product where prd_no= '" + aa[0] + "' or prd_no='" + aa[1] + "';";
+			sql = "select * from shop_product where prd_no= '" + aa[0] + "' or prd_no='" + aa[1] + "';";
 			break;
 		case 2:
-			sql = "select * from product where prd_no= '" + aa[0] + "';";
+			sql = "select * from shop_product where prd_no= '" + aa[0] + "';";
 			break;
 		case 3:
 			sql = "No Data";
