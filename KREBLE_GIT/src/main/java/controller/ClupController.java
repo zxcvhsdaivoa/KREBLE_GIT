@@ -30,8 +30,11 @@ public class ClupController extends HttpServlet{
 		
 		try {
 			if(command.equals("main")){
+				System.out.println("클럽페이지 실행");
 				inter = ClupListAction.instance();
+				System.out.println(inter);
 				viewName = inter.showData(request, response);
+				System.out.println(viewName);
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
 			

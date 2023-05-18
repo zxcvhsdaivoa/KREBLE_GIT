@@ -1,13 +1,15 @@
 package svc;
 
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import mybatis.SqlMapConfig;
 
-public class ClupUpdateLastdayService {
-	static ClupUpdateLastdayService model = new ClupUpdateLastdayService();
-	public static ClupUpdateLastdayService instance(){
+import mybatis.SqlMapConfig;
+import vo.ClupInfo;
+
+public class ClupLastnoService {
+	
+	static ClupLastnoService model = new ClupLastnoService();
+	public static ClupLastnoService instance(){
 		return model;
 	}
 
@@ -15,9 +17,11 @@ public class ClupUpdateLastdayService {
 	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
 
 	
-	public void updateLastday(int no,String id) throws Exception {
+	public int lastno() throws Exception {
 		SqlSession sqlSession = factory.openSession();
-		sqlSession.selectList("selectSangpum");
+		int lastno = sqlSession.selectOne("clupLastNo");
 		sqlSession.close();
+		return lastno;
 	}
+
 }

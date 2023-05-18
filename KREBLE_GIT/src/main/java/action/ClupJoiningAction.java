@@ -38,8 +38,6 @@ public class ClupJoiningAction implements CommandInter{
 		ClupInfo user = new ClupInfo();
 		user.setClup_no(Integer.parseInt(request.getParameter("no")));
 		user.setUser_id(id);
-		
-		
 		if(howjoin.equals("free")) {
 			cjs.join(user);
 		}

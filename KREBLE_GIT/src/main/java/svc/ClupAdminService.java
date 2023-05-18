@@ -6,10 +6,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import mybatis.SqlMapConfig;
 import vo.ClupInfo;
 
-public class ClupJoinService {
+public class ClupAdminService {
 	
-	static ClupJoinService model = new ClupJoinService();
-	public static ClupJoinService instance(){
+	static ClupAdminService model = new ClupAdminService();
+	public static ClupAdminService instance(){
 		return model;
 	}
 
@@ -17,9 +17,9 @@ public class ClupJoinService {
 	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
 
 	
-	public void join(ClupInfo cl) throws Exception {
+	public void admin(ClupInfo ci) throws Exception {
 		SqlSession sqlSession = factory.openSession();
-		int i= sqlSession.insert("joinClup",cl);
+		int i= sqlSession.insert("rank_admin",ci);
 		if(i>0) {
 			sqlSession.commit();
 		}else {
@@ -27,5 +27,5 @@ public class ClupJoinService {
 		}
 		sqlSession.close();
 	}
-	
+
 }

@@ -6,10 +6,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import mybatis.SqlMapConfig;
 import vo.ClupInfo;
 
-public class ClupJoinService {
-	
-	static ClupJoinService model = new ClupJoinService();
-	public static ClupJoinService instance(){
+public class ClupLastdateService {
+	static ClupLastdateService model = new ClupLastdateService();
+	public static ClupLastdateService instance(){
 		return model;
 	}
 
@@ -17,9 +16,9 @@ public class ClupJoinService {
 	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
 
 	
-	public void join(ClupInfo cl) throws Exception {
+	public void lastdate(ClupInfo ci) throws Exception {
 		SqlSession sqlSession = factory.openSession();
-		int i= sqlSession.insert("joinClup",cl);
+		int i=sqlSession.update("lastDate");
 		if(i>0) {
 			sqlSession.commit();
 		}else {
@@ -27,5 +26,5 @@ public class ClupJoinService {
 		}
 		sqlSession.close();
 	}
-	
+
 }

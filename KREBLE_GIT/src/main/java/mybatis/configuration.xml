@@ -13,6 +13,7 @@
 				<property name="username" value="root" />
 				<property name="password" value="knight" />
 			</dataSource>
+			
 		</environment>
 	</environments>
 	

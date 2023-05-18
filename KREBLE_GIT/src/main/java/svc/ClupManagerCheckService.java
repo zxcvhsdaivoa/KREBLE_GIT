@@ -11,7 +11,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import mybatis.SqlMapConfig;
 import vo.ClupInfo;
-import dao.Clup_DAO;
 
 public class ClupManagerCheckService {
 	static ClupManagerCheckService model = new ClupManagerCheckService();

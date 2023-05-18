@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import controller.CommandInter;
 
 import svc.ClupListService;
-import vo.ActionForward;
 import vo.ClupInfo;
 
 public class ClupListAction implements CommandInter{

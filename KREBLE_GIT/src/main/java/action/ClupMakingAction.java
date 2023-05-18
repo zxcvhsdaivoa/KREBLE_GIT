@@ -11,7 +11,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import controller.CommandInter;
-
+import svc.ClupAdminService;
+import svc.ClupLastnoService;
 import svc.ClupMakingService;
 import use_data.Db_method_ECT;
 import vo.ActionForward;
@@ -46,9 +47,12 @@ public class ClupMakingAction implements CommandInter{
 		ci.setClup_text(multi.getParameter("clup_include"));
 		ci.setClup_logo(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		ci.setClup_disclose(multi.getParameter("disclose"));
-		
 		ClupMakingService cms = ClupMakingService.instance();
 		cms.making(ci);
+		ClupLastnoService cls = ClupLastnoService.instance();
+		ci.setClup_no( cls.lastno());
+		ClupAdminService cas = ClupAdminService.instance();
+		cas.admin(ci);
 		return "clupErrorPrevention.jsp";
 	}
 }

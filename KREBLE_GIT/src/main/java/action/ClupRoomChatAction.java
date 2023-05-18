@@ -4,18 +4,14 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import controller.CommandInter;
 
 import svc.ClupChatService;
-import svc.ClupMemberListService;
-import svc.ClupNoticeService;
 import svc.ClupIsMemberService;
+import svc.ClupLastdateService;
 import svc.ClupSelectService;
-import svc.ClupUpdateLastdayService;
 import use_data.Db_method_ECT;
-import vo.ActionForward;
 import vo.ClupInfo;
 
 public class ClupRoomChatAction  implements CommandInter{
@@ -41,8 +37,8 @@ public class ClupRoomChatAction  implements CommandInter{
 		ClupIsMemberService cps = new ClupIsMemberService();
 		cps.ismember(member);
 		if(cps.ismember(member)!=null) {
-			ClupUpdateLastdayService cls = new ClupUpdateLastdayService();
-			cls.updateLastday(clup_no, id);
+			ClupLastdateService cls = ClupLastdateService.instance();
+			cls.lastdate(member);
 			ClupChatService ccs = new ClupChatService();
 			ClupSelectService css= new ClupSelectService();
 			ClupInfo ci = css.selectClup(clup_no);

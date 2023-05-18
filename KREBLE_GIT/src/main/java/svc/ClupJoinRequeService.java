@@ -17,8 +17,12 @@ public class ClupJoinRequeService {
 	
 	public void joinReque(ClupInfo cl) throws Exception {
 		SqlSession sqlSession = factory.openSession();
-		sqlSession.insert("requestJoinClup",cl);
-		sqlSession.commit();
+		int i= sqlSession.insert("requestJoinClup",cl);
+		if(i>0) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
 		sqlSession.close();
 	}
 }

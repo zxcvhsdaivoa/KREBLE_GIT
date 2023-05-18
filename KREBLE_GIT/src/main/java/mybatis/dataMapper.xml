@@ -40,11 +40,7 @@
 	</select>
 	
 	<insert id="makeClup" parameterType="vo.ClupInfo">
-		insert into clup_room values(default,'직접입력테스트','asdf','free',null,'이건 되려나',default,null,1);
-	</insert>
-	
-	<insert id="test" >
-		insert into new_table values('asdf','564754');
+		insert into clup_room values(default,#{clup_name},#{user_id},#{clup_howjoin},#{clup_pw},#{clup_text},default,#{clup_logo},#{clup_disclose});
 	</insert>
 	
 	<insert id="rank_admin" parameterType="vo.ClupInfo">
@@ -52,7 +48,7 @@
 	</insert>
 	
 	<insert id="joinClup" parameterType="vo.ClupInfo">
-		insert into clup_member values(#{clup_no},${user_id},'new',default,now());
+		insert into clup_member values(#{clup_no},#{user_id},'new',default,now());
 	</insert>
 	
 	<insert id="requestJoinClup" parameterType="vo.ClupInfo">
@@ -66,4 +62,12 @@
 	<delete id="deleteMember" parameterType="vo.ClupInfo">
 		delete from clup_member where clup_no=#{clup_no} and member_id=#{user_id};
 	</delete>
+	
+	<update id="changeRank" parameterType="vo.ClupInfo">
+		update clup_member set clup_rank=#{clup_rank} where clup_no=#{clup_no} and user_id=#{user_id};
+	</update>
+	
+	<update id="lastDate" parameterType="vo.ClupInfo">
+		update clup_member set clup_lastday = now() where clup_no=#{clup_no} and user_id=#{user_id};
+	</update>
 </mapper>

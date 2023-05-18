@@ -17,8 +17,12 @@ public class ClupMakingService {
 	
 	public void making(ClupInfo ci) throws Exception {
 		SqlSession sqlSession = factory.openSession();
-		int i=sqlSession.insert("makeClup");
-		sqlSession.commit();
+		int i = sqlSession.insert("makeClup",ci);
+		if(i>0) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
 		sqlSession.close();
 	}
 }
