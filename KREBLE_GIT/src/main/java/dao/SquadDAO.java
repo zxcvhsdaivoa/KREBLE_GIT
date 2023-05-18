@@ -445,21 +445,21 @@ public class SquadDAO {
 		int updateCount = 0;
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
-
-		String sql="update mysquad set view_count=? where mysquad_no=?";
+		PreparedStatement pstmt2 = null;
 		try{
 			pstmt=con.prepareStatement("select view_count from mysquad where mysquad_no ="+squad_no);
 			rs = pstmt.executeQuery();
 
 			if(rs.next()) view_count =rs.getInt("view_count")+1;
 			else view_count=1;
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, view_count);
-			pstmt.setInt(2, squad_no);
-			updateCount = pstmt.executeUpdate();
+			pstmt2 = con.prepareStatement("update mysquad set view_count=? where mysquad_no=?");
+			pstmt2.setInt(1, view_count);
+			pstmt2.setInt(2, squad_no);
+			updateCount = pstmt2.executeUpdate();
 		}catch(Exception ex){
 		}finally{
 			close(pstmt);
+			close(pstmt2);
 		}
 
 		return updateCount;

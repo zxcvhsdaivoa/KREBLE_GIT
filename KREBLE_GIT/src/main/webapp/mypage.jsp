@@ -4,6 +4,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="use_data.Shop_prd"%>
 <%@ page import="use_data.UserData"%>
+<%@ page import="use_data.Player_Info"%>
+<%@ page import="use_data.Director_Info"%>
 <%@ page import="vo.field_save_Data"%>
 <%@ page import="vo.SquadInfo"%>
 <%@ page import="use_data.Player_Info"%>
@@ -35,6 +37,8 @@ String id = (String) session.getAttribute("ID");
 	ArrayList<Shop_prd> plike_al = (ArrayList<Shop_prd>)request.getAttribute("plike_al");//관심상품 가져오기
 	ArrayList<Shop_prd> pcart_al = (ArrayList<Shop_prd>)request.getAttribute("pcart_al");//장바구니가져오기
 	SquadInfo squad_al = (SquadInfo)request.getAttribute("squad_al");//마이스쿼드 가져오기
+	Director_Info squad_director = player.hot_squad_director(squad_al.getDirector());
+	ArrayList<Player_Info> squad_player = player.hot_squad_player(squad_al);
     String nowPage = (String)request.getAttribute("page");
 	String sqs = (String) request.getAttribute("sqs");
 	String cas = (String) request.getAttribute("cas");
@@ -97,18 +101,11 @@ String id = (String) session.getAttribute("ID");
 					<div class="squad_wrap">
 	    				<p class="squad_name">스쿼드 이름 : <%=squad_al.getSquad_name()%></p>
 						<ul>
-							<li class="director"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getDirector()%>.jpg"></span><p class="name"><%=squad_al.getDirector()%></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer1() %>.jpg"></span><p class="name"><%=squad_al.getPlayer1() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer2() %>.jpg"></span><p class="name"><%=squad_al.getPlayer2() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer3() %>.jpg"></span><p class="name"><%=squad_al.getPlayer3() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer4() %>.jpg"></span><p class="name"><%=squad_al.getPlayer4() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer5() %>.jpg"></span><p class="name"><%=squad_al.getPlayer5() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer6() %>.jpg"></span><p class="name"><%=squad_al.getPlayer6() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer7() %>.jpg"></span><p class="name"><%=squad_al.getPlayer7() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer8() %>.jpg"></span><p class="name"><%=squad_al.getPlayer8() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer9() %>.jpg"></span><p class="name"><%=squad_al.getPlayer9() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer10() %>.jpg"></span><p class="name"><%=squad_al.getPlayer10() %></p></li>
-							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_al.getPlayer11() %>.jpg"></span><p class="name"><%=squad_al.getPlayer11() %></p></li>
+							<li class="director"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_director.getDirector_name()%>.jpg"></span><p class="name"><%=squad_director.getDirector_ko_name()%></p></li>
+							<%for(int i=0; i<11; i++){
+							%>
+							<li class="player"><span class="player_img"><img onerror="this.src='image/no_image.PNG'" src="image/player_img/<%=squad_player.get(i).getPlayer_name() %>.jpg"></span><p class="name"><%=squad_player.get(i).getPlayer_ko_name() %></p></li>
+							<%} %>
 						</ul>
 					</div>
 				</div>
