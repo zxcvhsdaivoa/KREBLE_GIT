@@ -11,8 +11,8 @@ public class Db_method_conn {
 
 	public void conn() throws Exception {// 연결 메소드
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kreble", "root", "tmd514107");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://13.124.84.1:3306/kreble", "kreble", "kreble");
 			if (con == null) {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}

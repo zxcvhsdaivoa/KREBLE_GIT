@@ -52,14 +52,14 @@ public class Csc_controller extends javax.servlet.http.HttpServlet
 			forward.setPath("/shop_prd_.jsp");
 		}
 		//여분
-		else if(command.equals("/shop_prd_.bo")){
-			action = new aaaaa();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
+//		else if(command.equals("/shop_prd_.bo")){
+//			action = new aaaaa();
+//			try{
+//				forward=action.execute(request, response);
+//			}catch(Exception e){
+//				e.printStackTrace();
+//			}
+//		}
 		
 		if(forward != null){
 			
