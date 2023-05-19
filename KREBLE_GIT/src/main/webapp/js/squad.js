@@ -13,6 +13,8 @@ $(function(){
 		$(".player_list ul li:nth-of-type("+i+")").find("img").attr("src",pl_img_src+enname+".jpg");
 	}
 
+	
+	
 	//n번 선수 선택
 	$(".squad_wrap ul > li").click(function(){
 		//선수선택페이지 오픈
@@ -130,24 +132,33 @@ $(function(){
 
 	//스쿼드 저장
 	$(".save_squad").click(function(){
-		var sq_mem_ko = document.querySelectorAll(".ko_name");
-		var sq_mem_eng = document.querySelectorAll(".eng_name");
-		for(var i=0; i<sq_mem_eng.length; i++){
-			var null_ch =sq_mem_eng.item(i).innerText;
-			if(null_ch == ''){
-				alert('비어있는 칸이 없도록 선택해주세요');
-				return false;
+		if($(this).hasClass("unaction")){
+			var id = $("#user_id").val();
+			if(id=="null") {
+				alert("로그인 후 이용해주세요")
+			}else{
+				alert("저장할 수 없는 스쿼드입니다");
 			}
-			else if(i==sq_mem_eng.length-1) {
-				for(var j=1; j<sq_mem_eng.length; j++){
-					var ckj=sq_mem_eng.item(j).innerText;
-					for(var k=0; k<j; k++) {
-						var ckk=sq_mem_eng.item(k).innerText;
-						if(j!=k && ckj == ckk) {
-							alert('선수가 중복되지 않게 선택해주세요\n현재 중복된 선수 : '+sq_mem_ko.item(j).innerText)
-							return false;
-				        } else if(j==sq_mem_eng.length-1 && k==j-1) {
-				        }
+		}else {
+			var sq_mem_ko = document.querySelectorAll(".ko_name");
+			var sq_mem_eng = document.querySelectorAll(".eng_name");
+			for(var i=0; i<sq_mem_eng.length; i++){
+				var null_ch =sq_mem_eng.item(i).innerText;
+				if(null_ch == ''){
+					alert('비어있는 칸이 없도록 선택해주세요');
+					return false;
+				}
+				else if(i==sq_mem_eng.length-1) {
+					for(var j=1; j<sq_mem_eng.length; j++){
+						var ckj=sq_mem_eng.item(j).innerText;
+						for(var k=0; k<j; k++) {
+							var ckk=sq_mem_eng.item(k).innerText;
+							if(j!=k && ckj == ckk) {
+								alert('선수가 중복되지 않게 선택해주세요\n현재 중복된 선수 : '+sq_mem_ko.item(j).innerText)
+								return false;
+					        } else if(j==sq_mem_eng.length-1 && k==j-1) {
+					        }
+						}
 					}
 				}
 			}

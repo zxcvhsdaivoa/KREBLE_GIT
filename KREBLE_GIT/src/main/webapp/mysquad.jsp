@@ -46,7 +46,7 @@
 					}
 				%>
 					<form class="squad_form" name="squad_form" action="squadSavePro.sq" method="post" onsubmit="return memberjoin()">
-						<input type="hidden" id="user_id" name="user_id" value="<%= (String) session.getAttribute("ID")%> ">
+						<input type="hidden" id="user_id" name="user_id" value="<%= (String) session.getAttribute("ID")%>">
 						<ul>
 							<%
 							if(nullck==true){
@@ -109,8 +109,9 @@
 						</ul>
 						<button type="button" class="open_squad">나의 스쿼드 불러오기</button>
 						<label for="squad_name" class="blind">스쿼드의 이름을 입력하세요</label>
-						<input type="text" <%if(nullck==true&&squad.getUser_id().equals(login_id)||nullck==false&&login_id!="0"){%>style="width:565px"<%}%> id="squad_name" name="squad_name" <% if(nullck==true){%> value="<%if(!squad.getUser_id().equals(login_id)){%><%=squad.getUser_id() %>님의 스쿼드 : <%} %><%= squad.getSquad_name()%>" <%if(!squad.getUser_id().equals(login_id)){%>readonly<%} } %>>
-						<%if(nullck==true&&squad.getUser_id().equals(login_id)||nullck==false&&login_id!="0"){ %><button type="submit" class="save_squad">스쿼드 저장</button><%} %>
+						<input type="text" id="squad_name" name="squad_name" <% if(nullck==true){%> value="<%if(!squad.getUser_id().equals(login_id)){%><%=squad.getUser_id() %>님의 스쿼드 : <%} %><%= squad.getSquad_name()%>" <%if(!squad.getUser_id().equals(login_id)){%>readonly<%} } %>>
+						<%if((nullck==true&&squad.getUser_id().equals(login_id))||(nullck==false&&login_id!="0")){ %><button type="submit" class="save_squad">스쿼드 저장</button><%}
+						else {%><span class="save_squad unaction">스쿼드 저장</span><%} %>
 						<span class="back"><a href="squad.sq">새 스쿼드 만들기</a></span>
 						<span class="all_squad"><a href="squadList.sq">전체 스쿼드 목록</a></span>
 						<label for="formation" class="blind" >포메이션</label>

@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import db.JdbcUtil;
 import use_data.Shop_prd;
 import use_data.UserData;
+import vo.AlarmInfo;
 import vo.SquadInfo;
 
 public class User_Mypage {
@@ -270,5 +271,66 @@ public class User_Mypage {
 			alsp.add(sp);
 		}
 		return alsp;
+	}
+	
+	
+	// 알림 불러오기
+	public ArrayList<AlarmInfo> getAlarm(String id) {
+		ArrayList<AlarmInfo> all = new ArrayList<AlarmInfo>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from user_alarm where user_id = ?;";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				AlarmInfo al = new AlarmInfo();
+				al.setUser_id(rs.getString("user_id"));
+				al.setAlarm_view(rs.getInt("alarm_view"));
+				al.setAlarm_type(rs.getString("alarm_type"));
+				al.setAlarm_no(rs.getInt("alarm_no"));
+				al.setAlarm_time(rs.getString("alarm_time"));
+				all.add(al);
+			} else {
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return all;
+	}
+	
+	
+	// 알람 등록
+	public int setAlarm(AlarmInfo alarm) {
+		PreparedStatement pstmt = null;
+		int insertCount = 0;
+
+		String sql = "insert into user_alarm values(?,?,?,?,default)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, alarm.getUser_id());
+			pstmt.setInt(2, alarm.getAlarm_view());
+			pstmt.setString(3, alarm.getAlarm_type());
+			pstmt.setInt(4, alarm.getAlarm_no());
+			insertCount = pstmt.executeUpdate();
+
+			if (insertCount > 0) {
+				System.out.println(insertCount);
+			}
+
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			close(pstmt);
+		}
+
+		return insertCount;
+
 	}
 }

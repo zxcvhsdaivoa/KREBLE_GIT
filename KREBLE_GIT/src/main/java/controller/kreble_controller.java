@@ -63,7 +63,7 @@ public class kreble_controller extends javax.servlet.http.HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 캐시충전
+		// 접속불가페이지
 		if (command.equals("/notuse.kb")) {
 			action = new PageNotUseAction();
 			try {
