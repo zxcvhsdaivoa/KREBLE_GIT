@@ -119,4 +119,28 @@ public class Db_method_ECT extends Db_method_conn  {
 			return;
 		}
 	}
+	
+	public String alarm_text(String alarm) {
+		String alarm_text="A";
+		if(alarm.equals("commu_comment")){
+			alarm_text="내 게시글에 댓글이 달렸습니다";
+		}else if (alarm.equals("clup_notice")){
+			alarm_text="내 클럽에 공지사항이 작성되었습니다";
+		}else if(alarm.equals("clup_join")){
+			alarm_text="클럽에 가입되었습니다";
+		}
+		return alarm_text;
+	}
+	
+	public String alarm_link(String alarm) {
+		String alarm_text="A";
+		if(alarm.equals("commu_comment")){
+			alarm_text="clmmunity_borde.jsp?no=";
+		}else if (alarm.equals("clup_notice")){
+			alarm_text="clup.do?command=roomnotice&clup_no=";
+		}else if(alarm.equals("clup_join")){
+			alarm_text="clup.do?command=room&clup_no=";
+		}
+		return alarm_text;
+	}
 }

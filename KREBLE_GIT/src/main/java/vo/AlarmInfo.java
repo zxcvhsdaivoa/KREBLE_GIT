@@ -2,11 +2,19 @@ package vo;
 
 
 public class AlarmInfo {
+	int alarm_pk;
+	
 	String user_id;
 	int alarm_view;
 	String alarm_type;
 	int alarm_no;
 	String alarm_time;
+	public int getAlarm_pk() {
+		return alarm_pk;
+	}
+	public void setAlarm_pk(int alarm_pk) {
+		this.alarm_pk = alarm_pk;
+	}
 	public String getUser_id() {
 		return user_id;
 	}

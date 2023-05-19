@@ -27,6 +27,13 @@
             <li class="mypage"><a href="mypage.kb">마이페이지</a></li>
         <%} %>
         </ul>
+        <div class="alarm_wrap hide">
+        	<span class="myalarm">내 알림 현황</span>
+        	<span class="close"></span>
+        	<ul class="alarm_box">
+        	
+        	</ul>
+        </div>
        
        <div class="top_nav">
             <ul>
