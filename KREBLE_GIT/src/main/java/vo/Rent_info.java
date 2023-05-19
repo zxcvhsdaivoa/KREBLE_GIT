@@ -5,14 +5,13 @@ public class Rent_info {
 	String user_id;
 	String field_name;
 	String rent_location;
-	int rent_date;
+	String rent_date;
 	String rent_time1;
 	String rent_time2;
 	String rent_time3;
 	String rent_time4;
 	String rent_time5;
 	int rent_price;
-	
 	public int getRent_num() {
 		return rent_num;
 	}
@@ -37,10 +36,10 @@ public class Rent_info {
 	public void setRent_location(String rent_location) {
 		this.rent_location = rent_location;
 	}
-	public int getRent_date() {
+	public String getRent_date() {
 		return rent_date;
 	}
-	public void setRent_date(int rent_date) {
+	public void setRent_date(String rent_date) {
 		this.rent_date = rent_date;
 	}
 	public String getRent_time1() {

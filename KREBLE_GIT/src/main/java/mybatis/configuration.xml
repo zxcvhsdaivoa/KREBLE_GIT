@@ -8,10 +8,10 @@
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/kreble?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8" />
-				<property name="username" value="root" />
-				<property name="password" value="knight" />
+				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://3.35.49.18:3306/kreble?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8" />
+				<property name="username" value="kreble" />
+				<property name="password" value="kreble" />
 			</dataSource>
 			
 		</environment>

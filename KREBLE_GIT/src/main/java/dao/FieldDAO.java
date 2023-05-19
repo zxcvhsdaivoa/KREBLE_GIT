@@ -113,7 +113,7 @@ public class FieldDAO {
 				rent_selc.setUser_id(rs.getString("user_id"));
 				rent_selc.setField_name(rs.getString("field_name"));
 				rent_selc.setRent_location(rs.getString("rent_location"));
-				rent_selc.setRent_date(rs.getInt("rent_date"));
+				rent_selc.setRent_date(rs.getString("rent_date"));
 				rent_selc.setRent_time1(rs.getString("rent_time1"));
 				rent_selc.setRent_time2(rs.getString("rent_time2"));
 				rent_selc.setRent_time3(rs.getString("rent_time3"));
