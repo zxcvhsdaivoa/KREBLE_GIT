@@ -34,24 +34,50 @@
 	<!-- section -->
   
 	<section>
-		
-		<!-- 구매기록 타이틀 -->
-		<article id="bl_art_no1">
-		</article>
-		
-		<!-- 구매기록 -->
-		<article id="bl_art_no2">
-			<div>주문일자</div>
-			<div>구매리스트
-				<div>구매리스트(테이블)</div>
-				<div>주문취소</div>
-			</div>	
-		</article>
-		
-		<!-- 여분 -->
-		<article id="bl_art_no3">
-		</article>
-	
+		<div id="section_wrap">
+			<form action="shop_buy_list.sp" method = "post" onsubmit="return moneycheck()">
+				<article id="sb_art_no1"><!-- 장바구니 타이틀 / 결제진행상황 -->
+					<div><!-- 아래 div들 묶는용도 및 크기 -->
+						<div class ="no1_left">
+						<img src ="image/shopimg/cart.png"> 장바구니
+						</div><!-- 장바구니 타이틀 -->
+						<div class ="no1_right">01 장바구니 -><span> 02 주문/결제 -> </span>  03 주문완료</div><!-- 결제진행현황 -->
+					</div>
+				</article>
+				<article id="sb_art_no2"><!-- 일반구매 라벨 -->
+					<div>
+						<div class="no2_left">일반구매(size)
+						</div>
+						<div class="no2_right">
+						</div>
+					</div>
+				</article>
+				<article id="sb_art_no3"><!-- 장바구니리스트Table -->
+				</article>
+				<article id="sb_art_no4"><!-- 전체선택/전체삭제 -->
+					<div>
+						<a href="#"><input type="button" name="no4_del" value="전체삭제"></a>
+						<input type="button" name="no4_del" value="선택상품 삭제">
+					</div>
+				</article>
+				<article id="sb_art_no5"><!-- 총 결제금액 -->
+					<div class="no5_border"><!-- 테두리 -->
+						<div class = "no5_flex">
+							[상품합계]<div id="prd_tot">0</div> + 
+							[배송비]<div id="prd_delv">0</div> =
+							[총배송비]<div id="to_cart">0</div>
+							
+						</div>
+					</div>
+				</article>
+				<article id="sb_art_no6"><!-- 쇼핑홈/구매하기버튼 -->
+					<div>
+						<a href="shop_list_action.sp"><input type="button" value="계속 쇼핑하기"></a>
+						<input type="submit" value="결제하기">
+					</div>
+				</article>
+			</form>
+		</div>
 	</section>
 	
     <!-- footer -->

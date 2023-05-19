@@ -61,7 +61,7 @@
   
 	<section>
 		<div id="section_wrap">
-			<form action="shop_buy_list.sp" method = "post" onsubmit="return moneycheck()">
+			<form action="shop_buy_list.sp" method = "post">
 				<article id="sb_art_no1"><!-- 장바구니 타이틀 / 결제진행상황 -->
 					<div><!-- 아래 div들 묶는용도 및 크기 -->
 						<div class ="no1_left">
@@ -105,7 +105,7 @@
 					    	String im_path = etc.img_link(prd_no);
 					%>
 					    <tr id="sdfd<%=i%>"><!-- 체크박스/이미지/상품이름(수량)/총합/배송비 -->
-					        <td class="td_cen"><input type="checkbox" name="prd_ck" value="<%=prd_no%>/<%=prd_name%>/<%=prd_price%>/<%=prd_qant%>" class="ck_cked"></td>
+					        <td class="td_cen"><input type="checkbox" id="ckb_id<%=i%>" name="prd_ck" value="<%=prd_no%>/<%=prd_name%>/<%=prd_price%>/<%=prd_qant%>/<%=prd_price*prd_qant%>" class="ck_cked"></td>
 					        <td class="td_cen"><img src ="<%=im_path%><%=prd_no%>.jpg" alt="no_image" onerror="this.src='image/no_image.PNG'"></td>
 					        <td class="p_left_30"><!-- 상품이름/색상/도착일/수량 -->
 					        	<div class = "no3_td_d1"><span class="f_bold"><%=prd_name%></span>, &emsp; <%=prd_color%></div>
@@ -163,9 +163,9 @@
 				<article id="sb_art_no5"><!-- 총 결제금액 -->
 					<div class="no5_border"><!-- 테두리 -->
 						<div class = "no5_flex">
-							[상품합계]<div id="prd_tot"></div>원 + 
-							[배송비]<div id="prd_delv"></div>원 =
-							[총배송비]<div id="to_cart"></div>원
+							[상품합계]<div id="prd_tot">0</div> + 
+							[배송비]<div id="prd_delv">0</div> =
+							[총배송비]<div id="to_cart">0</div>
 							
 						</div>
 					</div>
