@@ -795,45 +795,34 @@ public class Shop_DAO {
 		String code ="";
 		PreparedStatement pstmt = null;
 		ResultSet rs11 = null;
-		
 		//오늘날자를 000000 형식으로 저장
         LocalDate today = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
-        String formattedDate = today.format(formatter);
-        System.out.println(formattedDate+"====formattedDate");
+        String formattedDate = today.format(formatter).trim();
 		try {
 			String sql = "select max(mid(shopb_no,4)) as maxN from shop_buy_list";
 			pstmt = con.prepareStatement(sql);
 			rs11 = pstmt.executeQuery();
-			System.out.println(pstmt);
-			//아니 값이 비어있으면 이거 false나와야되는거아냐?
 			if (rs11.next()) {
-				String number = rs11.getString("maxN");
-				System.out.println(number+"====number");
-				//아니 값이 없는데 왜 이게 출력이 되냐
-				String extractedDigits = number.substring(0, 6);
-				System.out.println(extractedDigits+"=====extract");
-				
-				if(extractedDigits == formattedDate) {
-					int number1 = Integer.parseInt(rs11.getNString("max(mid(shopb_no,4))"))+1;
-					code = "spb"+formattedDate+String.format("%04d", number1);
-					System.out.println(code +"====rs>ex>true");
-				}else {
-					code = "spb"+formattedDate+"0001";
-					System.out.println(code +"====rs>ex>false");
+			
+				if(rs11.getString("maxN")==null||rs11.getString("maxN")==""||rs11.getString("maxN")=="null") {
+					code = "spb"+formattedDate+"001";
+					}else {
+						String number = rs11.getString("maxN").trim();
+						String extractedDigits = number.substring(0, 6);
+						String extractedDigits1 = number.substring(7);
+						if(extractedDigits.equals(formattedDate)) {
+							String st = String.format("%03d", Integer.parseInt(extractedDigits1)+1);
+							code = "spb"+formattedDate+st;
+						}
 				}
-			}else {
-				code = "spb"+formattedDate+"0001";
-				System.out.println(code +"====rs>false");
 			}
-
 		} catch (Exception ex) {
 			System.out.println(ex);
 		} finally {
 			close(rs11);
 			close(pstmt);
 		}
-
 		return code;
 	}
 	

@@ -243,6 +243,12 @@ td{
 	font-size: 21px;	
 }
 
+#sb_art_no5 .no5_flex{
+	display: flex;
+	justify-content: space-around;
+}
+
+
 #sb_art_no6{
 	margin-bottom: 40px;
 }

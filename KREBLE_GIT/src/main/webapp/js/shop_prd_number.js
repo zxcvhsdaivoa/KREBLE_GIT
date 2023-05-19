@@ -1,6 +1,16 @@
 $(document).ready(function(){
-  	setInterval(updateTimer, 1000);//1초마다 주기적으로 업데이트 해서 타이머 갱신
 	
+	//상품 합계 + 배송비 = 총 구매금액
+	
+	if($(".ck_cked").is(":checked")){
+		var ck_pr = $(this).val()
+		alert(ck_pr);
+	}else{
+		alert("해제");
+	}
+	
+	//timer
+  	setInterval(updateTimer, 1000);//1초마다 주기적으로 업데이트 해서 타이머 갱신
 	function updateTimer() {
 	  $.ajax({
 	    url: "shop_timer.jsp",
@@ -10,22 +20,7 @@ $(document).ready(function(){
 	  });
 	}
 	
-//	$체크박선택(
-//		String cl = "sdfd"+id
-//		var trid= document.getElementById(cl);
-//		$(trid).find(".f_blod").innerText
-//	)
-//	for(
-//	$ajax
-//	
-//	)
-
-// java => 값 1개 갔다 와서 다시 보내고 1개반복
-// alert("정상입력");
-
-
-	
-	
+	//전체선택
 	$(".all_ck").on("change", function() {
 	  if ($(this).is(":checked")) {
 	    $(".ck_cked").prop("checked", true);
@@ -34,12 +29,14 @@ $(document).ready(function(){
 	  }
 	});	
   	
-  	
+  	//상품수량 변경시
 	$(".prd_qant").on("change keyup paste", function(){
 		var qant_val=$(this).val();
 		$(this).attr("value",qant_val);
 	});
 	
+	
+	//최대구매 갯수 = 상품 갯수ajax
 	$(".prd_button").click(function(){
 		var prd_no = $(this).prev().val();
 		var sb_qant = parseInt($(this).prev().prev().val());
@@ -70,6 +67,8 @@ $(document).ready(function(){
 	
 })
 
+
+//구매버튼 눌렀을 시 보유캐시<상품총합계일때 경고
 function moneycheck(){
 	var id_cash = parseInt(document.getElementsByName("iid")[0].value);
 	var buy_cash = parseInt(document.getElementsByName("total")[0].value);

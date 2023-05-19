@@ -162,23 +162,11 @@
 				</article>
 				<article id="sb_art_no5"><!-- 총 결제금액 -->
 					<div class="no5_border"><!-- 테두리 -->
-						<div>
-							[상품합계]<%=total%>원 + [배송비]
-							<%
-							if(total>=100000){
-								delv_pay = 0;	
-							%>
-							0원
-							<%
-							}else{
-								delv_pay=3000;
-							%>
-							3000원
-							<%
-							}
-							%>
-							 = [총 결제금액]<%=total+delv_pay%>원
-							<input type="hidden" id="h_total" class="h_total">
+						<div class = "no5_flex">
+							[상품합계]<div id="prd_tot"></div>원 + 
+							[배송비]<div id="prd_delv"></div>원 =
+							[총배송비]<div id="to_cart"></div>원
+							
 						</div>
 					</div>
 				</article>

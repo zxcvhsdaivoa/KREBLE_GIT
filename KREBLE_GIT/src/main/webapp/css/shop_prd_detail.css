@@ -19,7 +19,7 @@
 
 section{
 	width: 100%;
-	min-height : 790px; 
+	min-height : 1340px; 
 }
 
 article{
@@ -74,7 +74,6 @@ table{
     color: skyblue;
     font-size: 35px;
     padding-top: 15px;
-	
 }
 .uni_label{
     background-color: orange;
@@ -87,6 +86,7 @@ table{
     color: wheat;
     font-size: 35px;
     padding-top: 15px;
+	margin-top: 17px;
 }
 .ball_label{
     background-color: hotpink;
@@ -119,12 +119,12 @@ table{
 /* 제품소개(필수) 사진 */
 #pd_detail_no1{
 	width: 890px;
-	height: 393px;
+	height: 491px;
 }
 
 #pd_detail_no1 > .no1_img_info1	{
     width: 710px;
-    height: 460px;
+    height: 491px;
     margin: 0 auto;
     border-left: 1px solid;
     border-right: 1px solid;
@@ -139,7 +139,7 @@ table{
 }
 
 #pd_detail_no1 > .no1_img_info1  table td{
-    height: 56px;
+    height: 70px;
 }
 
 .f_table_label{
@@ -156,9 +156,9 @@ table{
 .f_table_field{
 	padding-left: 15px;
     font-family: 'NanumSquareNeo-Variable';
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
-    font-size: 13px;
+    font-size: 16px;
 }
 .f_table_field1{ /*상품이미지*/
 	padding-left: 15px;
@@ -166,29 +166,28 @@ table{
 }
 
 .textA_table_field{
-	font-size: 13px;
 	padding-top: 5px;
 	width: 99%;
-	min-height: 100px;
+	min-height: 155px;
 	outline: none;
     border: none;
     resize: none;
     font-family: 'NanumSquareNeo-Variable';
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
+    font-size: 16px;
 }
 
 
 /* 제품소개(상세)*/
 #pd_detail_no6{
 	width: 840px;
-	height: 290px;
-	max-height: 350px;
+	height: 440px;
     padding-bottom: 10px;
 }
 #pd_detail_no6 > .center_only{
     width: 710px;
-    height: 362px;
+    height: 580px;
     margin: 0 auto;
     border-left: 1px solid;
     border-right: 1px solid;
@@ -202,7 +201,7 @@ table{
 	margin: 0 auto;
 }
 #pd_detail_no6 td{
-	height: 43px;
+	height: 70px;
 }
 
 
@@ -267,7 +266,7 @@ table{
 #pd_detail_no3{
 	width: 890px;
 	height: 60px;
-	margin-top: 140px;
+	margin-top: 200px;
 	margin-bottom: 30px;
 }
 
@@ -314,9 +313,8 @@ table{
 /* 댓글리뷰 */
 #pd_detail_no4{
 	width: 890px;
-	height: 290px;
+	height: 415px;
 	min-height: 100px;
-	max-height: 350px;
 	margin-bottom: 70px;
 }
 

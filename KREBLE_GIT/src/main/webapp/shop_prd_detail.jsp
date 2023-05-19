@@ -64,12 +64,6 @@ String id = (String) session.getAttribute("ID");
 	%>
 	
 		<article id="pd_detail_no0">
-			<div class="prdC">
-			<span><a href = "index.jsp">홈</a> </span>
-			<span><a href = "shop_list_action.sp">&#11116; KREBLE SHOP </a> </span>
-			<span><a href = "shop_calist_action.sp?prd_cata=<%=aa.getPrd_cata()%>">&#11116; <%= aa.getPrd_cata() %></a> </span>
-			<span class = "f_blue">&#11116; <%= aa.getPrd_name() %></span>
-			</div>
 			<div class="prdN">
 			<%
 				switch(p_no){
@@ -147,7 +141,7 @@ String id = (String) session.getAttribute("ID");
 			<article id="pd_detail_no7">
 				<div class="flex">
 					<input type="button" value="상세보기" class="text_right black">
-					<input type="button" value="리뷰/평점" class="text_left black">
+					<input type="button" value="리뷰/평점보기" class="text_left black">
 				</div>
 			</article>
 			<article id="pd_detail_no6">
