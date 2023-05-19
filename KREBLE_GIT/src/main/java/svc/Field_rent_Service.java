@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import dao.FieldDAO;
 import vo.KreblechoiData;
 import vo.Rent_info;
+import vo.Rent_situation;
 
 public class Field_rent_Service {
 	
@@ -29,6 +30,15 @@ public class Field_rent_Service {
 		close(con);
 		return cate_list;
 		
+	}
+	public ArrayList<Rent_situation> getrent_deadline_check() throws Exception{
+		ArrayList<Rent_situation> rent_situation = new ArrayList<Rent_situation>();
+		Connection con = getConnection();
+		FieldDAO fieldDAO = FieldDAO.getInstance();
+		fieldDAO.setConnection(con);
+		rent_situation = fieldDAO.rent_deadline_check();
+		close(con);
+		return rent_situation;
 	}
 	
 }

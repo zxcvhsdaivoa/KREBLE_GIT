@@ -31,63 +31,38 @@ $(function(){
 			    location.href="fieldInfo.choi?field_id="+fieldlistfield;
 		}
 	});
-
-	$(".rent_btn").click(function(){
-		$.ajax({
-		    type : "POST",
-		    url : "login_check.jsp",
-		    success :function(re){
-		        login_id=re.trim();
-		    },
-		    error:function(e){   
-		        alert(e.responseText); 
-		    }
-		});
-		
-		if(login_id=="null"){
-			var result= confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")
-			if (result==true) {
-				location.replace("login.jsp");
-			}
-			else if(result==false){
-				
-			}
-		}else{
-			location.replace("fieldrent.choi");
-		}
-	});
-
 	$('#plusbu').click(function(){
 	    $.ajax({
 		    type : "POST",
 		    url : "login_check.jsp",
 		    success :function(re){
 		        login_id=re.trim();
+		        
+		        if(login_id=="null"){
+					var result= confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")
+					if (result==true) {
+						location.replace("login.jsp");
+					}
+					else if(result==false){
+				
+					}
+				}
+				else if(login_id!=="null"){
+					if (listfield==5){
+//						console.log(listfield);
+						alert('더이상 추가할수 없습니다');
+					}
+					else {
+//						console.log(listfield);
+						$('.favorite_stadium > ul li:nth-child('+ listfield +')').addClass('select');
+						}
+				}
 		    },
 		    error:function(e){   
 		        alert(e.responseText); 
 		    }
 		});
 		
-		if(login_id=="null"){
-			var result= confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")
-			if (result==true) {
-				location.replace("login.jsp");
-			}
-			else if(result==false){
-				
-			}
-		}
-		else if(login_id!=="null"){
-			if (listfield==5){
-//				console.log(listfield);
-				alert('더이상 추가할수 없습니다');
-			}
-			else {
-//				console.log(listfield);
-				$('.favorite_stadium > ul li:nth-child('+ listfield +')').addClass('select');
-				}
-			}
 		
 	});
 	$('#minusbu').click(function(){
@@ -96,42 +71,44 @@ $(function(){
 		    url : "login_check.jsp",
 		    success :function(re){
 		        login_id=re.trim();
-		    },
-		    error:function(e){   
-		        alert(e.responseText); 
-		    }
+		        
+		        if(login_id=="null"){
+					var result= confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")
+					if (result==true) {
+						location.replace("login.jsp");
+					}
+					else if(result==false){
+						
+					}
+				}
+				else if(login_id!=="null"){
+					if (listfield==1){
+//						console.log(listfield);
+						alert('더이상 제거할수 없습니다');
+					}
+					else {
+//						console.log(listfield);
+						if(listfield==5) {
+							listfield=4;
+						}
+						else {
+							listfield-=1;
+						}
+//						console.log(listfield);
+//						console.log(listfield);
+						$('.favorite_stadium > ul li:nth-child('+ listfield +')').addClass('delete');
+						$('.delete a').text("구장"+listfield);
+						$('.delete').addClass('default');
+						$('.delete').removeClass('favorite');
+						$('.delete').removeClass('delete');
+						}
+					}
+				        
+			},
+			error:function(e){   
+				alert(e.responseText); 
+			}
 		});
-		
-		if(login_id=="null"){
-			var result= confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")
-			if (result==true) {
-				location.replace("login.jsp");
-			}
-			else if(result==false){
-				
-			}
-		}
-		else if(login_id!=="null"){
-			if (listfield==1){
-//				console.log(listfield);
-				alert('더이상 제거할수 없습니다');
-			}
-			else {
-//				console.log(listfield);
-				if(listfield==5) {
-					listfield=4;
-				}
-				else {
-					listfield-=1;
-				}
-//				console.log(listfield);
-//				console.log(listfield);
-				$('.favorite_stadium > ul li:nth-child('+ listfield +')').addClass('delete');
-				$('.delete a').text("구장"+listfield);
-				$('.delete').addClass('default');
-				$('.delete').removeClass('favorite');
-				$('.delete').removeClass('delete');
-				}
-			}
-		});	
+	});	
+
 });

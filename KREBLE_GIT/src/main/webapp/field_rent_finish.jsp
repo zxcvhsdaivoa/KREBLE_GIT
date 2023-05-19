@@ -57,8 +57,8 @@
 				  	<span style="font-size: 19px;"><b><%=rent_situation.getUser_id() %> 회원 님의 신청하신 내역입니다.</b></span><br><br>
 				  	<div style="background-color: #fff; border: 1px solid #a6a6a6;">
 				  		아이디: <%=rent_situation.getUser_id() %><br><br>
-				  		구장명: <div id="field_name"><%=rent_situation.getField_name() %><br><br></div>
-				  		예약 날짜: <div id="rent_part"><%=ud.date_format(rent_situation.getRent_date(),"yyyy-mm-dd hh:mm") %></div> 파트<br><br>
+				  		<div id="field_name">구장명: <%=rent_situation.getField_name() %><br><br></div>
+				  		<div id="rent_part">예약 날짜: <%=ud.date_format(rent_situation.getRent_date(),"yyyy-mm-dd hh:mm") %> 파트</div><br>
 				  		지불 금액: <%=rent_situation.getRent_price() %> 원<br><br>
 				  		보유캐시: <%=uc %> 원<br><br>
 				  	</div>

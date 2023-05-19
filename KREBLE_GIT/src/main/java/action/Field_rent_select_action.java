@@ -11,6 +11,7 @@ import use_data.Shop_prd;
 import vo.ActionForward;
 import vo.KreblechoiData;
 import vo.Rent_info;
+import vo.Rent_situation;
 
 
 public class Field_rent_select_action implements Action {
@@ -18,6 +19,7 @@ public class Field_rent_select_action implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<KreblechoiData> cate_list=new ArrayList<KreblechoiData>();
 		Rent_info rent_info=null;
+		ArrayList<Rent_situation> rent_situation=new ArrayList<Rent_situation>();
 		String location = "not";
 		System.out.println(request.getParameter("location"));
 		
@@ -35,6 +37,9 @@ public class Field_rent_select_action implements Action {
 			cate_list = fieldrentService.getfield_cate_list(location);
 			request.setAttribute("cate_list", cate_list);
 		}
+		rent_situation = fieldrentService.getrent_deadline_check();
+		request.setAttribute("rent_situation", rent_situation);
+		
 		ActionForward forward= new ActionForward();
 		forward.setPath("/field_rent.jsp");
 		return forward;

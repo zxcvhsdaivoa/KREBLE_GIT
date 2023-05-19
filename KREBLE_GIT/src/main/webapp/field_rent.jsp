@@ -1,3 +1,4 @@
+<%@page import="vo.Rent_situation"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.KreblechoiData"%>
 <%@page import="vo.Rent_info"%>
@@ -13,6 +14,7 @@
 <%
 	Rent_info rent_info=(Rent_info)request.getAttribute("rent_info");
 	String id = (String) session.getAttribute("ID");
+	ArrayList<Rent_situation> rent_situation=(ArrayList<Rent_situation>)request.getAttribute("rent_situation");
 %>
 <%
 	String star_list="false";
@@ -123,6 +125,11 @@
 					<div class="btn_area">
 						<input type="submit" class="payment_btn" value="다음으로">
 						<input type="hidden" name="rentDate" id="rentDate">
+						<%
+						for(int i=0; i<rent_situation.size(); i++){%>
+							<%=rent_situation.get(i).getRent_date()%>
+							<%=rent_situation.get(i).getField_name() %>
+						<%} %>
 					</div>
 				</div>
 			</form>

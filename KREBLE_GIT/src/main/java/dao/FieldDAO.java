@@ -152,7 +152,7 @@ public class FieldDAO {
 	}
 	
 	//예약 인서트
-	public int rent_insert(Rent_situation situa) {
+	public int rent_insert(Rent_situation situa)  {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql="insert into rent_situation (rent_num,user_id,field_name,rent_date,rent_price) values (default,?,?,?,?)";
@@ -188,11 +188,8 @@ public class FieldDAO {
 
 			if(rs.next()){
 				rent_situation=new Rent_situation();
-				rent_situation.setRent_num(rs.getInt("rent_num"));
-				rent_situation.setUser_id(rs.getString("user_id"));
 				rent_situation.setField_name(rs.getString("field_name"));
 				rent_situation.setRent_date(rs.getString("rent_date"));
-				rent_situation.setRent_price(rs.getInt("rent_price"));
 			}
 		}catch(Exception ex){
 		}finally {
@@ -202,6 +199,49 @@ public class FieldDAO {
 		return rent_situation;
 	}
 	
+	// 예약 신청 전체 현황 셀렉트
+	public ArrayList<Rent_situation> rent_deadline_check() throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;		
+		ArrayList<Rent_situation> rent_situation=new ArrayList<Rent_situation>();
+
+		try{
+			pstmt = con.prepareStatement("select field_name,rent_date from rent_situation;");
+			rs= pstmt.executeQuery();
+
+			while(rs.next()){
+				Rent_situation rent_situa=new Rent_situation();
+				rent_situa.setField_name(rs.getString("field_name"));
+				rent_situa.setRent_date(rs.getString("rent_date"));
+				rent_situation.add(rent_situa);
+				}
+		}catch(Exception ex){
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return rent_situation;
+	}
 	
-		
+	// 예약 신청 마감 업데이트
+//	public int rent_close_update() {
+//		int updateCount = 0;
+//		PreparedStatement pstmt = null;
+//		String sql="update rent_info set rent_time1=?,rent_time2,rent_time3,rent_time4,rent_time5 where BOARD_NUM=?";
+//
+//		try{
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setString(1, article.getBOARD_SUBJECT());
+//			pstmt.setString(2, article.getBOARD_CONTENT());
+//			pstmt.setInt(3, article.getBOARD_NUM());
+//			updateCount = pstmt.executeUpdate();
+//		}catch(Exception ex){
+//		}finally{
+//			close(pstmt);
+//		}
+//
+//		return updateCount;
+//
+//	}
+			
 }
