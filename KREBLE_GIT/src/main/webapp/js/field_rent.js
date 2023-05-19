@@ -75,7 +75,7 @@ $(function(){
  		
 	});	
 	
-	// 예약 중복체크 (미완성)
+	// 예약 중복체크 (미완성)  
 	$(".payment_btn").click(function(event){
 		var time = $("input[type=radio][name=rent_time]:checked").val();
 		const selcfield = document.getElementById("field_selc");
