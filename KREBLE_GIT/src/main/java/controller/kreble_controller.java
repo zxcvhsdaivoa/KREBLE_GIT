@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.tree.ExpandVetoException;
 
 import action.Action;
+import action.PageNotUseAction;
 import action.Prd_mody_form_action;
 import action.Shop_Prd_delete_action;
 import action.Shop_Prd_like_ck;
@@ -28,6 +29,7 @@ import action.Sp_re_insert_action;
 import action.User_cashupd_action;
 import action.User_my_page_action;
 import svc.Prd_re_delete_service;
+import use_data.Db_method_ECT;
 import vo.ActionForward;
 
 @SuppressWarnings("serial")
@@ -55,6 +57,15 @@ public class kreble_controller extends javax.servlet.http.HttpServlet {
 		// 캐시충전
 		if (command.equals("/cashupd.kb")) {
 			action = new User_cashupd_action();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 캐시충전
+		if (command.equals("/notuse.kb")) {
+			action = new PageNotUseAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

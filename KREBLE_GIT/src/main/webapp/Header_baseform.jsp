@@ -19,22 +19,23 @@
         <h1><a href="index.jsp"><!-- <img src="image/logo_EX.jpg" style="width: 100px;height: 70px;"> --><img src="image/logo.png" alt="kerble"> </a></h1>
         <ul class="cate_login">
         <%if(id.equals("null")) {%>
-            <li class="login_false"><a href="login.jsp">로그인</a></li>
-            <li class="login_false"><a href="join_member.jsp">회원가입</a></li>
+            <li class="login"><a href="login.jsp">로그인</a></li>
+            <li class="join"><a href="join_member.jsp">회원가입</a></li>
         <%} else {%>
-            <li class="login_true"><a href="logout.jsp">로그아웃</a></li>
-            <li class="login_true"><a href="mypage.kb">마이페이지</a></li>
+            <li class="alarm"><a href="#">알림</a></li>
+            <li class="logout"><a href="logout.jsp">로그아웃</a></li>
+            <li class="mypage"><a href="mypage.kb">마이페이지</a></li>
         <%} %>
         </ul>
        
        <div class="top_nav">
             <ul>
                 <li>
-                  <a href="#">정보소개</a>
+                  <a href="notuse.kb">정보소개</a>
                   <ul class="sub">
-                    <li><a href="#">선수소개</a></li>
-                    <li><a href="#">감독소개</a></li>
-                    <li><a href="#">팀소개</a></li>
+                    <li><a href="notuse.kb">선수소개</a></li>
+                    <li><a href="notuse.kb">감독소개</a></li>
+                    <li><a href="notuse.kb">팀소개</a></li>
                   </ul>
                 </li>
             
@@ -67,12 +68,12 @@
                 </li>
 
                 <li>
-                  <a href="#">고객센터</a>
+                  <a href="notuse.kb">고객센터</a>
                   <ul class="sub">
-                    <li><a href="FAQ.csc">자주하는질문</a></li>
-                    <li><a href="FAQ_Announce.sp">공지사항</a></li>
-                    <li><a href="FAQ_Event.sp">이벤트안내</a></li>
-                    <li><a href="FAQ_one.sp">1:1문의</a></li>
+                    <li><a href="notuse.kb">자주하는질문</a></li>
+                    <li><a href="notuse.kb">공지사항</a></li>
+                    <li><a href="notuse.kb">이벤트안내</a></li>
+                    <li><a href="notuse.kb">1:1문의</a></li>
                   </ul>
                 </li>
             </ul>

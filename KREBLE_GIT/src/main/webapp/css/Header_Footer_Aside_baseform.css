@@ -150,14 +150,17 @@ header .nav_back {
     background-size: 36px;
 
 }
-.cate_login li:nth-of-type(2) a:before {
+.cate_login li.join a:before {
     background-image:url(../image/join_icon.png);
 }
-.cate_login li:nth-of-type(3) a:before {
+.cate_login li.logout a:before {
     background-image:url(../image/logout_icon.png);
 }
-.cate_login li:nth-of-type(4) a:before {
+.cate_login li.mypage a:before {
     background-image:url(../image/mypage_icon.png);
+}
+.cate_login li.alarm a:before {
+    background-image:url(../image/alarm_icon.png);
 }
 
 
