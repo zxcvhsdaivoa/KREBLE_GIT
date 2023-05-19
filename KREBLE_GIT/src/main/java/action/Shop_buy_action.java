@@ -29,6 +29,7 @@ public class Shop_buy_action implements Action {
 			     	aa.setPrd_name(values[1]);
 			     	aa.setPrd_price(Integer.parseInt(values[2])*Integer.parseInt(values[3]));
 			     	aa.setPrd_qant(Integer.parseInt(values[3]));
+			     	aa.setPrd_color(values[5]);
 			     	aa.setPrd_id(id);
 			    	prd_ls.add(aa);
 			    	//Arraylist(이하 al로 칭함)에 저장

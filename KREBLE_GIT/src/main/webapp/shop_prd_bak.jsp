@@ -105,7 +105,7 @@
 					    	String im_path = etc.img_link(prd_no);
 					%>
 					    <tr id="sdfd<%=i%>"><!-- 체크박스/이미지/상품이름(수량)/총합/배송비 -->
-					        <td class="td_cen"><input type="checkbox" id="ckb_id<%=i%>" name="prd_ck" value="<%=prd_no%>/<%=prd_name%>/<%=prd_price%>/<%=prd_qant%>/<%=prd_price*prd_qant%>" class="ck_cked"></td>
+					        <td class="td_cen"><input type="checkbox" id="ckb_id<%=i%>" name="prd_ck" value="<%=prd_no%>/<%=prd_name%>/<%=prd_price%>/<%=prd_qant%>/<%=prd_price*prd_qant%>/<%=prd_color%>" class="ck_cked"></td>
 					        <td class="td_cen"><img src ="<%=im_path%><%=prd_no%>.jpg" alt="no_image" onerror="this.src='image/no_image.PNG'"></td>
 					        <td class="p_left_30"><!-- 상품이름/색상/도착일/수량 -->
 					        	<div class = "no3_td_d1"><span class="f_bold"><%=prd_name%></span>, &emsp; <%=prd_color%></div>
