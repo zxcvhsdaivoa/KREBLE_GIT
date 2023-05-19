@@ -35,8 +35,7 @@ import vo.ActionForward;
 @SuppressWarnings("serial")
 @WebServlet("*.kb")
 public class kreble_controller extends javax.servlet.http.HttpServlet {
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
 		String RequestURI = request.getRequestURI();

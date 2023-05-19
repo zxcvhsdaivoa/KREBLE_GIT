@@ -16,8 +16,10 @@ import svc.ClupJoinRequeService;
 import svc.ClupJoinService;
 import svc.ClupMakingService;
 import svc.ClupPWckService;
+import svc.UserAlarmInsertService;
 import use_data.Db_method_ECT;
 import vo.ActionForward;
+import vo.AlarmInfo;
 import vo.ClupInfo;
 
 public class ClupJoiningAction implements CommandInter{
@@ -32,6 +34,11 @@ public class ClupJoiningAction implements CommandInter{
 		
 		String id = Db_method_ECT.login_check(request);
 		String howjoin=(String) request.getParameter("how");
+
+		AlarmInfo ai = new AlarmInfo();
+		ai.setUser_id(id);
+		ai.setAlarm_no(Integer.parseInt(request.getParameter("no")));
+		UserAlarmInsertService uais = new UserAlarmInsertService();
 		
 		ClupJoinService cjs = ClupJoinService.instance();
 		
@@ -40,6 +47,7 @@ public class ClupJoiningAction implements CommandInter{
 		user.setUser_id(id);
 		if(howjoin.equals("free")) {
 			cjs.join(user);
+			boolean success = uais.insertAlarm(ai, "clup_join");
 		}
 		else if(howjoin.equals("password")) {
 			String pw = request.getParameter("pw");
@@ -47,6 +55,7 @@ public class ClupJoiningAction implements CommandInter{
 			ClupPWckService cps =ClupPWckService.instance();
 			if(cps.pwcheck(user)>0) {
 				cjs.join(user);
+				boolean success = uais.insertAlarm(ai, "clup_join");
 			}
 		}
 		else if(howjoin.equals("request")) {
@@ -55,6 +64,7 @@ public class ClupJoiningAction implements CommandInter{
 			ClupJoinRequeService cjrs = ClupJoinRequeService.instance();
 			cjrs.joinReque(user);
 		}
+
 		
 		return "/clupErrorPrevention.jsp";
 	}

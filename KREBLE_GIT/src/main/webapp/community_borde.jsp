@@ -112,11 +112,12 @@
 					
 					<div class="comment_write">
 						
-						<form name="comment_form">
+						<form name="comment_form" action="commu_comment_write.jsp">
 							<span class="login_id"><%=login_id %></span>
+							<input type="hidden" name="writer" id="writer" value="<%=comu.getId()%>">
 							<input type="hidden" name="commu_no" id="commu_no" value="<%=comu_no%>">
 							<textarea id="comment" name="comment" class="comment_textarea"></textarea>
-							<input type="button" value="댓글입력" class="btn btn_comment" onclick="comment_write();">
+							<input type="submit" value="댓글입력" class="btn btn_comment">
 						</form>
 					
 					</div>

@@ -279,22 +279,22 @@ public class User_Mypage {
 		ArrayList<AlarmInfo> all = new ArrayList<AlarmInfo>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from user_alarm where user_id = ?;";
+		String sql = "select * from user_alarm where user_id = ? order by alarm_time desc;";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 				AlarmInfo al = new AlarmInfo();
+				al.setAlarm_pk(rs.getInt("alarm_pk"));
 				al.setUser_id(rs.getString("user_id"));
 				al.setAlarm_view(rs.getInt("alarm_view"));
 				al.setAlarm_type(rs.getString("alarm_type"));
 				al.setAlarm_no(rs.getInt("alarm_no"));
 				al.setAlarm_time(rs.getString("alarm_time"));
 				all.add(al);
-			} else {
-			}
+			} 
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -311,19 +311,13 @@ public class User_Mypage {
 		PreparedStatement pstmt = null;
 		int insertCount = 0;
 
-		String sql = "insert into user_alarm values(?,?,?,?,default)";
+		String sql = "insert into user_alarm values(default,?,1,?,?,default)";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, alarm.getUser_id());
-			pstmt.setInt(2, alarm.getAlarm_view());
-			pstmt.setString(3, alarm.getAlarm_type());
-			pstmt.setInt(4, alarm.getAlarm_no());
+			pstmt.setString(2, alarm.getAlarm_type());
+			pstmt.setInt(3, alarm.getAlarm_no());
 			insertCount = pstmt.executeUpdate();
-
-			if (insertCount > 0) {
-				System.out.println(insertCount);
-			}
-
 		} catch (Exception ex) {
 			System.out.println(ex);
 		} finally {
