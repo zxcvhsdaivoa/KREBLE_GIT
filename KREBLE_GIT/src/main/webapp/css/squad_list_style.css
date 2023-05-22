@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 body section {
-    height:850px;
+    height: 100%;
+    padding-bottom: 80px;
 }
 body section .section_inner {
 	width:1000px;
