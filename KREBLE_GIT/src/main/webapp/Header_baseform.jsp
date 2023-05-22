@@ -73,16 +73,6 @@
                     <li><a href="shop_re_board.sp">제작의뢰</a></li>
                   </ul>
                 </li>
-
-                <li>
-                  <a href="notuse.kb">고객센터</a>
-                  <ul class="sub">
-                    <li><a href="notuse.kb">자주하는질문</a></li>
-                    <li><a href="notuse.kb">공지사항</a></li>
-                    <li><a href="notuse.kb">이벤트안내</a></li>
-                    <li><a href="notuse.kb">1:1문의</a></li>
-                  </ul>
-                </li>
             </ul>
         </div>
     </div>

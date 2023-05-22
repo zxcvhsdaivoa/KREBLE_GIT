@@ -33,11 +33,11 @@ $(document).ready(function(){
 				var alarm_box = document.querySelector('.alarm_box')
 				var li = document.createElement('li');
 				var hidden = document.createElement('span');
-				var hidden_no = document.createTextNode(alarm[6]);
+				var hidden_no = document.createTextNode(alarm[3]);
 				var alarm_title_span = document.createElement('span');
-				var alarm_title =  document.createTextNode(alarm[3]);
+				var alarm_title =  document.createTextNode(alarm[1]);
 				var x_bu = document.createElement('span');
-				if(alarm[1]==1){
+				if(alarm[0]==1){
 					li.classList.add('noread')
 				}else {
 					li.classList.add('read')
@@ -58,8 +58,52 @@ $(document).ready(function(){
 			alarm_count=1;
 		}
 		$('.alarm_wrap').removeClass("hide");
+		
+		$(".alarm_box > li > .alarm_title").click(function(){
+			var no = $(this).prev().text();
+			$.ajax({
+				type : "POST",
+				url : "alarm_one.jsp?no="+no,
+				async: false,
+				success :function(re){
+					alarm_link = re.trim();
+				},
+				error:function(e){   
+	                alert(e.responseText); 
+	            }
+			});
+			location.href=alarm_link;
+			
+		})
+		
+		$(".alarm_box > li > .x_bu").click(function(){
+			var deleteConfirm = confirm('알림을 삭제하시겠습니까?');
+			if(deleteConfirm==true){
+				var no = $(this).prev().prev().text();
+				$.ajax({
+					type : "POST",
+					url : "alarm_delete.jsp?no="+no,
+					async: false,
+					success :function(re){
+						alarm_delete = re.trim();
+					},
+					error:function(e){   
+		                alert(e.responseText); 
+		            }
+				});
+				if(alarm_delete=="true"){
+					alert("알람이 삭제되었습니다")
+					location.reload();
+				}else {
+					alert("오류발생");
+				}
+			}
+		})
 	})
 	$('.close').click(function(){
 		$('.alarm_wrap').addClass("hide");
 	})
+	
+	
+	
 })

@@ -13,7 +13,7 @@
 	
 	if(login.equals("true")){
 		session.setAttribute("ID",id);
-		RequestDispatcher dp = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher dp = request.getRequestDispatcher("indexErrorPrevention.jsp");
 		dp.forward(request, response);
 	}
 	else if(login.equals("false")){

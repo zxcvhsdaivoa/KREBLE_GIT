@@ -135,7 +135,7 @@ public class Db_method_ECT extends Db_method_conn  {
 	public String alarm_link(String alarm) {
 		String alarm_text="A";
 		if(alarm.equals("commu_comment")){
-			alarm_text="clmmunity_borde.jsp?no=";
+			alarm_text="community_borde.jsp?no=";
 		}else if (alarm.equals("clup_notice")){
 			alarm_text="clup.do?command=roomnotice&clup_no=";
 		}else if(alarm.equals("clup_join")){

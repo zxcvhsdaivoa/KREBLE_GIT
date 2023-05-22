@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 
 import db.JdbcUtil;
 import use_data.Shop_prd;
-import use_data.UserData;
 import vo.AlarmInfo;
 import vo.SquadInfo;
 
@@ -274,8 +273,8 @@ public class User_Mypage {
 	}
 	
 	
-	// 알림 불러오기
-	public ArrayList<AlarmInfo> getAlarm(String id) {
+	// 알림리스트 불러오기
+	public ArrayList<AlarmInfo> getAlarmList(String id) {
 		ArrayList<AlarmInfo> all = new ArrayList<AlarmInfo>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -306,6 +305,37 @@ public class User_Mypage {
 	}
 	
 	
+	// 알림 불러오기
+	public AlarmInfo getAlarm(String id,int no) {
+		AlarmInfo al = new AlarmInfo();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from user_alarm where user_id = ? and alarm_pk=?;";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, no);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				al.setAlarm_pk(rs.getInt("alarm_pk"));
+				al.setUser_id(rs.getString("user_id"));
+				al.setAlarm_view(rs.getInt("alarm_view"));
+				al.setAlarm_type(rs.getString("alarm_type"));
+				al.setAlarm_no(rs.getInt("alarm_no"));
+				al.setAlarm_time(rs.getString("alarm_time"));
+			} 
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return al;
+	}
+		
+	
 	// 알람 등록
 	public int setAlarm(AlarmInfo alarm) {
 		PreparedStatement pstmt = null;
@@ -325,6 +355,44 @@ public class User_Mypage {
 		}
 
 		return insertCount;
+	}
+	
+	
+	public int updateAlarmView(String id, int no){
 
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+		String sql="update user_alarm set alarm_view=0 where user_id=? and alarm_pk=?";
+
+		try{
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, no);
+			updateCount = pstmt.executeUpdate();
+		}catch(Exception ex){
+		}finally{
+			close(pstmt);
+		}
+
+		return updateCount;
+	}
+	
+	public int deleteAlarm(String id, int no){
+
+		int deleteCount = 0;
+		PreparedStatement pstmt = null;
+		String sql="delete from user_alarm where user_id=? and alarm_pk=?";
+
+		try{
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, no);
+			deleteCount = pstmt.executeUpdate();
+		}catch(Exception ex){
+		}finally{
+			close(pstmt);
+		}
+
+		return deleteCount;
 	}
 }
