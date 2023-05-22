@@ -23,7 +23,7 @@ $(document).ready(function(){
 			var prd = document.getElementsByClassName("ck_cked");
 			  if ($(this).is(":checked")) {
 			    $(".ck_cked").prop("checked", true);
-			    for(i=0; i<prd.length; i++){
+			    for(var i=0; i<prd.length; i++){
 					var spVar= prd.item(i).value
 					var getVar=spVar.split("/")
 					var toVar= parseInt(getVar[4])

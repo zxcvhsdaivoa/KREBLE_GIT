@@ -807,13 +807,15 @@ public class Shop_DAO {
 			
 				if(rs11.getString("maxN")==null||rs11.getString("maxN")==""||rs11.getString("maxN")=="null") {
 					code = "spb"+formattedDate+"001";
-					}else {
+				}else {
 						String number = rs11.getString("maxN").trim();
 						String extractedDigits = number.substring(0, 6);
 						String extractedDigits1 = number.substring(7);
 						if(extractedDigits.equals(formattedDate)) {
 							String st = String.format("%03d", Integer.parseInt(extractedDigits1)+1);
 							code = "spb"+formattedDate+st;
+						}else {
+							code = "spb"+formattedDate+"001";
 						}
 				}
 			}

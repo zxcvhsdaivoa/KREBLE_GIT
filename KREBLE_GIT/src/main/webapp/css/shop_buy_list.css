@@ -165,6 +165,7 @@ td{
 	clear:both;
 	padding: 10px;
 	background-color: white;
+	height: auto;
 }
 
 #sb_art_no3 .no3_td_d1{
@@ -213,32 +214,14 @@ td{
 }
 #sb_art_no4{
 	background-color:white;
-	height: 50px;
+	height: 460px;
 	padding: 0 80px;
 }
 
-#sb_art_no4 > div{
-	display: flex;
-	justify-content: flex-start;
-	line-height: 35px;
+#sb_art_no4{
+	
 }
 
-#sb_art_no4 input[name='no4_del']{
-    padding: 5px 6px;
-    border: 3px solid #ccc;
-    text-align: center;
-    font-size: 12px;
-    height: 35px;
-    color: #111;
-    background-color: white;
-    margin-top: 7px;
-    margin-left: 10px;
-}
-
-
-#sb_art_no4 input[name='no4_del']:hover{
-	background-color: #f0f0f0;
-}
 
 #sb_art_no5 > div{
 	clear: both;

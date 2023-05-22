@@ -9,6 +9,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <% String id = (String) session.getAttribute("ID");
 	ArrayList<Shop_prd> articleList =(ArrayList<Shop_prd>) request.getAttribute("spb_prd");
+	int total = 0;
 %>
 
 <!DOCTYPE html>
@@ -24,6 +25,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<script type="text/javascript" src="slick/slick.min.js"></script>
 	<script src="js/Header_Footer_Aside_baseform.js"></script>
+	<script src="js/shop_prd_dleAddr.js"></script>
 	
 	
 <title>구매기록</title>
@@ -55,7 +57,7 @@
 						</div>
 					</div>
 				</article>
-				<article id="sb_art_no3"><!-- 장바구니리스트Table -->
+				<article id="sb_art_no3" style="display:none;"><!-- 장바구니리스트Table -->
 				<table>
 						<colgroup>
 							<col style = "width:100px;">
@@ -90,7 +92,6 @@
 					        <td class="td_cen">
 								<%//상품 수량*금액 합 / 총합
 								int q_p = articleList.get(i).getPrd_price()*articleList.get(i).getPrd_qant();
-								int total = 0;
 								total = q_p+total;
 								%>
 								<%=q_p%>
@@ -102,16 +103,37 @@
 					</table>
 				</article>
 				<article id="sb_art_no4"><!-- 배송지/주문자번호 입력 -->
-					<input type="text">
-					<input type="text">
-					<input type="text">
+					<div id="no4_center">
+						<div><!-- 주문자 정보 -->
+							<div> 주문자 정보 </div>
+							<span>주문자명 : <input type="text" name = "ord_name" readonly></span>
+							<span>배송지 : <input type="text" name = "ord_addr" readonly></span>
+							<span>연락처 : <input type="text" name = "ord_call" readonly></span>
+						</div>
+						<div><!-- 받는사람 정보 입력 -->
+							<div> <input type="checkbox"> 주문자와 받는사람의 정보가 동일</div>
+							<span>주문자명 : <input type="text" name = "buy_name"></span>
+							<span>배송지 : <input type="text" name = "buy_addr"></span>
+							<span>연락처 : <input type="text" name = "buy_call"></span>
+						</div>
+					</div>
 				</article>
 				<article id="sb_art_no5"><!-- 총 결제금액 -->
 					<div class="no5_border"><!-- 테두리 -->
 						<div class = "no5_flex">
-							[상품합계]<div id="prd_tot">0</div> + 
-							[배송비]<div id="prd_delv">0</div> =
-							[총배송비]<div id="to_cart">0</div>
+							[상품합계]<div id="prd_tot"><%=total%></div> + 
+							[배송비]<div id="prd_delv">
+							<%
+							int d_crg = 0;
+							if(total>=100000){
+								d_crg= 0;
+							}else{
+								d_crg= 3000;
+							}
+							%>
+							<%= d_crg %>
+							</div> =
+							[총배송비]<div id="to_cart"> <%=total + d_crg %></div>
 							
 						</div>
 					</div>
