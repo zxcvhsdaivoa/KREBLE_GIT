@@ -305,6 +305,29 @@ public class User_Mypage {
 	}
 	
 	
+	public int noreadAlarm(String id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int i=0;
+		String sql = "select * from user_alarm where user_id = ? and alarm_view=1 limit 1;";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				i=1;
+			} 
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return i;
+	}
+	
+	
 	// 알림 불러오기
 	public AlarmInfo getAlarm(String id,int no) {
 		AlarmInfo al = new AlarmInfo();

@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
+<jsp:useBean id="alarm" class="svc.UserAlarmNoreadService"/>
 <%
 	String id= "null";
 	if(session.getAttribute("ID")!=null&&session.getAttribute("ID")!=""&!session.getAttribute("ID").equals("null")){
 		id=(String) session.getAttribute("ID");
 	}
+	int noread= alarm.noread(id);
 %>
 <!DOCTYPE html>
 <html>
@@ -22,7 +24,11 @@
             <li class="login"><a href="login.jsp">로그인</a></li>
             <li class="join"><a href="join_member.jsp">회원가입</a></li>
         <%} else {%>
-            <li class="alarm"><a href="#">알림</a></li>
+        	<%if(noread==1){ %>
+            	<li class="alarm newalarm"><a href="#">알림</a></li>
+            <%} else { %>
+           		<li class="alarm"><a href="#">알림</a></li>
+            <%} %>
             <li class="logout"><a href="logout.jsp">로그아웃</a></li>
             <li class="mypage"><a href="mypage.kb">마이페이지</a></li>
         <%} %>

@@ -74,7 +74,7 @@ header .top_nav {
 }
 header .top_nav > ul {
     float:right;
-    width:750px;
+    width:600px;
     height:100%;
 
 }
@@ -137,6 +137,9 @@ header .nav_back {
     margin-left:15px;
     text-align: center;
 }
+.cate_login li.alarm {
+	position:relative;
+}
 .cate_login li:first-child{
     margin-left: 0;
 }
@@ -158,6 +161,19 @@ header .nav_back {
 }
 .cate_login li.mypage a:before {
     background-image:url(../image/mypage_icon.png);
+}
+.cate_login li.alarm.newalarm a:after {
+    content:"N";
+    width:16px;
+    height:16px;
+    line-height:16px;
+    background-color:#e61a1a;
+    border-radius:50%;
+    font-size:10px;
+    color:#fff;
+    position:absolute;
+    top:20px;
+    right:2px;
 }
 .cate_login li.alarm a:before {
     background-image:url(../image/alarm_icon.png);
