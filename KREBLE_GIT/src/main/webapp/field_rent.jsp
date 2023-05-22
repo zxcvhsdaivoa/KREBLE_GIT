@@ -71,7 +71,7 @@
 						<option value="j" <%if(loca.equals("j")){ %>selected="selected"<%} %>>제주</option>
 					</select>
 					<select class="starlist" id="field_selc" name="field_selc">
-						<option>경기장 선택</option>
+						<optgroup label="경기장 목록">
 						<%
 						if(star_list.equals("true")){
 							for(int i=0; i<cate_list.size();i++){
@@ -81,6 +81,7 @@
 							}
 						}
 						%>
+						</optgroup>
 					</select>
 				</div>
 			

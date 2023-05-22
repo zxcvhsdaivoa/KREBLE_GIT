@@ -4,7 +4,30 @@ $(function(){
 	 
 	$(".selc_list select.loca").change(function(){
 		var loca= $(this).val();
-		location.href="fieldrent.choi?location="+loca; 
+		var loca_list=[];
+		$.ajax({
+			type : "POST",
+			url : "field_rent_location.jsp?loca="+loca,
+			async: false,
+			success :function(re){
+				loca_all = re.trim();
+			},
+			error:function(e){   
+                alert(e.responseText); 
+            }
+		});
+		loca_list=loca_all.split("/");
+		var select_box = document.querySelector(".starlist optgroup");
+		var remove_option = document.querySelectorAll(".starlist optgroup option");
+		select_box.removeChild(remove_option)
+		for(i=0; i<loca_list.length-1;i++){
+			var select_option = document.createElement('option');
+			var option_text =  document.createTextNode(loca_list[i]);
+			select_option.appendChild(option_text);
+			select_option.value=loca_list[i];
+			select_box.appendChild(select_option);
+			
+		}
 	 });
 	  
 	 //달력 생성
