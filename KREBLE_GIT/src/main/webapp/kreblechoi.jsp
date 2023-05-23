@@ -88,47 +88,47 @@
 							<li class="local">
 								<a href="#">경기</a>
 								<ul>
-									<li><a>부천체육관<br>축구장</a></li>
-									<li><a>솔터 축구장</a></li>
-									<li><a>의왕 축구장</a></li>
-									<li><a>수원종합 운동장</a></li>
-									<li><a>광명시 축구장</a></li>
+									<li id="g_000"><a>부천체육관<br>축구장</a></li>
+									<li id="g_001"><a>솔터 축구장</a></li>
+									<li id="g_002"><a>의왕 축구장</a></li>
+									<li id="g_003"><a>수원종합 운동장</a></li>
+									<li id="g_004"><a>광명시 축구장</a></li>
 									<li style="border-right: none;"><a href="#">구리시체육회<br>축구장</a></li>
 								</ul>
 							</li>
 							<li class="local">
 								<a href="#">대구</a>
 								<ul>
-									<li><a>대구경북<br>과학기술원축구장</a></li>
-									<li><a>논공축구장</a></li>
-									<li><a>DGB대구<br>은행파크</a></li>
+									<li id="d_000"><a>대구경북<br>과학기술원축구장</a></li>
+									<li id="d_001"><a>논공축구장</a></li>
+									<li id="d_002"><a>DGB대구<br>은행파크</a></li>
 								</ul>
 							</li>
 							<li class="local">
 								<a href="#">대전</a>
 								<ul>
-									<li><a>유등천 축구장</a></li>
-									<li><a>중구체육복지센터<br>축구장</a></li>
-									<li><a>사정동<br>잔디축구장</a></li>
-									<li><a>관저체육공원</a></li>
+									<li id="dd_000"><a>유등천 축구장</a></li>
+									<li id="dd_001"><a>중구체육복지센터<br>축구장</a></li>
+									<li id="dd_002"><a>사정동<br>잔디축구장</a></li>
+									<li id="dd_003"><a>관저체육공원</a></li>
 								</ul>
 							</li>
 							<li class="local">
 								<a href="#">부산</a>
 								<ul>
-									<li><a>영도마린 축구장</a></li>
-									<li><a>남부환경체육공원</a></li>
-									<li><a>삼락강변체육공원</a></li>
-									<li><a>다대풋살센터</a></li>
-									<li><a>기장군<br>월드컵빌리지</a></li>
+									<li id="b_000"><a>영도마린 축구장</a></li>
+									<li id="b_001"><a>남부환경체육공원</a></li>
+									<li id="b_002"><a>삼락강변체육공원</a></li>
+									<li id="b_003"><a>다대풋살센터</a></li>
+									<li id="b_004"><a>기장군<br>월드컵빌리지</a></li>
 								</ul>
 							</li>
 							<li class="local">
 								<a href="#">제주</a>
 								<ul>
-									<li><a>중문단지 축구장</a></li>
-									<li><a>사라봉 축구장</a></li>
-									<li><a>외도 축구장</a></li>
+									<li id="j_000"><a>중문단지 축구장</a></li>
+									<li id="j_001"><a>사라봉 축구장</a></li>
+									<li id="j_002"><a>외도 축구장</a></li>
 								</ul>
 							</li>
 						</ul>
