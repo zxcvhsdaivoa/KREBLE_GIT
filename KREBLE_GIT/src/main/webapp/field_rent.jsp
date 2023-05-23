@@ -5,7 +5,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
@@ -113,45 +112,3 @@
 	 <jsp:include page="Footer_baseform.jsp"/>
 </body>
 </html>
-
-<!-- 					<div class="calendar"> js를 이용해서 달력 출력하기 전 수작업 ver --> 
-<!-- 						<table class="tb_calendar"> -->
-<!-- 							<tr class="day"> -->
-<!-- 								<td>일</td> -->
-<!-- 								<td>월</td> -->
-<!-- 								<td>화</td> -->
-<!-- 								<td>수</td> -->
-<!-- 								<td>목</td> -->
-<!-- 								<td>금</td> -->
-<!-- 								<td>토</td> -->
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="26" end="31" var="day"> --%>
-<%-- 							            <td>${day}일</td> --%>
-<%-- 							    </c:forEach> --%>
-<!-- 							    <td>1일</td> -->
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="2" end="8" var="day"> --%>
-<%-- 							            <td>${day}일</td> --%>
-<%-- 							    </c:forEach> --%>
-<!-- 							    forEach를 사용하기위해 JSTL(Core) 라이브러리를 추가 해야함. 위에 코드 있음 -->
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="9" end="15" var="day"> --%>
-<%-- 									<td>${day}일</td>  --%>
-<%-- 								</c:forEach> --%>
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="16" end="22" var="day"> --%>
-<%-- 							            <td>${day}일</td> --%>
-<%-- 							    </c:forEach> --%>
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="23" end="29" var="day"> --%>
-<%-- 							            <td>${day}일</td> --%>
-<%-- 							    </c:forEach> --%>
-<!-- 							</tr> -->
-<!-- 						</table> -->
-<!-- 					</div> -->
-<!-- 				</div> -->

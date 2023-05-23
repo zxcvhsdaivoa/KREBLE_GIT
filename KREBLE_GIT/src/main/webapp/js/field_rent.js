@@ -163,33 +163,8 @@ $(function(){
 		$("input[name=rent_price]").val(price.replace("원",""))
 		$(".box_text span").text(price);
 		$(".hide_box3").addClass("show");
-	})
-	// 예약 중복체크 (미완성)  
-	$(".payment_btn").click(function(event){
-		var time = $("input[type=radio][name=rent_time]:checked").val();
-		const selcfield = document.getElementById("field_selc");
-		const field_name = selcfield.value;
-		console.log(time);
-		console.log(field_name); // 이거 아직 출력안됨
-		
-		$.ajax({
-			type : "POST",
-			url : "rent_finish.choi",
-			success :function(re){
-				var rent_field = $(re).find("#field_name").text();
-        		var rent_part = $(re).find("#rent_part").text();
-        		alert(rent_field);
-        		alert(rent_part);
-		    },
-		    error:function(e){   
-		        alert(e);
-		    }
-		});
-		if(rent_part != time || field_name != rent_field){
-			event.preventDefault();
-			alert("체크체크");
-		}
 	});
+  
 		
 });		
 	
