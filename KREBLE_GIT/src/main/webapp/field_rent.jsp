@@ -84,30 +84,27 @@
 							</div>
 						</div>
 					</div>
-					<div id="info_box">
-						<h3 class="box_text">신청정보</h3>
+					<div class="hide_box2">
+						<div id="info_box">
+							<h3 class="box_text">신청정보</h3>
+						</div>
+						<div class="box_inner2">
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+						</div>
+						<div class="content3_box">
+							<h3 class="box_text">
+								<input type="hidden" name="rent_price" value="">
+								비용:<span style="color: #f24400;">0원</span>
+							</h3>
+						</div>
 					</div>
-<!-- 					<div class="box_inner2"> -->
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time1().substring(0, 3)%>"><span><%= rent_info.getRent_time1() %></span><br> --%>
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time2().substring(0, 3)%>"><span><%= rent_info.getRent_time2() %></span><br> --%>
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time3().substring(0, 3)%>"><span><%= rent_info.getRent_time3() %></span><br> --%>
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time4().substring(0, 3)%>"><span><%= rent_info.getRent_time4() %></span><br> --%>
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time5().substring(0, 3)%>"><span><%= rent_info.getRent_time5() %></span><br> --%>
-<!-- 					</div> -->
-					<div class="content3_box">
-						<h3 class="box_text">
-							<input type="hidden" name="rent_price" value="<%= rent_info.getRent_price()%>">
-							비용:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span>
-						</h3>
-					</div>
-					<div class="btn_area">
+					<div class="btn_area hide_box3">
 						<input type="submit" class="payment_btn" value="다음으로">
 						<input type="hidden" name="rentDate" id="rentDate">
-						<%
-						for(int i=0; i<rent_situation.size(); i++){%>
-							<%=rent_situation.get(i).getRent_date()%>
-							<%=rent_situation.get(i).getField_name() %>
-						<%} %>
 					</div>
 				</div>
 			</form>

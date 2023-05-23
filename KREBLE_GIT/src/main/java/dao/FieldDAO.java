@@ -115,11 +115,11 @@ public class FieldDAO {
 				rent_selc.setField_name(rs.getString("field_name"));
 				rent_selc.setRent_location(rs.getString("rent_location"));
 				rent_selc.setRent_date(rs.getString("rent_date"));
-				rent_selc.setRent_time1(rs.getString("rent_time1"));
-				rent_selc.setRent_time2(rs.getString("rent_time2"));
-				rent_selc.setRent_time3(rs.getString("rent_time3"));
-				rent_selc.setRent_time4(rs.getString("rent_time4"));
-				rent_selc.setRent_time5(rs.getString("rent_time5"));
+				rent_selc.setRent_time1(rs.getInt("rent_time1"));
+				rent_selc.setRent_time2(rs.getInt("rent_time2"));
+				rent_selc.setRent_time3(rs.getInt("rent_time3"));
+				rent_selc.setRent_time4(rs.getInt("rent_time4"));
+				rent_selc.setRent_time5(rs.getInt("rent_time5"));
 				rent_selc.setRent_price(rs.getInt("rent_price"));
 
 			}
@@ -152,6 +152,7 @@ public class FieldDAO {
 		return cate_list;
 	}
 	
+	//예약 마감된 날짜
 	public List<Integer> field_deadline(String loca,int month) throws Exception {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;		
@@ -175,6 +176,66 @@ public class FieldDAO {
 			close(pstmt);
 		}
 		return deadline;
+	}
+	
+	//예약 날짜 정보
+	public Rent_info rent_time(String loca,int month,int day) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Rent_info ri = new Rent_info();
+		try{
+			
+			pstmt = con.prepareStatement("select * from rent_info where field_name=? and month(rent_date) = ? and day(rent_date)=?;");
+			pstmt.setString(1, loca);
+			pstmt.setInt(2, month);
+			pstmt.setInt(3, day);
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				ri.setRent_time1(rs.getInt("rent_time1"));
+				ri.setRent_time2(rs.getInt("rent_time2"));
+				ri.setRent_time3(rs.getInt("rent_time3"));
+				ri.setRent_time4(rs.getInt("rent_time4"));
+				ri.setRent_time5(rs.getInt("rent_time5"));
+			}
+			else if(!rs.next()) {
+				ri.setRent_time1(0);
+				ri.setRent_time2(0);
+				ri.setRent_time3(0);
+				ri.setRent_time4(0);
+				ri.setRent_time5(0);
+			}
+			
+		}catch(Exception ex){
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return ri;
+	}
+	
+	//예약 마감된 날짜
+	public int field_price(String field_name) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;		
+		int price=0;
+		try{
+			
+			pstmt = con.prepareStatement("select field_price from field_info where field_name=?;");
+			pstmt.setString(1, field_name);
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				price=rs.getInt("field_price");
+			}
+			else if(!rs.next()) {
+				price=0;
+			}
+			
+		}catch(Exception ex){
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return price;
 	}
 	
 	//예약 인서트

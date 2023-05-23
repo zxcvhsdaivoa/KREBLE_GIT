@@ -6,11 +6,11 @@ public class Rent_info {
 	String field_name;
 	String rent_location;
 	String rent_date;
-	String rent_time1;
-	String rent_time2;
-	String rent_time3;
-	String rent_time4;
-	String rent_time5;
+	int rent_time1;
+	int rent_time2;
+	int rent_time3;
+	int rent_time4;
+	int rent_time5;
 	int rent_price;
 	public int getRent_num() {
 		return rent_num;
@@ -42,34 +42,34 @@ public class Rent_info {
 	public void setRent_date(String rent_date) {
 		this.rent_date = rent_date;
 	}
-	public String getRent_time1() {
+	public int getRent_time1() {
 		return rent_time1;
 	}
-	public void setRent_time1(String rent_time1) {
+	public void setRent_time1(int rent_time1) {
 		this.rent_time1 = rent_time1;
 	}
-	public String getRent_time2() {
+	public int getRent_time2() {
 		return rent_time2;
 	}
-	public void setRent_time2(String rent_time2) {
+	public void setRent_time2(int rent_time2) {
 		this.rent_time2 = rent_time2;
 	}
-	public String getRent_time3() {
+	public int getRent_time3() {
 		return rent_time3;
 	}
-	public void setRent_time3(String rent_time3) {
+	public void setRent_time3(int rent_time3) {
 		this.rent_time3 = rent_time3;
 	}
-	public String getRent_time4() {
+	public int getRent_time4() {
 		return rent_time4;
 	}
-	public void setRent_time4(String rent_time4) {
+	public void setRent_time4(int rent_time4) {
 		this.rent_time4 = rent_time4;
 	}
-	public String getRent_time5() {
+	public int getRent_time5() {
 		return rent_time5;
 	}
-	public void setRent_time5(String rent_time5) {
+	public void setRent_time5(int rent_time5) {
 		this.rent_time5 = rent_time5;
 	}
 	public int getRent_price() {
