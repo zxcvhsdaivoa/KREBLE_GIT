@@ -123,6 +123,12 @@ div{
 	max-width: 960px;
     margin: 0 auto;
 }
+.hide_box {
+	display:none;
+}
+.hide_box.show {
+	display:block;
+}
 .content2_box{
 	border: 1px solid #a6a6a6;
 	clear: both;

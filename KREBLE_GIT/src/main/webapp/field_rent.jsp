@@ -16,18 +16,6 @@
 	String id = (String) session.getAttribute("ID");
 	ArrayList<Rent_situation> rent_situation=(ArrayList<Rent_situation>)request.getAttribute("rent_situation");
 %>
-<%
-	String star_list="false";
-	ArrayList<KreblechoiData> cate_list= new ArrayList<KreblechoiData>();
-	if(request.getAttribute("cate_list")!=null){
-		cate_list = (ArrayList<KreblechoiData>)request.getAttribute("cate_list");
-		star_list="true";
-	}
-	String loca="no";
-	if(request.getParameter("location")!=null && request.getParameter("location")!="" && !request.getParameter("location").equals("null")){
-		loca=request.getParameter("location");
-	}
-%>
 <title>구장 예약</title>
 <link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
 <link rel="stylesheet" type="text/css" href="css/field_rent.css">
@@ -61,62 +49,51 @@
 			<form action="rent_agree.choi">
 				<div class="selc_list">
 					<select class="loca" name="location" id="location">
-						<option>지역 선택</option>
-						<option value="s" <%if(loca.equals("s")){ %>selected="selected"<%} %>>서울</option>
-						<option value="i" <%if(loca.equals("i")){ %>selected="selected"<%} %>>인천</option>
-						<option value="g" <%if(loca.equals("g")){ %>selected="selected"<%} %>>경기</option>
-						<option value="d" <%if(loca.equals("d")){ %>selected="selected"<%} %>>대구</option>
-						<option value="dd" <%if(loca.equals("dd")){ %>selected="selected"<%} %>>대전</option>
-						<option value="b" <%if(loca.equals("b")){ %>selected="selected"<%} %>>부산</option>
-						<option value="j" <%if(loca.equals("j")){ %>selected="selected"<%} %>>제주</option>
+						<option selected disabled>지역 선택</option>
+						<option value="s">서울</option>
+						<option value="i">인천</option>
+						<option value="g">경기</option>
+						<option value="d">대구</option>
+						<option value="dd">대전</option>
+						<option value="b">부산</option>
+						<option value="j">제주</option>
 					</select>
-					<select class="starlist" id="field_selc" name="field_selc">
-						<optgroup label="경기장 목록">
-						<%
-						if(star_list.equals("true")){
-							for(int i=0; i<cate_list.size();i++){
-								%>
-								<option value="<%=cate_list.get(i).getField_name() %>"><%=cate_list.get(i).getField_name() %></option>
-								<% 
-							}
-						}
-						%>
-						</optgroup>
-					</select>
+					<select class="starlist" id="field_selc" name="field_selc"></select>
 				</div>
 			
 			
 				<div id="content2">
-					<div class="content2_box">
-						<h3 class="box_text">날짜/시간선택</h3>
-					</div>
-					
-					<div class="box_inner">
-						<div class="date_selc">
-							<select id="month" name="month" class="month_selc" >
-								<option value="" data-month="">날짜를 선택해주세요</option>
-								<option value="2023년 04월" data-month="4">2023년 04월</option>
-								<option value="2023년 05월" data-month="5">2023년 05월</option>
-								<option value="2023년 06월" data-month="6">2023년 06월</option>
-								<option value="2023년 07월" data-month="7">2023년 07월</option>
-							</select>
+					<div class="hide_box">
+						<div class="content2_box">
+							<h3 class="box_text">날짜/시간선택</h3>
 						</div>
-					
-						<div class="calendar" id="calendar">
 						
+						<div class="box_inner">
+							<div class="date_selc">
+								<select id="month" name="month" class="month_selc" >
+									<option value="" data-month="">날짜를 선택해주세요</option>
+									<option value="2023년 04월" data-month="4">2023년 04월</option>
+									<option value="2023년 05월" data-month="5">2023년 05월</option>
+									<option value="2023년 06월" data-month="6">2023년 06월</option>
+									<option value="2023년 07월" data-month="7">2023년 07월</option>
+								</select>
+							</div>
+						
+							<div class="calendar" id="calendar">
+							
+							</div>
 						</div>
 					</div>
-					
 					<div id="info_box">
 						<h3 class="box_text">신청정보</h3>
 					</div>
-					<div class="box_inner2">
-						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time1().substring(0, 3)%>"><span><%= rent_info.getRent_time1() %></span><br>
-						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time2().substring(0, 3)%>"><span><%= rent_info.getRent_time2() %></span><br>
-						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time3().substring(0, 3)%>"><span><%= rent_info.getRent_time3() %></span><br>
-						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time4().substring(0, 3)%>"><span><%= rent_info.getRent_time4() %></span><br>
-						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time5().substring(0, 3)%>"><span><%= rent_info.getRent_time5() %></span><br>
-					</div>
+<!-- 					<div class="box_inner2"> -->
+<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time1().substring(0, 3)%>"><span><%= rent_info.getRent_time1() %></span><br> --%>
+<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time2().substring(0, 3)%>"><span><%= rent_info.getRent_time2() %></span><br> --%>
+<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time3().substring(0, 3)%>"><span><%= rent_info.getRent_time3() %></span><br> --%>
+<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time4().substring(0, 3)%>"><span><%= rent_info.getRent_time4() %></span><br> --%>
+<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time5().substring(0, 3)%>"><span><%= rent_info.getRent_time5() %></span><br> --%>
+<!-- 					</div> -->
 					<div class="content3_box">
 						<h3 class="box_text">
 							<input type="hidden" name="rent_price" value="<%= rent_info.getRent_price()%>">

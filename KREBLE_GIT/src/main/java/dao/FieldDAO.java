@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -149,6 +150,31 @@ public class FieldDAO {
 			close(pstmt);
 		}
 		return cate_list;
+	}
+	
+	public List<Integer> field_deadline(String loca,int month) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;		
+		List<Integer> deadline = new ArrayList<Integer>();
+		try{
+			
+			pstmt = con.prepareStatement("select day(rent_date) as 'deadline' from rent_info where field_name=? and month(rent_date) = ? and rent_time1=1 and rent_time2=1 and rent_time3=1 and rent_time4=1 and rent_time5=1;");
+			pstmt.setString(1, loca);
+			pstmt.setInt(2, month);
+			rs= pstmt.executeQuery();
+			while(rs.next()){
+				deadline.add(rs.getInt("deadline"));
+			}
+			if(!rs.next()) {
+				deadline.add(0);
+			}
+			
+		}catch(Exception ex){
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return deadline;
 	}
 	
 	//예약 인서트

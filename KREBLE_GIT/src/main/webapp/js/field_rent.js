@@ -17,25 +17,46 @@ $(function(){
             }
 		});
 		loca_list=loca_all.split("/");
-		var select_box = document.querySelector(".starlist optgroup");
-		var remove_option = document.querySelectorAll(".starlist optgroup option");
-		select_box.removeChild(remove_option)
+		var select_box = document.querySelector(".starlist");
+		if(document.querySelector(".starlist").hasChildNodes()==true){
+			$(".starlist option").remove();
+		}
+		var title_option = document.createElement('option');
+		var title_option_text =  document.createTextNode("경기장목록");
+		title_option.appendChild(title_option_text);
+		title_option.selected = 'selected'
+		title_option.disabled = 'disabled'
+		select_box.appendChild(title_option);
 		for(i=0; i<loca_list.length-1;i++){
 			var select_option = document.createElement('option');
 			var option_text =  document.createTextNode(loca_list[i]);
 			select_option.appendChild(option_text);
 			select_option.value=loca_list[i];
 			select_box.appendChild(select_option);
-			
 		}
-	 });
-	  
-	 //달력 생성
+	});
+	$(".starlist").change(function(){
+		$(".hide_box").addClass("show");
+	})
+	//달력 생성
 	$("#month").change(function() {
+		var loca = $('#field_selc').val();
 	  	var month = $("#month option:selected").attr("data-month")
 	  	var calendar = document.getElementById("calendar");
 	  	var days = ["일", "월", "화", "수", "목", "금", "토"];
-	
+		var deadline =[];
+		$.ajax({
+			type : "POST",
+			url : "field_rent_deadline.jsp?month="+month+"&loca="+loca,
+			async: false,
+			success :function(re){
+				deadlines = re.trim();
+			},
+			error:function(e){   
+                alert(e.responseText); 
+            }
+		});
+		deadline = deadlines.split("/");
 	  	var date = new Date(2023, month-1, 1); // (2023, month-1, 1) == (년도,월,일)
 	  	// 선택한 월의 첫 날짜, 0은 1월을 나타내고, 11은 12월을 나타내므로 month에 -1을 한 것. 
 	  	var lastDate = new Date(2023, month, 0).getDate(); // 선택한 월의 마지막 날짜
@@ -51,7 +72,7 @@ $(function(){
 	  	html += "<tr class='day2'>";
 	  	for (var i = 0; i < date.getDay(); i++) {
 			html += "<td></td>";
-	  		}
+	  	}
 	 
 	 	// 날짜 채우기
 	  	for (var i = 1; i <= lastDate; i++) {
@@ -65,9 +86,24 @@ $(function(){
 	  		if ((parseInt(month) < currentMonth ) || (currentMonth === parseInt(month) && i < currentDay)){
 	     	// 선택한 날짜가 현재 날짜보다 작거나, 일치하면 마감처리 조건문
 	      		html += "<td class='date_hover'><span>" + i + "일</span>"+"<p class='impossible'>마감</p></td>";
-	  		} 
+	  		}
 	  		else {
-		  		html += "<td class='date_hover' onclick='box_show()'><a href='#info_box'><span>" + i + "일</span>"+"<p class='possible'>가능</p></a></td>";
+				if(deadline[0]!=0){
+					for(x=0; x<deadline.length-1;x++){
+						if(deadline[x]==i){
+							html += "<td class='date_hover'><span>" + i + "일</span>"+"<p class='impossible'>마감</p></td>";
+							break;
+						}
+						
+						else if(deadline[x]!=i&&deadline[x]==0) {
+				  			html += "<td class='date_hover' onclick='box_show()'><a href='#info_box'><span>" + i + "일</span>"+"<p class='possible'>가능</p></a></td>";
+				  			break;
+				  		}
+					}
+				}
+				else {
+		  			html += "<td class='date_hover' onclick='box_show()'><a href='#info_box'><span>" + i + "일</span>"+"<p class='possible'>가능</p></a></td>";
+		  		}
 	  		}
 	  		date.setDate(date.getDate() + 1);
 		}
