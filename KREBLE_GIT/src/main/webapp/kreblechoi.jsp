@@ -93,7 +93,7 @@
 									<li id="g_002"><a>의왕 축구장</a></li>
 									<li id="g_003"><a>수원종합 운동장</a></li>
 									<li id="g_004"><a>광명시 축구장</a></li>
-									<li style="border-right: none;"><a href="#">구리시체육회<br>축구장</a></li>
+									<li id="g_005" ><a href="#">구리시체육회<br>축구장</a></li>
 								</ul>
 							</li>
 							<li class="local">

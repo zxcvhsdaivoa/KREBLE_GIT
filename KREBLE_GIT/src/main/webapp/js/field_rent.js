@@ -19,7 +19,7 @@ $(function(){
 			$(".starlist option").remove();
 		}
 		var title_option = document.createElement('option');
-		var title_option_text =  document.createTextNode("경기장목록");
+		var title_option_text =  document.createTextNode("경기장 목록");
 		title_option.appendChild(title_option_text);
 		title_option.selected = 'selected'
 		title_option.disabled = 'disabled'
@@ -142,10 +142,12 @@ $(function(){
 			});
 			renttime= renttimedata.split("/");
 			
+			// 예약 타임 마감 기능
 			for(z=0; z<renttime.length-1; z++){
 				$(".box_inner2 > input[name='rent_time']").prop('checked',false);
 				$(".box_inner2 > span:eq("+z+")").text(renttime[z]);
-				if(renttime[z]=="마감"){
+				
+				if(renttime[z]=="마감"){ // 마감일때 disabled로 선택 불가능
 					$(".box_inner2 > input[name='rent_time']:eq("+z+")").attr('disabled',true)
 				}else {
 					$(".box_inner2 > input[name='rent_time']:eq("+z+")").attr('disabled',false);

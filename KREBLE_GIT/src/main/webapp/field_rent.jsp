@@ -57,7 +57,10 @@
 						<option value="부산">부산</option>
 						<option value="제주">제주</option>
 					</select>
-					<select class="starlist" id="field_selc" name="field_selc"></select>
+					<select class="starlist" id="field_selc" name="field_selc">
+						<option selected disabled>경기장 목록(지역 우선 선택)</option>
+					</select>
+						
 				</div>
 			
 			
