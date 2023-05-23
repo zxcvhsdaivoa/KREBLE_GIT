@@ -49,13 +49,13 @@
 				<div class="selc_list">
 					<select class="loca" name="location" id="location">
 						<option selected disabled>지역 선택</option>
-						<option value="s">서울</option>
-						<option value="i">인천</option>
-						<option value="g">경기</option>
-						<option value="d">대구</option>
-						<option value="dd">대전</option>
-						<option value="b">부산</option>
-						<option value="j">제주</option>
+						<option value="서울">서울</option>
+						<option value="인천">인천</option>
+						<option value="경기">경기</option>
+						<option value="대구">대구</option>
+						<option value="대전">대전</option>
+						<option value="부산">부산</option>
+						<option value="제주">제주</option>
 					</select>
 					<select class="starlist" id="field_selc" name="field_selc"></select>
 				</div>

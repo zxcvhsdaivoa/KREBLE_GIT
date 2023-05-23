@@ -137,7 +137,7 @@ public class FieldDAO {
 		ArrayList<KreblechoiData> cate_list=new ArrayList<KreblechoiData>();
 		try{
 			
-			pstmt = con.prepareStatement("select field_name from field_info where left(field_id,1)='"+loca+"';");
+			pstmt = con.prepareStatement("select field_name from field_info where field_fst_location='"+loca+"';");
 			rs= pstmt.executeQuery();
 			while(rs.next()){
 				KreblechoiData field_list=new KreblechoiData();
