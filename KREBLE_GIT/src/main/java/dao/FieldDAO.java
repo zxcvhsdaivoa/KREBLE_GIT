@@ -322,8 +322,8 @@ public class FieldDAO {
 		try{
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, situa.getUser_id());
-			pstmt.setString(2, situa.getField_name());
-			pstmt.setString(3, situa.getRent_location());
+			pstmt.setString(2, situa.getRent_location());
+			pstmt.setString(3, situa.getField_name());
 			pstmt.setString(4, situa.getRent_date());
 			pstmt.setInt(5, situa.getRent_price());
 			insertCount=pstmt.executeUpdate();
@@ -349,8 +349,11 @@ public class FieldDAO {
 
 			if(rs.next()){
 				rent_situation=new Rent_situation();
+				rent_situation.setUser_id(rs.getString("user_id"));
+				rent_situation.setRent_location(rs.getString("rent_location"));
 				rent_situation.setField_name(rs.getString("field_name"));
 				rent_situation.setRent_date(rs.getString("rent_date"));
+				rent_situation.setRent_price(rs.getInt("rent_price"));
 			}
 		}catch(Exception ex){
 		}finally {

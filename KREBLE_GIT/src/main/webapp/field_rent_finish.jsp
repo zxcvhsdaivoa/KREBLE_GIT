@@ -22,6 +22,7 @@
 <script type="text/javascript" ></script>
 <body>
 	 <jsp:useBean id="cash" class="use_data.Db_method_user"></jsp:useBean>
+	 <jsp:useBean id="nick" class="svc.IdToNickService" />
 	 <%
 	 	int uc = cash.u_cash(id);
 	 %>
@@ -54,9 +55,9 @@
 				
 				<div class="box_inner">
 				  <div class="box_inner_text">
-				  	<span style="font-size: 19px;"><b><%=rent_situation.getUser_id() %> 회원 님의 신청하신 내역입니다.</b></span><br><br>
+				  	<span style="font-size: 19px;"><b><%=nick.getNickname(rent_situation.getUser_id()) %> 회원 님의 신청하신 내역입니다.</b></span><br><br>
 				  	<div style="background-color: #fff; border: 1px solid #a6a6a6;">
-				  		아이디: <%=rent_situation.getUser_id() %><br><br>
+				  		아이디: <%=nick.getNickname(rent_situation.getUser_id()) %><br><br>
 				  		<div id="field_name">구장명: <%=rent_situation.getField_name() %><br><br></div>
 				  		<div id="rent_part">예약 날짜: <%=ud.date_format(rent_situation.getRent_date(),"yyyy-mm-dd hh:mm") %> 파트</div><br>
 				  		지불 금액: <%=rent_situation.getRent_price() %> 원<br><br>
