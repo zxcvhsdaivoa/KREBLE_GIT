@@ -11,16 +11,6 @@ import vo.Rent_situation;
 
 public class Field_rent_Service {
 	
-	public Rent_info getrent_list_check() throws Exception{
-		Rent_info rent_info = null;
-		Connection con = getConnection();
-		FieldDAO fieldDAO = FieldDAO.getInstance();
-		fieldDAO.setConnection(con);
-		rent_info = fieldDAO.rent_info_select();
-		close(con);
-		return rent_info;
-		
-	}
 	public ArrayList<KreblechoiData>  getfield_cate_list(String loca) throws Exception{
 		ArrayList<KreblechoiData> cate_list = new ArrayList<KreblechoiData>();
 		Connection con = getConnection();
@@ -30,15 +20,6 @@ public class Field_rent_Service {
 		close(con);
 		return cate_list;
 		
-	}
-	public ArrayList<Rent_situation> getrent_deadline_check() throws Exception{
-		ArrayList<Rent_situation> rent_situation = new ArrayList<Rent_situation>();
-		Connection con = getConnection();
-		FieldDAO fieldDAO = FieldDAO.getInstance();
-		fieldDAO.setConnection(con);
-		rent_situation = fieldDAO.rent_deadline_check();
-		close(con);
-		return rent_situation;
 	}
 	
 }

@@ -2,6 +2,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
+<jsp:useBean id="nick" class="svc.IdToNickService" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -130,8 +131,8 @@
 					%>
 				    <table class="commu_list_table">
 					    <tr class="bg1">
-					    	<th class="head1">글번호</th>
-					    	<th class="head2">작성자</th>
+					    	<th class="head2">글번호</th>
+					    	<th class="head4">작성자</th>
 					    	<th class="head2">카테고리</th>
 					    	<th class="head3">제목</th>
 					    	<th class="head5">조회수</th>
@@ -145,7 +146,7 @@
 							%>
 							<tr class='bt_border'>
 							<td><%=comu.get(i).getComu_num() %></td>
-							<td><%=comu.get(i).getId()%></td>
+							<td><%=nick.getNickname(comu.get(i).getId())%></td>
 							<td class='replace_cate'><%=comu.get(i).getCategory()%></td>
 							<td><a href='community_borde.jsp?no=<%=comu.get(i).getComu_num()%>'><%=comu.get(i).getComu_title()%></a>
 							<%

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="vo.SquadInfo"%>
+<jsp:useBean id="nick" class="svc.IdToNickService" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +85,7 @@
 				<%
 					for(int i=0; i<allList.size(); i++){
 						out.println("<tr><td>"+allList.get(i).getSquad_num()+"</td>");
-						out.println("<td>"+allList.get(i).getUser_id()+"</td>");
+						out.println("<td>"+nick.getNickname(allList.get(i).getUser_id())+"</td>");
 						out.println("<td><a href='squad.sq?no="+allList.get(i).getSquad_num()+"'>"+allList.get(i).getSquad_name()+"</a></td>");
 						out.println("<td>"+allList.get(i).getFormation()+"</td>");
 						out.println("<td>"+allList.get(i).getView_count()+"</td>");

@@ -109,7 +109,7 @@
 						</ul>
 						<button type="button" class="open_squad">나의 스쿼드 불러오기</button>
 						<label for="squad_name" class="blind">스쿼드의 이름을 입력하세요</label>
-						<input type="text" id="squad_name" name="squad_name" <% if(nullck==true){%> value="<%if(!squad.getUser_id().equals(login_id)){%><%=squad.getUser_id() %>님의 스쿼드 : <%} %><%= squad.getSquad_name()%>" <%if(!squad.getUser_id().equals(login_id)){%>readonly<%} } %>>
+						<input type="text" maxlength="20" id="squad_name" name="squad_name" <% if(nullck==true){%> value="<%if(!squad.getUser_id().equals(login_id)){%><%=squad.getUser_id() %>님의 스쿼드 : <%} %><%= squad.getSquad_name()%>" <%if(!squad.getUser_id().equals(login_id)){%>readonly<%} } %>>
 						<%if((nullck==true&&squad.getUser_id().equals(login_id))||(nullck==false&&login_id!="0")){ %><button type="submit" class="save_squad">스쿼드 저장</button><%}
 						else {%><span class="save_squad unaction">스쿼드 저장</span><%} %>
 						<span class="back"><a href="squad.sq">새 스쿼드 만들기</a></span>

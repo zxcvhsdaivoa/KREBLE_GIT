@@ -123,7 +123,7 @@ $(function(){
 	 	}
 	  
 	  	// 선택한 날짜 호버
-		$(".day2 td").click(function() {
+		$(".day2 td:has(p.possible)").click(function() {
 			$(".day2 td").removeClass("on");
 			$(this).addClass("on");
 			var day= $(this).find('span').text().replace("일","");
@@ -157,6 +157,11 @@ $(function(){
 			}
 			$(".hide_box2").addClass("show");
  		});
+ 		
+ 		$(".day2 td:has(p.impossible)").click(function() {
+			$(".day2 td").removeClass("on");
+			$(".hide_box2").removeClass("show");
+		});
 	});	
 	
 	

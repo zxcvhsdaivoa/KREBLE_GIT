@@ -11,9 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <%
-	Rent_info rent_info=(Rent_info)request.getAttribute("rent_info");
 	String id = (String) session.getAttribute("ID");
-	ArrayList<Rent_situation> rent_situation=(ArrayList<Rent_situation>)request.getAttribute("rent_situation");
 %>
 <title>구장 예약</title>
 <link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">

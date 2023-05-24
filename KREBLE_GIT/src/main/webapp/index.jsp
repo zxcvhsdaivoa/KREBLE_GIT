@@ -33,6 +33,7 @@
 <jsp:useBean id="player" class="use_data.Db_method_player" />
 <jsp:useBean id="shop" class="use_data.Db_method_shop" />
 <jsp:useBean id="ect" class="use_data.Db_method_ECT" />
+<jsp:useBean id="nick" class="svc.IdToNickService" />
 <%@ page import="use_data.CommunityData"%>
 <%@ page import="use_data.Player_Info"%>
 <%@ page import="use_data.Director_Info"%>
@@ -82,7 +83,7 @@
     			<div class="squad_wrap">
     			<%if(!hot_squad.getUser_id().equals("nosquad")) {%>
     				<p class="squad_name">스쿼드 이름 : <%=hot_squad.getSquad_name() %></p>
-    				<p class="squad_make">작성자 : <%=hot_squad.getUser_id() %></p>
+    				<p class="squad_make">작성자 : <%=nick.getNickname(hot_squad.getUser_id()) %></p>
 					<ul>
 					<%
 					Director_Info hotsquad_director = player.hot_squad_director(hot_squad.getDirector());
@@ -111,7 +112,7 @@
     				<div class="board">
     					<div class="board_top">
     						<p class="title"><%=hot_free.getComu_title() %></p>
-    						<span class="writer"><%=hot_free.getId() %></span>
+    						<span class="writer"><%=nick.getNickname(hot_free.getId()) %></span>
     					</div>
 						<textarea readonly><%=hot_free.getComu_write() %></textarea>
     				</div>
@@ -128,7 +129,7 @@
     				<div class="board">
     					<div class="board_top">
     						<p class="title"><%=hot_debate.getComu_title() %></p>
-    						<span class="writer"><%=hot_debate.getId() %></span>
+    						<span class="writer"><%=nick.getNickname(hot_debate.getId()) %></span>
     					</div>
 						<textarea readonly><%=hot_debate.getComu_write() %></textarea>
     				</div>
@@ -145,7 +146,7 @@
     				<div class="board">
     					<div class="board_top">
     						<p class="title"><%=hot_info.getComu_title() %></p>
-    						<span class="writer"><%=hot_info.getId() %></span>
+    						<span class="writer"><%=nick.getNickname(hot_info.getId()) %></span>
     					</div>
 						<textarea readonly><%=hot_info.getComu_write() %></textarea>
     				</div>

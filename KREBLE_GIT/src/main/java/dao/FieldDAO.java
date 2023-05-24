@@ -98,38 +98,6 @@ public class FieldDAO {
 		return insertCount;
 
 	}
-	// 구장 예약페이지 셀렉트
-	public Rent_info rent_info_select() throws Exception {
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;		
-		Rent_info rent_selc=null;
-
-		try{
-			pstmt = con.prepareStatement("select * from rent_info;");
-			rs= pstmt.executeQuery();
-
-			if(rs.next()){
-				rent_selc=new Rent_info();
-				rent_selc.setRent_num(rs.getInt("rent_num"));
-				rent_selc.setUser_id(rs.getString("user_id"));
-				rent_selc.setField_name(rs.getString("field_name"));
-				rent_selc.setRent_location(rs.getString("rent_location"));
-				rent_selc.setRent_date(rs.getString("rent_date"));
-				rent_selc.setRent_time1(rs.getInt("rent_time1"));
-				rent_selc.setRent_time2(rs.getInt("rent_time2"));
-				rent_selc.setRent_time3(rs.getInt("rent_time3"));
-				rent_selc.setRent_time4(rs.getInt("rent_time4"));
-				rent_selc.setRent_time5(rs.getInt("rent_time5"));
-				rent_selc.setRent_price(rs.getInt("rent_price"));
-
-			}
-		}catch(Exception ex){
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		return rent_selc;
-	}
 	
 	public ArrayList<KreblechoiData> field_cate_list(String loca) throws Exception {
 		PreparedStatement pstmt = null;
@@ -238,20 +206,126 @@ public class FieldDAO {
 		return price;
 	}
 	
+	
+	//렌트인포 찾기
+	public int find_rentinfo(Rent_situation situa) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;		
+		int find=0;
+		try{
+			
+			pstmt = con.prepareStatement("select * from rent_info where field_name=? and rent_date=?;");
+			pstmt.setString(1, situa.getField_name());
+			pstmt.setString(2, situa.getRent_date());
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				find=1;
+			}
+			
+		}catch(Exception ex){
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return find;
+	}
+	
+	//예약 구장별,날짜별 정보 인서트
+	public int rent_info_insert(int i,Rent_situation situa)  {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql=null;
+		String quary1="insert into rent_info(rent_location,field_name,rent_date,rent_time1) values (?,?,?,1)";
+		String quary2="insert into rent_info(rent_location,field_name,rent_date,rent_time2) values (?,?,?,1)";
+		String quary3="insert into rent_info(rent_location,field_name,rent_date,rent_time3) values (?,?,?,1)";
+		String quary4="insert into rent_info(rent_location,field_name,rent_date,rent_time4) values (?,?,?,1)";
+		String quary5="insert into rent_info(rent_location,field_name,rent_date,rent_time5) values (?,?,?,1)";
+		
+		if(i==1) {
+			sql=quary1;
+		}else if(i==2) {
+			sql=quary2;
+		}else if(i==3) {
+			sql=quary3;
+		}else if(i==4) {
+			sql=quary4;
+		}else if(i==5) {
+			sql=quary5;
+		}
+		int insertCount=0;
+		
+		try{
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, situa.getRent_location());
+			pstmt.setString(2, situa.getField_name());
+			pstmt.setString(3, situa.getRent_date());
+			insertCount=pstmt.executeUpdate();
+
+		}catch(Exception ex){
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+
+		return insertCount;
+
+	}
+	
+	public int rent_info_update(int i, Rent_situation situa)  {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql=null;
+		String quary1="update rent_info set rent_time1=1 where field_name=? and rent_date=?";
+		String quary2="update rent_info set rent_time2=1 where field_name=? and rent_date=?";
+		String quary3="update rent_info set rent_time3=1 where field_name=? and rent_date=?";
+		String quary4="update rent_info set rent_time4=1 where field_name=? and rent_date=?";
+		String quary5="update rent_info set rent_time5=1 where field_name=? and rent_date=?";
+		
+		if(i==1) {
+			sql=quary1;
+		}else if(i==2) {
+			sql=quary2;
+		}else if(i==3) {
+			sql=quary3;
+		}else if(i==4) {
+			sql=quary4;
+		}else if(i==5) {
+			sql=quary5;
+		}
+		
+		int insertCount=0;
+		
+		try{
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, situa.getField_name());
+			pstmt.setString(2, situa.getRent_date());
+			insertCount=pstmt.executeUpdate();
+
+		}catch(Exception ex){
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+
+		return insertCount;
+
+	}
+	
 	//예약 인서트
 	public int rent_insert(Rent_situation situa)  {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql="insert into rent_situation (rent_num,user_id,field_name,rent_date,rent_price) values (default,?,?,?,?)";
+		String sql="insert into rent_situation (rent_num,user_id,rent_location,field_name,rent_date,rent_price) values (default,?,?,?,?,?)";
 		int insertCount=0;
 		
 		try{
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, situa.getUser_id());
 			pstmt.setString(2, situa.getField_name());
-			pstmt.setString(3, situa.getRent_date());
-			pstmt.setInt(4, situa.getRent_price());
-			System.out.println(pstmt);
+			pstmt.setString(3, situa.getRent_location());
+			pstmt.setString(4, situa.getRent_date());
+			pstmt.setInt(5, situa.getRent_price());
 			insertCount=pstmt.executeUpdate();
 
 		}catch(Exception ex){
@@ -286,29 +360,7 @@ public class FieldDAO {
 		return rent_situation;
 	}
 	
-	// 예약 신청 전체 현황 셀렉트
-	public ArrayList<Rent_situation> rent_deadline_check() throws Exception {
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;		
-		ArrayList<Rent_situation> rent_situation=new ArrayList<Rent_situation>();
-
-		try{
-			pstmt = con.prepareStatement("select field_name,rent_date from rent_situation;");
-			rs= pstmt.executeQuery();
-
-			while(rs.next()){
-				Rent_situation rent_situa=new Rent_situation();
-				rent_situa.setField_name(rs.getString("field_name"));
-				rent_situa.setRent_date(rs.getString("rent_date"));
-				rent_situation.add(rent_situa);
-				}
-		}catch(Exception ex){
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		return rent_situation;
-	}
+	
 	
 	// 예약 신청 마감 업데이트
 //	public int rent_close_update() {

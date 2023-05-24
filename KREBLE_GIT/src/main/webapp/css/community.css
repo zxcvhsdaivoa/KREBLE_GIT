@@ -143,15 +143,7 @@ textarea {
 	float:right;
 }
 
-.head1{
-	text-align: center;
-    width: 100px;
-    max-width: 60px;
-    min-width: 60px;
-    padding-left: 14px;
-    padding-right: 5px;
-    font-size: 12px;
-}
+
 .head2{
 	text-align: center;
     width: 120px;
@@ -162,11 +154,18 @@ textarea {
     font-size: 12px;
 }
 .head3{
-	width:600px;
+	width:550px;
 	text-align: center;
 	height: 14px;
     padding-top: 10px;
     padding-bottom: 8px;
+}
+.head4{
+    width: 150px;
+	text-align: center;
+    padding-left: 14px;
+    padding-right: 5px;
+    font-size: 12px;
 }
 .head5{
 	text-align: center;
@@ -458,7 +457,7 @@ table.nextprev tr td:first-child{
 }
 .comment_list ul li div {
 	float:left;
-	width:180px;
+	width:200px;
 	height:100%;
 }
 .comment_list ul li .writer {
@@ -473,6 +472,7 @@ table.nextprev tr td:first-child{
 	border-radius:10px;
 }
 .comment_list ul li .comment_id {
+	font-size:14px;
 	
 }
 .comment_list ul li .comment_time {
@@ -483,7 +483,7 @@ table.nextprev tr td:first-child{
 .comment_list ul li .comment_text {
 	display:inline-block;
 	margin-left:10px;
-	width:calc(100% - 190px);
+	width:calc(100% - 210px);
 }
 
 
@@ -499,14 +499,14 @@ table.nextprev tr td:first-child{
 }
 .comment_write .login_id {
 	float:left;
-	width:100px;
+	width:150px;
 	height:70px;
 	padding-left:10px;
 	line-height:70px;
 }
 .comment_textarea {
 	float:left;
-	width:calc(100% - 220px);
+	width:calc(100% - 270px);
 	height:70px;
 	padding-top:15px;
 	border:1px solid #ccc;

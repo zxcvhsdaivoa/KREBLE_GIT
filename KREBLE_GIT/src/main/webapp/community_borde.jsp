@@ -18,7 +18,8 @@
 			
 			<div class="community">
 				<jsp:useBean id="ud" class="use_data.Db_method_commu"/>
-					<jsp:useBean id="ud2" class="use_data.Db_method_ECT"/>
+				<jsp:useBean id="ud2" class="use_data.Db_method_ECT"/>
+				<jsp:useBean id="nick" class="svc.IdToNickService" />
 				<%@ page import="use_data.CommunityData"%>
 				<%@ page import="use_data.CommuCommentData"%>
 				<%@ page import="java.util.ArrayList"%>
@@ -42,7 +43,7 @@
 				%>
 				<div class="community_inner">
 					<div class="top_box">
-						<span class="writer"><%= comu.getId()%></span>
+						<span class="writer"><%= nick.getNickname(comu.getId())%></span>
 						<span class="writing_time"><%= ud2.date_format(comu.getComu_date(),"yyyy-mm-dd hh:mm")%></span>
 						<span class="category replace_cate">[<%= comu.getCategory()%>]</span>
 						
@@ -98,7 +99,7 @@
 							<li>
 								<div>
 									<%if(comu.getId().equals(ccd.get(i).getUser_id())) {%><span class="writer">작성자</span><%}%>
-									<span class="comment_id "><%= ccd.get(i).getUser_id() %>님의 댓글</span>
+									<span class="comment_id "><%= nick.getNickname(ccd.get(i).getUser_id()) %>님의 댓글</span>
 									<span class="comment_time">(<%= ud2.date_format(ccd.get(i).getComment_wrdate(),"yyyy-mm-dd hh:mm")%>)</span>
 								</div>
 								<span class="comment_text"><%= ccd.get(i).getCommuComment() %></span>
@@ -113,7 +114,7 @@
 					<div class="comment_write">
 						
 						<form name="comment_form" action="commu_comment_write.jsp">
-							<span class="login_id"><%=login_id %></span>
+							<span class="login_id"><%=nick.getNickname(login_id)%></span>
 							<input type="hidden" name="writer" id="writer" value="<%=comu.getId()%>">
 							<input type="hidden" name="commu_no" id="commu_no" value="<%=comu_no%>">
 							<textarea id="comment" name="comment" class="comment_textarea"></textarea>

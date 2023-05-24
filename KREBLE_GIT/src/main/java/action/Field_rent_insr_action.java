@@ -5,7 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import svc.Field_insert_rentinfo_Service;
+import svc.Field_rent_findinfo_Service;
 import svc.Field_rent_insr_Service;
+import svc.Field_update_rentinfo_Service;
 import vo.ActionForward;
 import vo.Rent_situation;
 
@@ -15,12 +18,12 @@ public class Field_rent_insr_action implements Action {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		boolean success2=false;
 		ActionForward forward=null;
 		Rent_situation rent_insr=null;
 		HttpSession session = request.getSession();//세션에 등록된 아이디를 사용하기 위해 세션 설정 
-		
 		rent_insr = new Rent_situation();
+		rent_insr.setRent_location(request.getParameter("location"));
 		rent_insr.setRent_date(request.getParameter("rent_date"));
 		rent_insr.setField_name(request.getParameter("field_name"));
 		rent_insr.setRent_price(Integer.parseInt(request.getParameter("rent_price")));
@@ -29,9 +32,35 @@ public class Field_rent_insr_action implements Action {
 		boolean isinsrSuccess = rentinsrService.field_rentinsr(rent_insr);//메소드 호출
 		// BoardWriteProService 클래스를 이용하여 게시물을 데이터베이스에 등록. 
 		// issaveSuccess 변수는 게시물 등록에 성공하면 true, 실패하면 false 값을 가짐.
-		System.out.println(isinsrSuccess);// 인서트 내용 확인 출력
-
-		if(!isinsrSuccess){ //등록에 실패할 경우
+		// System.out.println(isinsrSuccess);// 인서트 내용 확인 출력
+		
+		
+		int i=0;
+		int time = Integer.parseInt(rent_insr.getRent_date().substring(11,13));
+		if(time==9) {
+			i=1;
+		}else if(time==11) {
+			i=2;
+		}else if(time==14) {
+			i=3;
+		}else if(time==16) {
+			i=4;
+		}else if(time==18) {
+			i=5;
+		}
+		
+		Field_rent_findinfo_Service frfs= new Field_rent_findinfo_Service();
+		int is=frfs.fint_info(rent_insr);
+		
+		if(is==1) {
+			Field_update_rentinfo_Service furs = new Field_update_rentinfo_Service();
+			success2=furs.update_rentinfo(i, rent_insr);
+		}else {
+			Field_insert_rentinfo_Service firs = new Field_insert_rentinfo_Service();
+			success2=firs.insert_rentinfo(i, rent_insr);
+		}
+		
+		if(!isinsrSuccess||!success2){ //등록에 실패할 경우
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");

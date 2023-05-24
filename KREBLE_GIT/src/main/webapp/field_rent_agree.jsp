@@ -1,17 +1,19 @@
 <%@ page import="vo.Rent_situation"%>
 <%@ page import="vo.KreblechoiData" %>
+<%@ page import="vo.Rent_situation" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ page import="java.sql.*" %>
 <jsp:useBean id="ud" class="use_data.Db_method_ECT"/>
 <%
-	String id = (String) session.getAttribute("ID");
+	String id =ud.login_check(request);
 	String location= request.getParameter("location");
 	String field_name = request.getParameter("field_selc");
- 	String rent_price = request.getParameter("rent_price");
+	String rent_price = request.getParameter("rent_price");
 	String rent_date =request.getParameter("month")+request.getParameter("rentDate")+request.getParameter("rent_time");
 	rent_date=ud.date_format(rent_date, "kortotime");
+	
 %>
 <html>
 <head>
