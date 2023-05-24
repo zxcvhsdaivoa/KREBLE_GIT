@@ -5,7 +5,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
@@ -50,15 +49,18 @@
 				<div class="selc_list">
 					<select class="loca" name="location" id="location">
 						<option selected disabled>지역 선택</option>
-						<option value="s">서울</option>
-						<option value="i">인천</option>
-						<option value="g">경기</option>
-						<option value="d">대구</option>
-						<option value="dd">대전</option>
-						<option value="b">부산</option>
-						<option value="j">제주</option>
+						<option value="서울">서울</option>
+						<option value="인천">인천</option>
+						<option value="경기">경기</option>
+						<option value="대구">대구</option>
+						<option value="대전">대전</option>
+						<option value="부산">부산</option>
+						<option value="제주">제주</option>
 					</select>
-					<select class="starlist" id="field_selc" name="field_selc"></select>
+					<select class="starlist" id="field_selc" name="field_selc">
+						<option selected disabled>경기장 목록(지역 우선 선택)</option>
+					</select>
+						
 				</div>
 			
 			
@@ -84,30 +86,27 @@
 							</div>
 						</div>
 					</div>
-					<div id="info_box">
-						<h3 class="box_text">신청정보</h3>
+					<div class="hide_box2">
+						<div id="info_box">
+							<h3 class="box_text">신청정보</h3>
+						</div>
+						<div class="box_inner2">
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
+						</div>
+						<div class="content3_box">
+							<h3 class="box_text">
+								<input type="hidden" name="rent_price" value="">
+								비용:<span style="color: #f24400;">0원</span>
+							</h3>
+						</div>
 					</div>
-<!-- 					<div class="box_inner2"> -->
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time1().substring(0, 3)%>"><span><%= rent_info.getRent_time1() %></span><br> --%>
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time2().substring(0, 3)%>"><span><%= rent_info.getRent_time2() %></span><br> --%>
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time3().substring(0, 3)%>"><span><%= rent_info.getRent_time3() %></span><br> --%>
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time4().substring(0, 3)%>"><span><%= rent_info.getRent_time4() %></span><br> --%>
-<%-- 						<input type="radio" name="rent_time" onchange="timechoice()" value="<%=rent_info.getRent_time5().substring(0, 3)%>"><span><%= rent_info.getRent_time5() %></span><br> --%>
-<!-- 					</div> -->
-					<div class="content3_box">
-						<h3 class="box_text">
-							<input type="hidden" name="rent_price" value="<%= rent_info.getRent_price()%>">
-							비용:<span style="color: #f24400;"> <%= rent_info.getRent_price()%> 원</span>
-						</h3>
-					</div>
-					<div class="btn_area">
+					<div class="btn_area hide_box3">
 						<input type="submit" class="payment_btn" value="다음으로">
 						<input type="hidden" name="rentDate" id="rentDate">
-						<%
-						for(int i=0; i<rent_situation.size(); i++){%>
-							<%=rent_situation.get(i).getRent_date()%>
-							<%=rent_situation.get(i).getField_name() %>
-						<%} %>
 					</div>
 				</div>
 			</form>
@@ -116,45 +115,3 @@
 	 <jsp:include page="Footer_baseform.jsp"/>
 </body>
 </html>
-
-<!-- 					<div class="calendar"> js를 이용해서 달력 출력하기 전 수작업 ver --> 
-<!-- 						<table class="tb_calendar"> -->
-<!-- 							<tr class="day"> -->
-<!-- 								<td>일</td> -->
-<!-- 								<td>월</td> -->
-<!-- 								<td>화</td> -->
-<!-- 								<td>수</td> -->
-<!-- 								<td>목</td> -->
-<!-- 								<td>금</td> -->
-<!-- 								<td>토</td> -->
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="26" end="31" var="day"> --%>
-<%-- 							            <td>${day}일</td> --%>
-<%-- 							    </c:forEach> --%>
-<!-- 							    <td>1일</td> -->
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="2" end="8" var="day"> --%>
-<%-- 							            <td>${day}일</td> --%>
-<%-- 							    </c:forEach> --%>
-<!-- 							    forEach를 사용하기위해 JSTL(Core) 라이브러리를 추가 해야함. 위에 코드 있음 -->
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="9" end="15" var="day"> --%>
-<%-- 									<td>${day}일</td>  --%>
-<%-- 								</c:forEach> --%>
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="16" end="22" var="day"> --%>
-<%-- 							            <td>${day}일</td> --%>
-<%-- 							    </c:forEach> --%>
-<!-- 							</tr> -->
-<!-- 							<tr class="day2"> -->
-<%-- 								<c:forEach begin="23" end="29" var="day"> --%>
-<%-- 							            <td>${day}일</td> --%>
-<%-- 							    </c:forEach> --%>
-<!-- 							</tr> -->
-<!-- 						</table> -->
-<!-- 					</div> -->
-<!-- 				</div> -->

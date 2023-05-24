@@ -21,7 +21,7 @@
 
 section{
 	 height: auto;
-	 margin-bottom: 30px;
+	 margin-bottom: 180px;
 }
 div{
 	display: block;
@@ -123,10 +123,14 @@ div{
 	max-width: 960px;
     margin: 0 auto;
 }
-.hide_box {
+.hide_box,
+.hide_box2,
+.hide_box3 {
 	display:none;
 }
-.hide_box.show {
+.hide_box.show,
+.hide_box2.show,
+.hide_box3.show {
 	display:block;
 }
 .content2_box{

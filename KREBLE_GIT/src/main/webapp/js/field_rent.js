@@ -1,7 +1,4 @@
-$(function(){
-	$(".box_inner2").hide();	
-	$(".box_text > span").hide();
-	 
+$(function(){	 
 	$(".selc_list select.loca").change(function(){
 		var loca= $(this).val();
 		var loca_list=[];
@@ -22,7 +19,7 @@ $(function(){
 			$(".starlist option").remove();
 		}
 		var title_option = document.createElement('option');
-		var title_option_text =  document.createTextNode("경기장목록");
+		var title_option_text =  document.createTextNode("경기장 목록");
 		title_option.appendChild(title_option_text);
 		title_option.selected = 'selected'
 		title_option.disabled = 'disabled'
@@ -96,13 +93,13 @@ $(function(){
 						}
 						
 						else if(deadline[x]!=i&&deadline[x]==0) {
-				  			html += "<td class='date_hover' onclick='box_show()'><a href='#info_box'><span>" + i + "일</span>"+"<p class='possible'>가능</p></a></td>";
+				  			html += "<td class='date_hover'><a href='#info_box'><span>" + i + "일</span>"+"<p class='possible'>가능</p></a></td>";
 				  			break;
 				  		}
 					}
 				}
 				else {
-		  			html += "<td class='date_hover' onclick='box_show()'><a href='#info_box'><span>" + i + "일</span>"+"<p class='possible'>가능</p></a></td>";
+		  			html += "<td class='date_hover'><a href='#info_box'><span>" + i + "일</span>"+"<p class='possible'>가능</p></a></td>";
 		  		}
 	  		}
 	  		date.setDate(date.getDate() + 1);
@@ -126,40 +123,50 @@ $(function(){
 	 	}
 	  
 	  	// 선택한 날짜 호버
-	 $(".day2 td").click(function() {
-		$(".day2 td").removeClass("on");
-		$(this).addClass("on");
-		$("#rentDate").attr("value",$(this).find("span").text().trim())
+		$(".day2 td").click(function() {
+			$(".day2 td").removeClass("on");
+			$(this).addClass("on");
+			var day= $(this).find('span').text().replace("일","");
+			$("#rentDate").attr("value",$(this).find("span").text().trim())
+			var renttime=[];
+			$.ajax({
+				type : "POST",
+				url : "field_rent_time.jsp?loca="+loca+"&month="+month+"&day="+day,
+				async: false,
+				success :function(re){
+					renttimedata = re.trim();
+				},
+				error:function(e){   
+	                alert(e.responseText); 
+	            }
+			});
+			renttime= renttimedata.split("/");
+			
+			// 예약 타임 마감 기능
+			for(z=0; z<renttime.length-1; z++){
+				$(".box_inner2 > input[name='rent_time']").prop('checked',false);
+				$(".box_inner2 > span:eq("+z+")").text(renttime[z]);
+				
+				if(renttime[z]=="마감"){ // 마감일때 disabled로 선택 불가능
+					$(".box_inner2 > input[name='rent_time']:eq("+z+")").attr('disabled',true)
+				}else {
+					$(".box_inner2 > input[name='rent_time']:eq("+z+")").attr('disabled',false);
+					$(".box_inner2 > input[name='rent_time']:eq("+z+")").attr('data-price',renttime[z].substr(24).trim());
+					$(".box_inner2 > input[name='rent_time']:eq("+z+")").val(renttime[z].substr(0,3))
+				}
+			}
+			$(".hide_box2").addClass("show");
  		});
- 		
 	});	
 	
-	// 예약 중복체크 (미완성)  
-	$(".payment_btn").click(function(event){
-		var time = $("input[type=radio][name=rent_time]:checked").val();
-		const selcfield = document.getElementById("field_selc");
-		const field_name = selcfield.value;
-		console.log(time);
-		console.log(field_name); // 이거 아직 출력안됨
-		
-		$.ajax({
-			type : "POST",
-			url : "rent_finish.choi",
-			success :function(re){
-				var rent_field = $(re).find("#field_name").text();
-        		var rent_part = $(re).find("#rent_part").text();
-        		alert(rent_field);
-        		alert(rent_part);
-		    },
-		    error:function(e){   
-		        alert(e);
-		    }
-		});
-		if(rent_part != time || field_name != rent_field){
-			event.preventDefault();
-			alert("체크체크");
-		}
+	
+	$("input[name='rent_time']").click(function(){
+		var price = $(this).attr('data-price');
+		$("input[name=rent_price]").val(price.replace("원",""))
+		$(".box_text span").text(price);
+		$(".hide_box3").addClass("show");
 	});
+  
 		
 });		
 	
@@ -171,18 +178,9 @@ $(function(){
 //	});
 
 
-function box_show(){ // 눌렀을때 정보 보이기
-	$(".box_inner2").show();
-}
-	
-function timechoice(){
-	$(".box_text > span").show();
-}
-	
-		
-		
-	
-	
-	
-		
-	
+
+
+
+
+
+

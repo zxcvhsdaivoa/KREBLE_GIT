@@ -143,4 +143,25 @@ public class Db_method_ECT extends Db_method_conn  {
 		}
 		return alarm_text;
 	}
+	
+	public String rent_time(int no, int bool,int price) {
+		String text="마감";
+		if(no==1&&bool==0) {
+			text="09시(09:00~11:00), 대여료 : "+price+"원";
+		}
+		if(no==2&&bool==0) {
+			text="11시(11:00~13:00), 대여료 : "+price+"원";
+		}
+		if(no==3&&bool==0) {
+			text="14시(14:00~16:00), 대여료 : "+price+"원";
+		}
+		if(no==4&&bool==0) {
+			text="16시(16:00~18:00), 대여료 : "+price+"원";
+		}
+		if(no==5&&bool==0) {
+			text="18시(18:00~20:00), 대여료 : "+price+"원";
+		}
+		
+		return text;
+	}
 }
