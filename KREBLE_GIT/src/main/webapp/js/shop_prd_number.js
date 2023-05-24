@@ -103,14 +103,19 @@ $(document).ready(function(){
 	})
 	
 })
-
-
-//구매버튼 눌렀을 시 보유캐시<상품총합계일때 경고(만들고보니 장바구니에선 필요없음.)
-function moneycheck(){
-	var id_cash = parseInt(document.getElementById("iid").value);
-	var buy_cash = parseInt(document.getElementById("to_cart").innerText);
-	if(id_cash < buy_cash){
-		alert("보유한 금액이 부족합니다");
+function cb_click(){
+    var ckbox = document.getElementsByName("prd_ck");
+    var length = ckbox.length;
+    var ck = 0;
+    
+    for (var i = 0; i < length; i++) {
+        if (ckbox[i].checked) {
+			ck++
+        }
+    }
+    if(ck == 0){
+		alert("선택된 상품이 없습니다.");
 		return false;
 	}
+	return true;    
 }

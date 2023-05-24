@@ -36,6 +36,40 @@ public class Db_method_user extends Db_method_conn {
 		}
 		return h_cash;
 	}
+	// 유저정보 가져오기
+	public UserData u_info(String id) throws Exception {
+		UserData ud = new UserData();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM user where user_id like ?;";
+
+		try {
+			conn();
+			if (con == null) {
+				throw new Exception("데이터베이스에 연결할 수 없습니다.");
+			}
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				ud.setId(rs.getString("user_id"));;
+				ud.setAddress(rs.getString("user_adr"));
+				ud.setPh(rs.getString("user_call"));
+				ud.setEmail(rs.getString("user_email"));;
+				ud.setGender(rs.getString("user_gender"));;
+				ud.setNick(rs.getString("user_nick"));;
+				ud.setJoin_date(rs.getString("user_join"));;
+				ud.setName(rs.getString("user_name"));;
+				ud.setBirth(rs.getString("user_birth"));;
+			}
+		} catch (Exception ignored) {
+
+		} finally {
+			diconn();
+		}
+	
+		return ud;
+	}
 
 	public String login_data(String id, String pw) throws Exception {
 		String login;

@@ -8,7 +8,7 @@ import use_data.Shop_prd;
 import static db.JdbcUtil.*;
 
 public class Shop_buy_service {
-	public void shop_buy_service(ArrayList<Shop_prd> aaa, String id) throws Exception {
+	public String shop_buy_service(ArrayList<Shop_prd> aaa, String id) throws Exception {
 
 		Shop_DAO shopDAO = Shop_DAO.getInstance();
 		Connection con = getConnection();
@@ -24,7 +24,7 @@ public class Shop_buy_service {
 			rollback(con);
 		}
 		close(con);
-
+		return code;
 	}
 
 }

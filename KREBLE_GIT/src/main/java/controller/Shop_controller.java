@@ -16,6 +16,7 @@ import action.Shop_buy_action;
 import action.Shop_calist_action;
 import action.Shop_detail_action;
 import action.Shop_list_action;
+import action.Shop_payment;
 import action.Shop_prd_insert_action;
 import action.Shop_prd_mody_action;
 import action.Shop_re_delete_action;
@@ -109,7 +110,7 @@ public class Shop_controller extends javax.servlet.http.HttpServlet {
 			}
 		}
 
-		// 구매내역
+		// 배송지 입력
 		else if (command.equals("/shop_buy_list.sp")) {
 			action = new Shop_buy_action();
 			try {
@@ -117,6 +118,29 @@ public class Shop_controller extends javax.servlet.http.HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		
+		// 구매확정
+		else if (command.equals("/shop_payment.sp")) {
+			action = new Shop_payment();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 구매내역
+		else if (command.equals("/shop_com_buylist.sp")) {
+//			action = new Shop_payment();
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+			forward = new ActionForward();
+			forward.setPath("/shop_com_pay.jsp");
+			
 		}
 		// 주문제작
 		else if (command.equals("/shop_re_board.sp")) {

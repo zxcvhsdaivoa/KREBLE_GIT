@@ -117,7 +117,7 @@ String id = (String) session.getAttribute("ID");
 							
 							<tr>
 								<td class = "f_table_label">가격</td>
-								<td class = "f_table_field">&#128176;<%=aa.getPrd_price() %></td>
+								<td class = "f_table_field"><%=aa.getPrd_price() %></td>
 							</tr>
 							
 							<tr>

@@ -236,6 +236,13 @@ input{
 	border-bottom:1px solid #CCC;
 }
 
+.soldO{
+	font-size:30px;
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+    font-style: normal;
+    color: red;
+}
 
 .pl_no3_center > table{
 	width: 990px;

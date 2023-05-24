@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.sql.DataSource;
 
 import use_data.Shop_prd;
@@ -181,6 +183,7 @@ public class Shop_DAO {
 				shop_prd.setPrd_price(rs.getInt("prd_price"));
 				shop_prd.setPrd_name(rs.getString("prd_name"));
 				shop_prd.setPrd_note(rs.getString("prd_note"));
+				shop_prd.setPrd_qant(rs.getInt("prd_qant"));
 				articleList.add(shop_prd);
 			}
 
@@ -219,6 +222,7 @@ public class Shop_DAO {
 				shop_prd.setPrd_price(rs.getInt("prd_price"));
 				shop_prd.setPrd_name(rs.getString("prd_name"));
 				shop_prd.setPrd_note(rs.getString("prd_note"));
+				shop_prd.setPrd_qant(rs.getInt("prd_qant"));
 				articleList.add(shop_prd);
 			}
 
@@ -645,7 +649,7 @@ public class Shop_DAO {
 		PreparedStatement pstmt = null;
 		int insertCount = 0;
 
-		String sql = "insert into shop_back values(?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into shop_back values(default,?,?,?,?,?,?,?,?,?)";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, article.getPrd_name());
@@ -836,7 +840,7 @@ public class Shop_DAO {
 		String sql = "";
 		int insertCount = 0;
 
-		sql = "insert into shop_buy_list (shopb_no, shopb_date, shopb_p_no, shopb_p_name, shopb_p_qant, shopb_p_price, shopb_u_id) VALUES (?,now(),?,?,?,?,?)";
+		sql = "insert into shop_buy_list (shopb_no, shopb_date, shopb_p_no, shopb_p_name, shopb_p_qant, shopb_p_price, shopb_u_id, shopb_pay) VALUES (?,now(),?,?,?,?,?, 1)";
 		try {
 				pstmt = con.prepareStatement(sql);
 			
@@ -859,4 +863,162 @@ public class Shop_DAO {
 
 	}
 
+
+	// 배송지 입력
+	public void shop_in_pay(String ord_code,String name,String addr,String call) {
+		PreparedStatement pstmt = null;
+		String sql = "";
+
+		sql = "UPDATE shop_buy_list SET shopb_u_name = ?, shopb_u_address = ?, shopb_u_call = ?, shopb_pay = 0 WHERE shopb_no LIKE ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, addr);
+			pstmt.setString(3, call);
+			pstmt.setString(4, ord_code);
+			pstmt.executeUpdate();
+				
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			close(pstmt);
+		}
+
+
+	}
+	
+	// 상품 남은 수량 확인
+	public HashMap<String, Integer> reQ(ArrayList<Shop_prd> alsp) {
+		PreparedStatement pstmt = null;
+		String sql = "";
+		ResultSet rs = null;
+		HashMap<String, Integer> req = new HashMap<String, Integer>();
+		sql = "select prd_qant from shop_product where prd_no like ?";
+		try {
+			for(int i = 0 ; i< alsp.size(); i++) {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, alsp.get(i).getPrd_no());
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					req.put(alsp.get(i).getPrd_no(), rs.getInt("prd_qant"));
+				}
+			}
+				
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			close(pstmt);
+		}
+
+		return req;
+
+	}
+
+
+	// 상품수량감소
+	public void shop_prdM(ArrayList<Shop_prd> alsp, HashMap<String, Integer> reQ) {
+		PreparedStatement pstmt = null;
+		String sql = "";
+
+		sql = "update shop_product set prd_qant = ? where prd_no like ?";
+		try {
+			for(int i = 0 ; i< alsp.size(); i++) {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, (reQ.get(alsp.get(i).getPrd_no())-alsp.get(i).getPrd_qant()));
+				pstmt.setString(2, alsp.get(i).getPrd_no());
+				pstmt.executeUpdate();
+			}	
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			close(pstmt);
+		}
+
+
+	}
+	
+	//구매내역 shopb_pay =1 필드 삭제
+	public void del_buy1(String id) {
+		PreparedStatement pstmt = null;
+		String sql = "";
+		sql = "delete from shop_buy_list where shopb_u_id like ? and shopb_pay = 1;";	try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			close(pstmt);
+		}
+	}
+	
+	//장바구니에서 구매한 품목만 삭제
+	public void del_cart(ArrayList<Shop_prd> alsp, String id) {
+		PreparedStatement pstmt = null;
+		String sql = "";
+		sql = "delete from shop_back where sb_prd like ? and sb_buy_id like ?";
+		try {
+			for(int i = 0 ; i < alsp.size() ; i++) {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, alsp.get(i).getPrd_no());
+			pstmt.setString(2, id);
+			pstmt.executeUpdate();
+			}
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			close(pstmt);
+		}
+	}
+
+
+	// 캐시감소
+	public void shop_caM(String id, String reC) {
+		PreparedStatement pstmt = null;
+		String sql = "";
+		int reCa = Integer.parseInt(reC);
+
+		sql = "update user set user_cash = ? where user_id like ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, reCa);
+			pstmt.setString(2, id);
+			pstmt.executeUpdate();
+		} catch (Exception ex) {
+			System.out.println(ex);
+		} finally {
+			close(pstmt);
+		}
+
+
+	}
+
+
+//	// 주문번호
+//	public String order_num(String id) {
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		String sql = "";
+//		String odnum ="";
+//
+//		sql = "select DISTINCT shopb_no from shop_buy_list where shopb_no like (select max(shopb_no) from shop_buy_list where shopb_u_id like ?);";
+//		try {
+//				pstmt = con.prepareStatement(sql);
+//				pstmt.setString(1, id);
+//				rs = pstmt.executeQuery();
+//				
+//				if(rs.next()) {
+//					odnum = rs.getString("shopb_no");
+//				}
+//				
+//		} catch (Exception ex) {
+//			System.out.println(ex);
+//		} finally {
+//			close(pstmt);
+//		}
+//
+//		return odnum;
+//	}
+	
 }

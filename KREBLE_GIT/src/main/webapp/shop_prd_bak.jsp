@@ -61,7 +61,7 @@
   
 	<section>
 		<div id="section_wrap">
-			<form action="shop_buy_list.sp" method = "post">
+			<form action="shop_buy_list.sp" method = "post" onsubmit="return cb_click()">
 				<article id="sb_art_no1"><!-- 장바구니 타이틀 / 결제진행상황 -->
 					<div><!-- 아래 div들 묶는용도 및 크기 -->
 						<div class ="no1_left">
@@ -105,6 +105,8 @@
 					    	String im_path = etc.img_link(prd_no);
 					%>
 					    <tr id="sdfd<%=i%>"><!-- 체크박스/이미지/상품이름(수량)/총합/배송비 -->
+					    
+					    	<!-- checkbox value 값으로 일련번호 / 상품명 / 가격/ 수량 / 수량x가격 / 색상 정보 전부 넘김 -->
 					        <td class="td_cen"><input type="checkbox" id="ckb_id<%=i%>" name="prd_ck" value="<%=prd_no%>/<%=prd_name%>/<%=prd_price%>/<%=prd_qant%>/<%=prd_price*prd_qant%>/<%=prd_color%>" class="ck_cked"></td>
 					        <td class="td_cen"><img src ="<%=im_path%><%=prd_no%>.jpg" alt="no_image" onerror="this.src='image/no_image.PNG'"></td>
 					        <td class="p_left_30"><!-- 상품이름/색상/도착일/수량 -->
@@ -135,11 +137,17 @@
 					        	</div>
 					        </td>
 							<td class="td_cen">
-										<input type="number" class="prd_qant" name="sb_qant<%=i %>" value="<%=articleList.get(i).getPrd_qant()%>" min="1" max="<%=articleList.get(i).getPrd_total()%>">
+							<%
+							if(articleList.get(i).getPrd_qant() != 0 ){
+							%>
+										<input type="number" class="prd_qant" name="sb_qant" value="<%=articleList.get(i).getPrd_qant()%>" min="1" max="<%=articleList.get(i).getPrd_total()%>">
 										<input type="hidden" value="<%=articleList.get(i).getPrd_no()%>" name="prd_no<%=i%>">
 										<input type="button" value ="수량변경" name="<%=i%>" class="prd_button">
 										<input type="hidden" value="<%=id%>" name="id">
 										<input type="hidden" value="<%=articleList.get(i).getPrd_total()%>" name="max_qant"><!--  total => 최대수량 -->
+							<%}else{%>
+										<input tepe="text" value="품절입니다">
+							<%}%>
 					        </td>
 					        <td class="td_cen">
 								<%//상품 수량*금액 합 / 총합

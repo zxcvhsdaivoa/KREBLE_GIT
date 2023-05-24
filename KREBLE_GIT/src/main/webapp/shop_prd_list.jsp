@@ -137,7 +137,16 @@ function alert_cart(){
 						<!--사진 -->
 						<td rowspan="4"><img class = "aa" onerror="this.src='image/no_image.PNG'" src="<%=impath+aa%>.jpg"></td>
 						<!-- 가격 -->
-						<td colspan="3"><p>가격 : </p><a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=<%=nowPage%>"><input type="text" value="&#128178;<%=articleList.get(i).getPrd_price() %>" class="prd_priceC"  readonly name = "prd_price"></a></td>
+						<td colspan="3">
+						<% if(articleList.get(i).getPrd_qant() != 0){ %>
+						<p>가격 : </p><a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=<%=nowPage%>"><input type="text" value="&#128178;<%=articleList.get(i).getPrd_price() %>" class="prd_priceC"  readonly name = "prd_price"></a>
+						
+						<%}else{ %>
+						<p class = "soldO"> 품절</p>
+						
+						<%} %>
+						
+						</td>
 						
 						<!-- 등록일/(히든)현재페이지 -->
 						<td><p>등록일 : </p><a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=<%=nowPage%>"><input type="text" value="<%=articleList.get(i).getPrd_date() %>" class="s_id" readonly><input type="hidden" value="<%=nowPage %>" name="page"></a></td>
