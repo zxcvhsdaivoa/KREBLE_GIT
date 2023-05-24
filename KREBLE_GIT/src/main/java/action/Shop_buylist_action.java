@@ -19,11 +19,9 @@ public class Shop_buylist_action implements Action {
 		ArrayList<Shop_prd> req = new ArrayList<Shop_prd>();
 		
 		String id = (String) session.getAttribute("ID");
-		System.out.println(id+"==============aciotn id");
 		Shop_buylist_service sbs = new Shop_buylist_service();
 		req = sbs.shop_buylistD(id);
 
-		System.out.println(req.get(0).getPrd_no()+"====================action getprd_no");
 		request.setAttribute("articleList", req);
 		
 		forward.setPath("/shop_com_pay.jsp");

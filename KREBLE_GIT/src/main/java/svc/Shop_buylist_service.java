@@ -20,9 +20,7 @@ public class Shop_buylist_service {
 	//구매내역 불러오기
 	public ArrayList<Shop_prd> shop_buylistD(String id) throws Exception {
 		ArrayList<Shop_prd> req = new ArrayList<Shop_prd>();
-		System.out.println(id+"============service id");
 		req = shopDAO.shop_buylistD(id);
-		System.out.println(req.get(0).getPrd_no()+"====================service getprd_no");
 		
 		commit(con);
 		close(con);

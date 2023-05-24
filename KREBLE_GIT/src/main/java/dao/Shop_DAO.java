@@ -998,17 +998,17 @@ public class Shop_DAO {
 	//구매내역
 	public ArrayList<Shop_prd> shop_buylistD(String id) {
 		PreparedStatement pstmt = null;
-		String sql = "";
 		ResultSet rs = null;
-		Shop_prd re = new Shop_prd();
+		String sql = "";
 		ArrayList<Shop_prd> req = new ArrayList<Shop_prd>();
 		sql = "SELECT * FROM shop_buy_list where shopb_u_id like ? ORDER BY shopb_no DESC, shopb_date DESC;";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
+				Shop_prd re = new Shop_prd();
 				re.setPrd_odnum(rs.getString("shopb_no")); //주문번호
 				re.setPrd_date(rs.getString("shopb_date"));//주문일
 				re.setPrd_name(rs.getString("shopb_p_name")); //상품명
