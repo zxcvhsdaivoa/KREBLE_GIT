@@ -3,9 +3,36 @@ package use_data;
 public class Shop_prd {
 
 	String prd_no, prd_cata, prd_id, prd_meter, prd_note, prd_size, prd_color, prd_date, prd_create, prd_qaul, prd_as,
-			prd_img, prd_content, prd_name, prd_re_ti, prd_re_id, prd_re_text, prd_re_no;
-	int prd_price, prd_qant, prd_re_num, prd_re_sc, prd_total;
+			prd_img, prd_content, prd_name, prd_re_ti, prd_re_id, prd_re_text, prd_re_no, prd_odnum, prd_addr;
 
+
+	int prd_price, prd_qant, prd_re_num, prd_re_sc, prd_total;
+	
+	
+	
+	public String getPrd_addr() {
+		return prd_addr;
+	}
+
+	public void setPrd_addr(String prd_addr) {
+		this.prd_addr = prd_addr;
+	}
+
+	public String getPrd_re_ti() {
+		return prd_re_ti;
+	}
+
+	public void setPrd_re_ti(String prd_re_ti) {
+		this.prd_re_ti = prd_re_ti;
+	}
+
+	public String getPrd_odnum() {
+		return prd_odnum;
+	}
+
+	public void setPrd_odnum(String prd_odnum) {
+		this.prd_odnum = prd_odnum;
+	}
 	public String getPrd_no() {
 		return prd_no;
 	}

@@ -13,6 +13,7 @@ import action.Shop_Prd_delete_action;
 import action.Shop_Prd_like_ck;
 import action.Shop_back_qa_updat_action;
 import action.Shop_buy_action;
+import action.Shop_buylist_action;
 import action.Shop_calist_action;
 import action.Shop_detail_action;
 import action.Shop_list_action;
@@ -132,14 +133,12 @@ public class Shop_controller extends javax.servlet.http.HttpServlet {
 		
 		// 구매내역
 		else if (command.equals("/shop_com_buylist.sp")) {
-//			action = new Shop_payment();
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-			forward = new ActionForward();
-			forward.setPath("/shop_com_pay.jsp");
+			action = new Shop_buylist_action();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 		}
 		// 주문제작

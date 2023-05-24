@@ -40,32 +40,43 @@
 	<jsp:include page="Header_baseform.jsp"/>
 	<section>
 		<div id="section_wrap">
-			<form action="shop_buy_list.sp" method = "post" onsubmit="return cb_click()">
-				<article id="sb_art_no1"><!-- 장바구니 타이틀 / 결제진행상황 -->
-					<div><!-- 아래 div들 묶는용도 및 크기 -->
-						<div class ="no1_left">
-						<img src ="image/shopimg/cart.png"> 장바구니
-						</div><!-- 장바구니 타이틀 -->
-						<div class ="no1_right"><span>01 장바구니 </span> -> 02 주문/결제 -> 03 주문완료</div><!-- 결제진행현황 -->
+			<article id="sb_art_no1"><!-- 구매내역 타이틀-->
+				<div class = "no1_div"><!-- 아래 div들 묶는용도 및 크기 -->
+					<div>구매내역</div>
+				</div>
+			</article>
+			<article id="sb_art_no2"><!-- 배송상황 -->
+				<div class = "no2_flex">
+					<div>전체
 					</div>
-				</article>
-				<article id="sb_art_no2"><!-- 일반구매 라벨 -->
-					<div>
-						<div class="no2_left">일반구매(<%=articleList.size()%>)
-						</div>
-						<div class="no2_right">
-						</div>
+					<div>배송중
 					</div>
-				</article>
-				<article id="sb_art_no3"><!-- 장바구니리스트Table -->
-				</article>
-				<article id="sb_art_no4"><!-- 전체선택/전체삭제 -->
-				</article>
-				<article id="sb_art_no5"><!-- 총 결제금액 -->
-				</article>
-				<article id="sb_art_no6"><!-- 쇼핑홈/구매하기버튼 -->
-				</article>
-			</form>
+					<div>배송완료
+					</div>
+				</div>
+			</article>
+			<article id="sb_art_no3"><!-- 구매내역리스트Table -->
+			<%
+				for(int i = 0; i < articleList.size(); i++){
+			%>
+					<%=articleList.get(i).getPrd_no()%>
+					<%=articleList.get(i).getPrd_name()%>
+					<%=articleList.get(i).getPrd_date()%>
+					<%=articleList.get(i).getPrd_addr()%>
+					<%=articleList.get(i).getPrd_price()%>
+			<%	
+				}
+			%>
+			
+			
+			</article>
+			<article id="sb_art_no4"><!-- 크래블홈 / 쇼핑하러가기 버튼 -->
+				<div class="no4_flex">
+					<form>
+						<a href="#sb_art_no1"><INPUT TYPE="BUTTON" VALUE="TOP"></a>
+					</form>
+				</div>
+			</article>
 		</div>
 	</section>
 	

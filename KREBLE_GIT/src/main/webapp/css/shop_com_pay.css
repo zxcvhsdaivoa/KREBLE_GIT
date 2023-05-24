@@ -1,0 +1,134 @@
+ @font-face {
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-family: 'Hahmlet-Regular';
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{	
+    font-family: 'Hahmlet-Regular';
+    font-weight: normal;
+    font-style: normal;
+}
+
+section{
+	width: 100%;
+	height: auto;
+	min-height : 790px; 
+}
+section > div{
+	width: 990px;
+	margin: 0 auto;
+	background-color: #f0f0f0;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+table{
+	border-collapse: collapse;
+}
+td{
+	height: 100px;
+}
+
+
+#sb_art_no1{
+	margin-top: 40px;
+	padding-top: 15px;
+	background-color: white;
+	min-height : 85px;
+}
+
+#sb_art_no1 > div{
+	width: 950px;
+	margin: 0 auto;
+	position: relative;
+}
+
+
+#sb_art_no1 .no1_div{
+	width: 100%;
+	height: 70px;
+	position: relative;
+}
+
+#sb_art_no1 .no1_div > div{
+    font-family: 'TheJamsil5Bold';
+    font-weight: 700;
+    font-style: normal;
+	font-size: 30px;
+	text-align: center;
+	line-height: 60px;
+	position: absolute;
+	bottom: 0;
+	left: 75px;
+	width: 195px;
+	height: 50px;
+	background-color: rgb(40, 109, 180);
+	color: white;
+	border-radius: 15px 15px 0 0;
+}
+
+#sb_art_no2{
+	clear:both;
+	width: 100%;
+	height: 60px;
+	background-color: white;
+}
+
+
+#sb_art_no2 > .no2_flex{
+	width: 930px;
+	height: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0 auto;
+	border-top: 2px solid;
+}
+
+#sb_art_no2 > .no2_flex > div{
+	width : 310px;
+	height: 100%;
+	text-align: center;
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 80px;
+}
+
+#sb_art_no2 > .no2_flex > div:hover{
+	background-color: #000;
+	color: white;
+}
+
+#sb_art_no4{
+	clear:both;
+	width: 100%;
+	height: 40px;
+}
+
+#sb_art_no4 > .no4_flex{
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+
+#sb_art_no4 > .no4_flex input{
+	width: 80px;
+	height: 40px;
+	margin-right : 10px;
+	
+}
