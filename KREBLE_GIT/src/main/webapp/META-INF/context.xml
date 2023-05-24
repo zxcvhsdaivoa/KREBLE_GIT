@@ -3,10 +3,10 @@
 		name="jdbc/Mysql2"
 		auth="Container"
 		type="javax.sql.DataSource"
-		username="root"
-		password="tmd514107"
-		driverClassName="com.mysql.jdbc.Driver"
+		username="kreble"
+		password="kreble"
+		driverClassName="com.mysql.cj.jdbc.Driver"
 		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-		url="jdbc:mysql://localhost:3306/kreble?serverTimezone=UTC"
-		maxActive="500"/>
+		url="jdbc:mysql://52.78.61.168:3306/kreble?serverTimezone=UTC"
+		maxActive="500"/> 
 </Context>
