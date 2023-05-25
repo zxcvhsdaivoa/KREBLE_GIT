@@ -88,7 +88,7 @@
 						<div id="info_box">
 							<h3 class="box_text">신청정보</h3>
 						</div>
-						<div class="box_inner2">
+						<div class="box_inner2"> <!-- js를 통해 field_rent_time.jsp에서 값을 ajax를 이용해 가져옴 -->
 							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
 							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>
 							<input type="radio" name="rent_time" value="" data-price=""><span></span><br>

@@ -37,6 +37,7 @@ public class Field_rent_insr_action implements Action {
 		
 		int i=0;
 		int time = Integer.parseInt(rent_insr.getRent_date().substring(11,13));
+		// 문자 11부터 13 이전까지의 부분 문자열을 추출
 		if(time==9) {
 			i=1;
 		}else if(time==11) {
@@ -52,10 +53,10 @@ public class Field_rent_insr_action implements Action {
 		Field_rent_findinfo_Service frfs= new Field_rent_findinfo_Service();
 		int is=frfs.fint_info(rent_insr);
 		
-		if(is==1) {
+		if(is==1) { // 구장 예약된 데이터 정보가 값 업데이트
 			Field_update_rentinfo_Service furs = new Field_update_rentinfo_Service();
 			success2=furs.update_rentinfo(i, rent_insr);
-		}else {
+		}else { // 없으면 인서트
 			Field_insert_rentinfo_Service firs = new Field_insert_rentinfo_Service();
 			success2=firs.insert_rentinfo(i, rent_insr);
 		}

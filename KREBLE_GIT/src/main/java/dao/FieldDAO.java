@@ -120,7 +120,7 @@ public class FieldDAO {
 		return cate_list;
 	}
 	
-	//예약 마감된 날짜
+	//예약 마감된 날짜 찾기
 	public List<Integer> field_deadline(String loca,int month) throws Exception {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;		
@@ -312,7 +312,7 @@ public class FieldDAO {
 
 	}
 	
-	//예약 인서트
+	//예약 현황 인서트
 	public int rent_insert(Rent_situation situa)  {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

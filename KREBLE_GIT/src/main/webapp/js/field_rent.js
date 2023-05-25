@@ -53,6 +53,7 @@ $(function(){
                 alert(e.responseText); 
             }
 		});
+		// 문자열을 해당 /을 기준으로 분할
 		deadline = deadlines.split("/");
 	  	var date = new Date(2023, month-1, 1); // (2023, month-1, 1) == (년도,월,일)
 	  	// 선택한 월의 첫 날짜, 0은 1월을 나타내고, 11은 12월을 나타내므로 month에 -1을 한 것. 
@@ -122,7 +123,7 @@ $(function(){
 	   		calendar.style.display = "block";
 	 	}
 	  
-	  	// 선택한 날짜 호버
+	  	// 가능 날짜 클릭 이벤트
 		$(".day2 td:has(p.possible)").click(function() {
 			$(".day2 td").removeClass("on");
 			$(this).addClass("on");
@@ -140,31 +141,34 @@ $(function(){
 	                alert(e.responseText); 
 	            }
 			});
+			// 문자열을 해당 /을 기준으로 분할
 			renttime= renttimedata.split("/");
 			
-			// 예약 타임 마감 기능
+			// 구장 별 파트 예약 시간,가격 출력
 			for(z=0; z<renttime.length-1; z++){
 				$(".box_inner2 > input[name='rent_time']").prop('checked',false);
 				$(".box_inner2 > span:eq("+z+")").text(renttime[z]);
 				
 				if(renttime[z]=="마감"){ // 마감일때 disabled로 선택 불가능
 					$(".box_inner2 > input[name='rent_time']:eq("+z+")").attr('disabled',true)
+					// :eq= 선택한 요소들 중에서 특정 인덱스의 요소를 선택 ex__ eq(1)=요소 중에서 1번째 요소
 				}else {
 					$(".box_inner2 > input[name='rent_time']:eq("+z+")").attr('disabled',false);
-					$(".box_inner2 > input[name='rent_time']:eq("+z+")").attr('data-price',renttime[z].substr(24).trim());
-					$(".box_inner2 > input[name='rent_time']:eq("+z+")").val(renttime[z].substr(0,3))
+					$(".box_inner2 > input[name='rent_time']:eq("+z+")").attr('data-price',renttime[z].substr(24).trim()); // 해당 문자열에서 가격을 추출
+					$(".box_inner2 > input[name='rent_time']:eq("+z+")").val(renttime[z].substr(0,3)) // 해당 문제열에서 시간을 추출 ex) 09시
 				}
 			}
 			$(".hide_box2").addClass("show");
  		});
  		
+ 		// 예악 마감 클릭했을 때 버튼들 hide
  		$(".day2 td:has(p.impossible)").click(function() {
 			$(".day2 td").removeClass("on");
 			$(".hide_box2").removeClass("show");
 		});
 	});	
 	
-	
+	// radio(예약 파트) 클릭했을 때 해당 가격으로 바꾸기 
 	$("input[name='rent_time']").click(function(){
 		var price = $(this).attr('data-price');
 		$("input[name=rent_price]").val(price.replace("원",""))
