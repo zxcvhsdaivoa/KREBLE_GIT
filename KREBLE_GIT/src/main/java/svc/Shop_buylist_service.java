@@ -18,9 +18,9 @@ public class Shop_buylist_service {
 	
 	
 	//구매내역 불러오기
-	public ArrayList<Shop_prd> shop_buylistD(String id) throws Exception {
+	public ArrayList<Shop_prd> shop_buylistD(String id, int page) throws Exception {
 		ArrayList<Shop_prd> req = new ArrayList<Shop_prd>();
-		req = shopDAO.shop_buylistD(id);
+		req = shopDAO.shop_buylistD(id, page);
 		
 		commit(con);
 		close(con);
