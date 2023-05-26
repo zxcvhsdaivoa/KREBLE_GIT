@@ -1,5 +1,92 @@
 $(document).ready(function(){
 	
+	var imgElement = document.getElementById("sold_del");
+
+	imgElement.addEventListener("mouseenter", function() {
+	  imgElement.src = "image/gerbage1.png";
+	});
+	
+	imgElement.addEventListener("mouseout", function() {
+	  imgElement.src = "image/gerbage2.png";
+	});
+	
+	
+	
+	//품절상품 삭제
+	$('#sold_del').click(function(){
+		var prd_no = $(this).prev().val();
+		var id = $(this).next().val();
+		 $.ajax({
+				url: 'shop_bak_one_delete.sp',
+				type: 'POST',
+				async: false,
+				data: { code: prd_no, ID: id },
+				success: function(response) {
+				   re = response.trim();
+				},
+				error: function(error) {
+					alert(error);
+				}
+				});
+				if(re == "true"){
+					alert("선택상품이 삭제되었습니다");
+					location.reload();
+				}else{
+					alert("오류. 관리자에게 문의하세요");
+				}
+	})
+		
+	
+	
+	//선택상품 단일상제
+		$('#select_del').click(function() {
+		  var list = document.getElementsByName("prd_ck");
+		  var id = document.getElementById("ID").value;
+		  var cnt=0;
+		  var del_ls = [];
+		  var del_list ="";
+		  var re="";
+		    for (var i = 0; i < list.length; i++) {
+		      if ($(list[i]).is(":checked")) {
+				  var value = list[i].value;
+				  var sp = value.split("/");
+				  var code = sp[0];
+				  del_ls.push(code);
+				  cnt++;
+		      }
+		    }
+		    for(var i = 0; i<del_ls.length; i++){
+				if(i==0){
+				del_list = del_ls[0]
+				}else{
+				del_list = del_list+"/"+del_ls[i];
+				}
+			}
+		    if(cnt<1){
+				alert("선택된 상품이 없습니다.");
+			}else{
+			    $.ajax({
+				url: 'shop_bak_one_delete.sp',
+				type: 'POST',
+				async: false,
+				data: { code: del_list, ID: id },
+				success: function(response) {
+				   re = response.trim();
+				},
+				error: function(error) {
+					alert(error);
+				}
+				});
+				if(re == "true"){
+					alert("선택상품이 삭제되었습니다");
+					location.reload();
+				}else{
+					alert("오류. 관리자에게 문의하세요");
+				}
+		    }
+		});
+	
+	
 	//상품 합계 + 배송비 = 총 구매금액
 	$("input[type=checkbox]").on("change", function() {
 		var totalVar = parseInt(document.getElementById("prd_tot").innerText);

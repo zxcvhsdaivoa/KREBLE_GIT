@@ -699,16 +699,17 @@ public class Shop_DAO {
 	}
 
 	// 장바구니 단일삭제
-	public int deleteBackArticle(String p_no, String b_id) {
+	public int deleteBackArticle(String [] p_no, String b_id) {
 		PreparedStatement pstmt = null;
 		int insertCount = 0;
-
 		String sql = "delete from shop_back where sb_prd=? and sb_buy_id=?";
 		try {
+			for(int i = 0 ; i<p_no.length; i++) {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, p_no);
+			pstmt.setString(1, p_no[i]);
 			pstmt.setString(2, b_id);
 			insertCount = pstmt.executeUpdate();
+			}
 
 		} catch (Exception ex) {
 			System.out.println(ex);
@@ -793,13 +794,11 @@ public class Shop_DAO {
 		return insertCount;
 
 	}
-	
 	//주문번호 코드생성
 	public String mk_code() {
 		String code ="";
 		PreparedStatement pstmt = null;
 		ResultSet rs11 = null;
-		//오늘날자를 000000 형식으로 저장
         LocalDate today = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
         String formattedDate = today.format(formatter).trim();

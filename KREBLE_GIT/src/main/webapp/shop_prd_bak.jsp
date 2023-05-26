@@ -107,7 +107,13 @@
 					    <tr id="sdfd<%=i%>"><!-- 체크박스/이미지/상품이름(수량)/총합/배송비 -->
 					    
 					    	<!-- checkbox value 값으로 일련번호 / 상품명 / 가격/ 수량 / 수량x가격 / 색상 정보 전부 넘김 -->
-					        <td class="td_cen"><input type="checkbox" id="ckb_id<%=i%>" name="prd_ck" value="<%=prd_no%>/<%=prd_name%>/<%=prd_price%>/<%=prd_qant%>/<%=prd_price*prd_qant%>/<%=prd_color%>" class="ck_cked"></td>
+					        <td class="td_cen">
+					        <%if(articleList.get(i).getPrd_total() != 0){%>
+					        <input type="checkbox" id="ckb_id<%=i%>" name="prd_ck" value="<%=prd_no%>/<%=prd_name%>/<%=prd_price%>/<%=prd_qant%>/<%=prd_price*prd_qant%>/<%=prd_color%>" class="ck_cked">
+					        <%}else{%>
+					       	<input type="hidden" value="<%=prd_no%>"><img src="image/gerbage2.png" id ="sold_del" class="sold_del"><input type="hidden" value="<%=id%>">
+					        <%} %>
+					        </td>
 					        <td class="td_cen"><img src ="<%=im_path%><%=prd_no%>.jpg" alt="no_image" onerror="this.src='image/no_image.PNG'"></td>
 					        <td class="p_left_30"><!-- 상품이름/색상/도착일/수량 -->
 					        	<div class = "no3_td_d1"><span class="f_bold"><%=prd_name%></span>, &emsp; <%=prd_color%></div>
@@ -137,17 +143,16 @@
 					        	</div>
 					        </td>
 							<td class="td_cen">
-							<%
-							if(articleList.get(i).getPrd_qant() != 0 ){
+							<%if(articleList.get(i).getPrd_total() != 0){
 							%>
 										<input type="number" class="prd_qant" name="sb_qant" value="<%=articleList.get(i).getPrd_qant()%>" min="1" max="<%=articleList.get(i).getPrd_total()%>">
 										<input type="hidden" value="<%=articleList.get(i).getPrd_no()%>" name="prd_no<%=i%>">
 										<input type="button" value ="수량변경" name="<%=i%>" class="prd_button">
-										<input type="hidden" value="<%=id%>" name="id">
+										<input type="hidden" value="<%=id%>" name="id" id="ID">
 										<input type="hidden" value="<%=articleList.get(i).getPrd_total()%>" name="max_qant"><!--  total => 최대수량 -->
-							<%}else{%>
-										<input tepe="text" value="품절입니다">
-							<%}%>
+							<%}else{ %>
+										<input type="text" value="품절" class="soldO" readonly>
+							<%} %>
 					        </td>
 					        <td class="td_cen">
 								<%//상품 수량*금액 합 / 총합
@@ -165,7 +170,7 @@
 				<article id="sb_art_no4"><!-- 전체선택/전체삭제 -->
 					<div>
 						<a href="sb_back_clear.sp?b_id=<%=id%>"><input type="button" name="no4_del" value="전체삭제"></a>
-						<input type="button" name="no4_del" value="선택상품 삭제">
+						<input type="button" id="select_del" name="no4_del" value="선택상품 삭제">
 					</div>
 				</article>
 				<article id="sb_art_no5"><!-- 총 결제금액 -->

@@ -65,44 +65,136 @@
 			<%}else{ %>
 			
 			<article id="sb_art_no3"><!-- 구매내역리스트Table -->
+			<div>
 			<table>
 			<%
 				for(int i = 0; i < articleList.size(); i++){
 				String impt = etc.img_link(articleList.get(i).getPrd_no());
 			%>
 				<%if(i==0){%><!-- 첫행 -->
+				<colgroup>
+					<col style="width: 100px;">
+					<col style="width: 180px;">
+					<col style="width: 100px;">
+					<col style="width: 100px;">
+					<col style="width: 450px;">
+				</colgroup>
 					<tr>
 						<th>주문번호</th>
-						<th>주문일자</th>
-						<th>상품사진</th>
-						<th>상품명</th>
-						<th>수량</th>
-						<th>가격</th>
-						<th>배송지</th>
+						<th colspan="4"><%=articleList.get(i).getPrd_odnum()%></th>
 					</tr>
 					<tr>
-						<td><%=articleList.get(i).getPrd_odnum()%></td>
-						<td><%=articleList.get(i).getPrd_date()%></td>
-						<td><img onerror="this.src='image/no_image.PNG'" src="<%=impt + articleList.get(i).getPrd_no()%>.jpg"></td>
-						<td><%=articleList.get(i).getPrd_name()%></td>
+						<th rowspan="2">상품사진</th>
+						<th rowspan="2">주문일자</th>
+						<th colspan="2">상품명</th>
+						<th rowspan="2">배송지</th>
+					</tr>
+					<tr>
+						<th>수량</th>
+						<th>가격</th>
+					</tr>
+					<tr>
+						<td rowspan="2"><img onerror="this.src='image/no_image.PNG'" src="<%=impt + articleList.get(i).getPrd_no()%>.jpg"></td>
+						<td rowspan="2"><%=articleList.get(i).getPrd_date()%></td>
+						<td colspan="2"><%=articleList.get(i).getPrd_name()%></td>
+						<td rowspan="2"><%=articleList.get(i).getPrd_addr()%></td>
+					</tr>
+					<tr>
 						<td><%=articleList.get(i).getPrd_qant()%></td>
 						<td><%=articleList.get(i).getPrd_price()%></td>
-						<td><%=articleList.get(i).getPrd_addr()%></td>
 					</tr>
-				<%}else if(i==1){%><!-- 주문번호 동일 / 마지막아님 -->
-				<%}else if(i==2){%><!-- 주문번호 다름 / 마지막아님 -->
-				<!-- 테이블 닫고 열고 -->
-				<%}else if(i==3){ %><!-- 마지막 -->
-				<!-- 테이블 닫고 -->
+					
+					<!-- 주문번호 동일 / 마지막아님 -->
+				<%}else if(articleList.get(i).getPrd_odnum().equals(articleList.get(i-1).getPrd_odnum())){%>
+					<tr>
+						<td rowspan="2"><img onerror="this.src='image/no_image.PNG'" src="<%=impt + articleList.get(i).getPrd_no()%>.jpg"></td>
+						<td rowspan="2"><%=articleList.get(i).getPrd_date()%></td>
+						<td colspan="2"><%=articleList.get(i).getPrd_name()%></td>
+						<td rowspan="2"><%=articleList.get(i).getPrd_addr()%></td>
+					</tr>
+					<tr>
+						<td><%=articleList.get(i).getPrd_qant()%></td>
+						<td><%=articleList.get(i).getPrd_price()%></td>
+					</tr>
+					
+					<!-- 주문번호 다름 / 마지막아님 -->
+				<%}else if(!articleList.get(i).getPrd_odnum().equals(articleList.get(i-1).getPrd_odnum())){%>
+				</table>
+				<table>
+					<colgroup>
+						<col style="width: 100px;">
+						<col style="width: 180px;">
+						<col style="width: 100px;">
+						<col style="width: 100px;">
+						<col style="width: 450px;">
+					</colgroup>
+					<tr>
+						<th>주문번호</th>
+						<th colspan="4"><%=articleList.get(i).getPrd_odnum()%></th>
+					</tr>
+					<tr>
+						<th rowspan="2">상품사진</th>
+						<th rowspan="2">주문일자</th>
+						<th colspan="2">상품명</th>
+						<th rowspan="2">배송지</th>
+					</tr>
+					<tr>
+						<th>수량</th>
+						<th>가격</th>
+					</tr>
+					<tr>
+						<td rowspan="2"><img onerror="this.src='image/no_image.PNG'" src="<%=impt + articleList.get(i).getPrd_no()%>.jpg"></td>
+						<td rowspan="2"><%=articleList.get(i).getPrd_date()%></td>
+						<td colspan="2"><%=articleList.get(i).getPrd_name()%></td>
+						<td rowspan="2"><%=articleList.get(i).getPrd_addr()%></td>
+					</tr>
+					<tr>
+						<td><%=articleList.get(i).getPrd_qant()%></td>
+						<td><%=articleList.get(i).getPrd_price()%></td>
+					</tr>
+					
+					<!-- 주문번호가 다르며 마지막 -->
+				<%}else if(i==(articleList.size()-1) && !articleList.get(i).getPrd_odnum().equals(articleList.get(i-1).getPrd_odnum())){ %>
+				</table>
+				<table>
+					<colgroup>
+						<col style="width: 100px;">
+						<col style="width: 180px;">
+						<col style="width: 100px;">
+						<col style="width: 100px;">
+						<col style="width: 450px;">
+					</colgroup>
+					<tr>
+						<th>주문번호</th>
+						<th colspan="4"><%=articleList.get(i).getPrd_odnum()%></th>
+					</tr>
+					<tr>
+						<th rowspan="2">상품사진</th>
+						<th rowspan="2">주문일자</th>
+						<th colspan="2">상품명</th>
+						<th rowspan="2">배송지</th>
+					</tr>
+					<tr>
+						<th>수량</th>
+						<th>가격</th>
+					</tr>
+					<tr>
+						<td rowspan="2"><img onerror="this.src='image/no_image.PNG'" src="<%=impt + articleList.get(i).getPrd_no()%>.jpg"></td>
+						<td rowspan="2"><%=articleList.get(i).getPrd_date()%></td>
+						<td colspan="2"><%=articleList.get(i).getPrd_name()%></td>
+						<td rowspan="2"><%=articleList.get(i).getPrd_addr()%></td>
+					</tr>
+					<tr>
+						<td><%=articleList.get(i).getPrd_qant()%></td>
+						<td><%=articleList.get(i).getPrd_price()%></td>
+					</tr>
 				<%	
 						}
 					}
-				%>
-				</table>
-				<%
 				}
 				%>
-			
+				</table>
+			</div>
 			</article>
 			<article id="sb_art_no4"><!-- 크래블홈 / 쇼핑하러가기 버튼 -->
 				<div class="no4_flex">
@@ -116,7 +208,5 @@
 	
     <!-- footer -->
     <jsp:include page="Footer_baseform.jsp"/>
-	
-	<a href = "shop_back_page.sp">도착예정일</a>
 </body>
 </html>

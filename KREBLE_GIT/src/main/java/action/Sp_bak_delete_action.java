@@ -13,23 +13,17 @@ public class Sp_bak_delete_action implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		Sp_back_delete_service shopbackservice = new Sp_back_delete_service();
-		String nowPage = request.getParameter("page");
-		String prd_no = request.getParameter("prd_no");
-		String b_id = request.getParameter("b_id");
-		boolean isWriteSuccess = shopbackservice.sp_back_in_Article(prd_no, b_id);
+		String code = request.getParameter("code");
+		String [] del_list = code.split("/");
+		String b_id = request.getParameter("ID");
+		boolean isWriteSuccess = shopbackservice.sp_back_in_Article(del_list, b_id);
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 
-		if (!isWriteSuccess) {
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('fail')");
-			out.println("history.back();");
-			out.println("</script>");
+		if (isWriteSuccess) {
+			out.println("true");
 		} else {
-
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("shop_back_page.sp");
+			out.println("false");
 		}
 
 		return forward;
