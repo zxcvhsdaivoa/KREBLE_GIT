@@ -138,6 +138,6 @@
   </div>
   </section>
 
-	<!--<jsp:include page="Footer_baseform.jsp"/>-->
+<jsp:include page="Footer_baseform.jsp"/>
 </body>
 </html>

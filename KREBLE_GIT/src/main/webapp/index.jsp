@@ -50,23 +50,11 @@
     			<a href="#" class="link_button">정보소개 바로가기</a>
     		</div>
     		<div class="info_wrap">
-    			<div class="big_slick">
-    				<img src="image/bg_player/introduce1.jpg">
-    				<img src="image/bg_player/introduce2.jpg">
-    				<img src="image/bg_player/introduce11.jpg">
-    				<img src="image/bg_player/introduce13.jpg">
-    				<img src="image/bg_player/introduce15.jpg">
-    				<img src="image/bg_player/introduce16.jpg">
-    				<img src="image/bg_player/introduce19.jpg">
+    			<div class="big_slick slick_box">
+    				
     			</div>
-    			<div class="small_slick">
-    				<img src="image/bg_player/introduce1.jpg">
-    				<img src="image/bg_player/introduce2.jpg">
-    				<img src="image/bg_player/introduce11.jpg">
-    				<img src="image/bg_player/introduce13.jpg">
-    				<img src="image/bg_player/introduce15.jpg">
-    				<img src="image/bg_player/introduce16.jpg">
-    				<img src="image/bg_player/introduce19.jpg">
+    			<div class="small_slick slick_box">
+    				
     			</div>
     		</div>
     	</div>
