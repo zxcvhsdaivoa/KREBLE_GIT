@@ -1025,31 +1025,4 @@ public class Shop_DAO {
 
 		return req;
 	}
-
-//	// 주문번호
-//	public String order_num(String id) {
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		String sql = "";
-//		String odnum ="";
-//
-//		sql = "select DISTINCT shopb_no from shop_buy_list where shopb_no like (select max(shopb_no) from shop_buy_list where shopb_u_id like ?);";
-//		try {
-//				pstmt = con.prepareStatement(sql);
-//				pstmt.setString(1, id);
-//				rs = pstmt.executeQuery();
-//				
-//				if(rs.next()) {
-//					odnum = rs.getString("shopb_no");
-//				}
-//				
-//		} catch (Exception ex) {
-//			System.out.println(ex);
-//		} finally {
-//			close(pstmt);
-//		}
-//
-//		return odnum;
-//	}
-	
 }
