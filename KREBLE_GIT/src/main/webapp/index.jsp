@@ -50,10 +50,10 @@
     			<a href="#" class="link_button">정보소개 바로가기</a>
     		</div>
     		<div class="info_wrap">
-    			<div class="big_slick slick_box">
+    			<div class="even_slick slick_box">
     				
     			</div>
-    			<div class="small_slick slick_box">
+    			<div class="odd_slick slick_box">
     				
     			</div>
     		</div>

@@ -4,7 +4,7 @@ $(function(){
 	$.ajax({
 		type : "GET",
 		url : "https://api.odcloud.kr/api/15044128/v1/uddi:4e117440-ded5-42bd-9c58-a1e7c7a979d6",
-		data:{ page:12 , perPage:20, returnType:"JSON"},
+		data:{ page:8 , perPage:31, returnType:"JSON"},
 		async: false,
 		headers: {Authorization: "Infuser ZGbGzyKcYk1MaYGEUebqgNRVjNcdIkTzlxjud5/GgabCs+Qu0vt6ZNthZcdUeETuD244gPHIXIuoPQu8L0nF6g=="}
 	})
@@ -39,6 +39,12 @@ $(function(){
 			team1_eng="suwon"
 		}else if(match_team1=="대구"){
 			team1_eng="daegu"
+		}else if(match_team1=="광주"){
+			team1_eng="gwangju"
+		}else if(match_team1=="전북"){
+			team1_eng="jeonbuk"
+		}else if(match_team1=="성남"){
+			team1_eng="seongnam"
 		}
 		
 		
@@ -60,29 +66,34 @@ $(function(){
 			team2_eng="suwon"
 		}else if(match_team2=="대구"){
 			team2_eng="daegu"
+		}else if(match_team1=="광주"){
+			team1_eng="gwangju"
+		}else if(match_team1=="전북"){
+			team1_eng="jeonbuk"
+		}else if(match_team1=="성남"){
+			team1_eng="seongnam"
 		}
 		
-		$(".slick_box").append("<div class='match'><span class='left_box'><img src='image/team_logo/"+team2_eng+".jpg'>"+match_team2+"</span><span class='right_box'><img src='image/team_logo/"+team1_eng+".jpg'>"+match_team1+"</span><div><h4>"+match_title+"</h4><img src='image/VStext.png'><span class='match_time'>"+match_time+"</span><span class='match_place'>서울월드컵경기장</span></div></div>")
+		if(p%2==0){
+			$(".slick_box.even_slick").append("<div class='match'><span class='left_box'><img src='image/team_logo/"+team2_eng+".jpg'>"+match_team2+"</span><span class='right_box'><img src='image/team_logo/"+team1_eng+".jpg'>"+match_team1+"</span><div><h4>"+match_title+"</h4><img src='image/VStext.png'><span class='match_place'>서울월드컵경기장</span><span class='match_time'>"+match_time+"</span></div>")
+		}else if(p%2==1){
+			$(".slick_box.odd_slick").append("<div class='match'><span class='left_box'><img src='image/team_logo/"+team2_eng+".jpg'>"+match_team2+"</span><span class='right_box'><img src='image/team_logo/"+team1_eng+".jpg'>"+match_team1+"</span><div><h4>"+match_title+"</h4><img src='image/VStext.png'><span class='match_place'>서울월드컵경기장</span><span class='match_time'>"+match_time+"</span></div></div>")
+		}
 	}
 	
 	
 	
 	
 	
-	$('.big_slick').slick({
+	$('.slick_box').slick({
 	  slidesToShow: 1,
 	  slidesToScroll: 1,
-	  arrows: false
+	  arrows: false,
+	  autoplay:true,
+	  autoplaySpeed:5000,
+	  speed:1000
 	  //asNavFor: '.small_slick'
 	});
-//	$('.small_slick').slick({
-//	  slidesToShow: 3,
-//	  slidesToScroll: 1,
-//	  asNavFor: '.big_slick',
-//	  dots: true,
-//	  centerMode: true,
-//	  focusOnSelect: true
-//	});
 	$(".slickbox").slick({
 	  slidesToShow: 1,
 	  slidesToScroll: 1,

@@ -101,68 +101,60 @@ section {
 .info_wrap > div {
 	width:100%;
 }
-.info_wrap div.big_slick {
+.info_wrap div.slick_box {
 	height:300px;
 	overflow:hidden;
 }
-.info_wrap div.big_slick .match {
+.info_wrap div.slick_box .match {
 	width:100%;
 	height:300px;
 }
-.info_wrap div.big_slick .match > span{
+.info_wrap div.slick_box .match > span{
 	width:190px;
 	height:100%;
 	padding-top:40px;
 	font-size:30px;
 	text-align:center;
 }
-.info_wrap div.big_slick .match > span > img{
+.info_wrap div.slick_box .match > span > img{
 	display:block;
 	height:140px;
 	margin:0 auto 10px;
 }
-.info_wrap div.big_slick .match span.left_box{
+.info_wrap div.slick_box .match span.left_box{
 	float:left
 }
-.info_wrap div.big_slick .match span.right_box{
+.info_wrap div.slick_box .match span.right_box{
 	float:right;
 }
-.info_wrap div.big_slick .match div {
+.info_wrap div.slick_box .match div {
 	width:calc(100% - 380px);
 	padding-top:40px;
 	float:left;
 }
-.info_wrap div.big_slick .match div h4 {
+.info_wrap div.slick_box .match div h4 {
 	font-size:22px;
 	text-align:center;
 	font-weight:normal;
 }
-.info_wrap div.big_slick .match div img {
+.info_wrap div.slick_box .match div img {
 	display:block;
 	height:60px;
 	margin:15px auto 0;
 }
-.info_wrap div.big_slick .match div span {
+.info_wrap div.slick_box .match div span {
 	display:block;
 	width:100%;
 	text-align:center;
 }
-.info_wrap div.big_slick .match div span.match_time {
-	font-size:20px;
-	margin-top:20px;
-}
-.info_wrap div.big_slick .match div span.match_place{
+.info_wrap div.slick_box .match div span.match_time {
 	font-size:30px;
 	margin-top:10px;
 }
-
-
-
-
-.info_wrap div.small_slick {
-	display:none;
+.info_wrap div.slick_box .match div span.match_place{
+	font-size:22px;
+	margin-top:20px;
 }
-
 
 #content2 .content_inner > .title_box {
 	float:left;
