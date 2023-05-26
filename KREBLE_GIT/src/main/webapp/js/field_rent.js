@@ -19,6 +19,7 @@ $(function(){
 			$(".starlist option").remove();
 		}
 		var title_option = document.createElement('option');
+		
 		var title_option_text =  document.createTextNode("경기장 목록");
 		title_option.appendChild(title_option_text);
 		title_option.selected = 'selected'
