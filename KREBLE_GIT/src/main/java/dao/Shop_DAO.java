@@ -989,10 +989,7 @@ public class Shop_DAO {
 		} finally {
 			close(pstmt);
 		}
-
-
 	}
-	
 	
 	
 	public ArrayList<Shop_prd> shop_buylistD(String id, int page) {
@@ -1004,19 +1001,17 @@ public class Shop_DAO {
 		String sql1 = "";
 		ArrayList<Shop_prd> req = new ArrayList<Shop_prd>();
 		sql = "select distinct shopb_no from shop_buy_list where shopb_u_id=? order by shopb_no desc limit ?, 2;";
-		sql1 = "select * from shop_buy_list where shopb_no in (?,?)";
+		sql1 = "select * from shop_buy_list where shopb_no in (?,?) order by shopb_no desc";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setInt(2, (page-1)*2);
-			System.out.println(pstmt);
 			rs = pstmt.executeQuery();
 			//주문번호 최근 순으로 2개 나옴
 			String[] odnum = new String [2];
 			int i = 0;
 			while(rs.next()) {
 				odnum[i] = rs.getString("shopb_no");
-				System.out.println(odnum[i]);
 				i++;
 				
 			}
@@ -1025,7 +1020,6 @@ public class Shop_DAO {
 			pstmt1.setString(1, odnum[0]);
 			pstmt1.setString(2, odnum[1]);
 			rs1 = pstmt1.executeQuery();
-			
 			
 			while(rs1.next()) {
 				Shop_prd re = new Shop_prd();
@@ -1046,17 +1040,6 @@ public class Shop_DAO {
 
 		return req;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
