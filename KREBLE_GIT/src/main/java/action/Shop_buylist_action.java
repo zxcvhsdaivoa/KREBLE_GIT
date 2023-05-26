@@ -18,9 +18,11 @@ public class Shop_buylist_action implements Action {
 		HttpSession session = request.getSession();
 		ArrayList<Shop_prd> req = new ArrayList<Shop_prd>();
 		
+		int page = 1;
+		
 		String id = (String) session.getAttribute("ID");
 		Shop_buylist_service sbs = new Shop_buylist_service();
-		req = sbs.shop_buylistD(id);
+		req = sbs.shop_buylistD(id, page);
 
 		request.setAttribute("articleList", req);
 		

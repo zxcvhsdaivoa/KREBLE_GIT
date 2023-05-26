@@ -189,7 +189,7 @@
 			<article id="sb_art_no4"><!-- 크래블홈 / 쇼핑하러가기 버튼 -->
 				<div class="no4_flex">
 					<form>
-						<a href="#sb_art_no1"><INPUT TYPE="BUTTON" VALUE="더보기"></a>
+						<INPUT TYPE="BUTTON" VALUE="더보기" class="thethe">
 						<a href="#sb_art_no1"><INPUT TYPE="BUTTON" VALUE="TOP"></a>
 					</form>
 				</div>

@@ -994,27 +994,48 @@ public class Shop_DAO {
 	}
 	
 	
-	//구매내역
-	public ArrayList<Shop_prd> shop_buylistD(String id) {
+	
+	public ArrayList<Shop_prd> shop_buylistD(String id, int page) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		PreparedStatement pstmt1 = null;
+		ResultSet rs1 = null;
 		String sql = "";
+		String sql1 = "";
 		ArrayList<Shop_prd> req = new ArrayList<Shop_prd>();
-		sql = "SELECT * FROM shop_buy_list where shopb_u_id like ? ORDER BY shopb_no DESC, shopb_date DESC;";
+		sql = "select distinct shopb_no from shop_buy_list where shopb_u_id=? order by shopb_no desc limit ?, 2;";
+		sql1 = "select * from shop_buy_list where shopb_no in (?,?)";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
+			pstmt.setInt(2, (page-1)*2);
+			System.out.println(pstmt);
 			rs = pstmt.executeQuery();
-
+			//주문번호 최근 순으로 2개 나옴
+			String[] odnum = new String [2];
+			int i = 0;
 			while(rs.next()) {
+				odnum[i] = rs.getString("shopb_no");
+				System.out.println(odnum[i]);
+				i++;
+				
+			}
+
+			pstmt1 = con.prepareStatement(sql1);
+			pstmt1.setString(1, odnum[0]);
+			pstmt1.setString(2, odnum[1]);
+			rs1 = pstmt1.executeQuery();
+			
+			
+			while(rs1.next()) {
 				Shop_prd re = new Shop_prd();
-				re.setPrd_odnum(rs.getString("shopb_no")); //주문번호
-				re.setPrd_date(rs.getString("shopb_date"));//주문일
-				re.setPrd_name(rs.getString("shopb_p_name")); //상품명
-				re.setPrd_no(rs.getString("shopb_p_no")); //상품코드
-				re.setPrd_qant(rs.getInt("shopb_p_qant")); //상품수량
-				re.setPrd_price(rs.getInt("shopb_p_price")); //상품금액
-				re.setPrd_addr(rs.getString("shopb_u_address")); //배송지
+				re.setPrd_odnum(rs1.getString("shopb_no")); //주문번호
+				re.setPrd_date(rs1.getString("shopb_date"));//주문일
+				re.setPrd_name(rs1.getString("shopb_p_name")); //상품명
+				re.setPrd_no(rs1.getString("shopb_p_no")); //상품코드
+				re.setPrd_qant(rs1.getInt("shopb_p_qant")); //상품수량
+				re.setPrd_price(rs1.getInt("shopb_p_price")); //상품금액
+				re.setPrd_addr(rs1.getString("shopb_u_address")); //배송지
 				req.add(re);
 			}
 		} catch (Exception ex) {
@@ -1025,4 +1046,50 @@ public class Shop_DAO {
 
 		return req;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	
+//	//구매내역
+//	public ArrayList<Shop_prd> shop_buylistD(String id) {
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		String sql = "";
+//		ArrayList<Shop_prd> req = new ArrayList<Shop_prd>();
+//		sql = "SELECT * FROM shop_buy_list where shopb_u_id like ? ORDER BY shopb_no DESC, shopb_date DESC limit ?, ";
+//		try {
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setString(1, id);
+//			rs = pstmt.executeQuery();
+//
+//			while(rs.next()) {
+//				Shop_prd re = new Shop_prd();
+//				re.setPrd_odnum(rs.getString("shopb_no")); //주문번호
+//				re.setPrd_date(rs.getString("shopb_date"));//주문일
+//				re.setPrd_name(rs.getString("shopb_p_name")); //상품명
+//				re.setPrd_no(rs.getString("shopb_p_no")); //상품코드
+//				re.setPrd_qant(rs.getInt("shopb_p_qant")); //상품수량
+//				re.setPrd_price(rs.getInt("shopb_p_price")); //상품금액
+//				re.setPrd_addr(rs.getString("shopb_u_address")); //배송지
+//				req.add(re);
+//			}
+//		} catch (Exception ex) {
+//			System.out.println(ex);
+//		} finally {
+//			close(pstmt);
+//		}
+//
+//		return req;
+//	}
 }
