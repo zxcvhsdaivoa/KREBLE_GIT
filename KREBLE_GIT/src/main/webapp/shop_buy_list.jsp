@@ -103,7 +103,7 @@ int uc = cash.u_cash(id);
 					        </td>
 					        <td class="td_cen">
 								<%//상품 수량*금액 합 / 총합
-								int q_p = articleList.get(i).getPrd_price()*articleList.get(i).getPrd_qant();
+								int q_p = articleList.get(i).getPrd_price();
 								total = q_p+total;
 								%>
 								<%=q_p%>
