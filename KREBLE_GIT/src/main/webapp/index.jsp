@@ -152,10 +152,6 @@
     		<div class="title_box">
     			<h3>예약/대여</h3>
     		</div>
-    		<%
-    		String mostfield= rent.most_rent();
-    		KreblechoiData mostField = rent.most_field(mostfield);
-    		%>
     		<div class="rent_wrap wrap1">
     			<span class="rent_wrap1_content">사용자님들의 잊고 싶지 않았던 구장!</span><br>
     			<span>진땀승부의 추억을 공유했던 그 때 그 장소</span>
@@ -165,26 +161,42 @@
     			<div class="back-bg"></div>
     		</div>
     		<div class="rent_wrap wrap3">
-	    		<h4>인기 대여구장 : <%= mostField.getField_name() %></h4>
-	    			<img src="image/rent_stardium/<%=mostField.getField_image() %>.jpg">
+    		<%
+    		String[] mostfield= rent.most_rent();
+    		KreblechoiData mostField=null;
+    		for(int i=0; i<3; i++){
+    			mostField = rent.most_field(mostfield[i]);
+    			int count = rent.rent_count(mostfield[i]);
+    		%>
 	    			<table>
-						<tr>
-							<th>위치</th>
+	    				<tr class="top">
+	    					<td colspan="2">인기 대여구장 Top<%=i+1 %> : <%= mostField.getField_name() %></td>
+	    				</tr>
+						<tr class="notop">
+							<td>위치</td>
 							<td><%= mostField.getField_location() %></td>
 						</tr>
-						<tr>
-							<th>이용시간</th>
-							<td><%= mostField.getField_usetime() %></td>
+						<tr class="notop">
+							<td>총 대여자 수</td>
+							<td><%= count %></td>
 						</tr>
-						<tr>
-						<th>전화</th>
+						<tr class="notop">
+							<td>전화</td>
 							<td><%= mostField.getField_call() %></td>
 						</tr>
+						<tr class="notop">
+							<td>대여료</td>
+							<td><%= mostField.getField_price() %></td>
+						</tr>
+						<tr class="hidden"><td><%=mostField.getField_iframe() %></td></tr>
 					</table>
+			<%
+				}
+    		%>
     		</div>
     		<div class="rent_wrap wrap4">
     			<iframe src="<%=mostField.getField_iframe() %>" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    			<a href="fieldrent.choi">구장 대여하러 가기</a>
+<!--     			<a href="fieldrent.choi">구장 대여하러 가기</a> -->
     		</div>
     	</div>
     </div>

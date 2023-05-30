@@ -204,16 +204,10 @@ public class Db_method_rent extends Db_method_conn {
 			stm = con.createStatement();
 			ResultSet rs = stm.executeQuery("select * from field_info where field_name = '"+most+"';");
 			if (rs.next()) {
-				most_field.setField_id(rs.getString("field_id"));
-				most_field.setField_image(rs.getString("field_image"));
 				most_field.setField_location(rs.getString("field_location"));
 				most_field.setField_name(rs.getString("field_name"));
 				most_field.setField_price(rs.getInt("field_price"));
-				most_field.setField_map(rs.getString("field_map"));
 				most_field.setField_call(rs.getString("field_call"));
-				most_field.setField_usetime(rs.getString("field_usetime"));
-				most_field.setField_area(rs.getInt("field_area"));
-				most_field.setField_facility(rs.getString("field_facility"));
 				most_field.setField_iframe(rs.getString("field_iframe"));
 			}
 		} finally {
@@ -222,6 +216,23 @@ public class Db_method_rent extends Db_method_conn {
 		return most_field;
 	}
 
+	public int rent_count(String most) throws Exception {
+		int count = 0;
+		try {
+			conn();
+			if (con == null) {
+				throw new Exception("데이터베이스에 연결할 수 없습니다.");
+			}
+			stm = con.createStatement();
+			ResultSet rs = stm.executeQuery("select count(*) from rent_situation where field_name = '"+most+"';");
+			if (rs.next()) {
+				count= rs.getInt("count(*)");
+			}
+		} finally {
+			diconn();
+		}
+		return count;
+	}
 	// 예약/대여 시민구장 정보,최승혁 db
 
 //	public KreblechoiData field_list_check(String id) throws Exception {
