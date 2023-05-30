@@ -3,6 +3,8 @@ package use_data;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import vo.KreblechoiData;
+
 public class Db_method_rent extends Db_method_conn {
 
 	// 대여/예약(최승혁) 리뷰 게시판 메소드들
@@ -157,8 +159,7 @@ public class Db_method_rent extends Db_method_conn {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
 			stm = con.createStatement();
-			String command = String
-					.format("update rent_review set review_good:= review_good + 1 where review_num = '" + num + "';");
+			String command = String.format("update rent_review set review_good:= review_good + 1 where review_num = '" + num + "';");
 			int rowNum = stm.executeUpdate(command);
 			if (rowNum < 1) {
 				throw new Exception("데이터를 DB에 입력할 수 없습니다.");
@@ -167,6 +168,54 @@ public class Db_method_rent extends Db_method_conn {
 			diconn();
 		}
 
+	}
+	
+	
+	
+	public String most_rent() throws Exception {
+		String most = new String();
+		try {
+			conn();
+			if (con == null) {
+				throw new Exception("데이터베이스에 연결할 수 없습니다.");
+			}
+			stm = con.createStatement();
+			ResultSet rs = stm.executeQuery("select field_name from rent_situation group by field_name order by count(*) desc limit 1;");
+			if (rs.next()) {
+				most = rs.getString("field_name");
+			}
+		} finally {
+			diconn();
+		}
+		return most;
+	}
+	
+	public KreblechoiData most_field(String most) throws Exception {
+		KreblechoiData most_field = new KreblechoiData();
+		try {
+			conn();
+			if (con == null) {
+				throw new Exception("데이터베이스에 연결할 수 없습니다.");
+			}
+			stm = con.createStatement();
+			ResultSet rs = stm.executeQuery("select * from field_info where field_name = '"+most+"';");
+			if (rs.next()) {
+				most_field.setField_id(rs.getString("field_id"));
+				most_field.setField_image(rs.getString("field_image"));
+				most_field.setField_location(rs.getString("field_location"));
+				most_field.setField_name(rs.getString("field_name"));
+				most_field.setField_price(rs.getInt("field_price"));
+				most_field.setField_map(rs.getString("field_map"));
+				most_field.setField_call(rs.getString("field_call"));
+				most_field.setField_usetime(rs.getString("field_usetime"));
+				most_field.setField_area(rs.getInt("field_area"));
+				most_field.setField_facility(rs.getString("field_facility"));
+				most_field.setField_iframe(rs.getString("field_iframe"));
+			}
+		} finally {
+			diconn();
+		}
+		return most_field;
 	}
 
 	// 예약/대여 시민구장 정보,최승혁 db

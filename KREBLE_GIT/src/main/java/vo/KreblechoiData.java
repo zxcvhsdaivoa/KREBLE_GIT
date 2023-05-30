@@ -13,7 +13,14 @@ public class KreblechoiData {
 	String field_usetime;
 	String field_facility;
 	String field_call;
+	String field_iframe;
 	
+	public String getField_iframe() {
+		return field_iframe;
+	}
+	public void setField_iframe(String field_iframe) {
+		this.field_iframe = field_iframe;
+	}
 	public String getField_id() {
 		return field_id;
 	}
