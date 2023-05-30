@@ -20,7 +20,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<script type="text/javascript" src="slick/slick.min.js"></script>
 	<script src="js/Header_Footer_Aside_baseform.js"></script>
-	<script src="js/shop_com_pay2.js"></script>
+	<script src="js/shop_com_pay.js"></script>
 
 <title>구매 내역</title>
 	<%
