@@ -167,6 +167,7 @@ public class Db_method_rent extends Db_method_conn {
 		} finally {
 			diconn();
 		}
+		
 
 	}
 	
