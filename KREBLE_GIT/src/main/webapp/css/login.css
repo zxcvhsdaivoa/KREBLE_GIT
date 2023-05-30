@@ -99,48 +99,15 @@ input[type="button"] {
 	width: 600px;
 	margin: 0 auto;
 }
-.etc_login > span{
+
+.etc_login > span > img{
 	float: left;
 	display: block;
 	width :270px;
 	height : 40px;
 	margin:5px;
-	padding-left:10px;
-	border: 1px solid;
-	border-radius: 6px;
-	border-color: #ccc;
 }
 
-.NaverL{
-	background-color: #33CC33;
-	color:white;
-	text-align: center;
-	line-height: 25px;
-}
-
-
-.KakaoL{
-	background-color: #FFFF00;
-	text-align: center;
-	line-height: 25px;
-}
-
-.etc_login > span > span:first-child{
-	display: inline-block;
-	margin-top: 5px;
-	width: 30px;
-	height: 30px;
-	font-size: 23px;
-	font-weight: bold
-}
-.etc_login > span > span:last-child{
-	display: inline-block;
-	width: 105px;
-	height: 35px;
-	margin: 5px 10px;
-	font-size: 16px;
-	text-align: center;
-}
 .etc_login > div{
 	width :270px;
 	margin : 0 auto;
