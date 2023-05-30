@@ -172,17 +172,20 @@ public class Db_method_rent extends Db_method_conn {
 	
 	
 	
-	public String most_rent() throws Exception {
-		String most = new String();
+	public String[] most_rent() throws Exception {
+		String[] most = new String[3];
 		try {
 			conn();
 			if (con == null) {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("select field_name from rent_situation group by field_name order by count(*) desc limit 1;");
-			if (rs.next()) {
-				most = rs.getString("field_name");
+			ResultSet rs = stm.executeQuery("select field_name from rent_situation group by field_name order by count(*) desc limit 3;");
+			int i=0;
+			
+			while (rs.next()) {
+				most[i]=( rs.getString("field_name"));
+				i++;
 			}
 		} finally {
 			diconn();
