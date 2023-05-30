@@ -157,38 +157,34 @@
     		KreblechoiData mostField = rent.most_field(mostfield);
     		%>
     		<div class="rent_wrap wrap1">
-    			<h4>인기 대여구장</h4>
-    			<img src="image/rent_stardium/<%=mostField.getField_image() %>.jpg">
-    			<table>
-					<tr>
-						<th>위치</th>
-						<td><%= mostField.getField_location() %></td>
-					</tr>
-					<tr>
-						<th>명칭</th>
-						<td><%= mostField.getField_name() %></td>
-					</tr>
-					<tr>
-						<th>대지면적</th>
-						<td><%= mostField.getField_area() %> ㎡</td>
-					</tr>
-					<tr>
-						<th>이용시간</th>
-						<td><%= mostField.getField_usetime() %></td>
-					</tr>
-					<tr>
-						<th>주요시설</th>
-						<td><%= mostField.getField_facility() %></td>
-					</tr>
-					<tr>
-					<th>전화</th>
-						<td><%= mostField.getField_call() %></td>
-					</tr>
-				</table>
-				<a href="fieldrent.choi">구장 대여하러 가기</a>
+    			<span class="rent_wrap1_content">사용자님들의 잊고 싶지 않았던 구장!</span><br>
+    			<span>진땀승부의 추억을 공유했던 그 때 그 장소</span>
+    			<i></i>
+    			<p class="rent_wrap1_content2">다양한 KREBLE에서 제공되는 서비스를 사용하실 수 있는 기회를 놓치지마세요.</p>
+    			<a href="fieldInfo.choi?field_id=s_000" class="rent_wrap1_content3">바로가기</a>
+    			<div class="back-bg"></div>
     		</div>
-    		<div class="rent_wrap wrap2">
+    		<div class="rent_wrap wrap3">
+	    		<h4>인기 대여구장 : <%= mostField.getField_name() %></h4>
+	    			<img src="image/rent_stardium/<%=mostField.getField_image() %>.jpg">
+	    			<table>
+						<tr>
+							<th>위치</th>
+							<td><%= mostField.getField_location() %></td>
+						</tr>
+						<tr>
+							<th>이용시간</th>
+							<td><%= mostField.getField_usetime() %></td>
+						</tr>
+						<tr>
+						<th>전화</th>
+							<td><%= mostField.getField_call() %></td>
+						</tr>
+					</table>
+    		</div>
+    		<div class="rent_wrap wrap4">
     			<iframe src="<%=mostField.getField_iframe() %>" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    			<a href="fieldrent.choi">구장 대여하러 가기</a>
     		</div>
     	</div>
     </div>
