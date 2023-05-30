@@ -51,15 +51,9 @@
 	          </div>
 			  <div class = "etc_login">
 			  	<div>SNS계정으로 로그인</div> 
-				  	<span>
-				  		<span class="KakaoL">K</span>
-				  		<span>KAKAO LOGIN</span>
-				  	</span>
-				  	<span>
-				  		<span class="NaverL">N</span>
-				  		<span>NAVER LOGIN</span>
-				  	</span>
-				  </div>
+		  		<span><img src = "image/kakao_login.png" /></span>
+		  		<span><img src = "image/naver_login.png" /></span>
+			  	</div>
 			  </div>
 	        </form>
 	      </article>
