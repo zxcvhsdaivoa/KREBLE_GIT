@@ -19,6 +19,7 @@ $(function(){
 	$(".squad_wrap ul > li").click(function(){
 		//선수선택페이지 오픈
 		if($(this).find("span").hasClass("plus")==true){
+			$("html").css("overflow-y","hidden")
 			$(".squad_wrap ul > li").removeClass("on")
 			$(this).addClass("on")
 			if($(this).hasClass("director")==true) {
@@ -85,6 +86,7 @@ $(function(){
 	$(".exit").click(function(){
 		$(".squad_wrap ul li.on").removeClass("on");
 		$(".sub_wrap").hide();
+		$("html").css("overflow-y","auto")
 	})
 
 
@@ -168,6 +170,7 @@ $(function(){
 	//스쿼드 페이지 오픈
 	$(".open_squad").click(function(){
 		$(".mysquad_wrap").show();
+		$("html").css("overflow-y","hidden")
 	})
 	
 	

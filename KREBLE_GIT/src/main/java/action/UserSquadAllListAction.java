@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.UserSquadAllListService;
+import use_data.Db_method_user;
 import vo.ActionForward;
 import vo.SquadInfo;
 
@@ -34,7 +35,8 @@ public class UserSquadAllListAction implements Action {
 			if (search.equals("mysquad_name")) {
 				search_text = request.getParameter("mysquad_name");
 			} else if (search.equals("user_id")) {
-				search_text = request.getParameter("user_id");
+				Db_method_user user= new Db_method_user();
+				search_text = user.nickToId(request.getParameter("user_id"));
 			} else if (search.equals("formation")) {
 				search_text = request.getParameter("formation");
 			}

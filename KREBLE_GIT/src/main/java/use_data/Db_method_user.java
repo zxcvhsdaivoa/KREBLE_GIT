@@ -117,4 +117,18 @@ public class Db_method_user extends Db_method_conn {
 		}
 	}
 
+	
+	public String nickToId(String nick) throws Exception {
+		String id = null;
+		try {
+			conn();
+			ResultSet rs = stm.executeQuery("select user_id from user where user_nick='" + nick + "';");
+			if (rs.next()) {
+				id = rs.getString("user_id");
+			} 
+		} finally {
+			diconn();
+		}
+		return id;
+	}
 }

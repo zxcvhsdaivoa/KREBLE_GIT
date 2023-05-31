@@ -346,6 +346,13 @@ font-size:14px;
 	text-align:center;
 	border-spacing:0 0;
 }
+.mysquad_wrap .mysquad_inner > .nullsquad {
+	display:inline-block;
+	text-align:center;
+	width:100%;
+	line-height:800px;
+	font-size:40px;
+}
 .width1 {
 	width:100px;
 }

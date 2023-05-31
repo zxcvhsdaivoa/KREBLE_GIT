@@ -93,8 +93,7 @@ public class Db_method_commu extends Db_method_conn {
 		return si;
 	}
 
-	public ArrayList<CommunityData> commu_search(String mycommu, String id, String select, String text, String cate,
-			int page, int limit) throws Exception { // 커뮤니티 검색 메소드
+	public ArrayList<CommunityData> commu_search(String mycommu, String id, String select, String text, String cate, int page, int limit) throws Exception { // 커뮤니티 검색 메소드
 		conn();
 		ArrayList<CommunityData> si = new ArrayList<CommunityData>();
 		int startrow = (page - 1) * 15;
@@ -108,8 +107,7 @@ public class Db_method_commu extends Db_method_conn {
 			if (mycommu.equals("board")) {
 				commandBuilder.append("user_id='" + id + "' and ");
 			} else if (mycommu.equals("comment")) {
-				commandBuilder
-						.append("commu_no in (select commu_no from commu_comment where user_id='" + id + "') and ");
+				commandBuilder.append("commu_no in (select commu_no from commu_comment where user_id='" + id + "') and ");
 			}
 
 			if (select.equals("search_title")) {
@@ -117,6 +115,8 @@ public class Db_method_commu extends Db_method_conn {
 			} else if (select.equals("search_title_write")) {
 				commandBuilder.append("(commu_title like '%" + text + "%' or commu_write like '%" + text + "%')");
 			} else if (select.equals("search_name")) {
+				Db_method_user user= new Db_method_user();
+				text = user.nickToId(text);
 				commandBuilder.append("user_id='" + text + "'");
 			}
 			commandBuilder.append(" order by commu_no desc limit " + startrow + ", " + limit + ";");
