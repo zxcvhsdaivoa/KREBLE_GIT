@@ -155,7 +155,7 @@ function alert_cart(){
 						<!-- 우수판매자 -->
 						<% String aid = articleList.get(i).getPrd_id(); %>
 						<%
-						if(aid.equals(rankid1)/*||aid.equals(rankid2)*/){
+						if(aid.equals(rankid1)){
 							%>
 							<div class ="power_D">&#128174;파워딜러&#128174;</div>
 							<div class="s_id">

@@ -204,6 +204,11 @@
     			<h3>쇼핑</h3>
     			<a href="#" class="link_button">쇼핑 바로가기</a>
     		</div>
+    		<div id="best_seller">
+    			<div class= "b_s_no1">
+    				
+    			</div>	
+    		</div>
     		<div class="shop_wrap wrap1">
 	    		<%
 	    		String[] bestprdNo = shop.prd_re_best_no();
@@ -253,7 +258,6 @@
 	    			<%} %>
     			</div>
     		</div>
-    		
     	</div>
     </div>
   </section>
