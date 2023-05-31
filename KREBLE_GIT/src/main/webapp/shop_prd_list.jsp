@@ -72,7 +72,6 @@ function alert_cart(){
 	<jsp:include page="Header_baseform.jsp"/>
 	<!-- section -->
 	<section>
-	
 		
 	<div id="section_inner"> <!-- 내용 중앙정렬용 -->
 	<form>
