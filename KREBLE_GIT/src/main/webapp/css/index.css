@@ -632,35 +632,30 @@ section {
 #best_seller{
 	width: 100%;
 	height: 270px;
-/* 	position: absolute; */
-/* 	bottom : 70px; */
 }
 
 
 #best_seller > .b_s_no1{
-/* 	width: 320px; */
+	width: 1030px;
 	height: 100%;
 	float: left;
-	background-color : red;
 }
 
 
-#best_seller > .b_s_no2{
-/* 	width: 950px; */
-	height: 100%;
-	float: right;
-	background-color : blue;
+#best_seller .ror{
+	width: 200px;
+	height: 200px;
 }
 
-#best_seller{
-}
-
-
-#best_seller{
+#best_seller img{
+	width: 170px;
+	height: 170px;
 }
 
 
-#best_seller{
+
+#best_seller ul{
+	display: inline-block;
 }
 
 

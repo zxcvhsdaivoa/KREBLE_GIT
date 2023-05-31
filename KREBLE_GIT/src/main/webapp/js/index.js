@@ -82,7 +82,28 @@ $(function(){
 	}
 	
 	
-	
+	$('.b_s_no1 ul').slick({
+	  centerMode: true,
+	  slidesToShow: 3,
+	  responsive: [
+	    {
+	      breakpoint: 768,
+	      settings: {
+	        arrows: false,
+	        centerMode: true,
+	        slidesToShow: 3
+	      }
+	    },
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        arrows: false,
+	        centerMode: true,
+	        slidesToShow: 1
+	      }
+	    }
+	  ]
+	});
 	
 	
 	$('.slick_box').slick({

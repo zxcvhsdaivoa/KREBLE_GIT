@@ -199,6 +199,9 @@
     	</div>
     </div>
     <div id="content4">
+    	<%
+    	ArrayList<Shop_prd> bs = shop.best_seller();
+    	%>
     	<div class="content_inner">
     		<div class="title_box">
     			<h3>쇼핑</h3>
@@ -206,7 +209,22 @@
     		</div>
     		<div id="best_seller">
     			<div class= "b_s_no1">
-    				
+    				<%
+    				for(int i = 0 ; i < bs.size();i++){
+    					String impath = ect.img_link(bs.get(i).getPrd_no());
+    				%>
+    				<ul>
+    					<li>
+    					<div class = "ror">
+	    					<img src="<%=impath%><%=bs.get(i).getPrd_no()%>.jpg"><br>	
+	    					<%=bs.get(i).getPrd_name()%><br>
+	    					<%=bs.get(i).getPrd_price()%>
+    					</div>
+    					<li>
+    				</ul>	
+ 					<%
+    				}
+    				%>
     			</div>	
     		</div>
     		<div class="shop_wrap wrap1">

@@ -70,7 +70,43 @@ public class Db_method_shop extends Db_method_conn {
 		}
 		return board;
 	}
-
+	
+	//판매량 랭크
+	public ArrayList<Shop_prd> best_seller() {
+		ArrayList<Shop_prd> cb = new ArrayList<Shop_prd>();
+		ArrayList<Shop_prd> cbbsal2 = new ArrayList<Shop_prd>();
+		try {
+			conn();
+			String command = String.format("SELECT count(shopb_p_no) as cnt, shopb_p_no as p_no FROM kreble.shop_buy_list group by shopb_p_no order by cnt desc;");
+			ResultSet rs = stm.executeQuery(command);
+			
+			for(int i = 0 ; i<10 ; i++) {
+				Shop_prd cbbs = new Shop_prd();
+				if(rs.next()) {
+					cbbs.setPrd_no(rs.getString("p_no"));
+					cb.add(cbbs);
+				}else {
+					cbbs.setPrd_no("null");
+					cb.add(cbbs);
+				}
+			}
+			String command1 = String.format("select * from shop_product where prd_no in('"+cb.get(0).getPrd_no()+"','"+cb.get(1).getPrd_no()+"','"+cb.get(2).getPrd_no()+"','"+cb.get(3).getPrd_no()+"','"+cb.get(4).getPrd_no()+"','"+cb.get(5).getPrd_no()+"','"+cb.get(6).getPrd_no()+"','"+cb.get(7).getPrd_no()+"','"+cb.get(8).getPrd_no()+"','"+cb.get(9).getPrd_no()+"');");
+			ResultSet rs1 = stm.executeQuery(command1);
+			while(rs1.next()) {
+				Shop_prd cbbs = new Shop_prd();
+				cbbs.setPrd_no(rs1.getString("prd_no"));
+				cbbs.setPrd_name(rs1.getString("prd_name"));
+				cbbs.setPrd_price(rs1.getInt("prd_price"));
+				cbbsal2.add(cbbs);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			diconn();
+		}
+		return cbbsal2;
+	}
 	// 평점 제일 높은 제품번호 3개 가져오기
 	public String[] prd_re_best_no() {
 		String[] prd_no = new String[3];
@@ -446,8 +482,7 @@ public class Db_method_shop extends Db_method_conn {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
 			stm = con.createStatement();
-			String command = String
-					.format("update shop_reform set shop_recata = '" + aal.getRecata() + "',shop_retitle= '"
+			String command = String.format("update shop_reform set shop_recata = '" + aal.getRecata() + "',shop_retitle= '"
 							+ aal.getRetitle() + "',shop_retrade='" + aal.getRetrade() + "',shop_requnt = " + aal.requnt
 							+ ",shop_retext = '" + aal.getRetitle() + "' where shop_renum=" + aal.getRenum() + ";");
 			int rowNum = stm.executeUpdate(command);
