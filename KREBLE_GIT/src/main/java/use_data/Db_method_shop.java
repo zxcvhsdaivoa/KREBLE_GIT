@@ -71,32 +71,53 @@ public class Db_method_shop extends Db_method_conn {
 		return board;
 	}
 
-	// 평점 제일 높은 제품 가져오기
-	public Shop_prd prd_re_best() {
-		Shop_prd prd = new Shop_prd();
+	// 평점 제일 높은 제품번호 3개 가져오기
+	public String[] prd_re_best_no() {
+		String[] prd_no = new String[3];
 		try {
 			conn();
-			String command = String.format(
-					"select * from shop_product where prd_no = (SELECT prd_re_no FROM shop_prd_re GROUP BY prd_re_no order by avg(prd_re_sc) desc limit 1);");
+			String command = String.format("SELECT prd_re_no FROM shop_prd_re GROUP BY prd_re_no order by avg(prd_re_sc) desc limit 3;");
 			ResultSet rs = stm.executeQuery(command);
+			int i=0;
 			while (rs.next()) {
-				prd.setPrd_no(rs.getString("prd_no"));
-				prd.setPrd_cata(rs.getString("prd_cata"));
-				prd.setPrd_img(rs.getString("prd_img"));
-				prd.setPrd_name(rs.getString("prd_name"));
-				prd.setPrd_price(rs.getInt("prd_price"));
-				prd.setPrd_color(rs.getString("prd_color"));
-				prd.setPrd_id(rs.getString("prd_id"));
-				prd.setPrd_note(rs.getString("prd_note"));
-				prd.setPrd_date(rs.getString("prd_date"));
+				prd_no[i]=rs.getString("prd_re_no");
+				i++;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			diconn();
 		}
-		return prd;
+		return prd_no;
 	}
+	
+	
+	// 평점 제일 높은 제품 가져오기
+		public Shop_prd prd_re_best(String no) {
+			Shop_prd prd = new Shop_prd();
+			try {
+				conn();
+				String command = String.format("select * from shop_product where prd_no ='"+no+"';");
+				ResultSet rs = stm.executeQuery(command);
+				if (rs.next()) {
+					prd.setPrd_no(rs.getString("prd_no"));
+					prd.setPrd_cata(rs.getString("prd_cata"));
+					prd.setPrd_img(rs.getString("prd_img"));
+					prd.setPrd_name(rs.getString("prd_name"));
+					prd.setPrd_price(rs.getInt("prd_price"));
+					prd.setPrd_color(rs.getString("prd_color"));
+					prd.setPrd_id(rs.getString("prd_id"));
+					prd.setPrd_note(rs.getString("prd_note"));
+					prd.setPrd_date(rs.getString("prd_date"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				diconn();
+			}
+			return prd;
+		}
+	
 
 //	상품평점 호출
 	public HashMap<String, Integer> re_score() {

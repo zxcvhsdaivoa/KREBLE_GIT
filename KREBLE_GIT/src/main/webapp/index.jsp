@@ -206,84 +206,54 @@
     		</div>
     		<div class="shop_wrap wrap1">
 	    		<%
-	    		Shop_prd best_prd = shop.prd_re_best();
+	    		String[] bestprdNo = shop.prd_re_best_no();
+	    		%>
+	    		<h4>BEST평점 제품</h4>
+	    		<div class="best3wrap">
+	    		<%for(int k=0; k<3; k++){ %>
+	    		<%
+	    		Shop_prd best_prd = shop.prd_re_best(bestprdNo[k]);
 	    		ArrayList<Shop_prd> re_list = shop.shop_prde_reply(best_prd.getPrd_no());
 	    		String imglink=ect.img_link(best_prd.getPrd_no());
 	    		%>
-	    		<h4>BEST평점 제품</h4>
-	    		
-	    		<a href = "shop_prd_detail.sp?prd_no=<%=best_prd.getPrd_no()%>&page=1">
-	    			<span class="prd_wrap">
-	    				<img src="<%=imglink+best_prd.getPrd_no()%>.jpg">
-	    				<span class="best_like_name">제품명 : <%=best_prd.getPrd_name() %></span>
-	    				<span class="best_list_price">가격 : &#x20a9;<%=best_prd.getPrd_price() %></span>
-	    			</span>
-	    		</a>
-    			<table>
-					<tr class="re_title">
-						<td colspan="3" class = "h40">&#x203B;댓글은 최근 순으로 5개만 표기됩니다.</td>
-					</tr>
-					<tr>
-						<td>작성자</td>
-						<td>평점</td>
-						<td>내용</td>
-					</tr>
-					<%
-					if(re_list!=null){
-						for (int i=0; i<re_list.size();i++) {
-						    out.println("<tr>");
-						    out.println("<td class ='re_conten'>"+re_list.get(i).getPrd_re_id()+"</td>");
-						    out.println("<td class ='re_conten'>"+re_list.get(i).getPrd_re_sc()+"</td>");
-						    out.println("<td class ='re_conten'>"+re_list.get(i).getPrd_re_text()+"</td>");
-						    out.println("</tr>");
-						}
-					}else{
-					    out.println("<tr>");
-					    out.println("<td colspan='4' class ='re_conten'>"+"입력된 평점이 없습니다."+"</td>");
-					    out.println("</tr>");
-					}
-					%>
-				</table>
-    				
+		    		<div class="best3">
+			    		<a href = "shop_prd_detail.sp?prd_no=<%=best_prd.getPrd_no()%>&page=1">
+			    			<span class="prd_wrap">
+			    				<img src="<%=imglink+best_prd.getPrd_no()%>.jpg">
+			    				<span class="best_like_name">제품명 : <%=best_prd.getPrd_name() %></span>
+			    				<span class="best_list_price">가격 : &#x20a9;<%=best_prd.getPrd_price() %></span>
+			    			</span>
+			    		</a>
+		    			<table>
+							<tr class="re_title">
+								<td colspan="3" class = "h40">&#x203B;댓글은 최근 순으로 5개만 표기됩니다.</td>
+							</tr>
+							<tr>
+								<td>작성자</td>
+								<td>평점</td>
+								<td>내용</td>
+							</tr>
+							<%
+							if(re_list!=null){
+								for (int i=0; i<re_list.size();i++) {
+								    out.println("<tr>");
+								    out.println("<td class ='re_conten'>"+re_list.get(i).getPrd_re_id()+"</td>");
+								    out.println("<td class ='re_conten'>"+re_list.get(i).getPrd_re_sc()+"</td>");
+								    out.println("<td class ='re_conten'>"+re_list.get(i).getPrd_re_text()+"</td>");
+								    out.println("</tr>");
+								}
+							}else{
+							    out.println("<tr>");
+							    out.println("<td colspan='4' class ='re_conten'>"+"입력된 평점이 없습니다."+"</td>");
+							    out.println("</tr>");
+							}
+							%>
+						</table>
+	    			</div>
+	    			<%} %>
+    			</div>
     		</div>
-    		<div class="shop_wrap wrap2">
-	    		<h4>BEST 관심상품</h4>
-	    		<ul class="best_like">
-	    		<% 
-	    		ArrayList<Shop_prd> top4 = shop.prd_like_top4();
-	    		for(int i=0; i<top4.size(); i++){
-	    			String aa=top4.get(i).getPrd_no();
-	    			String impath = ect.img_link(aa);
-					%>
-	    			<li>
-	    			<a href = "shop_prd_detail.sp?prd_no=<%=aa%>&page=1">
-	    				<img src="<%=impath+aa%>.jpg">
-	    				<span class="best_like_name">제품명 : <%=top4.get(i).getPrd_name() %></span>
-	    				<span class="best_list_price">가격 : &#x20a9;<%=top4.get(i).getPrd_price() %></span>
-	    			</a>
-	    			</li>
-	    		<%	
-	    		}
-	    		%>
-	    		</ul>
-    		</div>
-    		<div class="shop_wrap wrap3">
-    		<%
-    		ArrayList<Shop_reform_db> board = shop.no_trade_latest5();
-    		%>
-	    		<div class="slickbox">
-		    		<%for(int i=0; i<board.size();i++){ %>
-		    		<div class="board_box">
-		    			<a href="shop_board_detail_view.jsp?renum=<%=board.get(i).getRenum()%>"><%=board.get(i).getReid()%>님의 제작의뢰<span><%=board.get(i).getRedate() %></span></a>
-		    			<p><%=board.get(i).getRetitle() %></p>
-		    			<textarea readonly><%=board.get(i).getRetext() %></textarea>
-		    		</div>
-		    		<%} %>
-	    		</div>
-    		</div>
-    		<div class="shop_wrap wrap4">
     		
-    		</div>
     	</div>
     </div>
   </section>

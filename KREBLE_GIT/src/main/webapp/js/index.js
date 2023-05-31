@@ -94,16 +94,6 @@ $(function(){
 	  speed:1000
 	  //asNavFor: '.small_slick'
 	});
-	$(".slickbox").slick({
-	  slidesToShow: 1,
-	  slidesToScroll: 1,
-	  autoplay:true,
-	  autoplaySpeed:7000,
-	  speed:1000,
-	  dots:false,
-	  draggable:true,
-	  array:false
-	})
 	//shop 랜덤한 배너 넣기
 	var rand = Math.floor(Math.random() * 2)
 	if(rand==1){
@@ -124,7 +114,18 @@ $(function(){
 		$(this).addClass("hovered")
 	})
 
-	
+	$(".best3wrap").slick({
+	  slidesToShow: 1,
+	  slidesToScroll: 1,
+	  autoplay:true,
+	  autoplaySpeed:7000,
+	  speed:1000,
+	  dots:false,
+	  draggable:true,
+	  array:false,
+	  vertical:true,
+	  verticalSwiping:true
+	})
 })
 
 
