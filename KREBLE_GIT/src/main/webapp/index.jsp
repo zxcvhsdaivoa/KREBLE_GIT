@@ -177,8 +177,8 @@
 							<td><%= mostField.getField_location() %></td>
 						</tr>
 						<tr class="notop">
-							<td>총 대여자 수</td>
-							<td><%= count %></td>
+							<td>총 대여자 현황</td>
+							<td><%= count %> 명</td>
 						</tr>
 						<tr class="notop">
 							<td>전화</td>
@@ -186,7 +186,7 @@
 						</tr>
 						<tr class="notop">
 							<td>대여료</td>
-							<td><%= mostField.getField_price() %></td>
+							<td><%= mostField.getField_price() %> 원</td>
 						</tr>
 						<tr class="hidden"><td><%=mostField.getField_iframe() %></td></tr>
 					</table>
