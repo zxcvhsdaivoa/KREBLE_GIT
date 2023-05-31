@@ -390,6 +390,7 @@ section {
 	background-color:#dfdfdf;
 	border-top:1px solid #333;
 	border-bottom:1px solid #333;
+	cursor: pointer;
 }
 .rent_wrap.wrap3 table.hovered {
 	background-color:#FFF;
@@ -417,7 +418,7 @@ section {
 }
 .rent_wrap.wrap3 table tr.top td p {
 	display:inline-block;
-	width:20px;
+	width:10px;
 }
 .rent_wrap.wrap3 table tr td:nth-child(2n-1) {
 	font-size: 21px;
