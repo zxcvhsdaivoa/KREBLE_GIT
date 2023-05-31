@@ -108,6 +108,14 @@ input[type="button"] {
 	margin:5px;
 }
 
+.etc_login > span > a > img{
+	float: left;
+	display: block;
+	width :270px;
+	height : 40px;
+	margin:5px;
+}
+
 .etc_login > div{
 	width :270px;
 	margin : 0 auto;

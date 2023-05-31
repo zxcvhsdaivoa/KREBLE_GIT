@@ -22,4 +22,22 @@ $(function(){
 			
 		}
 	}
+	
+	
+	$(".ka_lo > img").click(function(){
+	})
+	
+	
 })
+
+
+//로그인 된 토큰 삭제
+//Kakao.Auth.logout()
+//  .then(function(response) {
+//    console.log(Kakao.Auth.getAccessToken()); // null
+//  })
+//  .catch(function(error) {
+//    console.log('Not logged in.');
+//  });
+
+
