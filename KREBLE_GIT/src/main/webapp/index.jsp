@@ -180,7 +180,7 @@
 							<td><%= mostField.getField_call() %></td>
 						</tr>
 						<tr class="notop">
-							<td>총 대여자 현황</td>
+							<td>총 대여자 수</td>
 							<td><%= count %> 명</td>
 							
 							<td>대여료</td>
