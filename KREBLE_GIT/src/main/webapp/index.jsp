@@ -170,21 +170,19 @@
     		%>
 	    			<table <%if(i==0){%>class="hovered"<%} %>>
 	    				<tr class="top">
-	    					<td colspan="2">인기 대여구장<p></p>Top<%=i+1 %> : <%= mostField.getField_name() %></td>
+	    					<td colspan="4">인기 대여구장<p></p>Top<%=i+1 %> : <%= mostField.getField_name() %></td>
 	    				</tr>
 						<tr class="notop">
 							<td>위치</td>
 							<td><%= mostField.getField_location() %></td>
-						</tr>
-						<tr class="notop">
-							<td>총 대여자 현황</td>
-							<td><%= count %> 명</td>
-						</tr>
-						<tr class="notop">
+							
 							<td>전화</td>
 							<td><%= mostField.getField_call() %></td>
 						</tr>
 						<tr class="notop">
+							<td>총 대여자 현황</td>
+							<td><%= count %> 명</td>
+							
 							<td>대여료</td>
 							<td><%= mostField.getField_price() %> 원</td>
 						</tr>
