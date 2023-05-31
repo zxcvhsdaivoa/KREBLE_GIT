@@ -47,8 +47,8 @@ section {
 }
 #content3 {
 	height:800px;
-	background:url(../image/background/bg25.jpg) no-repeat top center;
-	background-size:1990px;
+	background:url(../image/background/bg25.jpg) no-repeat top center/cover;
+/* 	background-size:1990px; */
 }
 #content4 {
 	height:850px;
@@ -376,43 +376,68 @@ section {
 .rent_wrap.wrap3 {
 	float:left;
 	width:750px;
-	height:360px;
+	height:362px;
 	margin-top:20px;
 	font-family: 'TheJamsil5Bold';
+	border-top:1px solid #333;
+	border-bottom:1px solid #333;
 }
 
 .rent_wrap.wrap3 table {
 	border-spacing:0 0;
 	min-height:120px;
 	max-height:120px;
-	border-top:2px solid #333;
+	background-color:#dfdfdf;
+	border-top:1px solid #333;
+	border-bottom:1px solid #333;
 }
-.rent_wrap.wrap3 table:last-child {
+.rent_wrap.wrap3 table.hovered {
+	background-color:#FFF;
+	position:relative;
+}
+.rent_wrap.wrap3 table.hovered:after {
+	content:"";
+	display:block;
+	width:20px;
+	height:118px;
+	position:absolute;
+	top:-2px;
+	right:-20px;
+	background-color:#fff;
+	border-top:2px solid #333;
 	border-bottom:2px solid #333;
 }
 .rent_wrap.wrap3 table tr.top td {
 	width:100%;
-	height:30px;
+	height:40px;
 	line-height:30px;
 	font-size:20px;
 	padding-left:15px;
 }
-.rent_wrap.wrap3 table tr.notop td:first-child{
+.rent_wrap.wrap3 table tr.top td p {
+	display:inline-block;
+	width:20px;
+}
+.rent_wrap.wrap3 table tr td:nth-child(2n-1) {
+	font-size: 21px;
+    font-family: 'TheJamsil5Bold';
+}
+
+.rent_wrap.wrap3 table tr.notop td:nth-child(2n-1){
     padding-left:20px;
-    background: #f9f9f9;
-    width: 6%;
+    width: 10%;
     color: #666;  
     text-align: left;
-    font-size: 16px;
-    font-family: 'Gothic A1';
+    font-size: 14px;
+    font-family: 'NanumSquareNeo-Variable';
 }
 .rent_wrap.wrap3 table tr td{
     padding-left:20px;
     color: #555;
     width: 25%;
     font-size: 15px;
-    font-family: 'Gothic A1';
-    font-weight: 600;
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: 400;
 }
 .rent_wrap.wrap3 table tr.hidden{
 	display:none;
@@ -420,13 +445,17 @@ section {
 
 .rent_wrap.wrap4 {
 	float:right;
-	width:calc(100% - 750px);
-	height:calc(100% - 290px);
+	width:calc(100% - 770px);
+	height:calc(100% - 288px);
 	margin-top:20px;
+	border:2px solid #333;
+	border-left:none;
 }
 .rent_wrap.wrap4 > iframe {
-	width:100%;
-	height:100%;
+	width:98%;
+	height:98%;
+	margin:1%;
+	border-radius: 4px;
 }
 /* .rent_wrap.wrap4 a { */
 /* 	display:block; */
