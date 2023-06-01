@@ -244,7 +244,7 @@ public class Db_method_rent extends Db_method_conn {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
 			stm = con.createStatement();
-			ResultSet rs = stm.executeQuery("SELECT * FROM kreble.rent_situation where user_id = '"+id+"' order by rent_date desc limit 3;");
+			ResultSet rs = stm.executeQuery("SELECT * FROM kreble.rent_situation where user_id = '"+id+"' and rent_date > current_date() order by rent_date asc limit 3;");
 			while (rs.next()) {
 				Rent_situation ob = new Rent_situation();
 				ob.setRent_location(rs.getString("rent_location"));
