@@ -23,8 +23,6 @@
 
 <!--section-->
   <section>
- 	<div class="content_bg">
- 	</div>
  	
     <div class="content">
     <h2>회원가입</h2>
