@@ -248,17 +248,17 @@
 								<td colspan="3" class = "h40">&#x203B;댓글은 최근 순으로 5개만 표기됩니다.</td>
 							</tr>
 							<tr>
-								<td>작성자</td>
-								<td>평점</td>
-								<td>내용</td>
+								<td class="tdsize1">작성자</td>
+								<td class="tdsize2">평점</td>
+								<td class="tdsize3">내용</td>
 							</tr>
 							<%
 							if(re_list!=null){
 								for (int i=0; i<re_list.size();i++) {
 								    out.println("<tr>");
-								    out.println("<td class ='re_conten'>"+re_list.get(i).getPrd_re_id()+"</td>");
-								    out.println("<td class ='re_conten'>"+re_list.get(i).getPrd_re_sc()+"</td>");
-								    out.println("<td class ='re_conten'>"+re_list.get(i).getPrd_re_text()+"</td>");
+								    out.println("<td class='re_conten tdsize1'>"+re_list.get(i).getPrd_re_id()+"</td>");
+								    out.println("<td class='re_conten tdsize2'>"+re_list.get(i).getPrd_re_sc()+"</td>");
+								    out.println("<td class='re_conten tdsize3'>"+re_list.get(i).getPrd_re_text()+"</td>");
 								    out.println("</tr>");
 								}
 							}else{
