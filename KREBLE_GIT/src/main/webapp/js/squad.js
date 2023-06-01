@@ -81,6 +81,7 @@ $(function(){
 		$(".squad_wrap ul li.on p.posi").addClass('on');
 		$(".squad_wrap ul li.on").removeClass("on")
 		$(".sub_wrap").hide();
+		$("html").css("overflow-y","auto")
 	})
 	//창 닫기
 	$(".exit").click(function(){
