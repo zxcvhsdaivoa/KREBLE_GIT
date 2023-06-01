@@ -7,6 +7,7 @@ body section {
 body section .section_inner {
 	width:1000px;
 	padding-top:75px;
+	margin:0 auto;
 }
 body section .section_inner .squad_list h3 {
 	font-size:26px;
