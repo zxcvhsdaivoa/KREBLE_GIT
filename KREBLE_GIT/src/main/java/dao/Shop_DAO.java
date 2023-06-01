@@ -53,6 +53,7 @@ public class Shop_DAO {
 		return sc;
 	}
 
+
 	//관심상품 등록개수
 	public int like_cnt(String user_id){
 		PreparedStatement pstmt = null;

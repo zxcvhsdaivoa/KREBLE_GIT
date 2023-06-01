@@ -36,18 +36,18 @@ $(function(){
 	})
 	//스쿼드로 이동
 	$('.no1_td2').click(function(){
-		location.href = "squadList.sq";
+		location.href = "#article_no2";
 	})
 	//경기장임대로 이동
 	$('.no1_td3').click(function(){
-		location.href = "fieldrent.choi";
+		location.href = "#article_no3";
 	})
 	//관심상품으로 이동
 	$('.no1_td4').click(function(){
-		location.href = "shop_list_action.sp";
+		location.href = "#article_no4";
 	})
 	//장바구니로 이동
 	$('.no1_td5').click(function(){
-		location.href = "shop_back_page.sp";
+		location.href = "#article_no5";
 	})
 })

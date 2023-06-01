@@ -81,12 +81,12 @@ public class User_my_page_service {
 		return asd;
 	}
 	
-	//필드 정보 가져오기
-	public ArrayList<field_save_Data> getFieldInfo(String id) throws Exception {
-		ArrayList<field_save_Data> fs = new ArrayList<field_save_Data>();
+	//필드 사이즈 가져오기
+	public int getFieldInfo(String id) throws Exception {
+		int fs = 0;
 		User_Mypage mpage = User_Mypage.getInstance();
 		mpage.setConnection(con);
-
+		fs = mpage.rent_cnt(id);
 		return fs;
 	}
 	//장바구니 가져오기

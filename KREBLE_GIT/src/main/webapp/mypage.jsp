@@ -44,6 +44,7 @@ String id = (String) session.getAttribute("ID");
 	String sqs = (String) request.getAttribute("sqs");
 	String cas = (String) request.getAttribute("cas");
 	String lis = (String) request.getAttribute("lis");
+	int rent_si = (int) request.getAttribute("rent");
 	
 	%>
 	
@@ -78,7 +79,7 @@ String id = (String) session.getAttribute("ID");
 					</tr>
 					<tr>
 						<td class = "no1_td2 onhover"><%=sqs%>개</td>
-						<td class = "no1_td3 onhover"> - 개</td>
+						<td class = "no1_td3 onhover"><%=rent_si%>개</td>
 						<td class = "no1_td4 onhover"><%=lis%>개</td>
 						<td class = "no1_td5 onhover"><%=cas%>개</td>
 						<td class = "no1_td6"><input type="hidden" value="<%=id%>">

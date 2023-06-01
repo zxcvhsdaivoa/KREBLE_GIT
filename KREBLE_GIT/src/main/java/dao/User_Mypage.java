@@ -206,6 +206,26 @@ public class User_Mypage {
 		return aa;
 	}
 
+	//경기장임대 등록개수
+	public int rent_cnt(String user_id){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int sc=0;
+		try{
+			pstmt = con.prepareStatement("SELECT count(user_id) FROM kreble.rent_situation where user_id like ?");
+			pstmt.setString(1, user_id);
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				sc = rs.getInt("count(user_id)");
+			}
+		}catch(Exception ex){
+			System.out.println(ex);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return sc;
+	}
 	// 관심상품/장바구니에 대한 상품정보 불러오기
 	public ArrayList<Shop_prd> prd_info(String[] aa) {
 		ArrayList<Shop_prd> alsp = new ArrayList<Shop_prd>();
