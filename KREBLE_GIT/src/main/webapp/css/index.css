@@ -212,8 +212,9 @@
 }
 .commu_wrap.wrap1 .squad_wrap ul li {
 	float:left;
-	width:100px;
+	width:96px;
 	height:150px;
+	margin: 0 1px;
 	padding:10px 0;
 	text-align:center;
 }
