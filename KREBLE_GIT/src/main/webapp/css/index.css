@@ -289,6 +289,10 @@ section {
 	float:left;
 	font-size:19px;
     font-family: 'Hahmlet-Regular';
+    max-width:calc(100% - 150px);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 .commu_wrap.wrap2 .hot_commu .board .writer {
 	float:right;
@@ -632,8 +636,9 @@ section {
 
 #best_seller{
 	float:left;
-	width: calc(100% - 250px);
+	width: calc(100% - 300px);
 	height: 270px;
+	margin-left:50px;
 }
 
 
@@ -650,7 +655,7 @@ section {
 
 #best_seller > .b_s_no1{
 	width: 100%;
-	height: clac(100%-40px);
+	height: calc(100% - 40px);
 	float: left;
 	background-color: #fff;
 }
@@ -658,7 +663,7 @@ section {
 
 #best_seller .ror{
 	width: 200px;
-	height: 200px;
+	height: 230px;
     font-family: 'NanumSquareNeo-Variable';
     font-weight: normal;
     font-style: normal;

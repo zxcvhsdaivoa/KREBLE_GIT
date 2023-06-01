@@ -55,34 +55,27 @@
          + "&state=" + stateka;
     session.setAttribute("state", stateka);
  %>
-    <!--section-->
-  <div id="img_login">
-	  <section>
-	    <div class="section_inner">
-	      <!--article 시작-->
-	      <article>
-	        <form name="user_login" action="login_data.jsp" method="post">
-	        <div>
-	          <div class = "loginlabel">로그인</div>
-	          <input type="text" id="id" name="id" placeholder="아이디를 입력해주세요"><br><br>
-	          <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"><br><br>
-	          <input type="submit" value="Login">
-	
-	          <div class="links">
-	            <a href="#">아이디 찾기</a>
-	            <a href="#">비밀번호 찾기</a>
-	            <a href="join_member.jsp">회원가입</a>
-	          </div>
-			  <div class = "etc_login">
-			  	<div>SNS계정으로 로그인</div> 
-		  		<span class="ka_lo"><a href="<%=apiURLka%>"><img src = "image/kakao_login.png" /></a></span>
-		  		<span><a href="<%=apiURL%>"><img src = "image/naver_login.png" /></a></span>
-			  	</div>
-			  </div>
-	        </form>
-	      </article>
-	    </div>
-	 </section>
- </div>
+      <!--article 시작-->
+      <article>
+        <form name="user_login" action="login_data.jsp" method="post">
+        <div>
+          <div class = "loginlabel">로그인</div>
+          <input type="text" id="id" name="id" placeholder="아이디를 입력해주세요"><br>
+          <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"><br>
+          <input type="submit" value="Login">
+
+          <div class="links">
+            <a href="#">아이디 찾기</a>
+            <a href="#">비밀번호 찾기</a>
+            <a href="join_member.jsp">회원가입</a>
+          </div>
+		  <div class = "etc_login">
+		  	<div>SNS계정으로 로그인</div> 
+	  		<span class="ka_lo"><a href="<%=apiURLka%>"><img src = "image/kakao_login.png" /></a></span>
+	  		<span><a href="<%=apiURL%>"><img src = "image/naver_login.png" /></a></span>
+		  	</div>
+		  </div>
+        </form>
+      </article>
  </body>
 </html>

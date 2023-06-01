@@ -20,7 +20,6 @@ section .section_inner {
  	padding:0 140px;
 }
 .community {
-	float:left;
     height:auto;
     margin:0 auto;
     padding-top:80px;
@@ -42,7 +41,7 @@ section .section_inner {
 	margin:0 auto;
 }
 .community_header {
-	width:100%;
+	width:1000px;
 	height:180px;
 	background:url(../image/community_header.png) no-repeat center/cover;
 	margin:0 auto 40px;
@@ -77,6 +76,9 @@ table.commu_list_table {
 .bt_border > td {
 	border-bottom:1px solid #e6e8e5;
 	height:30px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 .bt_border > td > a {
 	color:#777;

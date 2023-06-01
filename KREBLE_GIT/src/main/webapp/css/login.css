@@ -5,19 +5,6 @@
   background: url(../image/background/bg09.jpg) no-repeat center/cover;
 }
 
-section {
-	width : 540px;
-	min-height: 710px;
-	float: left;
-	margin-top:60px;
-}
-section .section_inner{
-	border: none;
-}
-#img_login{
-	width: 1400px;
-	margin: 0 auto;
-}
 
 #login_id {
 	text-align: center;
@@ -30,7 +17,7 @@ article > form > div {
 	width: 600px;
 	height: 510px;
 	margin : 0 auto;
-	margin-top : 30px;
+	margin-top : 120px;
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 5px;
@@ -49,37 +36,45 @@ label {
 	font-weight: bold;
 	margin-bottom: 20px;
 	margin-top: 30px;
+	padding-left:80px;
 }
 
 input[type="text"]{
+	display:block;
 	margin-top : 10px;
-	width: 100%;
+	width: 70%;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
+	margin:0 auto;
 	margin-bottom: -5px;
 	box-sizing: border-box;
 }
 
 input[type="password"] {
-	width: 100%;
+	display:block;
+	width: 70%;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
+	margin:0 auto;
 	margin-bottom: 25px;
 	box-sizing: border-box;
 }
 
 input[type="submit"] {
+	display:block;
 	background-color: #4CAF50;
-	width: 100%;
+	width: 70%;
 	height: 40px;
 	color: #fff;
 	border: none;
 	padding: 10px 20px;
 	border-radius: 5px;
 	cursor: pointer;
+	margin:0 auto;
 	margin-bottom: 40px;
+	font-size:19px;
 }
 
 input[type="button"] {
@@ -121,13 +116,12 @@ input[type="button"] {
 	margin : 0 auto;
 	height : 25px;
 	text-align: center;
-	padding-right: 40px;
+	padding-right: 65px;
 	
 }
 
 .links {
   text-align: center;
-  margin-top: 10px;
 }
 
 .links a {

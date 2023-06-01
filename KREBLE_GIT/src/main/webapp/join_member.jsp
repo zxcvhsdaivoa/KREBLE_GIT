@@ -70,8 +70,8 @@
         <input type="password" class="pass" id="repw" name="repw">
         <p id="pwck_text"></p>
 
-        <label for="nick">닉네임</label>
-        <input type="text" id="nick" name="nick">
+        <label for="nick" class="topmargin">닉네임</label>
+        <input type="text" id="nick" name="nick" class="topmargin">
         
         <span class="page_button prev_button">이전으로</span>
         <span class="page_button next_button">다음으로</span>
