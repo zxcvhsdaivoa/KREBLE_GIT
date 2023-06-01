@@ -37,6 +37,13 @@
 	String rankid3 = crs[2];
 	%>
 	
+	<!-- 판매량 -->
+	<%
+	ArrayList<Shop_prd> bsa = shop_m1.best_seller();
+	String bs11 = bsa.get(0).getPrd_id();
+	String bs22 = bsa.get(1).getPrd_id();
+	%>
+	
 	<!-- 평점호출 관심상품 체크 -->
 	<%
 	HashMap<String, String> prlk = new HashMap<String, String>();
@@ -156,7 +163,7 @@ function alert_cart(){
 							</div>
 							
 						<%
-						} else if(aid.equals(rankid3)){
+						} else if((aid.equals(bs11)||aid.equals(bs22))&&!aid.equals(rankid1)){
 						%>
 							<div class= "cs_D">&#128175;고객만족</div>
 							<div class="s_id">

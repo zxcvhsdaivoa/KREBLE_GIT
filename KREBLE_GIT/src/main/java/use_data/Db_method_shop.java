@@ -97,6 +97,7 @@ public class Db_method_shop extends Db_method_conn {
 				cbbs.setPrd_no(rs1.getString("prd_no"));
 				cbbs.setPrd_name(rs1.getString("prd_name"));
 				cbbs.setPrd_price(rs1.getInt("prd_price"));
+				cbbs.setPrd_id(rs1.getString("prd_id"));
 				cbbsal2.add(cbbs);
 			}
 			
