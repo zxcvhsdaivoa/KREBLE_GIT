@@ -122,12 +122,34 @@ String id = (String) session.getAttribute("ID");
 		</article>
 		
 		<!-- 경기장 렌트 -->
-		<article id="article_no3" class = "hide_only">
-			<div><!-- 관심품목 라벨 -->
+		<article id="article_no3">
+			<div><!-- 경기장렌트 라벨 -->
 				<h4><%=user_al.getNick()%>님의 경기장 대여 리스트</h4>
 			</div>
 			<div>
-				<span>경기장 대여 리스트</span>
+				<table>
+					<tr>
+						<th>상품 이미지</th>
+						<th>상품 이름</th>
+						<th>상품 가격</th>
+						<th>상품 색상</th>
+						<th>재고량</th>
+					</tr>
+				<%
+				for(int l = 0; l < plike_al.size(); l++){
+					String impt = ect.img_link(plike_al.get(l).getPrd_no());
+				%>
+					<tr>
+						<td><a href ="#"><img onerror="this.src='image/no_image.PNG'" src="<%=impt%><%=plike_al.get(l).getPrd_img()%>"></a></td>
+						<td><a href ="shop_prd_detail.sp?prd_no=<%=plike_al.get(l).getPrd_no()%>&page=<%=nowPage%>"><%=plike_al.get(l).getPrd_name()%></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_price()%></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_color()%></a></td>
+						<td><a href ="#"><%=plike_al.get(l).getPrd_qant()%></a></td>
+					</tr>	
+				<%	
+				}	
+				%>				
+				</table>
 			</div>
 		</article>
 		
