@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	var imgElement = document.getElementById("sold_del");
-
+	if(imgElement != null){
 	imgElement.addEventListener("mouseenter", function() {
 	  imgElement.src = "image/gerbage1.png";
 	});
@@ -9,7 +9,7 @@ $(document).ready(function(){
 	imgElement.addEventListener("mouseout", function() {
 	  imgElement.src = "image/gerbage2.png";
 	});
-	
+	}
 	
 	
 	//품절상품 삭제

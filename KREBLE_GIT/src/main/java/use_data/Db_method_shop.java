@@ -183,8 +183,7 @@ public class Db_method_shop extends Db_method_conn {
 		String[] aa = new String[3];
 		try {
 			conn();
-			String command = String
-					.format("SELECT prd_id as id, COUNT(prd_no) AS cnt FROM shop_product GROUP BY prd_id ORDER BY cnt DESC");
+			String command = String.format("SELECT prd_id as id, COUNT(prd_no) AS cnt FROM shop_product GROUP BY prd_id ORDER BY cnt DESC");
 			ResultSet rs = stm.executeQuery(command);
 			int index = 0;
 			if (rs.next()) {

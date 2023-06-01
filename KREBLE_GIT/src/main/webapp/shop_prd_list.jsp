@@ -150,7 +150,7 @@ function alert_cart(){
 						<%
 						if(aid.equals(rankid1)){
 							%>
-							<div class ="power_D">&#128174;파워딜러&#128174;</div>
+							<div class ="power_D">&#128174;파워딜러</div>
 							<div class="s_id">
 							<%= aid %>
 							</div>
@@ -158,7 +158,7 @@ function alert_cart(){
 						<%
 						} else if(aid.equals(rankid3)){
 						%>
-							<div class= "cs_D">&#128175;고객만족&#128175;</div>
+							<div class= "cs_D">&#128175;고객만족</div>
 							<div class="s_id">
 							<%= aid %>
 							</div>

@@ -152,7 +152,7 @@ String id = (String) session.getAttribute("ID");
 					String impt = ect.img_link(plike_al.get(l).getPrd_no());
 				%>
 					<tr>
-						<td><a href ="#"><img onerror="this.src='image/no_image.PNG'" src="<%=impt + plike_al.get(l).getPrd_img()%>"></a></td>
+						<td><a href ="#"><img onerror="this.src='image/no_image.PNG'" src="<%=impt%><%=plike_al.get(l).getPrd_img()%>"></a></td>
 						<td><a href ="shop_prd_detail.sp?prd_no=<%=plike_al.get(l).getPrd_no()%>&page=<%=nowPage%>"><%=plike_al.get(l).getPrd_name()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_price()%></a></td>
 						<td><a href ="#"><%=plike_al.get(l).getPrd_color()%></a></td>
