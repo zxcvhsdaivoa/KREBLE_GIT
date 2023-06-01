@@ -631,34 +631,53 @@ section {
 }
 
 #best_seller{
-	width: 100%;
+	float:left;
+	width: calc(100% - 250px);
 	height: 270px;
 }
 
 
-#best_seller > .b_s_no1{
-	width: 1030px;
-	height: 100%;
+#best_seller > .b_s_no0{
+	width: 100%;
+	height: 40px;
 	float: left;
+    text-align: center;
+    font-size: 24px;
+    line-height: 37px;
+    border-bottom: 1px solid #ccc;
+    border-top: 2px solid #ccc;
+}
+
+#best_seller > .b_s_no1{
+	width: 100%;
+	height: clac(100%-40px);
+	float: left;
+	background-color: #fff;
 }
 
 
 #best_seller .ror{
 	width: 200px;
 	height: 200px;
+    font-family: 'NanumSquareNeo-Variable';
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    border-left: 1px dotted gray;
 }
 
 #best_seller img{
 	width: 170px;
 	height: 170px;
+	margin-left: 75px;
 }
-
-
 
 #best_seller ul{
 	display: inline-block;
 }
-
+#best_seller ul li{
+	width:200px;
+}
 
 #content3 .content_inner .rent_wrap.wrap3 table.hovered tr td{
 	color: #000;

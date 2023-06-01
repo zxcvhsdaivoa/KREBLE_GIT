@@ -24,9 +24,6 @@
 <script type="text/javascript" src="slick/slick.min.js"></script>
 <script src="js/Header_Footer_Aside_baseform.js"></script>
 <script src="js/index.js" ></script>
-<script>
-    
-</script>
  <body>
 <%@ page import="java.util.ArrayList"%>
 <jsp:useBean id="comu" class="use_data.Db_method_commu" />
@@ -208,20 +205,19 @@
     			<a href="#" class="link_button">쇼핑 바로가기</a>
     		</div>
     		<div id="best_seller">
+    			<H4 class= "b_s_no0">
+    				판매량 급상승
+    			</H4>
     			<div class= "b_s_no1">
     				<%
     				for(int i = 0 ; i < bs.size();i++){
     					String impath = ect.img_link(bs.get(i).getPrd_no());
     				%>
-    				<ul>
-    					<li>
     					<div class = "ror">
 	    					<img src="<%=impath%><%=bs.get(i).getPrd_no()%>.jpg"><br>	
-	    					<%=bs.get(i).getPrd_name()%><br>
-	    					<%=bs.get(i).getPrd_price()%>
+	    					상품명 : <%=bs.get(i).getPrd_name()%><br>
+	    					금액 : <%=bs.get(i).getPrd_price()%>원
     					</div>
-    					<li>
-    				</ul>	
  					<%
     				}
     				%>

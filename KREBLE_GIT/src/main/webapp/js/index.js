@@ -82,15 +82,20 @@ $(function(){
 	}
 	
 	
-	$('.b_s_no1 ul').slick({
+	$('.b_s_no1').slick({
 	  centerMode: true,
+	  centerPadding: '30px',
 	  slidesToShow: 3,
+	  arrows: false,
+	  autoplay: true,
+	  autoplayspeed :3000,
 	  responsive: [
 	    {
 	      breakpoint: 768,
 	      settings: {
 	        arrows: false,
 	        centerMode: true,
+	        centerPadding: '20px',
 	        slidesToShow: 3
 	      }
 	    },
@@ -99,6 +104,7 @@ $(function(){
 	      settings: {
 	        arrows: false,
 	        centerMode: true,
+	        centerPadding: '20px',
 	        slidesToShow: 1
 	      }
 	    }
