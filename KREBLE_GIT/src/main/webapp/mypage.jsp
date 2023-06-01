@@ -8,6 +8,7 @@
 <%@ page import="use_data.Director_Info"%>
 <%@ page import="vo.field_save_Data"%>
 <%@ page import="vo.SquadInfo"%>
+<%@ page import="vo.Rent_situation"%>
 <%@ page import="use_data.Player_Info"%>
 
 <% request.setCharacterEncoding("utf-8"); %>
@@ -17,6 +18,7 @@ String id = (String) session.getAttribute("ID");
 	<jsp:useBean id="cash" class="use_data.Db_method_user"></jsp:useBean>
 	<jsp:useBean id="player" class="use_data.Db_method_player" />
 	<jsp:useBean id="shop" class="use_data.Db_method_shop" />
+	<jsp:useBean id="rent" class="use_data.Db_method_rent" />
 	<jsp:useBean id="ect" class="use_data.Db_method_ECT" />
 	<%
 	int uc = cash.u_cash(id);
@@ -37,6 +39,7 @@ String id = (String) session.getAttribute("ID");
 	ArrayList<Shop_prd> plike_al = (ArrayList<Shop_prd>)request.getAttribute("plike_al");//관심상품 가져오기
 	ArrayList<Shop_prd> pcart_al = (ArrayList<Shop_prd>)request.getAttribute("pcart_al");//장바구니가져오기
 	SquadInfo squad_al = (SquadInfo)request.getAttribute("squad_al");//마이스쿼드 가져오기
+	ArrayList<Rent_situation> myrent = (ArrayList<Rent_situation>)request.getAttribute("myrent");//대여 내역 가져오기
     String nowPage = (String)request.getAttribute("page");
 	String sqs = (String) request.getAttribute("sqs");
 	String cas = (String) request.getAttribute("cas");
@@ -126,25 +129,22 @@ String id = (String) session.getAttribute("ID");
 			<div><!-- 경기장렌트 라벨 -->
 				<h4><%=user_al.getNick()%>님의 경기장 대여 리스트</h4>
 			</div>
-			<div>
+			<div class="center_only">
 				<table>
 					<tr>
-						<th>상품 이미지</th>
-						<th>상품 이름</th>
-						<th>상품 가격</th>
-						<th>상품 색상</th>
-						<th>재고량</th>
+						<th>지역</th>
+						<th>구장 명</th>
+						<th>대여 일자</th>
+						<th>대여 가격</th>
 					</tr>
 				<%
-				for(int l = 0; l < plike_al.size(); l++){
-					String impt = ect.img_link(plike_al.get(l).getPrd_no());
+				for(int l = 0; l < myrent.size(); l++){
 				%>
 					<tr>
-						<td><a href ="#"><img onerror="this.src='image/no_image.PNG'" src="<%=impt%><%=plike_al.get(l).getPrd_img()%>"></a></td>
-						<td><a href ="shop_prd_detail.sp?prd_no=<%=plike_al.get(l).getPrd_no()%>&page=<%=nowPage%>"><%=plike_al.get(l).getPrd_name()%></a></td>
-						<td><a href ="#"><%=plike_al.get(l).getPrd_price()%></a></td>
-						<td><a href ="#"><%=plike_al.get(l).getPrd_color()%></a></td>
-						<td><a href ="#"><%=plike_al.get(l).getPrd_qant()%></a></td>
+						<td><a href ="#"><%=myrent.get(l).getRent_location()%></a></td>
+						<td><a href ="#"><%=myrent.get(l).getField_name()%></a></td>
+						<td><a href ="#"><%=myrent.get(l).getRent_date()%></a></td>
+						<td><a href ="#"><%=myrent.get(l).getRent_price()%>원</a></td>
 					</tr>	
 				<%	
 				}	

@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import vo.KreblechoiData;
+import vo.Rent_situation;
 
 public class Db_method_rent extends Db_method_conn {
 
@@ -232,6 +233,30 @@ public class Db_method_rent extends Db_method_conn {
 			diconn();
 		}
 		return count;
+	}
+	
+	
+	public ArrayList<Rent_situation> my_rent(String id) throws Exception {
+		ArrayList<Rent_situation> rent_situ = new ArrayList<Rent_situation>();
+		try {
+			conn();
+			if (con == null) {
+				throw new Exception("데이터베이스에 연결할 수 없습니다.");
+			}
+			stm = con.createStatement();
+			ResultSet rs = stm.executeQuery("SELECT * FROM kreble.rent_situation where user_id = '"+id+"' order by rent_num desc limit 3;");
+			while (rs.next()) {
+				Rent_situation ob = new Rent_situation();
+				ob.setRent_location(rs.getString("rent_location"));
+				ob.setField_name(rs.getString("field_name"));
+				ob.setRent_date(rs.getString("rent_date"));
+				ob.setRent_price(rs.getInt("rent_price"));
+				rent_situ.add(ob);
+			}
+		} finally {
+			diconn();
+		}
+		return rent_situ;
 	}
 	// 예약/대여 시민구장 정보,최승혁 db
 
