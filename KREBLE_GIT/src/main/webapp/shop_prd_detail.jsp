@@ -254,11 +254,11 @@ String id = (String) session.getAttribute("ID");
 			%>
 				<article id="pd_detail_no3">
 					<div class="pd_review_ti">
-						<a href ="#">
+						<a href ="shop_buy_list.sp?prd_ck=<%=aa.getPrd_no()%>/<%=aa.getPrd_name()%>/<%=aa.getPrd_price()%>/1/<%=aa.getPrd_price()%>/<%=aa.getPrd_color()%>">
 							<input type="button" value="구매" class = "r_d_b_b">
 						</a>
 						<a href = "shop_bak.sp?prd_no=<%=aa.getPrd_no()%>&b_id=<%=id%>&page=<%=nowPage%>">
-							<input type="button" value="장바구니" class = "r_d_b_b">
+							<input type="button" value="장바구니" class = "r_d_b_b" onclick="alertonly()">
 						</a>
 						<a href ="shop_list_action.sp">
 							<input type="button" value="목록" class = "list_b">

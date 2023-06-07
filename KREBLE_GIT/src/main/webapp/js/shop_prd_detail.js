@@ -28,3 +28,8 @@ $(function(){
     }
     return true;
   }
+  
+  
+  function alertonly(){
+	  alert("장바구니에 담겼습니다.");
+  }
