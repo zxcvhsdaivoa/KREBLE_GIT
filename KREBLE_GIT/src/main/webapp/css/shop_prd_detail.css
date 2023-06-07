@@ -19,7 +19,7 @@
 
 section{
 	width: 100%;
-	min-height : 1340px; 
+	min-height : auto; 
 }
 
 article{
@@ -182,7 +182,7 @@ table{
 /* 제품소개(상세)*/
 #pd_detail_no6{
 	width: 840px;
-	height: 440px;
+	height: auto;
     padding-bottom: 10px;
 }
 #pd_detail_no6 > .center_only{
@@ -266,7 +266,7 @@ table{
 #pd_detail_no3{
 	width: 890px;
 	height: 60px;
-	margin-top: 200px;
+	margin-top: 15px;
 	margin-bottom: 30px;
 }
 
@@ -313,9 +313,8 @@ table{
 /* 댓글리뷰 */
 #pd_detail_no4{
 	width: 890px;
-	height: 415px;
+	height: auto;
 	min-height: 100px;
-	margin-bottom: 70px;
 }
 
 #pd_detail_no4 > .center_only{
