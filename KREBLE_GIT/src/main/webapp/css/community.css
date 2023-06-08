@@ -75,6 +75,7 @@ table.commu_list_table {
 }
 .bt_border > td {
 	border-bottom:1px solid #e6e8e5;
+	max-width:550px;
 	height:30px;
     overflow:hidden;
     text-overflow:ellipsis;

@@ -52,7 +52,6 @@ public class Field_rent_insr_action implements Action {
 		
 		Field_rent_findinfo_Service frfs= new Field_rent_findinfo_Service();
 		int is=frfs.fint_info(rent_insr);
-		
 		if(is==1) { // 구장 예약된 데이터 정보가 값 업데이트
 			Field_update_rentinfo_Service furs = new Field_update_rentinfo_Service();
 			success2=furs.update_rentinfo(i, rent_insr);
@@ -60,7 +59,6 @@ public class Field_rent_insr_action implements Action {
 			Field_insert_rentinfo_Service firs = new Field_insert_rentinfo_Service();
 			success2=firs.insert_rentinfo(i, rent_insr);
 		}
-		
 		if(!isinsrSuccess||!success2){ //등록에 실패할 경우
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
