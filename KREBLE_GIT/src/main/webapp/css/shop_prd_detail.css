@@ -74,6 +74,7 @@ table{
     color: skyblue;
     font-size: 35px;
     padding-top: 15px;
+	margin-top: 17px;
 }
 .uni_label{
     background-color: orange;
@@ -99,6 +100,7 @@ table{
     color: pink;
     font-size: 35px;
     padding-top: 15px;
+	margin-top: 17px;
 	
 }
 .etc_label{
@@ -112,6 +114,7 @@ table{
     color: yellowgreen;
     font-size: 35px;
     padding-top: 15px;
+	margin-top: 17px;
 }
 
 
