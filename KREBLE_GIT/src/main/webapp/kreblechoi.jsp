@@ -3,6 +3,9 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <%@ page import="java.sql.*" %>
 <%@ page import="vo.KreblechoiData" %>
+<%
+	String id = (String) session.getAttribute("ID");
+%>
 <!doctype html>
 <html>
 <head> <!-- 문서정보 -->

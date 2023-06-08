@@ -20,8 +20,9 @@ public class Field_save_action implements Action {
 		HttpSession session = request.getSession();
 		Field_save_Service filedsaveService= new Field_save_Service();
 		System.out.println("테스트1");
+		save_list=new field_save_Data();
 		save_list.setUser_id((String)session.getAttribute("ID"));
-		String save_num=request.getParameter("save_num");
+		
 				
 		request.setAttribute("save_list", save_list);
 		

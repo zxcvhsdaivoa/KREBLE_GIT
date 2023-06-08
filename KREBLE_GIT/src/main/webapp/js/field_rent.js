@@ -54,8 +54,7 @@ $(function(){
                 alert(e.responseText); 
             }
 		});
-		// 문자열을 해당 /을 기준으로 분할
-		deadline = deadlines.split("/");
+		deadline = deadlines.split("/"); // 문자열을 해당 /을 기준으로 분할
 	  	var date = new Date(2023, month-1, 1); // (2023, month-1, 1) == (년도,월,일)
 	  	// 선택한 월의 첫 날짜, 0은 1월을 나타내고, 11은 12월을 나타내므로 month에 -1을 한 것. 
 	  	var lastDate = new Date(2023, month, 0).getDate(); // 선택한 월의 마지막 날짜
