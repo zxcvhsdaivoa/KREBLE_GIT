@@ -11,6 +11,7 @@ import action.Field_list_action;
 import action.Field_rent_finish_action;
 import action.Field_rent_insr_action;
 import action.Field_rent_select_action;
+import action.Field_save_action;
 import vo.ActionForward;
 
 @SuppressWarnings("serial")
@@ -71,7 +72,25 @@ public class Field_info_controller extends javax.servlet.http.HttpServlet  {
 				e.printStackTrace();
 			}
 		}
+		// 자주가는 구장 셀렉
+		else if(command.equals("/field_favorite_selc.choi")){
+			action = new Field_save_action();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
 		
+		// 자주가는 구장 저장
+		else if(command.equals("/field_favorite_save.choi")){
+			action = new Field_save_action();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
 		
 		
 		if(forward != null){

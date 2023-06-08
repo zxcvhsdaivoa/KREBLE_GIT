@@ -38,27 +38,29 @@ public class Field_rent_insr_action implements Action {
 		int i=0;
 		int time = Integer.parseInt(rent_insr.getRent_date().substring(11,13));
 		// 문자 11부터 13 이전까지의 부분 문자열을 추출
-		if(time==9) {
+		if(time==9) { // 예약 9시 파트에 해당 i=1로 지정
 			i=1;
-		}else if(time==11) {
+		}else if(time==11) { // 예약 11시, i=2
 			i=2;
-		}else if(time==14) {
+		}else if(time==14) { // 예약 14시, i=3
 			i=3;
-		}else if(time==16) {
+		}else if(time==16) { // 예약 16시, i=4
 			i=4;
-		}else if(time==18) {
+		}else if(time==18) { // 예약 18시, i=5
 			i=5;
 		}
 		
 		Field_rent_findinfo_Service frfs= new Field_rent_findinfo_Service();
-		int is=frfs.fint_info(rent_insr);
-		if(is==1) { // 구장 예약된 데이터 정보가 값 업데이트
+		int is=frfs.fint_info(rent_insr); // rent_time 정보 셀렉트
+		
+		if(is==1) { // 구장 예약된 데이터 정보가 있으면 즉 1로 값이 존재 할 때 업데이트 실행
 			Field_update_rentinfo_Service furs = new Field_update_rentinfo_Service();
 			success2=furs.update_rentinfo(i, rent_insr);
-		}else { // 없으면 인서트
+		}else { // 위에 해당하지 않으면 인서트 실행
 			Field_insert_rentinfo_Service firs = new Field_insert_rentinfo_Service();
 			success2=firs.insert_rentinfo(i, rent_insr);
 		}
+		
 		if(!isinsrSuccess||!success2){ //등록에 실패할 경우
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -77,3 +79,4 @@ public class Field_rent_insr_action implements Action {
 		
 	}  	
 }
+

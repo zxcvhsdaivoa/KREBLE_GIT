@@ -24,11 +24,8 @@ $(function(){
 			//console.log(listfield);
 		}
 		else {
-			//$('ul.local_stadium > li > ul > li').click(function
-			// 같은 위치에 클릭이벤트가 2개 걸려있어서 더블클릭해야 밑에 코드가 실행 됐던거 이 코드를 지워야 한번 클릭시
-			// 정보가 바뀜
-			   var fieldlistfield=$(this).attr('id');
-			    location.href="fieldInfo.choi?field_id="+fieldlistfield;
+			var fieldlistfield=$(this).attr('id');
+			location.href="fieldInfo.choi?field_id="+fieldlistfield;
 		}
 	});
 	$('#plusbu').click(function(){
@@ -52,9 +49,21 @@ $(function(){
 //						console.log(listfield);
 						alert('더이상 추가할수 없습니다');
 					}
+					else if(listfield==4){
+						$.ajax({
+							type : "POST",
+							url : "field_favorite_save.choi",
+							success: function (response) {
+				                alert("구장 등록이 되었습니다!");
+				            },
+				            error: function(e) {
+								alert("구장 등록에 실패하였습니다!")
+				            }
+						});
+					}
 					else {
 //						console.log(listfield);
-						$('.favorite_stadium > ul li:nth-child('+ listfield +')').addClass('select');
+							$('.favorite_stadium > ul li:nth-child('+ listfield +')').addClass('select');
 						}
 				}
 		    },

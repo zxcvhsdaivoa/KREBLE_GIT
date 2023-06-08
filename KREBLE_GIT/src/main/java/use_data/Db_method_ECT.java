@@ -143,7 +143,7 @@ public class Db_method_ECT extends Db_method_conn  {
 		}
 		return alarm_text;
 	}
-	
+	// 해당 파트 마감으로 변경 메소드
 	public String rent_time(int no, int bool,int price) {
 		String text="마감";
 		if(no==1&&bool==0) {

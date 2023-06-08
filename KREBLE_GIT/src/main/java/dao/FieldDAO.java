@@ -283,15 +283,15 @@ public class FieldDAO {
 		String quary5="update rent_info set rent_time5=1 where field_name=? and rent_date=?";
 		
 		if(i==1) {
-			sql=quary1;
+			sql=quary1; // 첫 번째 파트를 선택하면 quary1 업데이트 문 실행
 		}else if(i==2) {
-			sql=quary2;
+			sql=quary2; // 두 번째 파트를 선택하면 quary1 업데이트 문 실행
 		}else if(i==3) {
-			sql=quary3;
+			sql=quary3; // 세 번째 파트를 선택하면 quary1 업데이트 문 실행
 		}else if(i==4) {
-			sql=quary4;
+			sql=quary4; // 네 번째 파트를 선택하면 quary1 업데이트 문 실행
 		}else if(i==5) {
-			sql=quary5;
+			sql=quary5; // 다섯 번째 파트를 선택하면 quary1 업데이트 문 실행
 		}
 		
 		int insertCount=0;

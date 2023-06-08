@@ -4,6 +4,8 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import svc.Field_save_Service;
 import vo.ActionForward;
 import vo.field_save_Data;
@@ -15,19 +17,20 @@ public class Field_save_action implements Action {
 		
 		ActionForward forward=null;
 		field_save_Data save_list=null;
+		HttpSession session = request.getSession();
 		Field_save_Service filedsaveService= new Field_save_Service();
-
+		System.out.println("테스트1");
+		save_list.setUser_id((String)session.getAttribute("ID"));
 		String save_num=request.getParameter("save_num");
 				
 		request.setAttribute("save_list", save_list);
-		
 		
 		boolean issaveSuccess = filedsaveService.getfield_save(save_list);//메소드 호출
 		// BoardWriteProService 클래스를 이용하여 게시물을 데이터베이스에 등록. 
 		// issaveSuccess 변수는 게시물 등록에 성공하면 true, 실패하면 false 값을 가짐.
 		
 		System.out.println(issaveSuccess);
-		if(!issaveSuccess){ //게시판 등록에 실패할 경우
+		if(!issaveSuccess){ // 등록에 실패할 경우
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
@@ -35,10 +38,10 @@ public class Field_save_action implements Action {
 			out.println("history.back();");
 			out.println("</script>");
 		}
-		else{ // 게시판 등록에 성공할 경우
+		else{ // 등록에 성공할 경우
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("boardList.bo"); //게시판 목록으로 이동
+			forward.setPath("FieldInfo.choi"); //게시판 목록으로 이동
 		}
 
 		return forward;
