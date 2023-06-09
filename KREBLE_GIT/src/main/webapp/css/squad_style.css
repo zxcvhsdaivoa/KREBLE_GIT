@@ -246,6 +246,10 @@ section {
     font-size:20px;
     cursor: pointer;
 }
+.player_wrap .player_inner .list_header ul li.hovered {
+	background-color:#333;
+	color:#fff;
+}
 .player_wrap .player_inner .player_list {
     clear:both;
     height:calc(100% - 60px);

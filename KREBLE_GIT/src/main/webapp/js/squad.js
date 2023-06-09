@@ -93,6 +93,8 @@ $(function(){
 
 	//포지션별로 표시
 	$(".list_header ul li").click(function(){
+		$(".list_header ul li").removeClass("hovered");
+		$(this).addClass("hovered");
 		var fosi = $(this).text();
 		if(fosi == "All Players") {
 			$(".player_list ul li").show();

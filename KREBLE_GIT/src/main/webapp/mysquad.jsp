@@ -135,7 +135,7 @@
 			<span class="exit">나가기</span>
 			<div class="list_header">
 				<ul>
-					<li>All Players</li>
+					<li class="hovered">All Players</li>
 					<li>FW</li>
 					<li>MF</li>
 					<li>DF</li>

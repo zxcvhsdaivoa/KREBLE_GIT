@@ -22,7 +22,7 @@ public class SquadSaveProAction implements Action {
 		SquadSaveProService SquadSaveProService = new SquadSaveProService();
 		SquadModifyProService SquadModifyProService = new SquadModifyProService();
 		squadinfo.setUser_id((String)session.getAttribute("ID"));
-		String squad_name = request.getParameter("squad_name");
+		String squad_name = request.getParameter("squad_name").trim();
 		if(squad_name==null||squad_name=="") {
 			int last_no = SquadSaveProService.squadLastNo()+1;
 			squadinfo.setSquad_name("squad"+last_no);
