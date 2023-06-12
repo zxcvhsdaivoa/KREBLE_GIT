@@ -57,7 +57,7 @@
                   <ul class="sub">
                     <li><a href="squad.sq">나만의스쿼드</a></li>
                     <li><a href="community.jsp">유저커뮤니티</a></li>
-                    <li><a href="clup.do?command=main">KREBLE클럽</a></li>
+                    <li><a href="notuse.kb">KREBLE클럽</a></li>
                   </ul>
                 </li>
                 

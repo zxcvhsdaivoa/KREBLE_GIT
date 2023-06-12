@@ -261,7 +261,7 @@ section {
 .player_wrap .player_inner .player_list ul li {
     position:relative;
     float: left;
-    width:175px;
+    width:180px;
     height:250px;
     padding:10px 10px 0;
     border: 1px solid #333;
@@ -404,7 +404,15 @@ font-size:14px;
 
 
 
-
+.player_wrap .player_inner .player_list ul::-webkit-scrollbar {
+	display:none;
+}
+.player_wrap .player_inner .player_list ul::-webkit-scrollbar-thumb {
+	display:none;
+}
+.player_wrap .player_inner .player_list ul::-webkit-scrollbar-track {
+	display:none;
+}
 
 
 

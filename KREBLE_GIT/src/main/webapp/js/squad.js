@@ -115,8 +115,6 @@ $(function(){
 	//포메이션
 	$("#formation").change(function(){
 		var forma=$("#formation option:selected").val();
-		$(".squad_wrap ul li:nth-of-type(1)").css({'top':'0','left':'-30px'})
-		$(".squad_wrap ul li:nth-of-type(12)").css({'top':'580px','left':'555px'})
 		if(forma=="4-3-3") {
 			forma433();
 		}
