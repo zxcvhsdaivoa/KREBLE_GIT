@@ -404,13 +404,15 @@ font-size:14px;
 
 
 
-.player_wrap .player_inner .player_list ul::-webkit-scrollbar {
-	display:none;
-}
-.player_wrap .player_inner .player_list ul::-webkit-scrollbar-thumb {
-	display:none;
-}
-.player_wrap .player_inner .player_list ul::-webkit-scrollbar-track {
+.player_wrap .player_inner .player_list ul::-webkit-scrollbar,
+.director_wrap .director_inner .director_box ul::-webkit-scrollbar,
+.scroll_inner::-webkit-scrollbar,
+.player_wrap .player_inner .player_list ul::-webkit-scrollbar-thumb,
+.director_wrap .director_inner .director_box ul::-webkit-scrollbar-thumb,
+.scroll_inner::-webkit-scrollbar-thumb,
+.player_wrap .player_inner .player_list ul::-webkit-scrollbar-track,
+.director_wrap .director_inner .director_box ul::-webkit-scrollbar-track,
+.scroll_inner::-webkit-scrollbar-track {
 	display:none;
 }
 
